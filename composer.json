@@ -1,0 +1,66 @@
+{
+    "name": "dragon-code/web-app",
+    "description": "The Dragon Code Project",
+    "license": "MIT",
+    "type": "project",
+    "require": {
+        "php": "^8.1",
+        "cviebrock/eloquent-sluggable": "^9.0",
+        "dragon-code/web-core": "^0.0.22"
+    },
+    "require-dev": {
+        "dragon-code/env-sync-laravel": "^2.3",
+        "dragon-code/pretty-routes": "^3.2",
+        "fakerphp/faker": "^1.19",
+        "laravel-lang/attributes": "^1.1",
+        "laravel-lang/http-statuses": "^2.1",
+        "laravel-lang/lang": "^10.9",
+        "laravel/sail": "^1.14",
+        "laravel/telescope": "^4.9",
+        "mockery/mockery": "^1.5",
+        "nunomaduro/collision": "^6.2",
+        "phpunit/phpunit": "^9.5",
+        "spatie/laravel-ignition": "^1.2"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "App\\": "app",
+            "Database\\Factories\\": "database/factories",
+            "Database\\Seeders\\": "database/seeders"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/*": true,
+            "symfony/*": true
+        },
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": []
+        }
+    },
+    "scripts": {
+        "post-update-cmd": [
+            "php artisan vendor:publish --tag=laravel-assets --force --ansi",
+            "php artisan optimize:clear --ansi",
+            "php artisan lang:update --ansi",
+            "php artisan env:sync --ansi",
+            "php artisan telescope:publish --ansi"
+        ],
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi"
+        ]
+    }
+}
