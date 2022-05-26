@@ -1,30 +1,19 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
-import HomeComponent from '../pages/Home';
-import FaqComponent from '../pages/Faq';
-import PageComponent from '../pages/Page';
-import FeedbackComponent from '../pages/Feedback';
-import BecomeVolunteerComponent from '../pages/BecomeVolunteer';
+import Dashboard from '@pages/Dashboard';
+import Login from '@pages/Login';
+import Become from '@pages/Become';
 
-import AdminComponent from '../pages/Admin';
-import AdminDashboardComponent from '../pages/sections/admin/Dashboard';
+import { ROUTE_BECOME, ROUTE_DASHBOARD, ROUTE_LOGIN } from '@const/route-names';
 
-import { ROUTE_ADMIN_DASHBOARD, ROUTE_BECOME_VOLUNTEER, ROUTE_FAQ, ROUTE_FEEDBACK, ROUTE_HOME, ROUTE_PAGE } from './route-names';
+import { authenticate, guest } from '@middlewares/authenticate';
 
 const routes = [
-    { path: '/', component: HomeComponent, name: ROUTE_HOME },
-    { path: '/faq', component: FaqComponent, name: ROUTE_FAQ },
-    { path: '/pages/:slug', component: PageComponent, name: ROUTE_PAGE },
-    { path: '/feedback', component: FeedbackComponent, name: ROUTE_FEEDBACK },
-    { path: '/become-a-volunteer', component: BecomeVolunteerComponent, name: ROUTE_BECOME_VOLUNTEER },
+    { path: '/', name: ROUTE_LOGIN, component: Login, meta: { middleware: [guest] } },
 
-    {
-        path: '/admin',
-        component: AdminComponent,
-        children: [
-            { path: '', component: AdminDashboardComponent, name: ROUTE_ADMIN_DASHBOARD }
-        ]
-    }
+    { path: '/become', name: ROUTE_BECOME, component: Become },
+
+    { path: '/dashboard', name: ROUTE_DASHBOARD, component: Dashboard, meta: { middleware: [authenticate] } }
 ];
 
 export default createRouter({

@@ -7,16 +7,17 @@ import { createApp } from 'vue';
 import { createVuetify } from 'vuetify';
 
 import routes from './plugins/routes';
-import App from './pages/App';
+import store from './store';
 
-const app = createApp(App);
+import App from './components/App';
 
 const vuetify = createVuetify({
     components,
     directives
 });
 
-app.use(vuetify);
-app.use(routes);
-
-app.mount('#app');
+createApp(App)
+    .use(vuetify)
+    .use(routes)
+    .use(store)
+    .mount('#app');
