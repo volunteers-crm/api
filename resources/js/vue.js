@@ -7,7 +7,7 @@ import { createApp } from 'vue';
 import { createVuetify } from 'vuetify';
 
 import routes from './plugins/routes';
-import App from './components/App';
+import App from './pages/App';
 
 const app = createApp(App);
 

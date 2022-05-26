@@ -1,3 +1,0 @@
-<template>
-    Volunteers CRM Coming Soon...
-</template>
