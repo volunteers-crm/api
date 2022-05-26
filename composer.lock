@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4417132d55e1cee35035980afffbea19",
+    "content-hash": "4fad8f09dd3202551f631b0e1f518479",
     "packages": [
         {
             "name": "archtechx/enums",
@@ -51,6 +51,77 @@
                 "source": "https://github.com/archtechx/enums/tree/v0.3.0"
             },
             "time": "2022-03-29T18:34:54+00:00"
+        },
+        {
+            "name": "artesaos/seotools",
+            "version": "v0.22.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/artesaos/seotools.git",
+                "reference": "55746e0870d3bb6507479bd846d5528c46a7312e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/artesaos/seotools/zipball/55746e0870d3bb6507479bd846d5528c46a7312e",
+                "reference": "55746e0870d3bb6507479bd846d5528c46a7312e",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "illuminate/config": "5.8.* || ^6.0 || ^7.0 || ^8.0 || ^9.0",
+                "illuminate/support": "5.8.* || ^6.0 || ^7.0 || ^8.0 || ^9.0",
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "orchestra/testbench": "~3.8.4 || ^4.0 || ^5.0",
+                "phpspec/phpspec": "~5.1.1 || ^6.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Artesaos\\SEOTools\\Providers\\SEOToolsServiceProvider"
+                    ],
+                    "aliases": {
+                        "SEOMeta": "Artesaos\\SEOTools\\Facades\\SEOMeta",
+                        "OpenGraph": "Artesaos\\SEOTools\\Facades\\OpenGraph",
+                        "Twitter": "Artesaos\\SEOTools\\Facades\\TwitterCard",
+                        "JsonLd": "Artesaos\\SEOTools\\Facades\\JsonLd",
+                        "SEO": "Artesaos\\SEOTools\\Facades\\SEOTools"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Artesaos\\SEOTools\\": "src/SEOTools/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Vinicius",
+                    "email": "luiz.vinicius73@gmail.com"
+                }
+            ],
+            "description": "SEO Tools for Laravel and Lumen",
+            "keywords": [
+                "JSON-LD",
+                "laravel",
+                "lumen",
+                "metatags",
+                "opengraph",
+                "seo",
+                "seotools",
+                "webmaster"
+            ],
+            "support": {
+                "issues": "https://github.com/artesaos/seotools/issues",
+                "source": "https://github.com/artesaos/seotools"
+            },
+            "time": "2022-02-08T20:21:56+00:00"
         },
         {
             "name": "brick/math",
@@ -1899,16 +1970,16 @@
         },
         {
             "name": "dragon-code/web-core",
-            "version": "v0.0.23",
+            "version": "v0.0.24",
             "source": {
                 "type": "git",
                 "url": "https://github.com/TheDragonCode/web-core.git",
-                "reference": "7b5607bcd88423324aba288f948ab2b4cd256fd0"
+                "reference": "3614cc8160528a223919c6184bc271e00fb34138"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TheDragonCode/web-core/zipball/7b5607bcd88423324aba288f948ab2b4cd256fd0",
-                "reference": "7b5607bcd88423324aba288f948ab2b4cd256fd0",
+                "url": "https://api.github.com/repos/TheDragonCode/web-core/zipball/3614cc8160528a223919c6184bc271e00fb34138",
+                "reference": "3614cc8160528a223919c6184bc271e00fb34138",
                 "shasum": ""
             },
             "require": {
@@ -1974,7 +2045,7 @@
             "description": "Web core for the Dragon Code apps",
             "support": {
                 "issues": "https://github.com/TheDragonCode/web-core/issues",
-                "source": "https://github.com/TheDragonCode/web-core/tree/v0.0.23"
+                "source": "https://github.com/TheDragonCode/web-core/tree/v0.0.24"
             },
             "funding": [
                 {
@@ -1990,7 +2061,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2022-05-25T22:19:25+00:00"
+            "time": "2022-05-26T13:55:37+00:00"
         },
         {
             "name": "dragonmantank/cron-expression",

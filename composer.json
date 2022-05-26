@@ -5,8 +5,9 @@
     "type": "project",
     "require": {
         "php": "^8.1",
+        "artesaos/seotools": "^0.22.0",
         "cviebrock/eloquent-sluggable": "^9.0",
-        "dragon-code/web-core": "^0.0.23",
+        "dragon-code/web-core": "^0.0.24",
         "irazasyed/telegram-bot-sdk": "^3.6",
         "laravel/socialite": "^5.5",
         "livewire/livewire": "^2.10",
@@ -51,7 +52,9 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": []
+            "dont-discover": [
+                "dragon-code/laravel-json-response"
+            ]
         }
     },
     "scripts": {

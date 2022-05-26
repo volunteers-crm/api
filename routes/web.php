@@ -2,6 +2,6 @@
 
 declare(strict_types=1);
 
-use App\Http\Controllers\Web\WelcomeController;
+use App\Http\Controllers\Web\IndexController;
 
-app('router')->get('/', WelcomeController::class);
+app('router')->get('/', IndexController::class);

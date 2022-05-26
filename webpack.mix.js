@@ -13,7 +13,8 @@ const mix = require('laravel-mix');
 
 mix
     .js('resources/js/app.js', 'public/js')
-    .scss('resources/styles/app.scss', 'public/css')
+    .sass('resources/styles/app.scss', 'public/css')
 
-    .sourceMap()
-    .version();
+    .sourceMaps()
+    .version()
+    .extract(['lodash', 'axios']);
