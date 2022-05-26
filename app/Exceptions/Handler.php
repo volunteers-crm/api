@@ -2,7 +2,7 @@
 
 namespace App\Exceptions;
 
-use DragonCode\WebCore\Exceptions\Handler as ExceptionHandler;
+use DragonCode\ApiResponse\Exceptions\Laravel\Nine\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
 {
