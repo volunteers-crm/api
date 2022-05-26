@@ -12,10 +12,10 @@ class IndexController extends Controller
     public function __invoke(Request $request)
     {
         $this->seo()
-            ->title(config('app.name'))
-            ->description(__('seo.index.description'))
+            ->title(__('Home'))
+            ->description(__('Volunteers CRM description'))
             ->canonical($request->url());
 
-        return view('index');
+        return view('home');
     }
 }

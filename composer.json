@@ -10,7 +10,7 @@
         "dragon-code/web-core": "^0.0.25",
         "irazasyed/telegram-bot-sdk": "^3.6",
         "laravel/socialite": "^5.5",
-        "livewire/livewire": "^2.10",
+        "laravel/ui": "^3.4",
         "socialiteproviders/telegram": "^4.1"
     },
     "require-dev": {

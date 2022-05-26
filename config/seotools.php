@@ -40,7 +40,7 @@ return [
         'defaults' => [
             'title'       => env('APP_NAME'), // set false to total remove
             'description' => false, // set false to total remove
-            'url'         => false, // Set null for using Url::current(), set false to total remove
+            'url'         => null, // Set null for using Url::current(), set false to total remove
             'type'        => false,
             'site_name'   => false,
             'images'      => [],

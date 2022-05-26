@@ -9,15 +9,14 @@
 
     {!! SEO::generate() !!}
 
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 </head>
 <body>
 
-<div id="app">
-    {!! $slot !!}
-</div>
+<div id="app"></div>
 
 <script src="{{ mix('js/manifest.js') }}"></script>
 <script src="{{ mix('js/vendor.js') }}"></script>
