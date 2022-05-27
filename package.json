@@ -11,10 +11,12 @@
     },
     "dependencies": {
         "@mdi/font": "5.9.55",
+        "apexcharts": "^3.35.3",
         "axios": "^0.25",
         "lodash": "^4.17.19",
         "roboto-fontface": "*",
         "vue": "^3.2.36",
+        "vue-apexcharts": "^1.6.2",
         "vue-router": "^4.0.15",
         "vuetify": "^3.0.0-beta.0",
         "vuex": "^4.0.2",
