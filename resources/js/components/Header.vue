@@ -1,14 +1,13 @@
 <template>
-    <v-app-bar app dark dense color="deep-purple accent-4">
+    <v-app-bar app color="deep-purple accent-4" dark>
+        <v-app-bar-nav-icon />
+
         <v-toolbar-title v-text="title" />
 
         <v-spacer />
 
-        <v-btn>
-            <v-icon>
-                mdi-heart
-            </v-icon>
-        </v-btn>
+        <localization />
+        <github />
     </v-app-bar>
 </template>
 
@@ -16,11 +15,11 @@
 import { computed } from 'vue';
 import { useStore } from 'vuex';
 
-import HeaderComponent from '@components/Header';
-import FooterComponent from '@components/Footer';
+import Github from '@components/buttons/GitHub';
+import Localization from '@components/buttons/Localization';
 
 export default {
-    components: { HeaderComponent, FooterComponent },
+    components: { Github, Localization },
 
     setup() {
         const store = useStore();

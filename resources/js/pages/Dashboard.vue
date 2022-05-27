@@ -1,23 +1,24 @@
 <template>
     <v-row>
         <v-col cols="6">
-            <apexchart
-                :width="charts.orders.width"
-                :type="charts.orders.type"
-                :options="charts.orders.options"
-                :series="charts.orders.series"
-            />
+            <!--            <apexchart-->
+            <!--                :width="charts.orders.width"-->
+            <!--                :type="charts.orders.type"-->
+            <!--                :options="charts.orders.options"-->
+            <!--                :series="charts.orders.series"-->
+            <!--            />-->
         </v-col>
 
         <v-col cols="6">
-            <apexchart
-                :width="charts.volunteers.width"
-                :type="charts.volunteers.type"
-                :options="charts.volunteers.options"
-                :series="charts.volunteers.series"
-            />
+            <!--            <apexchart-->
+            <!--                :width="charts.volunteers.width"-->
+            <!--                :type="charts.volunteers.type"-->
+            <!--                :options="charts.volunteers.options"-->
+            <!--                :series="charts.volunteers.series"-->
+            <!--            />-->
         </v-col>
     </v-row>
+    It's a dashboard
 </template>
 
 <script>

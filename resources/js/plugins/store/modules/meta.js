@@ -5,7 +5,7 @@ export default {
         locale: 'en',
 
         application: {
-            title: null
+            title: process.env.APP_NAME
         },
 
         page: {
@@ -24,15 +24,11 @@ export default {
     actions: {
         setLocale: ({ commit }, locale) => commit('setLocale', { locale }),
 
-        setApplicationTitle: ({ commit }, title) => commit('setApplicationTitle', { title }),
-
         setPageTitle: ({ commit }, title) => commit('setPageTitle', { title })
     },
 
     mutations: {
         setLocale: (state, locale) => state.locale = locale,
-
-        setApplicationTitle: (state, title) => state.application.title = title,
 
         setPageTitle: (state, title) => state.page.title = title
     }

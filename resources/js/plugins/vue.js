@@ -7,19 +7,21 @@ import { createApp } from 'vue';
 import { createVuetify } from 'vuetify';
 
 import routes from '@plugins/routes';
-import charts from '@plugins/charts'
-import store from './store';
+//import charts from '@plugins/charts';
+import store from '@plugins/store';
+import icons from '@plugins/icons';
 
-import App from './components/App';
+import App from '@components/App';
 
 const vuetify = createVuetify({
     components,
-    directives
+    directives,
+    icons
 });
 
 createApp(App)
     .use(vuetify)
     .use(routes)
     .use(store)
-    .use(charts)
+    //.use(charts)
     .mount('#app');

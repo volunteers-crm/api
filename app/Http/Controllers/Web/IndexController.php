@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
-    public function __invoke(Request $request)
+    public function home(Request $request)
     {
         $this->seo()
             ->title(__('Home'))

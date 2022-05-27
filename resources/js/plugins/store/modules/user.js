@@ -13,8 +13,8 @@ export default {
     getters: {
         hasLogged: () => !! localStorage?.token,
 
-        username: state => state.username.trim(),
+        username: state => state.username?.trim(),
 
-        fullName: state => (state.firstName + ' ' + state.lastName).trim()
+        fullName: state => (state.firstName + ' ' + state.lastName)?.trim()
     }
 };

@@ -1,11 +1,10 @@
 <template>
     <v-app>
-        <header-component v-if="!hasLogged" />
+        <menu-component />
+        <header-component />
 
         <v-main>
-            <v-container fluid>
-                <router-view />
-            </v-container>
+            <router-view />
         </v-main>
 
         <footer-component />
@@ -13,23 +12,11 @@
 </template>
 
 <script>
-import { computed } from 'vue';
-import { useStore } from 'vuex';
-
 import HeaderComponent from '@components/Header';
 import FooterComponent from '@components/Footer';
+import MenuComponent from '@components/Menu';
 
 export default {
-    components: { HeaderComponent, FooterComponent },
-
-    setup() {
-        const store = useStore();
-
-        return {
-            title: computed(() => store.getters['meta/pageTitle']),
-
-            hasLogged: computed(() => store.getters['user/hasLogged'])
-        };
-    }
+    components: { HeaderComponent, FooterComponent, MenuComponent }
 };
 </script>
