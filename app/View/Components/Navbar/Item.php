@@ -22,6 +22,6 @@ class Item extends Component
 
     public function isActive(): bool
     {
-        return request()->url() === $this->route;
+        return $this->route === request()->url();
     }
 }

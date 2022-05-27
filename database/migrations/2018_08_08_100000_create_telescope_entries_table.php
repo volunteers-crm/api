@@ -65,9 +65,9 @@ class CreateTelescopeEntriesTable extends Migration
             $table->index('tag');
 
             $table->foreign('entry_uuid')
-                  ->references('uuid')
-                  ->on('telescope_entries')
-                  ->onDelete('cascade');
+                ->references('uuid')
+                ->on('telescope_entries')
+                ->onDelete('cascade');
         });
 
         $this->schema->create('telescope_monitoring', function (Blueprint $table) {
