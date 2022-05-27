@@ -4,18 +4,36 @@ export default {
     state: () => ({
         locale: 'en',
 
-        title: null
+        application: {
+            title: null
+        },
+
+        page: {
+            title: null
+        }
     }),
+
+    getters: {
+        locale: state => state.locale,
+
+        applicationTitle: state => state.application.title,
+
+        pageTitle: state => state.page.title
+    },
 
     actions: {
         setLocale: ({ commit }, locale) => commit('setLocale', { locale }),
 
-        setMetaTitle: ({ commit }, title) => commit('setMetaTitle', { title })
+        setApplicationTitle: ({ commit }, title) => commit('setApplicationTitle', { title }),
+
+        setPageTitle: ({ commit }, title) => commit('setPageTitle', { title })
     },
 
     mutations: {
         setLocale: (state, locale) => state.locale = locale,
 
-        setMetaTitle: (state, title) => state.meta.title = title
+        setApplicationTitle: (state, title) => state.application.title = title,
+
+        setPageTitle: (state, title) => state.page.title = title
     }
 };

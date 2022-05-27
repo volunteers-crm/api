@@ -26,7 +26,7 @@ export default {
         const store = useStore();
 
         return {
-            title: computed(() => store.getters['meta/title']),
+            title: computed(() => store.getters['meta/pageTitle']),
 
             hasLogged: computed(() => store.getters['user/hasLogged'])
         };

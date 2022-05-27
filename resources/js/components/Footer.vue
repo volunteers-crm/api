@@ -15,7 +15,7 @@ export default {
         const store = useStore();
 
         return {
-            title: computed(() => store.getters['meta/title'])
+            title: computed(() => store.getters['meta/applicationTitle'])
         };
     }
 };

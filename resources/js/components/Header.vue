@@ -1,8 +1,14 @@
 <template>
-    <v-navigation-drawer app />
+    <v-app-bar app dark dense color="deep-purple accent-4">
+        <v-toolbar-title v-text="title" />
 
-    <v-app-bar app>
-        App title is {{ title }}
+        <v-spacer />
+
+        <v-btn>
+            <v-icon>
+                mdi-heart
+            </v-icon>
+        </v-btn>
     </v-app-bar>
 </template>
 
@@ -20,7 +26,7 @@ export default {
         const store = useStore();
 
         return {
-            title: computed(() => store.getters['meta/title'])
+            title: computed(() => store.getters['meta/pageTitle'])
         };
     }
 };
