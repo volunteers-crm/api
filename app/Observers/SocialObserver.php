@@ -17,20 +17,19 @@
 
 declare(strict_types=1);
 
-app('router')
-    ->name('main')
-    ->group(base_path('routes/web/main.php'));
+namespace App\Observers;
 
-app('router')
-    ->middleware('guest')
-    ->prefix('auth')
-    ->group(base_path('routes/web/auth.php'));
+use App\Models\Social;
+use DragonCode\Support\Facades\Helpers\Str;
 
-app('router')
-    ->name('seo')
-    ->group(base_path('routes/web/seo.php'));
+class SocialObserver
+{
+    public function saving(Social $social)
+    {
+        $social->type = Str::trim($social->type);
 
-app('router')
-    ->middleware('auth')
-    ->prefix('admin')
-    ->group(base_path('routes/web/admin.php'));
+        if (! $social->title) {
+            $social->title = Str::of($social->type)->trim()->title();
+        }
+    }
+}

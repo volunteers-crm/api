@@ -17,11 +17,18 @@
 
 use App\Providers\AuthServiceProvider;
 use App\Providers\EventServiceProvider;
+use App\Providers\ObserverServiceProvider;
 use DragonCode\WebCore\Facades\Facade;
+use Laravel\Socialite\Facades\Socialite;
 
 return [
     'providers' => Facade::defaultProviders()->merge([
         AuthServiceProvider::class,
         EventServiceProvider::class,
+        ObserverServiceProvider::class,
+    ])->toArray(),
+
+    'aliases' => Facade::defaultAliases()->merge([
+        'Socialite' => Socialite::class,
     ])->toArray(),
 ];

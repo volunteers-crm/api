@@ -1,3 +1,5 @@
+<?php
+
 /*
  * This file is part of the "Volunteers CRM" project.
  *
@@ -13,18 +15,22 @@
  * @see https://github.com/volunteers-crm
  */
 
-export default {
-    namespaced: true,
+return [
+    'middleware' => [
+        'verify_csrf' => [
+            'except' => [],
+        ],
 
-    state: () => ({
-        items: [
-            { icon: 'mdi-view-dashboard', title: 'Dashboard' },
-            { icon: 'mdi-clipboard-account', title: 'Orders' },
-            { icon: 'mdi-chat', title: 'Chats' }
-        ]
-    }),
+        'encrypt_cookies' => [
+            'except' => [],
+        ],
 
-    getters: {
-        items: state => state.items
-    }
-};
+        'redirect' => [
+            'authenticated' => '/admin',
+        ],
+
+        'maintenance' => [
+            'except' => [],
+        ],
+    ],
+];

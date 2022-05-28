@@ -1,3 +1,5 @@
+<?php
+
 /*
  * This file is part of the "Volunteers CRM" project.
  *
@@ -13,18 +15,15 @@
  * @see https://github.com/volunteers-crm
  */
 
-export default {
-    namespaced: true,
+use App\Enums\Social;
 
-    state: () => ({
-        items: [
-            { icon: 'mdi-view-dashboard', title: 'Dashboard' },
-            { icon: 'mdi-clipboard-account', title: 'Orders' },
-            { icon: 'mdi-chat', title: 'Chats' }
-        ]
-    }),
+return [
+    Social::TELEGRAM() => [
+        'bot' => env('TELEGRAM_BOT_USERNAME'),
 
-    getters: {
-        items: state => state.items
-    }
-};
+        'client_id'     => null,
+        'client_secret' => env('TELEGRAM_BOT_TOKEN'),
+
+        'redirect' => '/auth/telegram/confirm',
+    ],
+];

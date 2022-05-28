@@ -15,31 +15,30 @@
  * @see https://github.com/volunteers-crm
  */
 
+declare(strict_types=1);
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePersonalAccessTokensTable extends Migration
-{
+return new class extends Migration {
     public function up()
     {
-        Schema::create('personal_access_tokens', function (Blueprint $table) {
+        Schema::create('socials', function (Blueprint $table) {
             $table->id();
 
-            $table->morphs('tokenable');
+            $table->string('type')->unique();
+            $table->string('title')->unique();
 
-            $table->string('name');
-            $table->string('token', 64)->unique();
+            $table->boolean('is_active')->default(true);
 
-            $table->text('abilities')->nullable();
-
-            $table->timestamp('last_used_at')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('personal_access_tokens');
+        Schema::dropIfExists('socials');
     }
-}
+};

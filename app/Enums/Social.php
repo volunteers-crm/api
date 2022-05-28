@@ -17,20 +17,18 @@
 
 declare(strict_types=1);
 
-app('router')
-    ->name('main')
-    ->group(base_path('routes/web/main.php'));
+namespace App\Enums;
 
-app('router')
-    ->middleware('guest')
-    ->prefix('auth')
-    ->group(base_path('routes/web/auth.php'));
+use ArchTech\Enums\InvokableCases;
+use ArchTech\Enums\Values;
 
-app('router')
-    ->name('seo')
-    ->group(base_path('routes/web/seo.php'));
+/**
+ * @method static string TELEGRAM()
+ */
+enum Social: string
+{
+    use InvokableCases;
+    use Values;
 
-app('router')
-    ->middleware('auth')
-    ->prefix('admin')
-    ->group(base_path('routes/web/admin.php'));
+    case TELEGRAM = 'telegram';
+}

@@ -17,20 +17,19 @@
 
 declare(strict_types=1);
 
-app('router')
-    ->name('main')
-    ->group(base_path('routes/web/main.php'));
+namespace App\Providers;
 
-app('router')
-    ->middleware('guest')
-    ->prefix('auth')
-    ->group(base_path('routes/web/auth.php'));
+use App\Models\Social;
+use App\Models\User;
+use App\Observers\SocialObserver;
+use App\Observers\UserObserver;
+use Illuminate\Support\ServiceProvider;
 
-app('router')
-    ->name('seo')
-    ->group(base_path('routes/web/seo.php'));
-
-app('router')
-    ->middleware('auth')
-    ->prefix('admin')
-    ->group(base_path('routes/web/admin.php'));
+class ObserverServiceProvider extends ServiceProvider
+{
+    public function boot()
+    {
+        User::observe(UserObserver::class);
+        Social::observe(SocialObserver::class);
+    }
+}

@@ -17,20 +17,8 @@
 
 declare(strict_types=1);
 
-app('router')
-    ->name('main')
-    ->group(base_path('routes/web/main.php'));
+use App\Http\Controllers\Web\AdminController;
 
 app('router')
-    ->middleware('guest')
-    ->prefix('auth')
-    ->group(base_path('routes/web/auth.php'));
-
-app('router')
-    ->name('seo')
-    ->group(base_path('routes/web/seo.php'));
-
-app('router')
-    ->middleware('auth')
-    ->prefix('admin')
-    ->group(base_path('routes/web/admin.php'));
+    ->get('{slug?}', AdminController::class)
+    ->where('slug', '.?');
