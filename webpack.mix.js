@@ -2,6 +2,9 @@ const mix = require('laravel-mix');
 const path = require('path');
 const dotenv = require('dotenv-webpack');
 
+const url = process.env.APP_URL || '127.0.0.1';
+const port = process.env.APP_PORT || 80;
+
 mix
     .webpackConfig({
         resolve: {
@@ -31,4 +34,4 @@ mix
     .version()
     .extract(['vue', 'axios', 'lodash'])
 
-    .browserSync('localhost:8000');
+    .browserSync(url + (port !== 80 ? `:${ port }` : ''));
