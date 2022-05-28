@@ -15,4 +15,6 @@
 # @see https://github.com/volunteers-crm
 #
 
-ngrok http laravel.test:3000
+ngrok http localhost:3000
+
+php artisan serve --host=0.0.0.0 --port=8000
