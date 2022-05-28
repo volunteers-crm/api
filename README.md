@@ -11,6 +11,10 @@ npm i
 
 ## Development
 
+> Note
+>
+> To work with an https certificate, you can use [ngrok](https://ngrok.com).
+
 Make sure you have [Docker](https://www.docker.com/products/docker-desktop/) installed.
 
 ### Windows
