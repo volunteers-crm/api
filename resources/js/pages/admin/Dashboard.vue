@@ -22,6 +22,8 @@
             <!--                :options="charts.orders.options"-->
             <!--                :series="charts.orders.series"-->
             <!--            />-->
+
+            First Chart
         </v-col>
 
         <v-col cols="6">
@@ -31,13 +33,24 @@
             <!--                :options="charts.volunteers.options"-->
             <!--                :series="charts.volunteers.series"-->
             <!--            />-->
+
+            Second Chart
         </v-col>
     </v-row>
-    It's a dashboard
 </template>
 
 <script>
+import { ADMIN_LAYOUT } from '@const/layouts';
+
 export default {
+    name: 'Dashboard',
+
+    layout: ADMIN_LAYOUT,
+
+    metaInfo() {
+        return { title: 'Dashboard' };
+    },
+
     setup() {
         return {
             charts: {

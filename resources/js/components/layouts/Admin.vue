@@ -14,27 +14,24 @@
   -->
 
 <template>
-    <v-app>
-        <component :is="layout" />
-    </v-app>
+    <menu-component />
+    <header-component />
+
+    <v-main>
+        <router-view />
+    </v-main>
+
+    <footer-component />
 </template>
 
 <script>
-import MainLayout from '@components/layouts/Main';
-import AdminLayout from '@components/layouts/Admin';
-
-import { computed } from 'vue';
-import { useStore } from 'vuex';
+import HeaderComponent from '@components/Header';
+import FooterComponent from '@components/Footer';
+import MenuComponent from '@components/Menu';
 
 export default {
-    components: { MainLayout, AdminLayout },
+    name: 'Admin',
 
-    setup() {
-        const store = useStore();
-
-        return {
-            layout: computed(() => store.getters['layout/template'])
-        };
-    }
+    components: { HeaderComponent, FooterComponent, MenuComponent }
 };
 </script>

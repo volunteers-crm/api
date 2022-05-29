@@ -13,6 +13,5 @@
  * @see https://github.com/volunteers-crm
  */
 
-export const ROUTE_DASHBOARD = 'dashboard';
-
-export const ROUTE_SIGN_IN = 'auth.sign-in';
+export const DEFAULT_LAYOUT = 'default';
+export const ADMIN_LAYOUT = 'admin';

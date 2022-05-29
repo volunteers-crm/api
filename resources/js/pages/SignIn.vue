@@ -14,27 +14,20 @@
   -->
 
 <template>
-    <v-app>
-        <component :is="layout" />
-    </v-app>
+    It's a sign in page
 </template>
 
 <script>
-import MainLayout from '@components/layouts/Main';
-import AdminLayout from '@components/layouts/Admin';
-
-import { computed } from 'vue';
-import { useStore } from 'vuex';
+import { DEFAULT_LAYOUT } from '@const/layouts';
 
 export default {
-    components: { MainLayout, AdminLayout },
+    name: 'SignIn',
 
-    setup() {
-        const store = useStore();
+    layout: DEFAULT_LAYOUT,
 
-        return {
-            layout: computed(() => store.getters['layout/template'])
-        };
+    metaInfo() {
+        return { title: 'Sign In' };
     }
 };
 </script>
+
