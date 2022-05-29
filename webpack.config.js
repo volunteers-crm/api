@@ -13,19 +13,27 @@
  * @see https://github.com/volunteers-crm
  */
 
-const path = require('path');
+const { resolve } = require('path');
+
+const dotenv = require('dotenv-webpack');
 
 module.exports = {
     resolve: {
         alias: {
-            '@images': path.resolve(__dirname, 'resources/images'),
+            '@images': resolve(__dirname, 'resources/images'),
 
-            '@const': path.resolve(__dirname, 'resources/js/constants'),
-            '@pages': path.resolve(__dirname, 'resources/js/pages'),
-            '@store': path.resolve(__dirname, 'resources/js/plugins/store'),
-            '@middlewares': path.resolve(__dirname, 'resources/js/middlewares'),
-            '@plugins': path.resolve(__dirname, 'resources/js/plugins'),
-            '@components': path.resolve(__dirname, 'resources/js/components')
+            '@const': resolve(__dirname, 'resources/js/constants'),
+            '@pages': resolve(__dirname, 'resources/js/pages'),
+            '@store': resolve(__dirname, 'resources/js/plugins/store'),
+            '@middlewares': resolve(__dirname, 'resources/js/middlewares'),
+            '@plugins': resolve(__dirname, 'resources/js/plugins'),
+            '@components': resolve(__dirname, 'resources/js/components')
         }
-    }
+    },
+
+    plugins: [
+        new dotenv()
+    ]
 };
+
+export default module;
