@@ -14,14 +14,10 @@
  */
 
 const mix = require('laravel-mix');
-
-import config from './webpack.config';
-
-const url = process.env.APP_URL || '127.0.0.1';
-const port = process.env.APP_PORT || 80;
+const config = require('./webpack.config');
 
 mix
-    .webpackConfig(config.exports)
+    .webpackConfig(config)
 
     .js('resources/js/app.js', 'public/js')
     .js('resources/js/admin.js', 'public/js')
@@ -34,6 +30,11 @@ mix
     })
 
     .sourceMaps()
-    .version()
+    .version();
 
-    .browserSync(url + (port !== 80 ? `:${ port }` : ''));
+if (! mix.inProduction()) {
+    const url = process.env.APP_URL || '127.0.0.1';
+    const port = process.env.APP_PORT || 80;
+
+    mix.browserSync(url + (port !== 80 ? `:${ port }` : ''));
+}

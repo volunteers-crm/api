@@ -16,8 +16,23 @@
 const { resolve } = require('path');
 
 const dotenv = require('dotenv-webpack');
+const minimizer = require('css-minimizer-webpack-plugin');
+const extract = require('mini-css-extract-plugin');
 
 module.exports = {
+    module: {
+        rules: [
+            {
+                test: /lang.+\.(php|json)$/,
+                loader: 'laravel-localization-loader'
+            },
+            {
+                test: /.s?css$/,
+                use: [extract.loader, 'css-loader', 'sass-loader']
+            }
+        ]
+    },
+
     resolve: {
         alias: {
             '@images': resolve(__dirname, 'resources/images'),
@@ -32,8 +47,13 @@ module.exports = {
     },
 
     plugins: [
-        new dotenv()
-    ]
-};
+        new dotenv(),
+        new extract()
+    ],
 
-export default module;
+    optimization: {
+        minimizer: [
+            new minimizer()
+        ]
+    }
+};
