@@ -13,26 +13,13 @@
  * @see https://github.com/volunteers-crm
  */
 
-const { resolve } = require('path');
+import { defineConfig } from 'vite';
+import { resolve } from 'path';
 
-const dotenv = require('dotenv-webpack');
-const minimizer = require('css-minimizer-webpack-plugin');
-const extract = require('mini-css-extract-plugin');
+import laravel from 'laravel-vite-plugin';
+import vue from '@vitejs/plugin-vue';
 
-module.exports = {
-    module: {
-        rules: [
-            {
-                test: /lang.+\.(php|json)$/,
-                loader: 'laravel-localization-loader'
-            },
-            {
-                test: /.s?css$/,
-                use: [extract.loader, 'css-loader', 'sass-loader']
-            }
-        ]
-    },
-
+export default defineConfig({
     resolve: {
         alias: {
             '@images': resolve(__dirname, 'resources/images'),
@@ -45,15 +32,18 @@ module.exports = {
             '@components': resolve(__dirname, 'resources/js/components')
         }
     },
-
     plugins: [
-        new dotenv(),
-        new extract()
-    ],
-
-    optimization: {
-        minimizer: [
-            new minimizer()
-        ]
-    }
-};
+        laravel([
+            'resources/js/app.js',
+            'resources/js/admin.js'
+        ]),
+        vue({
+            template: {
+                transformAssetUrls: {
+                    base: null,
+                    includeAbsolute: false
+                }
+            }
+        })
+    ]
+});

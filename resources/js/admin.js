@@ -13,4 +13,6 @@
  * @see https://github.com/volunteers-crm
  */
 
+import '../scss/app.scss';
+
 require('@plugins/vue');

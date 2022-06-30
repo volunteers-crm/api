@@ -13,6 +13,8 @@
  * @see https://github.com/volunteers-crm
  */
 
+import '../scss/app.scss';
+
 import 'bootstrap';
 
 //import { Tooltip, Toast, Popover } from 'bootstrap';

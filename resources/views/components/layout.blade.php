@@ -8,8 +8,6 @@
     <meta http-equiv="x-dns-prefetch-control" content="on">
 
     {!! SEO::generate() !!}
-
-    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 </head>
 <body>
 
@@ -17,8 +15,7 @@
 
 {!! $slot !!}
 
-<script src="{{ mix('js/manifest.js') }}"></script>
-<script src="{{ mix('js/vendor.js') }}"></script>
-<script src="{{ mix('js/app.js') }}"></script>
+@vite('resources/js/app.js')
+
 </body>
 </html>

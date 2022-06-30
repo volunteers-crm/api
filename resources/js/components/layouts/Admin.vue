@@ -25,9 +25,9 @@
 </template>
 
 <script>
-import HeaderComponent from '@components/Header';
-import FooterComponent from '@components/Footer';
-import MenuComponent from '@components/Menu';
+import HeaderComponent from '@components/Header.vue';
+import FooterComponent from '@components/Footer.vue';
+import MenuComponent from '@components/Menu.vue';
 
 export default {
     name: 'Admin',

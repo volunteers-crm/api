@@ -20,8 +20,8 @@
 </template>
 
 <script>
-import MainLayout from '@components/layouts/Main';
-import AdminLayout from '@components/layouts/Admin';
+import MainLayout from '@components/layouts/Main.vue';
+import AdminLayout from '@components/layouts/Admin.vue';
 
 import { computed } from 'vue';
 import { useStore } from 'vuex';

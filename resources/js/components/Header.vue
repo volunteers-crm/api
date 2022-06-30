@@ -30,8 +30,8 @@
 import { computed } from 'vue';
 import { useStore } from 'vuex';
 
-import Github from '@components/buttons/GitHub';
-import Localization from '@components/buttons/Localization';
+import Github from '@components/buttons/GitHub.vue';
+import Localization from '@components/buttons/Localization.vue';
 
 export default {
     components: { Github, Localization },
