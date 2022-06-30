@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "eb1786a9d5e0f9946ac34f175cc603b8",
+    "content-hash": "a146f14652be814e2a729a726cd628ce",
     "packages": [
         {
             "name": "archtechx/enums",
@@ -256,6 +256,87 @@
                 "source": "https://github.com/cocur/slugify/tree/v4.1.0"
             },
             "time": "2022-01-11T20:51:10+00:00"
+        },
+        {
+            "name": "composer/semver",
+            "version": "3.3.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/composer/semver.git",
+                "reference": "3953f23262f2bff1919fc82183ad9acb13ff62c9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/composer/semver/zipball/3953f23262f2bff1919fc82183ad9acb13ff62c9",
+                "reference": "3953f23262f2bff1919fc82183ad9acb13ff62c9",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3.2 || ^7.0 || ^8.0"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^1.4",
+                "symfony/phpunit-bridge": "^4.2 || ^5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Composer\\Semver\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nils Adermann",
+                    "email": "naderman@naderman.de",
+                    "homepage": "http://www.naderman.de"
+                },
+                {
+                    "name": "Jordi Boggiano",
+                    "email": "j.boggiano@seld.be",
+                    "homepage": "http://seld.be"
+                },
+                {
+                    "name": "Rob Bast",
+                    "email": "rob.bast@gmail.com",
+                    "homepage": "http://robbast.nl"
+                }
+            ],
+            "description": "Semver library that offers utilities, version constraint parsing and validation.",
+            "keywords": [
+                "semantic",
+                "semver",
+                "validation",
+                "versioning"
+            ],
+            "support": {
+                "irc": "irc://irc.freenode.org/composer",
+                "issues": "https://github.com/composer/semver/issues",
+                "source": "https://github.com/composer/semver/tree/3.3.2"
+            },
+            "funding": [
+                {
+                    "url": "https://packagist.com",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/composer",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2022-04-01T19:23:25+00:00"
         },
         {
             "name": "cviebrock/eloquent-sluggable",
@@ -1970,16 +2051,16 @@
         },
         {
             "name": "dragon-code/web-core",
-            "version": "v0.0.26",
+            "version": "v0.0.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/TheDragonCode/web-core.git",
-                "reference": "93d94f4086984a44ad299d1a5d307313e15f2845"
+                "reference": "bf7474a352d83b1d57c9d302c8719d6e0dbb0317"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TheDragonCode/web-core/zipball/93d94f4086984a44ad299d1a5d307313e15f2845",
-                "reference": "93d94f4086984a44ad299d1a5d307313e15f2845",
+                "url": "https://api.github.com/repos/TheDragonCode/web-core/zipball/bf7474a352d83b1d57c9d302c8719d6e0dbb0317",
+                "reference": "bf7474a352d83b1d57c9d302c8719d6e0dbb0317",
                 "shasum": ""
             },
             "require": {
@@ -1995,13 +2076,13 @@
                 "dragon-code/laravel-route-names": "^1.3",
                 "dragon-code/laravel-support": "^3.3",
                 "dragon-code/simple-dto": "^2.3",
-                "dragon-code/support": "^6.1.2",
+                "dragon-code/support": "^6.3",
                 "ext-json": "*",
                 "ext-pdo": "*",
                 "ext-redis": "*",
                 "guzzlehttp/guzzle": "^7.4.3",
-                "laravel-lang/publisher": "^13.0",
-                "laravel/framework": "^9.14",
+                "laravel-lang/publisher": "^14.0",
+                "laravel/framework": "^9.19",
                 "laravel/sanctum": "^2.15",
                 "laravel/tinker": "^2.7",
                 "php": "^8.1"
@@ -2010,9 +2091,9 @@
                 "dragon-code/env-sync-laravel": "^2.3",
                 "dragon-code/pretty-routes": "^3.2",
                 "fakerphp/faker": "^1.19",
-                "laravel-lang/attributes": "^1.1",
-                "laravel-lang/http-statuses": "^2.1",
-                "laravel-lang/lang": "^10.9",
+                "laravel-lang/attributes": "^2.0",
+                "laravel-lang/http-statuses": "^3.0",
+                "laravel-lang/lang": "^11.0",
                 "laravel/telescope": "^4.9",
                 "mockery/mockery": "^1.5",
                 "nunomaduro/collision": "^6.2",
@@ -2045,7 +2126,7 @@
             "description": "Web core for the Dragon Code apps",
             "support": {
                 "issues": "https://github.com/TheDragonCode/web-core/issues",
-                "source": "https://github.com/TheDragonCode/web-core/tree/v0.0.26"
+                "source": "https://github.com/TheDragonCode/web-core/tree/v0.0.27"
             },
             "funding": [
                 {
@@ -2061,7 +2142,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2022-05-28T14:39:32+00:00"
+            "time": "2022-06-30T22:43:15+00:00"
         },
         {
             "name": "dragonmantank/cron-expression",
@@ -2848,37 +2929,36 @@
         },
         {
             "name": "laravel-lang/publisher",
-            "version": "v13.0.1",
+            "version": "v14.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Lang/publisher.git",
-                "reference": "0af88a10d491138c1b7e492d0f4556bb474816df"
+                "reference": "6852d726de728b69c7cf54216e75964355ee70d7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Lang/publisher/zipball/0af88a10d491138c1b7e492d0f4556bb474816df",
-                "reference": "0af88a10d491138c1b7e492d0f4556bb474816df",
+                "url": "https://api.github.com/repos/Laravel-Lang/publisher/zipball/6852d726de728b69c7cf54216e75964355ee70d7",
+                "reference": "6852d726de728b69c7cf54216e75964355ee70d7",
                 "shasum": ""
             },
             "require": {
-                "dragon-code/contracts": "^2.15",
+                "archtechx/enums": "^0.3",
+                "composer/semver": "^3.3",
                 "dragon-code/pretty-array": "^4.0",
-                "dragon-code/support": "^6.1.1",
+                "dragon-code/support": "^6.3",
                 "ext-json": "*",
-                "illuminate/console": "^7.0 || ^8.0 || ^9.0",
-                "illuminate/contracts": "^7.0 || ^8.0 || ^9.0",
-                "illuminate/support": "^7.0 || ^8.0 || ^9.0",
-                "php": "^8.0"
+                "illuminate/console": "^8.83 || ^9.18",
+                "illuminate/support": "^8.83 || ^9.18",
+                "php": "^8.1"
             },
             "conflict": {
-                "laravel-lang/attributes": ">=2.0.0",
-                "laravel-lang/http-statuses": ">=3.0.0",
-                "laravel-lang/lang": ">=11.0.0"
+                "laravel-lang/attributes": "<2.0",
+                "laravel-lang/http-statuses": "<3.0",
+                "laravel-lang/lang": "<11.0"
             },
             "require-dev": {
-                "laravel-lang/http-statuses": "^2.0",
-                "laravel-lang/lang": "^10.7",
-                "orchestra/testbench": "^5.0 || ^6.0 || ^7.0",
+                "laravel-lang/json-fallback-hotfix": "^1.0",
+                "orchestra/testbench": "^6.0 || ^7.0",
                 "phpunit/phpunit": "^9.4",
                 "symfony/var-dumper": "^5.0 || ^6.0"
             },
@@ -2943,7 +3023,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2022-06-17T21:15:34+00:00"
+            "time": "2022-06-30T22:49:30+00:00"
         },
         {
             "name": "laravel/framework",
@@ -8245,29 +8325,30 @@
         },
         {
             "name": "laravel-lang/attributes",
-            "version": "v1.1.3",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Lang/attributes.git",
-                "reference": "2a6b4715b02fffeeb7954158f52f5e7c01cf8707"
+                "reference": "83c0b6d4c2aca9978b73b5f31fa65355e534f71c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Lang/attributes/zipball/2a6b4715b02fffeeb7954158f52f5e7c01cf8707",
-                "reference": "2a6b4715b02fffeeb7954158f52f5e7c01cf8707",
+                "url": "https://api.github.com/repos/Laravel-Lang/attributes/zipball/83c0b6d4c2aca9978b73b5f31fa65355e534f71c",
+                "reference": "83c0b6d4c2aca9978b73b5f31fa65355e534f71c",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "php": "^7.3 || ^8.0"
+                "illuminate/support": "^6.0 || ^7.0 || ^8.0 || ^9.0"
+            },
+            "conflict": {
+                "laravel-lang/publisher": "<14.0.0"
             },
             "require-dev": {
-                "dragon-code/pretty-array": "^4.0",
-                "dragon-code/support": "^6.0",
-                "laravel-lang/publisher": "^12.1 || ^13.0",
-                "orchestra/testbench": "^5.0 || ^6.0 || ^7.0",
+                "laravel-lang/publisher": "^14.0",
+                "laravel-lang/status-generator": "^1.3",
+                "php": "^8.1",
                 "phpunit/phpunit": "^9.5",
-                "symfony/finder": "^5.0 || ^6.0",
                 "symfony/var-dumper": "^5.0 || ^6.0"
             },
             "type": "library",
@@ -8311,7 +8392,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Lang/attributes/issues",
-                "source": "https://github.com/Laravel-Lang/attributes/tree/v1.1.3"
+                "source": "https://github.com/Laravel-Lang/attributes/tree/v2.0.0"
             },
             "funding": [
                 {
@@ -8319,32 +8400,32 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2022-06-29T19:06:05+00:00"
+            "time": "2022-06-29T21:00:28+00:00"
         },
         {
             "name": "laravel-lang/http-statuses",
-            "version": "v2.1.3",
+            "version": "v3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Lang/http-statuses.git",
-                "reference": "2de194362eda52125994150c635c440ce4eca9b4"
+                "reference": "907f1b9743e91d2be9cff7d57ff5f47b42ec6417"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Lang/http-statuses/zipball/2de194362eda52125994150c635c440ce4eca9b4",
-                "reference": "2de194362eda52125994150c635c440ce4eca9b4",
+                "url": "https://api.github.com/repos/Laravel-Lang/http-statuses/zipball/907f1b9743e91d2be9cff7d57ff5f47b42ec6417",
+                "reference": "907f1b9743e91d2be9cff7d57ff5f47b42ec6417",
                 "shasum": ""
             },
             "require": {
-                "ext-json": "*",
-                "php": "^7.3 || ^8.0"
+                "ext-json": "*"
             },
             "conflict": {
-                "laravel-lang/publisher": "<13.0 >=14.0"
+                "laravel-lang/publisher": "<14.0"
             },
             "require-dev": {
-                "laravel-lang/publisher": "^13.0",
-                "orchestra/testbench": "^5.0 || ^6.0 || ^7.0",
+                "laravel-lang/publisher": "^14.0",
+                "laravel-lang/status-generator": "^1.3.4",
+                "php": "^8.1",
                 "phpunit/phpunit": "^9.5",
                 "symfony/var-dumper": "^5.0 || ^6.0"
             },
@@ -8387,7 +8468,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Lang/http-statuses/issues",
-                "source": "https://github.com/Laravel-Lang/http-statuses/tree/v2.1.3"
+                "source": "https://github.com/Laravel-Lang/http-statuses/tree/v3.0.1"
             },
             "funding": [
                 {
@@ -8395,52 +8476,50 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2022-06-28T18:02:34+00:00"
+            "time": "2022-06-30T11:50:57+00:00"
         },
         {
             "name": "laravel-lang/lang",
-            "version": "10.9.5",
+            "version": "11.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Lang/lang.git",
-                "reference": "e341421d40f2cd28feca24ab2cb84fa5cb5ddaf6"
+                "reference": "0900a5e37a9c4103dd30f723c3cefa8f45c6553d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Lang/lang/zipball/e341421d40f2cd28feca24ab2cb84fa5cb5ddaf6",
-                "reference": "e341421d40f2cd28feca24ab2cb84fa5cb5ddaf6",
+                "url": "https://api.github.com/repos/Laravel-Lang/lang/zipball/0900a5e37a9c4103dd30f723c3cefa8f45c6553d",
+                "reference": "0900a5e37a9c4103dd30f723c3cefa8f45c6553d",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*"
             },
             "conflict": {
-                "laravel-lang/publisher": "<12.0 >=14.0"
+                "laravel-lang/publisher": "<14.0"
             },
             "require-dev": {
-                "dragon-code/pretty-array": "^4.0",
-                "dragon-code/simple-dto": "^2.3",
-                "dragon-code/support": "^6.1",
-                "ext-zip": "*",
-                "guzzlehttp/guzzle": "^7.3",
-                "laravel-lang/publisher": "^13.0",
-                "laravel/breeze": "^1.2",
-                "laravel/fortify": "^1.7",
-                "laravel/jetstream": "^2.3",
-                "laravel/ui": "^3.4",
-                "orchestra/testbench": "^7.0",
+                "laravel-lang/publisher": "^14.0",
+                "laravel-lang/status-generator": "^1.3.7",
                 "php": "^8.1",
                 "phpunit/phpunit": "^9.5",
-                "symfony/finder": "^6.0",
-                "symfony/var-dumper": "^6.0",
-                "vlucas/phpdotenv": "^5.4.1"
+                "symfony/var-dumper": "^5.0 || ^6.0"
             },
             "suggest": {
                 "arcanedev/laravel-lang": "Translations manager and checker for Laravel 5",
+                "laravel-lang/attributes": "Translations for field names of the forms",
+                "laravel-lang/http-statuses": "Translations for HTTP statuses",
                 "laravel-lang/publisher": "Easy installation and update of translation files for your project",
                 "overtrue/laravel-lang": "Command to add languages in your project"
             },
             "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "LaravelLang\\Lang\\ServiceProvider"
+                    ]
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "LaravelLang\\Lang\\": "src"
@@ -8473,7 +8552,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2022-06-27T01:57:27+00:00"
+            "time": "2022-06-30T20:02:41+00:00"
         },
         {
             "name": "laravel/sail",
