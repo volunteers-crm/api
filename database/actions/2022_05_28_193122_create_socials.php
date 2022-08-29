@@ -19,7 +19,8 @@ use App\Enums\Social;
 use App\Models\Social as Model;
 use DragonCode\LaravelActions\Support\Actionable;
 
-return new class () extends Actionable {
+return new class () extends Actionable
+{
     public function up(): void
     {
         foreach ($this->socials() as $social) {

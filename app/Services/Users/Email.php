@@ -33,7 +33,8 @@ class Email
     {
         do {
             $email = $this->faker->safeEmail;
-        } while ($this->doesntUnique($email));
+        }
+        while ($this->doesntUnique($email));
 
         return $email;
     }
