@@ -1,32 +1,51 @@
 {
-    "name": "dragon-code/web-app",
-    "description": "The Dragon Code Project",
+    "name": "volunteers/crm",
+    "description": "API for Volunteers CRM",
     "license": "MIT",
     "type": "project",
+    "authors": [
+        {
+            "name": "Andrey Helldar",
+            "email": "helldar@dragon-code.pro",
+            "homepage": "https://github.com/andrey-helldar"
+        }
+    ],
+    "funding": [
+        {
+            "type": "github",
+            "url": "https://github.com/sponsors/TheDragonCode"
+        },
+        {
+            "type": "open_collective",
+            "url": "https://opencollective.com/dragon-code"
+        },
+        {
+            "type": "boosty",
+            "url": "https://boosty.to/dragon-code"
+        },
+        {
+            "type": "yoomoney",
+            "url": "https://yoomoney.ru/to/410012608840929"
+        }
+    ],
     "require": {
         "php": "^8.1",
-        "artesaos/seotools": "^0.22.0",
-        "cviebrock/eloquent-sluggable": "^9.0",
-        "dragon-code/web-core": "^0.0.27",
-        "fakerphp/faker": "^1.19",
-        "irazasyed/telegram-bot-sdk": "^3.6",
+        "defstudio/telegraph": "^1.21",
+        "dragon-code/web-core": "^0.1.2",
         "laravel/socialite": "^5.5",
-        "laravel/ui": "^3.4",
-        "socialiteproviders/manager": "^4.1",
+        "socialiteproviders/manager": "^4.2",
         "socialiteproviders/telegram": "^4.1"
     },
     "require-dev": {
         "dragon-code/env-sync-laravel": "^2.3",
         "dragon-code/pretty-routes": "^3.2",
-        "laravel-lang/attributes": "^2.0",
-        "laravel-lang/http-statuses": "^3.0",
-        "laravel-lang/lang": "^11.0",
-        "laravel/sail": "^1.15",
+        "fakerphp/faker": "^1.20",
+        "laravel/sail": "^1.14",
         "laravel/telescope": "^4.9",
         "mockery/mockery": "^1.5",
         "nunomaduro/collision": "^6.2",
         "phpunit/phpunit": "^9.5",
-        "spatie/laravel-ignition": "^1.3"
+        "spatie/laravel-ignition": "^1.2"
     },
     "minimum-stability": "stable",
     "prefer-stable": true,
@@ -54,25 +73,17 @@
         "preferred-install": "dist",
         "sort-packages": true
     },
-    "extra": {
-        "laravel": {
-            "dont-discover": [
-                "dragon-code/laravel-json-response",
-                "laravel/socialite"
-            ]
-        }
-    },
     "scripts": {
         "post-update-cmd": [
-            "php artisan vendor:publish --tag=laravel-assets --force --ansi",
-            "php artisan optimize:clear --ansi",
+            "php artisan vendor:publish --tag=laravel-assets --ansi --force",
+            "php artisan vendor:publish --tag=telescope-assets --ansi --force",
             "php artisan lang:update --ansi",
-            "php artisan env:sync --ansi",
-            "php artisan telescope:publish --ansi"
+            "php artisan env:sync --with-env --ansi",
+            "php artisan optimize:clear --ansi"
         ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover --ansi"
+            "php artisan package:discover --ansi"
         ]
     }
 }

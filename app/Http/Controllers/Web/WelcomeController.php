@@ -1,4 +1,5 @@
-/*
+<?php
+/**
  * This file is part of the "Volunteers CRM" project.
  *
  * For the full copyright and license information, please view the LICENSE
@@ -13,4 +14,16 @@
  * @see https://github.com/volunteers-crm
  */
 
-export const URL_LOGIN = '/auth/login';
+declare(strict_types=1);
+
+namespace App\Http\Controllers\Web;
+
+use App\Http\Controllers\Controller;
+
+class WelcomeController extends Controller
+{
+    public function __invoke()
+    {
+        return view('welcome');
+    }
+}

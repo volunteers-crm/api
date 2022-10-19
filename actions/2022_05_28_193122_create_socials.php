@@ -1,6 +1,6 @@
 <?php
 
-/*
+/**
  * This file is part of the "Volunteers CRM" project.
  *
  * For the full copyright and license information, please view the LICENSE
@@ -17,11 +17,11 @@
 
 use App\Enums\Social;
 use App\Models\Social as Model;
-use DragonCode\LaravelActions\Support\Actionable;
+use DragonCode\LaravelActions\Action;
 
-return new class () extends Actionable
+return new class () extends Action
 {
-    public function up(): void
+    public function __invoke(): void
     {
         foreach ($this->socials() as $social) {
             $this->store($social);

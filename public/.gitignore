@@ -3,6 +3,7 @@
 !.gitignore
 
 !.htaccess
+!web.config
 
 !favicon.ico
 

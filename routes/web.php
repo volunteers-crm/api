@@ -1,6 +1,5 @@
 <?php
-
-/*
+/**
  * This file is part of the "Volunteers CRM" project.
  *
  * For the full copyright and license information, please view the LICENSE
@@ -17,20 +16,6 @@
 
 declare(strict_types=1);
 
-app('router')
-    ->name('main')
-    ->group(base_path('routes/web/main.php'));
+use App\Http\Controllers\Web\WelcomeController;
 
-app('router')
-    ->middleware('guest')
-    ->prefix('auth')
-    ->group(base_path('routes/web/auth.php'));
-
-app('router')
-    ->name('seo')
-    ->group(base_path('routes/web/seo.php'));
-
-app('router')
-    ->middleware('auth')
-    ->prefix('admin')
-    ->group(base_path('routes/web/admin.php'));
+app('router')->get('/', WelcomeController::class);

@@ -1,6 +1,5 @@
 <?php
-
-/*
+/**
  * This file is part of the "Volunteers CRM" project.
  *
  * For the full copyright and license information, please view the LICENSE
@@ -17,7 +16,7 @@
 
 namespace App\Exceptions;
 
-use DragonCode\ApiResponse\Exceptions\Laravel\Nine\Handler as ExceptionHandler;
+use DragonCode\WebCore\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
 {
