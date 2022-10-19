@@ -32,4 +32,9 @@ class EventServiceProvider extends ServiceProvider
             TelegramExtendSocialite::class . '@handle',
         ],
     ];
+
+    public function shouldDiscoverEvents(): bool
+    {
+        return false;
+    }
 }
