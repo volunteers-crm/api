@@ -13,7 +13,7 @@ services:
             - 'host.docker.internal:host-gateway'
         ports:
             - '${APP_PORT:-80}:80'
-            - '${HMR_PORT:-8080}:8080'
+            - '${VITE_PORT:-5173}:${VITE_PORT:-5173}'
         environment:
             WWWUSER: '${WWWUSER}'
             LARAVEL_SAIL: 1
@@ -39,7 +39,7 @@ services:
             MYSQL_PASSWORD: '${DB_PASSWORD}'
             MYSQL_ALLOW_EMPTY_PASSWORD: 1
         volumes:
-            - 'volunteers-mysql:/var/lib/mysql'
+            - 'sail-mysql:/var/lib/mysql'
             - './vendor/laravel/sail/database/mysql/create-testing-database.sh:/docker-entrypoint-initdb.d/10-create-testing-database.sh'
         networks:
             - sail
@@ -53,7 +53,7 @@ services:
         ports:
             - '${FORWARD_REDIS_PORT:-6379}:6379'
         volumes:
-            - 'volunteers-redis:/data'
+            - 'sail-redis:/data'
         networks:
             - sail
         healthcheck:
@@ -66,7 +66,7 @@ networks:
         driver: bridge
 
 volumes:
-    volunteers-mysql:
+    sail-mysql:
         driver: local
-    volunteers-redis:
+    sail-redis:
         driver: local
