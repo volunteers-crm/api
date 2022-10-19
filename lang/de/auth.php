@@ -14,9 +14,7 @@
  */
 
 return [
-    'reset'     => 'Your password has been reset!',
-    'sent'      => 'We have emailed your password reset link!',
-    'throttled' => 'Please wait before retrying.',
-    'token'     => 'This password reset token is invalid.',
-    'user'      => 'We can\'t find a user with that email address.',
+    'failed'   => 'Diese Kombination aus Zugangsdaten wurde nicht in unserer Datenbank gefunden.',
+    'password' => 'Das Passwort ist falsch.',
+    'throttle' => 'Zu viele Loginversuche. Versuchen Sie es bitte in :seconds Sekunden nochmal.',
 ];
