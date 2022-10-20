@@ -25,6 +25,7 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('email');
+            $table->dropColumn('email_verified_at');
         });
     }
 
@@ -32,6 +33,8 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('email')->after('name')->unique();
+
+            $table->timestamp('email_verified_at')->after('password')->nullable();
         });
     }
 };
