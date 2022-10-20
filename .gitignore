@@ -2,6 +2,7 @@
 
 /public/hot
 /public/storage
+/routes/console.php
 /storage/*.key
 
 /node_modules
