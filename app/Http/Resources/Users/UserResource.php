@@ -15,19 +15,22 @@
 
 declare(strict_types=1);
 
-namespace App\Observers;
+namespace App\Http\Resources\Users;
 
-use App\Models\Social;
-use DragonCode\Support\Facades\Helpers\Str;
+use Illuminate\Http\Resources\Json\JsonResource;
 
-class SocialObserver
+/** @mixin \App\Models\User */
+class UserResource extends JsonResource
 {
-    public function saving(Social $social): void
+    public function toArray($request): array
     {
-        $social->type = Str::trim($social->type);
+        return [
+            'id' => $this->external_id,
 
-        if (! $social->title) {
-            $social->title = Str::of($social->type)->trim()->title();
-        }
+            'username' => $this->username,
+            'name'     => $this->name,
+
+            'avatar' => $this->avatar,
+        ];
     }
 }

@@ -41,7 +41,7 @@ class Social extends Model
         return $this->hasMany(User::class);
     }
 
-    public function resolveRouteBinding($value, $field = null): Model|Relation|null
+    public function resolveRouteBinding($value, $field = null): Model|null
     {
         return $this->resolveRouteBindingQuery($this, $value, $field)->active()->first();
     }

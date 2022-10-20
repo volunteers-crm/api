@@ -13,9 +13,11 @@
  * @see https://github.com/volunteers-crm
  */
 
-declare(strict_types=1);
-
-use App\Http\Controllers\Main\WelcomeController;
-
-app('router')
-    ->get('/', WelcomeController::class);
+return [
+    'telegram' => [
+        'bot'           => env('TELEGRAM_BOT_NAME'),
+        'client_id'     => null,
+        'client_secret' => env('TELEGRAM_TOKEN'),
+        'redirect'      => env('TELEGRAM_REDIRECT_URI'),
+    ],
+];

@@ -17,9 +17,11 @@ declare(strict_types=1);
 
 namespace App\Http\Requests\Auth\Socialite;
 
+use App\Exceptions\Http\InvalidUserDataHttpException;
 use App\Models\Social;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Routing\Route;
+use InvalidArgumentException;
 use Laravel\Socialite\Contracts\Provider;
 use Laravel\Socialite\Contracts\User;
 use Laravel\Socialite\Facades\Socialite;
@@ -28,7 +30,17 @@ class ConfirmRequest extends FormRequest
 {
     public function rules(): array
     {
-        return [];
+        return [
+            'id'        => ['required', 'numeric'],
+            'hash'      => ['required', 'string'],
+            'auth_date' => ['required', 'numeric'],
+
+            'username'   => ['sometimes', 'string'],
+            'first_name' => ['required', 'string'],
+            'last_name'  => ['required', 'string'],
+
+            'photo_url' => ['required', 'string', 'url'],
+        ];
     }
 
     public function authorize(): bool
@@ -36,9 +48,14 @@ class ConfirmRequest extends FormRequest
         return ! empty($this->dto());
     }
 
-    public function dto(): ?User
+    public function dto(): User
     {
-        return $this->driver()->user();
+        try {
+            return $this->driver()->user();
+        }
+        catch (InvalidArgumentException) {
+            throw new InvalidUserDataHttpException();
+        }
     }
 
     public function provider(): Route|Social|string

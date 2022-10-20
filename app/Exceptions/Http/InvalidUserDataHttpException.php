@@ -15,7 +15,14 @@
 
 declare(strict_types=1);
 
-use App\Http\Controllers\Main\WelcomeController;
+namespace App\Exceptions\Http;
 
-app('router')
-    ->get('/', WelcomeController::class);
+use Symfony\Component\HttpKernel\Exception\HttpException;
+
+class InvalidUserDataHttpException extends HttpException
+{
+    public function __construct()
+    {
+        parent::__construct(409, __('auth.incorrect_user'));
+    }
+}

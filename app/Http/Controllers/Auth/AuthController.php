@@ -19,6 +19,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\Socialite\ConfirmRequest;
+use App\Http\Resources\Users\UserResource;
 use App\Models\Social;
 use App\Services\Users\Registrator;
 
@@ -30,6 +31,6 @@ class AuthController extends Controller
 
         $token = $user->createToken($social->type)->plainTextToken;
 
-        return redirect()->intended(route('manage.index'))->withCookie('token', $token);
+        return UserResource::make($user)->additional(compact('token'));
     }
 }

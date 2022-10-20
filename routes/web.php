@@ -16,10 +16,5 @@
 declare(strict_types=1);
 
 app('router')
-    ->name('auth.')
-    ->prefix('auth')
-    ->group(__DIR__ . '/groups/_auth.php');
-
-app('router')
     ->name('main.')
     ->group(__DIR__ . '/groups/_main.php');
