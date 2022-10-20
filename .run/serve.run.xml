@@ -1,3 +1,4 @@
+
 <!--~
   ~ This file is part of the "Volunteers CRM" project.
   ~
@@ -12,19 +13,19 @@
   -->
 
 <component name="ProjectRunConfigurationManager">
-    <configuration default="false" name="serve" type="ShConfigurationType" singleton="false">
-        <option name="SCRIPT_TEXT" value="php artisan serve --host=0.0.0.0 --port=80" />
-        <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
-        <option name="SCRIPT_PATH" value="" />
-        <option name="SCRIPT_OPTIONS" value="" />
-        <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
-        <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-        <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
-        <option name="INTERPRETER_PATH" value="" />
-        <option name="INTERPRETER_OPTIONS" value="" />
-        <option name="EXECUTE_IN_TERMINAL" value="true" />
-        <option name="EXECUTE_SCRIPT_FILE" value="false" />
-        <envs />
-        <method v="2" />
-    </configuration>
+  <configuration default="false" name="serve" type="ShConfigurationType" singleton="false">
+    <option name="SCRIPT_TEXT" value="php artisan serve" />
+    <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
+    <option name="SCRIPT_PATH" value="" />
+    <option name="SCRIPT_OPTIONS" value="" />
+    <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
+    <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
+    <option name="INTERPRETER_PATH" value="" />
+    <option name="INTERPRETER_OPTIONS" value="" />
+    <option name="EXECUTE_IN_TERMINAL" value="true" />
+    <option name="EXECUTE_SCRIPT_FILE" value="false" />
+    <envs />
+    <method v="2" />
+  </configuration>
 </component>
