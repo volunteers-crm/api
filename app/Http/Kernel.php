@@ -31,8 +31,13 @@ declare(strict_types=1);
 namespace App\Http;
 
 use DragonCode\WebCore\Http\Kernel as HttpKernel;
+use Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful;
 
 class Kernel extends HttpKernel
 {
-    protected $routeMiddleware = [];
+    protected $middlewareGroups = [
+        'api' => [
+            EnsureFrontendRequestsAreStateful::class,
+        ],
+    ];
 }
