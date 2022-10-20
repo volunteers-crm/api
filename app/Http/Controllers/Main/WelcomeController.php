@@ -15,11 +15,14 @@
 
 declare(strict_types=1);
 
-app('router')
-    ->name('auth.')
-    ->prefix('auth')
-    ->group(__DIR__ . '/groups/_auth.php');
+namespace App\Http\Controllers\Main;
 
-app('router')
-    ->name('main.')
-    ->group(__DIR__ . '/groups/_main.php');
+use App\Http\Controllers\Controller;
+
+class WelcomeController extends Controller
+{
+    public function __invoke()
+    {
+        return view('welcome');
+    }
+}

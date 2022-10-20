@@ -15,6 +15,11 @@
 
 declare(strict_types=1);
 
-use App\Http\Controllers\Web\AuthController;
+use App\Http\Controllers\Main\WelcomeController;
 
-app('router')->get('{social:type}/confirm', [AuthController::class, 'confirm']);
+app('router')
+    ->domain(config('app.url_web'))
+    ->get('/manage', WelcomeController::class);
+
+app('router')
+    ->get('/', WelcomeController::class);
