@@ -32,7 +32,6 @@ class User extends Authenticatable
 
     protected $fillable = [
         'name',
-        'email',
         'password',
         'social_id',
         'external_id',
@@ -46,8 +45,6 @@ class User extends Authenticatable
     ];
 
     protected $casts = [
-        'email_verified_at' => 'datetime',
-
         'social_id'   => 'int',
         'external_id' => 'int',
     ];
