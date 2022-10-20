@@ -35,6 +35,8 @@ use DragonCode\WebCore\Facades\Facade;
 use Laravel\Socialite\Facades\Socialite;
 
 return [
+    'url_web' => env('APP_URL_WEB', env('APP_URL')),
+
     'providers' => Facade::defaultProviders()->merge([
         AuthServiceProvider::class,
         EventServiceProvider::class,

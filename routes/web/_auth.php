@@ -14,3 +14,7 @@
  */
 
 declare(strict_types=1);
+
+use App\Http\Controllers\Web\AuthController;
+
+app('router')->get('{social:type}/confirm', [AuthController::class, 'confirm']);

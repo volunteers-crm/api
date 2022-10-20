@@ -17,4 +17,14 @@ declare(strict_types=1);
 
 use App\Http\Controllers\Web\WelcomeController;
 
-app('router')->get('/', WelcomeController::class);
+app('router')
+    ->name('auth.')
+    ->prefix('auth')
+    ->group(__DIR__ . '/web/_auth.php');
+
+app('router')
+    ->domain(config('app.url_web'))
+    ->get('/manage', WelcomeController::class);
+
+app('router')
+    ->get('/', WelcomeController::class);
