@@ -27,11 +27,8 @@ class AuthController extends Controller
 {
     public function confirm(ConfirmRequest $request, Social $social, Registrator $users)
     {
-        $user = $users->register($social, $request->dto());
-
-        $user->tokens()->delete();
-
-        $token = $user->createToken($social->type)->plainTextToken;
+        $user  = $users->register($social, $request->dto());
+        $token = $users->token($user, $social->type);
 
         return UserResource::make($user)->additional(compact('token'));
     }

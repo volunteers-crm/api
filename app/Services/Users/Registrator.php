@@ -35,4 +35,11 @@ class Registrator
             compact('username', 'name', 'avatar')
         );
     }
+
+    public function token(User $user, string $name): string
+    {
+        $user->tokens()->delete();
+
+        return $user->createToken($name)->plainTextToken;
+    }
 }
