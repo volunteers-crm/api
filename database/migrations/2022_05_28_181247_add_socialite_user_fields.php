@@ -23,8 +23,8 @@ return new class () extends Migration
 {
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->after('id', function (Blueprint $table) {
+        Schema::table('users', static function (Blueprint $table) {
+            $table->after('id', static function (Blueprint $table) {
                 $table->unsignedBigInteger('social_id');
                 $table->unsignedBigInteger('external_id');
 
@@ -37,7 +37,7 @@ return new class () extends Migration
 
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('users', static function (Blueprint $table) {
             $table->dropColumn(['social_id', 'external_id', 'username', 'avatar']);
         });
     }

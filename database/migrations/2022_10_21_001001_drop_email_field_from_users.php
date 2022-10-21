@@ -23,7 +23,7 @@ return new class () extends Migration
 {
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('users', static function (Blueprint $table) {
             $table->dropColumn('email');
             $table->dropColumn('email_verified_at');
         });
@@ -31,7 +31,7 @@ return new class () extends Migration
 
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('users', static function (Blueprint $table) {
             $table->string('email')->after('name')->unique();
 
             $table->timestamp('email_verified_at')->after('password')->nullable();
