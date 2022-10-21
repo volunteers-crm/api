@@ -32,6 +32,7 @@ class AuthMiddleware
     {
         if ($token = $this->find($this->token($request))) {
             $this->login($token->tokenable);
+            $this->touchLastUsed($token);
 
             return $next($request);
         }
@@ -47,6 +48,11 @@ class AuthMiddleware
     protected function find(string $token): ?PersonalAccessToken
     {
         return PersonalAccessToken::findToken($token);
+    }
+
+    protected function touchLastUsed(PersonalAccessToken $token): void
+    {
+        $token->forceFill(['last_used_at' => now()])->save();
     }
 
     protected function token(Request $request): ?string
