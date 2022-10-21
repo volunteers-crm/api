@@ -15,7 +15,7 @@
 
 return [
     'failed'         => 'These credentials do not match our records.',
+    'incorrect_user' => 'User processing error. Perhaps you are trying to log in using the old link. Please refresh the page and try logging in again.',
     'password'       => 'The password is incorrect.',
     'throttle'       => 'Too many login attempts. Please try again in :seconds seconds.',
-    'incorrect_user' => 'User processing error. Perhaps you are trying to log in using the old link. Please refresh the page and try logging in again.',
 ];
