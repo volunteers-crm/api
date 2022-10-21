@@ -17,14 +17,12 @@ declare(strict_types=1);
 
 namespace App\Http;
 
+use App\Http\Middleware\AuthMiddleware;
 use DragonCode\WebCore\Http\Kernel as HttpKernel;
-use Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful;
 
 class Kernel extends HttpKernel
 {
-    protected $middlewareGroups = [
-        'api' => [
-            EnsureFrontendRequestsAreStateful::class,
-        ],
+    protected $routeMiddleware = [
+        'auth.token' => AuthMiddleware::class,
     ];
 }

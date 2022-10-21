@@ -29,6 +29,8 @@ class AuthController extends Controller
     {
         $user = $users->register($social, $request->dto());
 
+        $user->tokens()->delete();
+
         $token = $user->createToken($social->type)->plainTextToken;
 
         return UserResource::make($user)->additional(compact('token'));

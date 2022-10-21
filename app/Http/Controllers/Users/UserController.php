@@ -15,6 +15,16 @@
 
 declare(strict_types=1);
 
-use App\Http\Controllers\Main\WelcomeController;
+namespace App\Http\Controllers\Users;
 
-app('router')->get('/', WelcomeController::class);
+use App\Http\Controllers\Controller;
+use App\Http\Resources\Users\UserResource;
+use Illuminate\Http\Request;
+
+class UserController extends Controller
+{
+    public function me(Request $request)
+    {
+        return UserResource::make($request->user());
+    }
+}

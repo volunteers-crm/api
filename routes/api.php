@@ -19,3 +19,9 @@ app('router')
     ->name('auth.')
     ->prefix('auth')
     ->group(__DIR__ . '/groups/_auth.php');
+
+app('router')
+    ->name('user.')
+    ->prefix('user')
+    ->middleware('auth.token')
+    ->group(__DIR__ . '/groups/_user.php');
