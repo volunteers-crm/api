@@ -24,7 +24,7 @@ return new class () extends Migration
 {
     public function up()
     {
-        Schema::create('role_categories', function (Blueprint $table) {
+        Schema::create('role_categories', static function (Blueprint $table) {
             $table->uuid('id')->primary();
 
             $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();

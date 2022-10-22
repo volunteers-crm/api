@@ -23,7 +23,7 @@ return new class () extends Migration
 {
     public function up()
     {
-        Schema::table('personal_access_tokens', function (Blueprint $table) {
+        Schema::table('personal_access_tokens', static function (Blueprint $table) {
             $table->uuid('id')->change();
             $table->uuid('tokenable_id')->change();
         });
@@ -31,7 +31,7 @@ return new class () extends Migration
 
     public function down()
     {
-        Schema::table('personal_access_tokens', function (Blueprint $table) {
+        Schema::table('personal_access_tokens', static function (Blueprint $table) {
             $table->id()->change();
             $table->unsignedBigInteger('tokenable_id')->change();
         });
