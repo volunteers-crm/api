@@ -17,6 +17,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Casts\MessageCast;
 use App\Enums\MessageType;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
@@ -34,7 +35,7 @@ class Chat extends Model
         'appeal_id' => 'int',
         'user_id'   => 'int',
 
-        'content' => 'json',
+        'content' => MessageCast::class,
 
         'type' => MessageType::class,
     ];

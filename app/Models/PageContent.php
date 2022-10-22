@@ -17,6 +17,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Casts\MessageCast;
 use App\Enums\MessageType;
 use Illuminate\Database\Eloquent\Model;
 
@@ -33,7 +34,7 @@ class PageContent extends Model
         'page_id'  => 'int',
         'position' => 'int',
 
-        'content' => 'json',
+        'content' => MessageCast::class,
 
         'type' => MessageType::class,
     ];
