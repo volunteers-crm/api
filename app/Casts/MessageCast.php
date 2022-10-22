@@ -23,6 +23,7 @@ use App\Objects\Messages\Location;
 use App\Objects\Messages\Text;
 use DragonCode\Contracts\DataTransferObject\DataTransferObject;
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
+use ReflectionException;
 
 class MessageCast implements CastsAttributes
 {
@@ -41,7 +42,7 @@ class MessageCast implements CastsAttributes
      * @param \DragonCode\SimpleDataTransferObject\DataTransferObject $value
      * @param $attributes
      *
-     * @throws \ReflectionException
+     * @throws ReflectionException
      *
      * @return string
      */
