@@ -23,17 +23,25 @@ return new class () extends Migration
 {
     public function up()
     {
-        Schema::table('role_categories', function (Blueprint $table) {
-            $table->uuid('id')->change();
-            $table->uuid('user_id')->change();
+        Schema::create('socials', static function (Blueprint $table) {
+            $table->uuid('id')->primary();
+
+            $table->string('type');
+            $table->string('title');
+
+            $table->boolean('is_active')->default(true);
+
+            $table->timestamps();
+            $table->softDeletes();
+
+            $table->index(['id', 'deleted_at']);
+            $table->index(['type', 'deleted_at']);
+            $table->index(['title', 'deleted_at']);
         });
     }
 
     public function down()
     {
-        Schema::table('role_categories', function (Blueprint $table) {
-            $table->id()->change();
-            $table->unsignedBigInteger('user_id')->change();
-        });
+        Schema::dropIfExists('socials');
     }
 };

@@ -15,6 +15,7 @@
 
 declare(strict_types=1);
 
+use App\Models\Social;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -25,7 +26,8 @@ return new class () extends Migration
     {
         Schema::table('users', static function (Blueprint $table) {
             $table->after('id', static function (Blueprint $table) {
-                $table->unsignedBigInteger('social_id');
+                $table->foreignIdFor(Social::class)->constrained()->cascadeOnDelete();
+
                 $table->unsignedBigInteger('external_id');
 
                 $table->string('username')->nullable();
