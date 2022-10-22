@@ -24,7 +24,6 @@ class ChatsController extends Controller
 {
     public function index()
     {
-        
     }
 
     public function create()

@@ -24,7 +24,6 @@ class ChannelsController extends Controller
 {
     public function index()
     {
-        
     }
 
     public function create()
