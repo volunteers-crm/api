@@ -18,23 +18,9 @@ declare(strict_types=1);
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+use Laravel\Sanctum\PersonalAccessToken as BasePersonalAccessToken;
 
-class RoleCategory extends Model
+class PersonalAccessToken extends BasePersonalAccessToken
 {
     use HasUuids;
-    use SoftDeletes;
-
-    protected $fillable = [
-        'user_id',
-        'title',
-        'can_storage',
-    ];
-
-    protected $casts = [
-        'user_id' => 'int',
-
-        'can_storage' => 'bool',
-    ];
 }
