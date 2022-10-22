@@ -17,4 +17,4 @@ declare(strict_types=1);
 
 use App\Http\Controllers\Users\UserController;
 
-app('router')->get('/', [UserController::class, 'me']);
+app('router')->get('user', [UserController::class, 'me']);

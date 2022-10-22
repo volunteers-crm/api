@@ -17,4 +17,4 @@ declare(strict_types=1);
 
 use App\Http\Controllers\Auth\AuthController;
 
-app('router')->post('{social:type}/confirm', [AuthController::class, 'confirm']);
+app('router')->post('auth/{social:type}/confirm', [AuthController::class, 'confirm']);

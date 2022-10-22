@@ -17,4 +17,4 @@ declare(strict_types=1);
 
 app('router')
     ->name('main.')
-    ->group(__DIR__ . '/groups/_main.php');
+    ->group(__DIR__ . '/groups/main.php');

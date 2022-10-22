@@ -15,14 +15,24 @@
 
 declare(strict_types=1);
 
-app('router')
-    ->name('auth.')
-    ->group(__DIR__ . '/groups/auth.php');
+namespace App\Models;
 
-app('router')
-    ->middleware('auth.token')
-    ->group(__DIR__ . '/groups/user.php');
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-app('router')
-    ->middleware('auth.token')
-    ->group(__DIR__ . '/groups/roles.php');
+class RoleCategory extends Model
+{
+    use SoftDeletes;
+
+    protected $fillable = [
+        'user_id',
+        'title',
+        'can_storage',
+    ];
+
+    protected $casts = [
+        'user_id' => 'int',
+
+        'can_storage' => 'bool',
+    ];
+}
