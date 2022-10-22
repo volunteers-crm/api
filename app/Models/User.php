@@ -17,10 +17,8 @@ declare(strict_types=1);
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\Relation;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -29,9 +27,7 @@ class User extends Authenticatable
 {
     use HasApiTokens;
     use HasFactory;
-    use HasUuids;
     use Notifiable;
-    use SoftDeletes;
 
     protected $fillable = [
         'name',
@@ -48,7 +44,6 @@ class User extends Authenticatable
     ];
 
     protected $casts = [
-        'social_id'   => 'int',
         'external_id' => 'int',
     ];
 

@@ -17,14 +17,11 @@ declare(strict_types=1);
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
 
 class Role extends Model
 {
-    use HasUuids;
-
     protected $fillable = [
         'user_id',
         'role_category_id',
@@ -33,9 +30,6 @@ class Role extends Model
     ];
 
     protected $casts = [
-        'user_id'          => 'int',
-        'role_category_id' => 'int',
-
         'can_storage' => 'bool',
     ];
 

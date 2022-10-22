@@ -18,16 +18,26 @@ declare(strict_types=1);
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Relation;
+use LaravelLang\Publisher\Constants\Locales;
 
-class RoleCategory extends Model
+class Bot extends Model
 {
     protected $fillable = [
         'user_id',
-        'title',
-        'can_storage',
+        'username',
+        'timezone',
+        'locale',
     ];
 
     protected $casts = [
-        'can_storage' => 'bool',
+        'user_id' => 'int',
+
+        'locale' => Locales::class,
     ];
+
+    public function owner(): Relation
+    {
+        return $this->belongsTo(User::class);
+    }
 }

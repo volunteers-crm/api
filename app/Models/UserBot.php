@@ -17,10 +17,8 @@ declare(strict_types=1);
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Concerns\HasUuids;
-use Laravel\Sanctum\PersonalAccessToken as BasePersonalAccessToken;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class PersonalAccessToken extends BasePersonalAccessToken
+class UserBot extends Pivot
 {
-    use HasUuids;
 }

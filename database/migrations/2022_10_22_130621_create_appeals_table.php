@@ -15,32 +15,32 @@
 
 declare(strict_types=1);
 
+use App\Models\Bot;
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class () extends Migration
+return new class extends Migration
 {
     public function up()
     {
-        Schema::create('socials', static function (Blueprint $table) {
+        Schema::create('appeals', function (Blueprint $table) {
             $table->id();
 
-            $table->string('type');
-            $table->string('title');
+            $table->foreignIdFor(Bot::class)->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(User::class, 'client_id')->constrained('users')->cascadeOnUpdate();
+            $table->foreignIdFor(User::class, 'curator_id')->constrained('users')->cascadeOnUpdate();
 
-            $table->boolean('is_active')->default(true);
+            $table->unsignedSmallInteger('status_id');
 
+            $table->timestamp('published_at')->nullable();
             $table->timestamps();
-            $table->softDeletes();
-
-            $table->index(['type', 'is_active', 'deleted_at']);
-            $table->unique(['type', 'deleted_at']);
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('socials');
+        Schema::dropIfExists('appeals');
     }
 };

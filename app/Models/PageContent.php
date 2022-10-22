@@ -17,17 +17,24 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Enums\MessageType;
 use Illuminate\Database\Eloquent\Model;
 
-class RoleCategory extends Model
+class PageContent extends Model
 {
     protected $fillable = [
-        'user_id',
-        'title',
-        'can_storage',
+        'page_id',
+        'content',
+        'type',
+        'position',
     ];
 
     protected $casts = [
-        'can_storage' => 'bool',
+        'page_id'  => 'int',
+        'position' => 'int',
+
+        'content' => 'json',
+
+        'type' => MessageType::class,
     ];
 }

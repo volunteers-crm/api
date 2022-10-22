@@ -25,18 +25,16 @@ return new class () extends Migration
     public function up()
     {
         Schema::create('role_categories', static function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            $table->id();
 
-            $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(User::class, 'owner_id')->constrained('users')->cascadeOnDelete();
 
             $table->string('title');
             $table->boolean('can_storage')->default(false);
 
             $table->timestamps();
-            $table->softDeletes();
 
-            $table->index(['user_id', 'deleted_at']);
-            $table->unique(['user_id', 'title', 'deleted_at']);
+            $table->unique(['owner_id', 'title']);
         });
     }
 

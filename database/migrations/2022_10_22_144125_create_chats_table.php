@@ -15,23 +15,31 @@
 
 declare(strict_types=1);
 
+use App\Models\Appeal;
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class () extends Migration
+return new class extends Migration
 {
     public function up()
     {
-        Schema::table('users', static function (Blueprint $table) {
-            $table->unique(['social_id', 'external_id']);
+        Schema::create('chats', function (Blueprint $table) {
+            $table->id();
+
+            $table->foreignIdFor(Appeal::class)->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(User::class)->nullable()->constrained()->nullOnDelete();
+
+            $table->json('content');
+            $table->string('type');
+
+            $table->timestamps();
         });
     }
 
     public function down()
     {
-        Schema::table('users', static function (Blueprint $table) {
-            $table->dropUnique(['social_id', 'external_id']);
-        });
+        Schema::dropIfExists('chats');
     }
 };

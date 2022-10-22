@@ -17,17 +17,30 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Enums\MessageType;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Relation;
 
-class RoleCategory extends Model
+class Chat extends Model
 {
     protected $fillable = [
+        'appeal_id',
         'user_id',
-        'title',
-        'can_storage',
+        'content',
+        'type',
     ];
 
     protected $casts = [
-        'can_storage' => 'bool',
+        'appeal_id' => 'int',
+        'user_id'   => 'int',
+
+        'content' => 'json',
+
+        'type' => MessageType::class,
     ];
+
+    public function sender(): Relation
+    {
+        return $this->belongsTo(User::class);
+    }
 }

@@ -15,25 +15,31 @@
 
 declare(strict_types=1);
 
+use App\Models\Page;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class () extends Migration
+return new class extends Migration
 {
     public function up()
     {
-        Schema::table('personal_access_tokens', static function (Blueprint $table) {
-            $table->uuid('id')->change();
-            $table->uuid('tokenable_id')->change();
+        Schema::create('page_contents', function (Blueprint $table) {
+            $table->id();
+
+            $table->foreignIdFor(Page::class)->constrained()->cascadeOnDelete();
+
+            $table->json('content');
+            $table->string('type');
+
+            $table->unsignedSmallInteger('position');
+
+            $table->timestamps();
         });
     }
 
     public function down()
     {
-        Schema::table('personal_access_tokens', static function (Blueprint $table) {
-            $table->id()->change();
-            $table->unsignedBigInteger('tokenable_id')->change();
-        });
+        Schema::dropIfExists('page_contents');
     }
 };

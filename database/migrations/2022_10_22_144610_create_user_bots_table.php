@@ -15,32 +15,24 @@
 
 declare(strict_types=1);
 
+use App\Models\Bot;
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class () extends Migration
+return new class extends Migration
 {
     public function up()
     {
-        Schema::create('socials', static function (Blueprint $table) {
-            $table->id();
-
-            $table->string('type');
-            $table->string('title');
-
-            $table->boolean('is_active')->default(true);
-
-            $table->timestamps();
-            $table->softDeletes();
-
-            $table->index(['type', 'is_active', 'deleted_at']);
-            $table->unique(['type', 'deleted_at']);
+        Schema::create('user_bots', function (Blueprint $table) {
+            $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(Bot::class)->constrained()->cascadeOnDelete();
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('socials');
+        Schema::dropIfExists('user_bots');
     }
 };

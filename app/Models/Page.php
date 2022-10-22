@@ -15,16 +15,19 @@
 
 declare(strict_types=1);
 
-namespace App\Providers;
+namespace App\Models;
 
-use App\Models\PersonalAccessToken;
-use Illuminate\Support\ServiceProvider;
-use Laravel\Sanctum\Sanctum;
+use App\Casts\SluggableCast;
+use Illuminate\Database\Eloquent\Model;
 
-class SanctumServiceProvider extends ServiceProvider
+class Page extends Model
 {
-    public function boot()
-    {
-        Sanctum::usePersonalAccessTokenModel(PersonalAccessToken::class);
-    }
+    protected $fillable = [
+        'slug',
+        'title',
+    ];
+
+    protected $casts = [
+        'slug' => SluggableCast::class,
+    ];
 }

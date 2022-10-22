@@ -17,37 +17,42 @@ declare(strict_types=1);
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Builder;
+use App\Enums\Status;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Social extends Model
+class Appeal extends Model
 {
-    use SoftDeletes;
-
     protected $fillable = [
-        'type',
-        'title',
-        'is_active',
+        'bot_id',
+        'client_id',
+        'curator_id',
+        'status_id',
+        'published_at',
     ];
 
     protected $casts = [
-        'is_active' => 'bool',
+        'bot_id'     => 'int',
+        'client_id'  => 'int',
+        'curator_id' => 'int',
+
+        'status_id' => Status::class,
+
+        'published_at' => 'datetime',
     ];
 
-    public function users(): Relation
+    public function bot(): Relation
     {
-        return $this->hasMany(User::class);
+        return $this->belongsTo(Bot::class);
     }
 
-    public function resolveRouteBinding($value, $field = null): Model
+    public function client(): Relation
     {
-        return $this->resolveRouteBindingQuery($this, $value, $field)->active()->firstOrFail();
+        return $this->belongsTo(User::class);
     }
 
-    public function scopeActive(Builder $builder): Builder
+    public function curator(): Relation
     {
-        return $builder->where('is_active', true);
+        return $this->belongsTo(User::class);
     }
 }

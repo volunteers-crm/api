@@ -15,19 +15,13 @@
 
 declare(strict_types=1);
 
-namespace App\Models;
+namespace App\Enums;
 
-use Illuminate\Database\Eloquent\Model;
-
-class RoleCategory extends Model
+enum  Status: int
 {
-    protected $fillable = [
-        'user_id',
-        'title',
-        'can_storage',
-    ];
+    case NEW = 0;
 
-    protected $casts = [
-        'can_storage' => 'bool',
-    ];
+    case IN_PROGRESS = 1;
+
+    case DONE = 2;
 }

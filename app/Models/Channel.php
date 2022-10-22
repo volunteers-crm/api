@@ -18,16 +18,22 @@ declare(strict_types=1);
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Relation;
 
-class RoleCategory extends Model
+class Channel extends Model
 {
     protected $fillable = [
-        'user_id',
-        'title',
-        'can_storage',
+        'bot_id',
+        'username',
+        'name',
     ];
 
     protected $casts = [
-        'can_storage' => 'bool',
+        'bot_id' => 'int',
     ];
+
+    public function bot(): Relation
+    {
+        return $this->belongsTo(Bot::class);
+    }
 }

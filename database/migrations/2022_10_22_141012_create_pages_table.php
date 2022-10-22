@@ -23,15 +23,18 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::table('users', static function (Blueprint $table) {
-            $table->uuid('id')->change();
+        Schema::create('pages', function (Blueprint $table) {
+            $table->id();
+
+            $table->string('slug')->unique()->index();
+            $table->string('title');
+
+            $table->timestamps();
         });
     }
 
     public function down()
     {
-        Schema::table('users', static function (Blueprint $table) {
-            $table->id()->change();
-        });
+        Schema::dropIfExists('pages');
     }
 };

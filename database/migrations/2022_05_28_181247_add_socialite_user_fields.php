@@ -31,7 +31,6 @@ return new class () extends Migration
                 $table->unsignedBigInteger('external_id');
 
                 $table->string('username')->nullable();
-
                 $table->string('avatar')->nullable();
             });
         });
