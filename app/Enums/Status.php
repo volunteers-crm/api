@@ -17,7 +17,7 @@ declare(strict_types=1);
 
 namespace App\Enums;
 
-enum  Status: int
+enum Status: int
 {
     case NEW = 0;
 

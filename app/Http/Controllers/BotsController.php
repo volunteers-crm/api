@@ -24,7 +24,6 @@ class BotsController extends Controller
 {
     public function index()
     {
-        
     }
 
     public function create()
