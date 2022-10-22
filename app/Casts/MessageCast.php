@@ -41,12 +41,10 @@ class MessageCast implements CastsAttributes
      * @param \DragonCode\SimpleDataTransferObject\DataTransferObject $value
      * @param $attributes
      *
-     * @throws \ReflectionException
-     *
      * @return string
      */
     public function set($model, $key, $value, $attributes): string
     {
-        return json_encode($value->toArray(), JSON_UNESCAPED_UNICODE);
+        return $value->toJson();
     }
 }
