@@ -15,9 +15,8 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\Socialite\ConfirmRequest;
 use App\Http\Resources\Users\UserResource;
 use App\Models\Social;

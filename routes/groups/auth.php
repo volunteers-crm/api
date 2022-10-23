@@ -15,7 +15,7 @@
 
 declare(strict_types=1);
 
-use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\AuthController;
 
 app('router')
     ->controller(AuthController::class)

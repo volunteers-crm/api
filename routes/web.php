@@ -15,6 +15,6 @@
 
 declare(strict_types=1);
 
-use App\Http\Controllers\Main\WelcomeController;
+use App\Http\Controllers\WelcomeController;
 
 app('router')->get('/', WelcomeController::class);

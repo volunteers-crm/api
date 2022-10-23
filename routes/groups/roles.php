@@ -15,7 +15,7 @@
 
 declare(strict_types=1);
 
-use App\Http\Controllers\Roles\RolesController;
+use App\Http\Controllers\RolesController;
 
 app('router')
     ->middleware('auth.token')

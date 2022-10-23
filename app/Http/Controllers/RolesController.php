@@ -15,9 +15,8 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Controllers\Roles;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Http\Requests\Roles\CreateRequest;
 use App\Http\Requests\Roles\DestroyRequest;
 use App\Http\Requests\Roles\UpdateRequest;
