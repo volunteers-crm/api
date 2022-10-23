@@ -18,7 +18,9 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Roles;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Roles\RoleRequest;
+use App\Http\Requests\Roles\CreateRequest;
+use App\Http\Requests\Roles\DestroyRequest;
+use App\Http\Requests\Roles\UpdateRequest;
 use App\Http\Resources\Roles\RoleResource;
 use App\Models\Role;
 use App\Services\Roles\Role as RoleService;
@@ -33,18 +35,24 @@ class RolesController extends Controller
         return RoleResource::collection($items);
     }
 
-    public function store(RoleRequest $request, RoleService $service)
+    public function store(CreateRequest $request, RoleService $service)
     {
-        $items = $service->store($request->user(), $request->validated());
+        $item = $service->store($request->user(), $request->validated());
 
-        return RoleResource::make($items);
+        return RoleResource::make($item);
     }
 
-    public function update(Request $request, Role $role)
+    public function update(UpdateRequest $request, Role $role, RoleService $service)
     {
+        $item = $service->update($role, $request->validated());
+
+        return RoleResource::make($item);
     }
 
-    public function destroy(Role $role)
+    public function destroy(DestroyRequest $request, Role $role, RoleService $service)
     {
+        $service->destroy($role);
+
+        return $this->json('ok');
     }
 }

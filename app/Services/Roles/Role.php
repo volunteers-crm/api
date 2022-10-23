@@ -17,6 +17,7 @@ declare(strict_types=1);
 
 namespace App\Services\Roles;
 
+use App\Models\Role as Model;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Collection;
 
@@ -27,8 +28,20 @@ class Role
         return $user->roles;
     }
 
-    public function store(User $user, array $values): Collection
+    public function store(User $user, array $values): Model
     {
         return $user->roles()->create($values);
+    }
+
+    public function update(Model $role, array $values): Model
+    {
+        $role->update($values);
+
+        return $role;
+    }
+
+    public function destroy(Model $role): void
+    {
+        $role->delete();
     }
 }

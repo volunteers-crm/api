@@ -17,15 +17,19 @@ declare(strict_types=1);
 
 namespace App\Http\Requests\Roles;
 
+use App\Models\Role;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Routing\Route;
 
-class RoleRequest extends FormRequest
+/**
+ * @method \App\Models\User user()
+ */
+abstract class BaseRequest extends FormRequest
 {
-    public function rules(): array
+    abstract public function rules(): array;
+
+    protected function role(): Route|Role
     {
-        return [
-            'title'      => ['required', 'string', 'min:2', 'max:255'],
-            'is_storage' => ['required', 'boolean'],
-        ];
+        return $this->route('role');
     }
 }
