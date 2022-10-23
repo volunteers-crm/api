@@ -25,7 +25,7 @@ use App\Services\Users\Registrator;
 
 class AuthController extends Controller
 {
-    public function confirm(ConfirmRequest $request, Social $social, Registrator $users)
+    public function __invoke(ConfirmRequest $request, Social $social, Registrator $users)
     {
         $user  = $users->register($social, $request->dto());
         $token = $users->token($user, $social->type);

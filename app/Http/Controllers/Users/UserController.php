@@ -23,7 +23,7 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function me(Request $request)
+    public function __invoke(Request $request)
     {
         return UserResource::make($request->user());
     }

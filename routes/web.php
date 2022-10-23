@@ -15,6 +15,6 @@
 
 declare(strict_types=1);
 
-app('router')
-    ->name('main.')
-    ->group(__DIR__ . '/groups/main.php');
+use App\Http\Controllers\Main\WelcomeController;
+
+app('router')->get('/', WelcomeController::class);

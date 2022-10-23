@@ -15,14 +15,12 @@
 
 declare(strict_types=1);
 
-app('router')
-    ->name('auth.')
-    ->group(__DIR__ . '/groups/auth.php');
+use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Roles\RolesController;
+use App\Http\Controllers\Users\UserController;
 
-app('router')
-    ->middleware('auth.token')
-    ->group(__DIR__ . '/groups/user.php');
+app('router')->post('auth/{social:type}/confirm', AuthController::class);
 
-app('router')
-    ->middleware('auth.token')
-    ->group(__DIR__ . '/groups/roles.php');
+app('router')->get('user', UserController::class);
+
+app('router')->apiResource('roles', RolesController::class);
