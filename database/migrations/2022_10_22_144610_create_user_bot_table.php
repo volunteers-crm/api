@@ -15,6 +15,7 @@
 
 declare(strict_types=1);
 
+use App\Models\Bot;
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -24,20 +25,14 @@ return new class () extends Migration
 {
     public function up()
     {
-        Schema::create('channels', function (Blueprint $table) {
-            $table->id();
-
+        Schema::create('user_bot', function (Blueprint $table) {
             $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
-
-            $table->string('username')->nullable();
-            $table->string('name');
-
-            $table->timestamps();
+            $table->foreignIdFor(Bot::class)->constrained()->cascadeOnDelete();
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('channels');
+        Schema::dropIfExists('user_bot');
     }
 };

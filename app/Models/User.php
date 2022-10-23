@@ -51,4 +51,24 @@ class User extends Authenticatable
     {
         return $this->hasMany(Role::class);
     }
+
+    public function ownedBots(): Relation
+    {
+        return $this->hasMany(Bot::class, 'owner_id');
+    }
+
+    public function bots(): Relation
+    {
+        return $this->belongsToMany(Bot::class, UserBot::class);
+    }
+
+    public function channels(): Relation
+    {
+        return $this->belongsToMany(Channel::class, UserChannel::class);
+    }
+
+    public function ownedChannels(): Relation
+    {
+        return $this->hasMany(Channel::class);
+    }
 }

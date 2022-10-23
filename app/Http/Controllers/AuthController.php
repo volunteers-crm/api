@@ -18,7 +18,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Auth\Socialite\ConfirmRequest;
-use App\Http\Resources\Users\UserResource;
+use App\Http\Resources\UserResource;
 use App\Models\Social;
 use App\Services\Users\Registrator;
 use Illuminate\Http\Request;

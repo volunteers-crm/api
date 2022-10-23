@@ -15,6 +15,6 @@
 
 declare(strict_types=1);
 
-use App\Http\Controllers\PagesController;
+use App\Http\Controllers\BotsController;
 
-app('router')->get('pages/{page:slug}', PagesController::class);
+app('router')->apiResource('bots', BotsController::class);

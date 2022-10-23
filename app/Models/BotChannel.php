@@ -15,6 +15,10 @@
 
 declare(strict_types=1);
 
-use App\Http\Controllers\PagesController;
+namespace App\Models;
 
-app('router')->get('pages/{page:slug}', PagesController::class);
+use Illuminate\Database\Eloquent\Model;
+
+class BotChannel extends Model
+{
+}

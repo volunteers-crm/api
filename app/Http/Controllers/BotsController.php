@@ -17,36 +17,39 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Bots\CreateRequest;
+use App\Http\Resources\BotResource;
 use App\Models\Bot;
+use App\Services\Bots\Bot as BotService;
 use Illuminate\Http\Request;
 
 class BotsController extends Controller
 {
-    public function index()
+    public function index(Request $request, BotService $service)
     {
+        $items = $service->allOwnedBots($request->user());
+
+        return BotResource::collection($items);
     }
 
-    public function create()
+    public function store(CreateRequest $request, BotService $service)
     {
+        $item = $service->store($request->user(), $request->validated(), $request->get('channels'));
+
+        return BotResource::make($item);
     }
 
-    public function store(Request $request)
+    public function update(Request $request, Bot $bot, BotService $service)
     {
+        $item = $service->update($bot, $request->validated(), $request->get('channels'));
+
+        return BotResource::make($item);
     }
 
-    public function show(Bot $bot)
+    public function destroy(Bot $bot, BotService $service)
     {
-    }
+        $service->destroy($bot);
 
-    public function edit(Bot $bot)
-    {
-    }
-
-    public function update(Request $request, Bot $bot)
-    {
-    }
-
-    public function destroy(Bot $bot)
-    {
+        return $this->json('ok');
     }
 }

@@ -17,6 +17,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Models\Scopes\SortByTitleScope;
 use Illuminate\Database\Eloquent\Model;
 
 class Role extends Model
@@ -31,4 +32,9 @@ class Role extends Model
     protected $casts = [
         'is_storage' => 'bool',
     ];
+
+    protected static function booted()
+    {
+        static::addGlobalScope(new SortByTitleScope());
+    }
 }

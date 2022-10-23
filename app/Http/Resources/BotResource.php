@@ -15,15 +15,20 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Controllers;
+namespace App\Http\Resources;
 
-use App\Http\Resources\PageResource;
-use App\Models\Page;
+use Illuminate\Http\Resources\Json\JsonResource;
 
-class PagesController extends Controller
+/** @mixin \App\Models\Bot */
+class BotResource extends JsonResource
 {
-    public function __invoke(Page $page)
+    public function toArray($request): array
     {
-        return PageResource::make($page);
+        return [
+            'id'       => $this->id,
+            'username' => $this->username,
+            'timezone' => $this->timezone,
+            'locale'   => $this->locale,
+        ];
     }
 }

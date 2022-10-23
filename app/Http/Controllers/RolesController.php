@@ -20,7 +20,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Roles\CreateRequest;
 use App\Http\Requests\Roles\DestroyRequest;
 use App\Http\Requests\Roles\UpdateRequest;
-use App\Http\Resources\Roles\RoleResource;
+use App\Http\Resources\RoleResource;
 use App\Models\Role;
 use App\Services\Roles\Role as RoleService;
 use Illuminate\Http\Request;

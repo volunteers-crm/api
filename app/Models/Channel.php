@@ -17,23 +17,29 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Models\Scopes\SortByUsernameScope;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
 
 class Channel extends Model
 {
     protected $fillable = [
-        'bot_id',
+        'user_id',
         'username',
         'name',
     ];
 
     protected $casts = [
-        'bot_id' => 'int',
+        'user_id' => 'int',
     ];
 
     public function bot(): Relation
     {
         return $this->belongsTo(Bot::class);
+    }
+
+    protected static function booted()
+    {
+        static::addGlobalScope(new SortByUsernameScope());
     }
 }

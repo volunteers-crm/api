@@ -16,23 +16,18 @@
 declare(strict_types=1);
 
 use App\Models\Bot;
-use App\Models\User;
+use App\Models\Channel;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class () extends Migration
+return new class extends Migration
 {
     public function up()
     {
-        Schema::create('user_bots', function (Blueprint $table) {
-            $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
+        Schema::create('bot_channel', function (Blueprint $table) {
             $table->foreignIdFor(Bot::class)->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(Channel::class)->constrained()->cascadeOnDelete();
         });
-    }
-
-    public function down()
-    {
-        Schema::dropIfExists('user_bots');
     }
 };

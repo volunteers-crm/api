@@ -17,6 +17,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Models\Scopes\SortByUsernameScope;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use LaravelLang\Publisher\Constants\Locales;
@@ -26,6 +27,7 @@ class Bot extends Model
     protected $fillable = [
         'user_id',
         'username',
+        'token',
         'timezone',
         'locale',
     ];
@@ -39,5 +41,15 @@ class Bot extends Model
     public function owner(): Relation
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function channels(): Relation
+    {
+        return $this->belongsToMany(Channel::class);
+    }
+
+    protected static function booted()
+    {
+        static::addGlobalScope(new SortByUsernameScope());
     }
 }

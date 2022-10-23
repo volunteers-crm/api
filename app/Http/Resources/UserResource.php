@@ -15,23 +15,22 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Resources\Pages;
+namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-/** @mixin \App\Models\Page */
-class PageResource extends JsonResource
+/** @mixin \App\Models\User */
+class UserResource extends JsonResource
 {
     public function toArray($request): array
     {
         return [
-            'title'   => $this->getTranslated('title'),
-            'content' => $this->getTranslated('content'),
-        ];
-    }
+            'id' => $this->external_id,
 
-    protected function getTranslated(string $key): mixed
-    {
-        return $this->getTranslation($key);
+            'username' => $this->username,
+            'name'     => $this->name,
+
+            'avatar' => $this->avatar,
+        ];
     }
 }

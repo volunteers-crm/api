@@ -30,6 +30,8 @@ return new class () extends Migration
             $table->foreignIdFor(User::class, 'owner_id')->constrained('users')->cascadeOnDelete();
 
             $table->string('username')->unique();
+            $table->string('token')->unique();
+
             $table->string('timezone')->nullable();
             $table->string('locale')->nullable();
 

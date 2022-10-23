@@ -15,22 +15,19 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Resources\Users;
+namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-/** @mixin \App\Models\User */
-class UserResource extends JsonResource
+/** @mixin \App\Models\Role */
+class RoleResource extends JsonResource
 {
     public function toArray($request): array
     {
         return [
-            'id' => $this->external_id,
-
-            'username' => $this->username,
-            'name'     => $this->name,
-
-            'avatar' => $this->avatar,
+            'id'         => $this->id,
+            'title'      => $this->title,
+            'is_storage' => $this->is_storage,
         ];
     }
 }

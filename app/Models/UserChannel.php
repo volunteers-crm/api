@@ -15,19 +15,10 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Resources\Roles;
+namespace App\Models;
 
-use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
-/** @mixin \App\Models\Role */
-class RoleResource extends JsonResource
+class UserChannel extends Pivot
 {
-    public function toArray($request): array
-    {
-        return [
-            'id'         => $this->id,
-            'title'      => $this->title,
-            'is_storage' => $this->is_storage,
-        ];
-    }
 }

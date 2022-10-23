@@ -25,4 +25,10 @@ app('router')
 
 app('router')
     ->name('roles.')
+    ->middleware('auth.token')
     ->group(__DIR__ . '/groups/roles.php');
+
+app('router')
+    ->name('bots.')
+    ->middleware('auth.token')
+    ->group(__DIR__ . '/groups/bots.php');

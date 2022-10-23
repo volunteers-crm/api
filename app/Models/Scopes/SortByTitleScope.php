@@ -15,6 +15,16 @@
 
 declare(strict_types=1);
 
-use App\Http\Controllers\PagesController;
+namespace App\Models\Scopes;
 
-app('router')->get('pages/{page:slug}', PagesController::class);
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Scope;
+
+class SortByTitleScope implements Scope
+{
+    public function apply(Builder $builder, Model $model)
+    {
+        $builder->orderBy('title');
+    }
+}
