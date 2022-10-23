@@ -44,6 +44,7 @@ return new class () extends Action
         return [
             Locales::ENGLISH->value => 'About Us',
             Locales::RUSSIAN->value => 'О нас',
+            Locales::GERMAN->value  => 'Über uns',
         ];
     }
 
@@ -52,6 +53,7 @@ return new class () extends Action
         return [
             Locales::ENGLISH->value => $this->translatedContent(Factory::create('en_US')),
             Locales::RUSSIAN->value => $this->translatedContent(Factory::create('ru_RU')),
+            Locales::GERMAN->value  => $this->translatedContent(Factory::create('de_DE')),
         ];
     }
 
