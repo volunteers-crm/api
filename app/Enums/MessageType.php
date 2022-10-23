@@ -19,25 +19,25 @@ namespace App\Enums;
 
 enum MessageType: string
 {
-    public const ANIMATION = 'animation';
+    case ANIMATION = 'animation';
 
-    public const AUDIO = 'audio';
+    case AUDIO = 'audio';
 
-    public const CONTACT = 'contact';
+    case CONTACT = 'contact';
 
-    public const DOCUMENT = 'document';
+    case DOCUMENT = 'document';
 
-    public const LOCATION = 'location';
+    case LOCATION = 'location';
 
-    public const PASSPORT = 'passport';
+    case PASSPORT = 'passport';
 
-    public const STICKER = 'sticker';
+    case STICKER = 'sticker';
 
-    public const TEXT = 'text';
+    case TEXT = 'text';
 
-    public const VIDEO = 'video';
+    case VIDEO = 'video';
 
-    public const VIDEO_NOTE = 'video_note';
+    case VIDEO_NOTE = 'video_note';
 
-    public const VOICE = 'voice';
+    case VOICE = 'voice';
 }
