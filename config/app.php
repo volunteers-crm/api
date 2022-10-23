@@ -15,8 +15,10 @@
 
 declare(strict_types=1);
 
+use App\Providers\AppServiceProvider;
 use App\Providers\AuthServiceProvider;
 use App\Providers\EventServiceProvider;
+use App\Providers\MorphServiceProvider;
 use App\Providers\ObserverServiceProvider;
 use DragonCode\WebCore\Facades\Facade;
 use Laravel\Socialite\Facades\Socialite;
@@ -25,8 +27,10 @@ return [
     'url_web' => env('APP_URL_WEB', env('APP_URL')),
 
     'providers' => Facade::defaultProviders()->merge([
+        AppServiceProvider::class,
         AuthServiceProvider::class,
         EventServiceProvider::class,
+        MorphServiceProvider::class,
         ObserverServiceProvider::class,
     ])->toArray(),
 
