@@ -19,15 +19,27 @@ namespace App\Models;
 
 use App\Casts\SluggableCast;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Translatable\HasTranslations;
 
 class Page extends Model
 {
+    use HasTranslations;
+
     protected $fillable = [
         'slug',
         'title',
+        'content',
     ];
 
     protected $casts = [
         'slug' => SluggableCast::class,
+
+        'title'   => 'json',
+        'content' => 'json',
+    ];
+
+    protected array $translatable = [
+        'title',
+        'content',
     ];
 }
