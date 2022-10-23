@@ -15,14 +15,7 @@
 
 declare(strict_types=1);
 
-app('router')
-    ->name('auth.')
-    ->group(__DIR__ . '/groups/auth.php');
+use App\Http\Controllers\PagesController;
 
 app('router')
-    ->name('pages.')
-    ->group(__DIR__ . '/groups/pages.php');
-
-app('router')
-    ->name('roles.')
-    ->group(__DIR__ . '/groups/roles.php');
+    ->get('pages/{page:slug}', PagesController::class);

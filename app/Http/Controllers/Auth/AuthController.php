@@ -22,14 +22,20 @@ use App\Http\Requests\Auth\Socialite\ConfirmRequest;
 use App\Http\Resources\Users\UserResource;
 use App\Models\Social;
 use App\Services\Users\Registrator;
+use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
-    public function __invoke(ConfirmRequest $request, Social $social, Registrator $users)
+    public function confirm(ConfirmRequest $request, Social $social, Registrator $users)
     {
         $user  = $users->register($social, $request->dto());
         $token = $users->token($user, $social->type);
 
         return UserResource::make($user)->additional(compact('token'));
+    }
+
+    public function me(Request $request)
+    {
+        return UserResource::make($request->user());
     }
 }
