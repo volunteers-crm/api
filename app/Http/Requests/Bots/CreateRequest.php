@@ -21,15 +21,13 @@ use App\Rules\CheckBotCredentialsRule;
 use App\Rules\LocaleRule;
 use App\Rules\Users\ChannelOfUserRule;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Str;
 
 class CreateRequest extends FormRequest
 {
     public function rules(): array
     {
         return [
-            'username' => ['required', 'string'],
-            'token'    => ['required', 'string', 'regex:/^\d{8,10}:[a-zA-Z\d_-]{35}$/', 'unique:bots', new CheckBotCredentialsRule()],
+            'token' => ['required', 'string', 'regex:/^\d{8,10}:[a-zA-Z\d_-]{35}$/', 'unique:bots', new CheckBotCredentialsRule()],
 
             'channels'   => ['array'],
             'channels.*' => ['int', new ChannelOfUserRule($this->user())],
@@ -37,12 +35,5 @@ class CreateRequest extends FormRequest
             'timezone' => ['required', 'string', 'timezone'],
             'locale'   => ['required', 'string', new LocaleRule()],
         ];
-    }
-
-    protected function prepareForValidation()
-    {
-        $this->merge([
-            'username' => Str::random(),
-        ]);
     }
 }

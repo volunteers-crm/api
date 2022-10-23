@@ -21,6 +21,7 @@ use App\Models\Appeal;
 use App\Models\Bot;
 use App\Models\Channel;
 use App\Models\Chat;
+use App\Models\Message;
 use App\Models\Page;
 use App\Models\Role;
 use App\Models\Social;
@@ -37,6 +38,7 @@ class MorphServiceProvider extends ServiceProvider
             'bot'     => Bot::class,
             'channel' => Channel::class,
             'chat'    => Chat::class,
+            'message' => Message::class,
             'page'    => Page::class,
             'role'    => Role::class,
             'social'  => Social::class,

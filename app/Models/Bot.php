@@ -17,16 +17,17 @@ declare(strict_types=1);
 
 namespace App\Models;
 
-use App\Models\Scopes\SortByUsernameScope;
-use Illuminate\Database\Eloquent\Model;
+use App\Models\Scopes\SortByNameScope;
+use DefStudio\Telegraph\Models\TelegraphBot;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use LaravelLang\Publisher\Constants\Locales;
 
-class Bot extends Model
+class Bot extends TelegraphBot
 {
     protected $fillable = [
         'user_id',
-        'username',
+        'name',
         'token',
         'timezone',
         'locale',
@@ -48,8 +49,13 @@ class Bot extends Model
         return $this->belongsToMany(Channel::class);
     }
 
-    protected static function booted()
+    public function chats(): HasMany
     {
-        static::addGlobalScope(new SortByUsernameScope());
+        return $this->hasMany(Chat::class);
+    }
+
+    public static function booted()
+    {
+        static::addGlobalScope(new SortByNameScope());
     }
 }

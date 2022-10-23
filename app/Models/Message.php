@@ -17,29 +17,31 @@ declare(strict_types=1);
 
 namespace App\Models;
 
-use App\Models\Scopes\SortByNameScope;
+use App\Casts\MessageCast;
+use App\Enums\MessageType;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
 
-class Channel extends Model
+class Message extends Model
 {
     protected $fillable = [
+        'appeal_id',
         'user_id',
-        'username',
-        'name',
+        'content',
+        'type',
     ];
 
     protected $casts = [
-        'user_id' => 'int',
+        'appeal_id' => 'int',
+        'user_id'   => 'int',
+
+        'content' => MessageCast::class,
+
+        'type' => MessageType::class,
     ];
 
-    public function bot(): Relation
+    public function sender(): Relation
     {
-        return $this->belongsTo(Bot::class);
-    }
-
-    protected static function booted()
-    {
-        static::addGlobalScope(new SortByNameScope());
+        return $this->belongsTo(User::class);
     }
 }

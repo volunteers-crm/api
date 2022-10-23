@@ -15,6 +15,7 @@
 
 declare(strict_types=1);
 
+use App\Models\Appeal;
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -24,16 +25,14 @@ return new class () extends Migration
 {
     public function up()
     {
-        Schema::create('bots', function (Blueprint $table) {
+        Schema::create('messages', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignIdFor(User::class, 'owner_id')->constrained('users')->cascadeOnDelete();
+            $table->foreignIdFor(Appeal::class)->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(User::class)->nullable()->constrained()->nullOnDelete();
 
-            $table->string('name')->unique();
-            $table->string('token')->unique();
-
-            $table->string('timezone')->nullable();
-            $table->string('locale')->nullable();
+            $table->json('content');
+            $table->string('type');
 
             $table->timestamps();
         });
@@ -41,6 +40,6 @@ return new class () extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('bots');
+        Schema::dropIfExists('messages');
     }
 };

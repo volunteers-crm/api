@@ -13,18 +13,14 @@
  * @see https://github.com/volunteers-crm
  */
 
-declare(strict_types=1);
+return [
 
-namespace App\Models\Scopes;
+    /*
+    |--------------------------------------------------------------------------
+    | Miscellaneous language lines
+    |--------------------------------------------------------------------------
+    */
 
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Scope;
-
-class SortByUsernameScope implements Scope
-{
-    public function apply(Builder $builder, Model $model)
-    {
-        $builder->orderBy('username');
-    }
-}
+    'yes' => 'yes',
+    'no' => 'no',
+];

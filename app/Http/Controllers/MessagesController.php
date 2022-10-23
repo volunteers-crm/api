@@ -17,10 +17,10 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
-use App\Models\Chat;
+use App\Models\Message;
 use Illuminate\Http\Request;
 
-class ChatsController extends Controller
+class MessagesController extends Controller
 {
     public function index()
     {
@@ -34,19 +34,19 @@ class ChatsController extends Controller
     {
     }
 
-    public function show(Chat $chat)
+    public function show(Message $message)
     {
     }
 
-    public function edit(Chat $chat)
+    public function edit(Message $message)
     {
     }
 
-    public function update(Request $request, Chat $chat)
+    public function update(Request $request, Message $message)
     {
     }
 
-    public function destroy(Chat $chat)
+    public function destroy(Message $message)
     {
     }
 }

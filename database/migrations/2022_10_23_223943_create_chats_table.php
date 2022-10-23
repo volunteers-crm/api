@@ -13,33 +13,25 @@
  * @see https://github.com/volunteers-crm
  */
 
-declare(strict_types=1);
-
-use App\Models\Appeal;
-use App\Models\User;
+use App\Models\Chat;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 return new class () extends Migration
 {
-    public function up()
+    public function up(): void
     {
         Schema::create('chats', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignIdFor(Appeal::class)->constrained()->cascadeOnDelete();
-            $table->foreignIdFor(User::class)->nullable()->constrained()->nullOnDelete();
+            $table->foreignIdFor(Chat::class)->constrained()->cascadeOnDelete();
 
-            $table->json('content');
-            $table->string('type');
+            $table->string('name')->nullable();
 
             $table->timestamps();
-        });
-    }
 
-    public function down()
-    {
-        Schema::dropIfExists('chats');
+            $table->unique(['chat_id', 'chat_id']);
+        });
     }
 };

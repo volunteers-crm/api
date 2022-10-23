@@ -15,15 +15,16 @@
 
 declare(strict_types=1);
 
-namespace App\Models;
+namespace App\Models\Scopes;
 
-use DefStudio\Telegraph\Models\TelegraphChat;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Scope;
 
-class Chat extends TelegraphChat
+class SortByNameScope implements Scope
 {
-    public function bot(): BelongsTo
+    public function apply(Builder $builder, Model $model)
     {
-        return $this->belongsTo(Bot::class);
+        $builder->orderBy('username');
     }
 }
