@@ -15,19 +15,17 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Resources\Roles;
+namespace App\Http\Requests\Roles;
 
-use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Foundation\Http\FormRequest;
 
-/** @mixin \App\Models\RoleCategory */
-class RoleCategoryResource extends JsonResource
+class RoleRequest extends FormRequest
 {
-    public function toArray($request): array
+    public function rules(): array
     {
         return [
-            'id'          => $this->id,
-            'title'       => $this->title,
-            'can_storage' => $this->can_storage,
+            'title'      => ['required', 'string', 'min:2', 'max:255'],
+            'is_storage' => ['required', 'boolean'],
         ];
     }
 }

@@ -51,9 +51,4 @@ class User extends Authenticatable
     {
         return $this->hasMany(Role::class);
     }
-
-    public function roleCategories(): Relation
-    {
-        return $this->hasMany(RoleCategory::class);
-    }
 }

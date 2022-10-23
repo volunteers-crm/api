@@ -15,8 +15,6 @@
 
 declare(strict_types=1);
 
-use App\Http\Controllers\Roles\RoleCategoriesController;
 use App\Http\Controllers\Roles\RolesController;
 
-app('router')->apiResource('roles/categories', RoleCategoriesController::class);
 app('router')->apiResource('roles', RolesController::class);

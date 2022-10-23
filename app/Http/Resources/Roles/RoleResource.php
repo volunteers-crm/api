@@ -17,7 +17,6 @@ declare(strict_types=1);
 
 namespace App\Http\Resources\Roles;
 
-use App\Models\RoleCategory;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 /** @mixin \App\Models\Role */
@@ -26,11 +25,9 @@ class RoleResource extends JsonResource
     public function toArray($request): array
     {
         return [
-            'id'          => $this->id,
-            'title'       => $this->title,
-            'can_storage' => $this->can_storage,
-
-            'category' => RoleCategory::make($this->whenLoaded('category')),
+            'id'         => $this->id,
+            'title'      => $this->title,
+            'is_storage' => $this->is_storage,
         ];
     }
 }

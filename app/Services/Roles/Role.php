@@ -15,19 +15,20 @@
 
 declare(strict_types=1);
 
-namespace App\Models;
+namespace App\Services\Roles;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
+use Illuminate\Database\Eloquent\Collection;
 
-class RoleCategory extends Model
+class Role
 {
-    protected $fillable = [
-        'user_id',
-        'title',
-        'can_storage',
-    ];
+    public function index(User $user): Collection
+    {
+        return $user->roles;
+    }
 
-    protected $casts = [
-        'can_storage' => 'bool',
-    ];
+    public function store(User $user, array $values): Collection
+    {
+        return $user->roles()->create($values);
+    }
 }

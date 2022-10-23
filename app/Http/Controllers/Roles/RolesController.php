@@ -18,35 +18,26 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Roles;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Roles\RoleRequest;
 use App\Http\Resources\Roles\RoleResource;
 use App\Models\Role;
+use App\Services\Roles\Role as RoleService;
 use Illuminate\Http\Request;
 
 class RolesController extends Controller
 {
-    public function index(Request $request)
+    public function index(Request $request, RoleService $service)
     {
-        $items = $request->user()->roles;
-
-        $items->loadMissing('roleCategories');
+        $items = $service->index($request->user());
 
         return RoleResource::collection($items);
     }
 
-    public function create()
+    public function store(RoleRequest $request, RoleService $service)
     {
-    }
+        $items = $service->store($request->user(), $request->validated());
 
-    public function store(Request $request)
-    {
-    }
-
-    public function show(Role $role)
-    {
-    }
-
-    public function edit(Role $role)
-    {
+        return RoleResource::make($items);
     }
 
     public function update(Request $request, Role $role)

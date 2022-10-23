@@ -18,7 +18,6 @@ declare(strict_types=1);
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\Relation;
 
 class Role extends Model
 {
@@ -26,15 +25,10 @@ class Role extends Model
         'user_id',
         'role_category_id',
         'title',
-        'can_storage',
+        'is_storage',
     ];
 
     protected $casts = [
-        'can_storage' => 'bool',
+        'is_storage' => 'bool',
     ];
-
-    public function category(): Relation
-    {
-        return $this->belongsTo(RoleCategory::class);
-    }
 }
