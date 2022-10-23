@@ -34,6 +34,8 @@ return new class () extends Migration
             $table->boolean('is_storage')->default(false);
 
             $table->timestamps();
+
+            $table->unique(['user_id', 'title']);
         });
     }
 
