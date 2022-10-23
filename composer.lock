@@ -1708,16 +1708,16 @@
         },
         {
             "name": "dragon-code/support",
-            "version": "v6.6.0",
+            "version": "v6.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/TheDragonCode/support.git",
-                "reference": "c8c38d911b0b0b475f0d99a2f4ee46da5427cddf"
+                "reference": "017f415e17224a2769ed649b764b4396784da228"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TheDragonCode/support/zipball/c8c38d911b0b0b475f0d99a2f4ee46da5427cddf",
-                "reference": "c8c38d911b0b0b475f0d99a2f4ee46da5427cddf",
+                "url": "https://api.github.com/repos/TheDragonCode/support/zipball/017f415e17224a2769ed649b764b4396784da228",
+                "reference": "017f415e17224a2769ed649b764b4396784da228",
                 "shasum": ""
             },
             "require": {
@@ -1792,22 +1792,22 @@
             "funding": [
                 {
                     "url": "https://boosty.to/dragon-code",
-                    "type": "custom"
+                    "type": "boosty"
                 },
                 {
-                    "url": "https://yoomoney.ru/to/410012608840929",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/TheDragonCode",
+                    "url": "https://github.com/sponsors/TheDragonCode",
                     "type": "github"
                 },
                 {
                     "url": "https://opencollective.com/dragon-code",
                     "type": "open_collective"
+                },
+                {
+                    "url": "https://yoomoney.ru/to/410012608840929",
+                    "type": "yoomoney"
                 }
             ],
-            "time": "2022-10-06T20:02:36+00:00"
+            "time": "2022-10-23T12:29:24+00:00"
         },
         {
             "name": "dragon-code/web-core",

@@ -13,6 +13,8 @@
  * @see https://github.com/volunteers-crm
  */
 
+declare(strict_types=1);
+
 return [
     'failed'         => 'These credentials do not match our records.',
     'incorrect_user' => 'User processing error. Perhaps you are trying to log in using the old link. Please refresh the page and try logging in again.',

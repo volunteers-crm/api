@@ -13,6 +13,8 @@
  * @see https://github.com/volunteers-crm
  */
 
+declare(strict_types=1);
+
 return [
     'accepted'             => ':Attribute muss akzeptiert werden.',
     'accepted_if'          => ':Attribute muss akzeptiert werden, wenn :other :value ist.',

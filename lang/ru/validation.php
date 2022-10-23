@@ -13,6 +13,8 @@
  * @see https://github.com/volunteers-crm
  */
 
+declare(strict_types=1);
+
 return [
     'accepted'             => 'Вы должны принять :attribute.',
     'accepted_if'          => 'Вы должны принять :attribute, когда :other соответствует :value.',
