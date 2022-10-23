@@ -33,13 +33,13 @@ class Channel extends Model
         'user_id' => 'int',
     ];
 
-    public function bot(): Relation
-    {
-        return $this->belongsTo(Bot::class);
-    }
-
     protected static function booted()
     {
         static::addGlobalScope(new SortByNameScope());
+    }
+
+    public function bot(): Relation
+    {
+        return $this->belongsTo(Bot::class);
     }
 }

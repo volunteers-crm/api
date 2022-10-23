@@ -56,21 +56,15 @@ return [
     'report_unknown_webhook_commands' => true,
 
     'security' => [
-        /*
-         * if enabled, allows callback queries from unregistered chats
-         */
+        // if enabled, allows callback queries from unregistered chats
 
         'allow_callback_queries_from_unknown_chats' => false,
 
-        /*
-         * if enabled, allows messages and commands from unregistered chats
-         */
+        // if enabled, allows messages and commands from unregistered chats
 
         'allow_messages_from_unknown_chats' => false,
 
-        /*
-         * if enabled, store unknown chats as new TelegraphChat models
-         */
+        // if enabled, store unknown chats as new TelegraphChat models
 
         'store_unknown_chats_in_db' => false,
     ],

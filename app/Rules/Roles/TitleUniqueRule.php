@@ -25,7 +25,7 @@ use Illuminate\Database\Eloquent\Builder;
 class TitleUniqueRule implements Rule
 {
     public function __construct(
-        protected User  $user,
+        protected User $user,
         protected ?Role $ignoreRole = null
     ) {
     }
@@ -33,8 +33,10 @@ class TitleUniqueRule implements Rule
     public function passes($attribute, $value): bool
     {
         return $this->user->roles()
-            ->when($this->ignoreRole, fn (Builder $builder, Role $role) => $builder
-                ->where('id', '<>', $role->id)
+            ->when(
+                $this->ignoreRole,
+                fn (Builder $builder, Role $role) => $builder
+                    ->where('id', '<>', $role->id)
             )
             ->where('title', $value)
             ->doesntExist();

@@ -60,26 +60,34 @@ return new class () extends Action
     protected function translatedContent(Generator $faker): array
     {
         return [
-            $this->line(MessageType::TEXT,
+            $this->line(
+                MessageType::TEXT,
                 Text::make([
                     'text' => $faker->realText,
-                ])),
+                ])
+            ),
 
-            $this->line(MessageType::DOCUMENT,
+            $this->line(
+                MessageType::DOCUMENT,
                 Document::make([
                     'src'     => $faker->imageUrl,
                     'preview' => $faker->imageUrl,
-                ])),
+                ])
+            ),
 
-            $this->line(MessageType::TEXT,
+            $this->line(
+                MessageType::TEXT,
                 Text::make([
                     'text' => $faker->realText,
-                ])),
+                ])
+            ),
 
-            $this->line(MessageType::TEXT,
+            $this->line(
+                MessageType::TEXT,
                 Text::make([
                     'text' => $faker->realText,
-                ])),
+                ])
+            ),
         ];
     }
 

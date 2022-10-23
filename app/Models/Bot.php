@@ -39,6 +39,11 @@ class Bot extends TelegraphBot
         'locale' => Locales::class,
     ];
 
+    public static function booted()
+    {
+        static::addGlobalScope(new SortByNameScope());
+    }
+
     public function owner(): Relation
     {
         return $this->belongsTo(User::class);
@@ -52,10 +57,5 @@ class Bot extends TelegraphBot
     public function chats(): HasMany
     {
         return $this->hasMany(Chat::class);
-    }
-
-    public static function booted()
-    {
-        static::addGlobalScope(new SortByNameScope());
     }
 }

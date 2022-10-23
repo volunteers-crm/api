@@ -21,7 +21,6 @@ app('router')
     ->controller(AuthController::class)
     ->prefix('auth')
     ->group(static function () {
-
         app('router')
             ->post('{social:type}/confirm', 'confirm');
 

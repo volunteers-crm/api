@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\App;
 
 trait HasTranslations
 {
-    public function getTranslation(string $key, string $locale = null): mixed
+    public function getTranslation(string $key, ?string $locale = null): mixed
     {
         $fallback = App::getLocale();
         $locale   = $locale ?: $fallback;
