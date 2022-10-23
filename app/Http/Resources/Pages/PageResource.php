@@ -18,7 +18,6 @@ declare(strict_types=1);
 namespace App\Http\Resources\Pages;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use Illuminate\Support\Facades\App;
 
 /** @mixin \App\Models\Page */
 class PageResource extends JsonResource
@@ -26,19 +25,13 @@ class PageResource extends JsonResource
     public function toArray($request): array
     {
         return [
-            'slug'    => $this->slug,
             'title'   => $this->getTranslated('title'),
             'content' => $this->getTranslated('content'),
         ];
     }
 
-    protected function getTranslated(string $key): ?string
+    protected function getTranslated(string $key): mixed
     {
-        return $this->getTranslation($key, $this->locale());
-    }
-
-    protected function locale(): string
-    {
-        return App::getLocale();
+        return $this->getTranslation($key);
     }
 }

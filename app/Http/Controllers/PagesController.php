@@ -17,36 +17,13 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\Pages\PageResource;
 use App\Models\Page;
-use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
-    public function index()
+    public function __invoke(Page $page)
     {
-    }
-
-    public function create()
-    {
-    }
-
-    public function store(Request $request)
-    {
-    }
-
-    public function show(Page $page)
-    {
-    }
-
-    public function edit(Page $page)
-    {
-    }
-
-    public function update(Request $request, Page $page)
-    {
-    }
-
-    public function destroy(Page $page)
-    {
+        return PageResource::make($page);
     }
 }

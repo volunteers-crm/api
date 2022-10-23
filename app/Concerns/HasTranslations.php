@@ -15,19 +15,19 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Resources\Pages;
+namespace App\Concerns;
 
-use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\App;
 
-/** @mixin \App\Models\Page */
-class PageRawResource extends JsonResource
+trait HasTranslations
 {
-    public function toArray($request): array
+    public function getTranslation(string $key, string $locale = null): mixed
     {
-        return [
-            'slug'    => $this->slug,
-            'title'   => $this->title,
-            'content' => $this->content,
-        ];
+        $fallback = App::getLocale();
+        $locale   = $locale ?: $fallback;
+
+        $values = $this->getAttribute($key);
+
+        return $values[$locale] ?? $values[$fallback];
     }
 }

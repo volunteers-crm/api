@@ -18,8 +18,8 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Casts\SluggableCast;
+use App\Concerns\HasTranslations;
 use Illuminate\Database\Eloquent\Model;
-use Spatie\Translatable\HasTranslations;
 
 class Page extends Model
 {
@@ -36,10 +36,5 @@ class Page extends Model
 
         'title'   => 'json',
         'content' => 'json',
-    ];
-
-    protected array $translatable = [
-        'title',
-        'content',
     ];
 }

@@ -16,11 +16,18 @@
 declare(strict_types=1);
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\PagesController;
 use App\Http\Controllers\Roles\RolesController;
 use App\Http\Controllers\Users\UserController;
 
 app('router')->post('auth/{social:type}/confirm', AuthController::class);
 
-app('router')->get('user', UserController::class);
+app('router')->get('pages/{page:slug}', PagesController::class);
 
-app('router')->apiResource('roles', RolesController::class);
+app('router')
+    ->middleware('auth.token')
+    ->group(static function () {
+        app('router')->get('user', UserController::class);
+
+        app('router')->apiResource('roles', RolesController::class);
+    });

@@ -28,7 +28,7 @@ return new class () extends Action
 {
     protected bool $once = false;
 
-    protected string $slug = 'about-us';
+    protected string $slug = 'about';
 
     public function __invoke(): void
     {
@@ -42,7 +42,7 @@ return new class () extends Action
     protected function titles(): array
     {
         return [
-            Locales::ENGLISH->value => 'About Us',
+            Locales::ENGLISH->value => 'About',
             Locales::RUSSIAN->value => 'О нас',
             Locales::GERMAN->value  => 'Über uns',
         ];
