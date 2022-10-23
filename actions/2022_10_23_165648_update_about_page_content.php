@@ -50,8 +50,8 @@ return new class () extends Action
     protected function content(): array
     {
         return [
-            Locales::ENGLISH->value => $this->translatedContent(Factory::create(Locales::ENGLISH->value)),
-            Locales::RUSSIAN->value => $this->translatedContent(Factory::create(Locales::RUSSIAN->value)),
+            Locales::ENGLISH->value => $this->translatedContent(Factory::create('en_US')),
+            Locales::RUSSIAN->value => $this->translatedContent(Factory::create('ru_RU')),
         ];
     }
 
@@ -60,7 +60,7 @@ return new class () extends Action
         return [
             $this->line(MessageType::TEXT,
                 Text::make([
-                    'text' => $faker->text,
+                    'text' => $faker->realText,
                 ])),
 
             $this->line(MessageType::DOCUMENT,
@@ -71,12 +71,12 @@ return new class () extends Action
 
             $this->line(MessageType::TEXT,
                 Text::make([
-                    'text' => $faker->text,
+                    'text' => $faker->realText,
                 ])),
 
             $this->line(MessageType::TEXT,
                 Text::make([
-                    'text' => $faker->text,
+                    'text' => $faker->realText,
                 ])),
         ];
     }
