@@ -19,12 +19,11 @@ use App\Http\Controllers\AuthController;
 
 app('router')
     ->controller(AuthController::class)
-    ->prefix('auth')
     ->group(static function () {
-        app('router')
-            ->post('{social:type}/confirm', 'confirm');
-
         app('router')
             ->middleware('auth.token')
             ->get('me', 'me');
+
+        app('router')
+            ->post('{social:type}', 'login');
     });

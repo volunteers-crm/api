@@ -26,7 +26,7 @@ use Laravel\Socialite\Contracts\Provider;
 use Laravel\Socialite\Contracts\User;
 use Laravel\Socialite\Facades\Socialite;
 
-class ConfirmRequest extends FormRequest
+class LoginRequest extends FormRequest
 {
     public function rules(): array
     {

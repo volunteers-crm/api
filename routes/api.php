@@ -17,10 +17,12 @@ declare(strict_types=1);
 
 app('router')
     ->name('auth.')
+    ->prefix('auth')
     ->group(__DIR__ . '/groups/auth.php');
 
 app('router')
     ->name('pages.')
+    ->prefix('pages')
     ->group(__DIR__ . '/groups/pages.php');
 
 app('router')
