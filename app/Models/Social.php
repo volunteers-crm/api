@@ -28,7 +28,6 @@ class Social extends Model
 
     protected $fillable = [
         'type',
-        'title',
         'is_active',
     ];
 

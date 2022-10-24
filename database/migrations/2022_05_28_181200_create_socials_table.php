@@ -26,8 +26,7 @@ return new class () extends Migration
         Schema::create('socials', static function (Blueprint $table) {
             $table->id();
 
-            $table->string('type');
-            $table->string('title');
+            $table->string('type')->unique();
 
             $table->boolean('is_active')->default(true);
 
@@ -35,7 +34,6 @@ return new class () extends Migration
             $table->softDeletes();
 
             $table->index(['type', 'is_active', 'deleted_at']);
-            $table->unique(['type', 'deleted_at']);
         });
     }
 
