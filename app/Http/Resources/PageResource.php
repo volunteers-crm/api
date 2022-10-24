@@ -19,7 +19,10 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-/** @mixin \App\Models\Page */
+/**
+ * @property \App\Models\Page $resource
+ * @mixin \App\Models\Page
+ */
 class PageResource extends JsonResource
 {
     public function toArray($request): array
@@ -32,6 +35,6 @@ class PageResource extends JsonResource
 
     protected function getTranslated(string $key): mixed
     {
-        return $this->getTranslation($key);
+        return $this->resource->getTranslation($key);
     }
 }
