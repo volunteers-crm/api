@@ -34,3 +34,8 @@ app('router')
     ->name('bots.')
     ->middleware('auth.token')
     ->group(__DIR__ . '/groups/bots.php');
+
+app('router')
+    ->name('channels.')
+    ->middleware('auth.token')
+    ->group(__DIR__ . '/groups/channels.php');

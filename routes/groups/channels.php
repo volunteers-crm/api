@@ -15,21 +15,14 @@
 
 declare(strict_types=1);
 
-namespace App\Observers;
+use App\Http\Controllers\ChannelsController;
 
-use App\Models\User;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
+app('router')
+    ->controller(ChannelsController::class)
+    ->prefix('channels')
+    ->group(static function () {
 
-class UserObserver
-{
-    public function creating(User $user): void
-    {
-        $user->password = $this->generatePassword();
-    }
-
-    protected function generatePassword(): string
-    {
-        return Hash::make(Str::random());
-    }
-}
+        app('router')->get('/', 'index');
+        app('router')->get('command', 'command');
+        app('router')->delete('{channel}', 'destroy');
+    });

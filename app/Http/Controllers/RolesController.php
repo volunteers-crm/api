@@ -22,7 +22,7 @@ use App\Http\Requests\Roles\DestroyRequest;
 use App\Http\Requests\Roles\UpdateRequest;
 use App\Http\Resources\RoleResource;
 use App\Models\Role;
-use App\Services\Roles\Role as RoleService;
+use App\Services\Role as RoleService;
 use Illuminate\Http\Request;
 
 class RolesController extends Controller

@@ -15,21 +15,14 @@
 
 declare(strict_types=1);
 
-namespace App\Observers;
+namespace App\Exceptions\Http;
 
-use App\Models\User;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
-class UserObserver
+class HasExpiredHttpException extends HttpException
 {
-    public function creating(User $user): void
+    public function __construct()
     {
-        $user->password = $this->generatePassword();
-    }
-
-    protected function generatePassword(): string
-    {
-        return Hash::make(Str::random());
+        parent::__construct(410, __('Hash has expired'));
     }
 }

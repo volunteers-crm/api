@@ -18,28 +18,22 @@ declare(strict_types=1);
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use LaravelLang\Publisher\Facades\Helpers\Locales;
 
-/** @mixin \App\Models\Bot */
-class BotResource extends JsonResource
+/** @mixin \App\Models\Channel */
+class ChannelResource extends JsonResource
 {
     public function toArray($request): array
     {
         return [
-            'id'       => $this->id,
-            'name'     => $this->name,
-            'timezone' => $this->getTimezone(),
-            'locale'   => $this->getLocale(),
+            'id'   => $this->id,
+            'name' => $this->name,
+
+            'bots' => BotResource::collection($this->whenLoaded('bots')),
+
+            'appeals' => [
+                'open'   => 123,
+                'closed' => 345,
+            ],
         ];
-    }
-
-    protected function getTimezone(): string
-    {
-        return $this->timezone ?: config('app.timezone');
-    }
-
-    protected function getLocale(): string
-    {
-        return $this->locale?->value ?: Locales::getDefault();
     }
 }

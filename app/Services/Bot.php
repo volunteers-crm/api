@@ -15,7 +15,7 @@
 
 declare(strict_types=1);
 
-namespace App\Services\Bots;
+namespace App\Services;
 
 use App\Models\Bot as Model;
 use App\Models\User;
@@ -33,19 +33,19 @@ class Bot
         $bot = $user->ownedBots()->create($values);
 
         if (is_array($channels) && $channels) {
-            $bot->chats()->sync($channels, false);
+            $bot->channels()->sync($channels, false);
         }
 
-        return $bot->loadMissing('chats');
+        return $bot->loadMissing('channels');
     }
 
     public function update(Model $bot, array $values, ?array $channels = null): Model
     {
         $bot->update($values);
 
-        $bot->chats()->sync($channels);
+        $bot->channels()->sync($channels);
 
-        $bot->loadMissing('chats')->refresh();
+        $bot->loadMissing('channels')->refresh();
 
         return $bot;
     }

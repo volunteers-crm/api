@@ -35,7 +35,7 @@ class MorphServiceProvider extends ServiceProvider
         Relation::enforceMorphMap([
             'appeal'  => Appeal::class,
             'bot'     => Bot::class,
-            'chat'    => Channel::class,
+            'channel' => Channel::class,
             'message' => Message::class,
             'page'    => Page::class,
             'role'    => Role::class,

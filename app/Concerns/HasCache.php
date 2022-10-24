@@ -15,21 +15,17 @@
 
 declare(strict_types=1);
 
-namespace App\Observers;
+namespace App\Concerns;
 
-use App\Models\User;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
+use DateTimeInterface;
+use DragonCode\Cache\Services\Cache;
 
-class UserObserver
+trait HasCache
 {
-    public function creating(User $user): void
+    protected function cache(mixed $key, DateTimeInterface|int $minutes = 1): Cache
     {
-        $user->password = $this->generatePassword();
-    }
-
-    protected function generatePassword(): string
-    {
-        return Hash::make(Str::random());
+        return Cache::make()
+            ->key(static::class, $key)
+            ->ttl($minutes);
     }
 }

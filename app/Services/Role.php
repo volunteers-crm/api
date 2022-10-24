@@ -15,7 +15,7 @@
 
 declare(strict_types=1);
 
-namespace App\Services\Roles;
+namespace App\Services;
 
 use App\Models\Role as Model;
 use App\Models\User;

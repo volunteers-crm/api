@@ -15,15 +15,15 @@
 
 declare(strict_types=1);
 
-namespace App\Services\Users;
+namespace App\Services;
 
 use App\Models\Social;
-use App\Models\User;
+use App\Models\User as Model;
 use Laravel\Socialite\Contracts\User as SocialUser;
 
-class Registrator
+class User
 {
-    public function register(Social $social, SocialUser $user): User
+    public function register(Social $social, SocialUser $user): Model
     {
         $external_id = $user->getId();
         $username    = $user->getNickname();
@@ -36,7 +36,7 @@ class Registrator
         );
     }
 
-    public function token(User $user, string $name): string
+    public function token(Model $user, string $name): string
     {
         $user->tokens()->delete();
 

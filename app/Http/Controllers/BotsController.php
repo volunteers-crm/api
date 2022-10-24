@@ -20,7 +20,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Bots\CreateRequest;
 use App\Http\Resources\BotResource;
 use App\Models\Bot;
-use App\Services\Bots\Bot as BotService;
+use App\Services\Bot as BotService;
 use Illuminate\Http\Request;
 
 class BotsController extends Controller

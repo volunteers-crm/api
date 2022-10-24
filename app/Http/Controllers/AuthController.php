@@ -20,12 +20,12 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Auth\Socialite\LoginRequest;
 use App\Http\Resources\UserResource;
 use App\Models\Social;
-use App\Services\Users\Registrator;
+use App\Services\User;
 use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
-    public function login(LoginRequest $request, Social $social, Registrator $users)
+    public function login(LoginRequest $request, Social $social, User $users)
     {
         $user  = $users->register($social, $request->dto());
         $token = $users->token($user, $social->type);
