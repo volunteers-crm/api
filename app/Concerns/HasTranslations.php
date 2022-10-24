@@ -23,11 +23,18 @@ trait HasTranslations
 {
     public function getTranslation(string $key, ?string $locale = null): mixed
     {
-        $fallback = App::getLocale();
-        $locale   = $locale ?: $fallback;
-
         $values = $this->getAttribute($key);
 
-        return $values[$locale] ?? $values[$fallback];
+        return $values[$this->getLocale($locale)] ?? $values[$this->getFallbackLocale()];
+    }
+
+    protected function getLocale(?string $locale): string
+    {
+        return $locale ?: $this->getFallbackLocale();
+    }
+
+    protected function getFallbackLocale(): string
+    {
+        return App::getLocale();
     }
 }
