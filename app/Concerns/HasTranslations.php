@@ -17,7 +17,7 @@ declare(strict_types=1);
 
 namespace App\Concerns;
 
-use Illuminate\Support\Facades\App;
+use LaravelLang\Publisher\Facades\Helpers\Locales;
 
 trait HasTranslations
 {
@@ -25,16 +25,23 @@ trait HasTranslations
     {
         $values = $this->getAttribute($key);
 
-        return $values[$this->getLocale($locale)] ?? $values[$this->getFallbackLocale()];
+        return $values[$this->getLocale($locale)]
+            ?? $values[$this->getDefaultLocale()]
+            ?? $values[$this->getFallbackLocale()];
     }
 
     protected function getLocale(?string $locale): string
     {
-        return $locale ?: $this->getFallbackLocale();
+        return $locale ?: $this->getDefaultLocale();
+    }
+
+    protected function getDefaultLocale(): string
+    {
+        return Locales::getDefault();
     }
 
     protected function getFallbackLocale(): string
     {
-        return App::getLocale();
+        return Locales::getFallback();
     }
 }
