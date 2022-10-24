@@ -25,13 +25,6 @@ class UserObserver
 {
     public function creating(User $user): void
     {
-        $this->setPassword($user);
-    }
-
-    protected function setPassword(User $user): void
-    {
-        if (! $user->password) {
-            $user->password = Hash::make(Str::random());
-        }
+        $user->password = Hash::make(Str::random());
     }
 }
