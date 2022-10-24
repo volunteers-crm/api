@@ -21,7 +21,6 @@ app('router')
     ->controller(ChannelsController::class)
     ->prefix('channels')
     ->group(static function () {
-
         app('router')->get('/', 'index');
         app('router')->get('command', 'command');
         app('router')->delete('{channel}', 'destroy');
