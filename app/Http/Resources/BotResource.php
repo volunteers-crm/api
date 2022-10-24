@@ -26,7 +26,7 @@ class BotResource extends JsonResource
     {
         return [
             'id'       => $this->id,
-            'username' => $this->username,
+            'name'     => $this->name,
             'timezone' => $this->timezone,
             'locale'   => $this->locale,
         ];

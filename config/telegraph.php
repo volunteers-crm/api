@@ -14,7 +14,7 @@
  */
 
 use App\Models\Bot;
-use App\Models\Chat;
+use App\Models\Channel;
 use DefStudio\Telegraph\Telegraph;
 
 return [
@@ -46,7 +46,7 @@ return [
      * webhook messages to logs
      */
 
-    'debug_mode' => false,
+    'debug_mode' => (bool) env('APP_DEBUG'),
 
     /*
      * If enabled, unknown webhook commands are
@@ -79,6 +79,6 @@ return [
 
     'models' => [
         'bot'  => Bot::class,
-        'chat' => Chat::class,
+        'chat' => Channel::class,
     ],
 ];

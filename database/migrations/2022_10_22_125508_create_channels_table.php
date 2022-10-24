@@ -27,17 +27,12 @@ return new class () extends Migration
         Schema::create('channels', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(User::class, 'owner_id')->constrained('users')->cascadeOnDelete();
 
-            $table->string('username')->nullable();
+            $table->string('chat_id');
             $table->string('name');
 
             $table->timestamps();
         });
-    }
-
-    public function down()
-    {
-        Schema::dropIfExists('channels');
     }
 };

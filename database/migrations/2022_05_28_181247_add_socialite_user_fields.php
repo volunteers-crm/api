@@ -35,11 +35,4 @@ return new class () extends Migration
             });
         });
     }
-
-    public function down()
-    {
-        Schema::table('users', static function (Blueprint $table) {
-            $table->dropColumn(['social_id', 'external_id', 'username', 'avatar']);
-        });
-    }
 };

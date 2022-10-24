@@ -32,15 +32,10 @@ return new class () extends Migration
             $table->foreignIdFor(User::class, 'client_id')->constrained('users')->cascadeOnUpdate();
             $table->foreignIdFor(User::class, 'curator_id')->constrained('users')->cascadeOnUpdate();
 
-            $table->unsignedSmallInteger('status_id');
+            $table->unsignedSmallInteger('status');
 
             $table->timestamp('published_at')->nullable();
             $table->timestamps();
         });
-    }
-
-    public function down()
-    {
-        Schema::dropIfExists('appeals');
     }
 };

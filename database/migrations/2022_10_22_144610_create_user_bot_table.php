@@ -30,9 +30,4 @@ return new class () extends Migration
             $table->foreignIdFor(Bot::class)->constrained()->cascadeOnDelete();
         });
     }
-
-    public function down()
-    {
-        Schema::dropIfExists('user_bot');
-    }
 };

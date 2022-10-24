@@ -13,25 +13,21 @@
  * @see https://github.com/volunteers-crm
  */
 
-use App\Models\Chat;
+declare(strict_types=1);
+
+use App\Models\Bot;
+use App\Models\Channel;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class () extends Migration
+return new class extends Migration
 {
-    public function up(): void
+    public function up()
     {
-        Schema::create('chats', function (Blueprint $table) {
-            $table->id();
-
-            $table->foreignIdFor(Chat::class)->constrained()->cascadeOnDelete();
-
-            $table->string('name')->nullable();
-
-            $table->timestamps();
-
-            $table->unique(['chat_id', 'chat_id']);
+        Schema::create('bot_channel', function (Blueprint $table) {
+            $table->foreignIdFor(Bot::class)->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(Channel::class)->constrained()->cascadeOnDelete();
         });
     }
 };

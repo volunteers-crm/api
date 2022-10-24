@@ -28,13 +28,4 @@ return new class () extends Migration
             $table->dropColumn('email_verified_at');
         });
     }
-
-    public function down()
-    {
-        Schema::table('users', static function (Blueprint $table) {
-            $table->string('email')->after('name')->unique();
-
-            $table->timestamp('email_verified_at')->after('password')->nullable();
-        });
-    }
 };

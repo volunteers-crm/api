@@ -24,7 +24,6 @@ class Role extends Model
 {
     protected $fillable = [
         'user_id',
-        'role_category_id',
         'title',
         'is_storage',
     ];

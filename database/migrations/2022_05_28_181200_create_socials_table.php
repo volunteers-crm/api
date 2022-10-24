@@ -36,9 +36,4 @@ return new class () extends Migration
             $table->index(['type', 'is_active', 'deleted_at']);
         });
     }
-
-    public function down()
-    {
-        Schema::dropIfExists('socials');
-    }
 };

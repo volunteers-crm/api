@@ -18,6 +18,7 @@ declare(strict_types=1);
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -30,12 +31,14 @@ class User extends Authenticatable
     use Notifiable;
 
     protected $fillable = [
-        'name',
-        'password',
         'social_id',
         'external_id',
+
         'username',
+        'name',
         'avatar',
+
+        'password',
     ];
 
     protected $hidden = [
@@ -44,6 +47,7 @@ class User extends Authenticatable
     ];
 
     protected $casts = [
+        'social_id'   => 'int',
         'external_id' => 'int',
     ];
 
@@ -57,17 +61,12 @@ class User extends Authenticatable
         return $this->hasMany(Bot::class, 'owner_id');
     }
 
-    public function bots(): Relation
+    public function bots(): BelongsToMany
     {
         return $this->belongsToMany(Bot::class, UserBot::class);
     }
 
-    public function channels(): Relation
-    {
-        return $this->belongsToMany(Channel::class, UserChannel::class);
-    }
-
-    public function ownedChannels(): Relation
+    public function ownedChats(): Relation
     {
         return $this->hasMany(Channel::class);
     }

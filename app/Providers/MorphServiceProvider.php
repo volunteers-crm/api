@@ -20,7 +20,6 @@ namespace App\Providers;
 use App\Models\Appeal;
 use App\Models\Bot;
 use App\Models\Channel;
-use App\Models\Chat;
 use App\Models\Message;
 use App\Models\Page;
 use App\Models\Role;
@@ -36,8 +35,7 @@ class MorphServiceProvider extends ServiceProvider
         Relation::enforceMorphMap([
             'appeal'  => Appeal::class,
             'bot'     => Bot::class,
-            'channel' => Channel::class,
-            'chat'    => Chat::class,
+            'chat'    => Channel::class,
             'message' => Message::class,
             'page'    => Page::class,
             'role'    => Role::class,

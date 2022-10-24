@@ -33,19 +33,19 @@ class Bot
         $bot = $user->ownedBots()->create($values);
 
         if (is_array($channels) && $channels) {
-            $bot->channels()->sync($channels, false);
+            $bot->chats()->sync($channels, false);
         }
 
-        return $bot->loadMissing('channels');
+        return $bot->loadMissing('chats');
     }
 
     public function update(Model $bot, array $values, ?array $channels = null): Model
     {
         $bot->update($values);
 
-        $bot->channels()->sync($channels);
+        $bot->chats()->sync($channels);
 
-        $bot->refresh();
+        $bot->loadMissing('chats')->refresh();
 
         return $bot;
     }

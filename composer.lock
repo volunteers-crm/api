@@ -191,16 +191,16 @@
         },
         {
             "name": "defstudio/telegraph",
-            "version": "v1.21.0",
+            "version": "v1.21.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/defstudio/telegraph.git",
-                "reference": "30930f9233ccc10bfd3e89aa5ba43af5952ad6dc"
+                "reference": "65bba435747e31b4168ad403b5fafcfe0b7f7851"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/defstudio/telegraph/zipball/30930f9233ccc10bfd3e89aa5ba43af5952ad6dc",
-                "reference": "30930f9233ccc10bfd3e89aa5ba43af5952ad6dc",
+                "url": "https://api.github.com/repos/defstudio/telegraph/zipball/65bba435747e31b4168ad403b5fafcfe0b7f7851",
+                "reference": "65bba435747e31b4168ad403b5fafcfe0b7f7851",
                 "shasum": ""
             },
             "require": {
@@ -266,7 +266,7 @@
             ],
             "support": {
                 "issues": "https://github.com/defstudio/telegraph/issues",
-                "source": "https://github.com/defstudio/telegraph/tree/v1.21.0"
+                "source": "https://github.com/defstudio/telegraph/tree/v1.21.1"
             },
             "funding": [
                 {
@@ -278,7 +278,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-10-10T20:42:27+00:00"
+            "time": "2022-10-24T20:27:19+00:00"
         },
         {
             "name": "dflydev/dot-access-data",
@@ -450,16 +450,16 @@
         },
         {
             "name": "doctrine/dbal",
-            "version": "3.5.0",
+            "version": "3.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "b66f55c7037402d9f522f19d86841e71c09f0195"
+                "reference": "f38ee8aaca2d58ee88653cb34a6a3880c23f38a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/b66f55c7037402d9f522f19d86841e71c09f0195",
-                "reference": "b66f55c7037402d9f522f19d86841e71c09f0195",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/f38ee8aaca2d58ee88653cb34a6a3880c23f38a5",
+                "reference": "f38ee8aaca2d58ee88653cb34a6a3880c23f38a5",
                 "shasum": ""
             },
             "require": {
@@ -541,7 +541,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/dbal/issues",
-                "source": "https://github.com/doctrine/dbal/tree/3.5.0"
+                "source": "https://github.com/doctrine/dbal/tree/3.5.1"
             },
             "funding": [
                 {
@@ -557,7 +557,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-10-22T14:33:42+00:00"
+            "time": "2022-10-24T07:26:18+00:00"
         },
         {
             "name": "doctrine/deprecations",
@@ -1106,16 +1106,16 @@
         },
         {
             "name": "dragon-code/laravel-http-logger",
-            "version": "v1.2.0",
+            "version": "v1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/TheDragonCode/laravel-http-logger.git",
-                "reference": "30869fa69b93f631e9d893ac6d206b0007f44904"
+                "reference": "61ca7c8c058544e8a3497532db634e4b59dcc98e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TheDragonCode/laravel-http-logger/zipball/30869fa69b93f631e9d893ac6d206b0007f44904",
-                "reference": "30869fa69b93f631e9d893ac6d206b0007f44904",
+                "url": "https://api.github.com/repos/TheDragonCode/laravel-http-logger/zipball/61ca7c8c058544e8a3497532db634e4b59dcc98e",
+                "reference": "61ca7c8c058544e8a3497532db634e4b59dcc98e",
                 "shasum": ""
             },
             "require": {
@@ -1154,7 +1154,8 @@
             "authors": [
                 {
                     "name": "Andrey Helldar",
-                    "email": "helldar@ai-rus.com"
+                    "email": "helldar@dragon-code.pro",
+                    "homepage": "https://github.com/andrey-helldar"
                 }
             ],
             "description": "Logging incoming HTTP requests",
@@ -1176,15 +1177,11 @@
             },
             "funding": [
                 {
-                    "url": "https://paypal.me/helldar",
-                    "type": "custom"
+                    "url": "https://boosty.to/dragon-code",
+                    "type": "boosty"
                 },
                 {
-                    "url": "https://yoomoney.ru/to/410012608840929",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/TheDragonCode",
+                    "url": "https://github.com/sponsors/TheDragonCode",
                     "type": "github"
                 },
                 {
@@ -1192,11 +1189,11 @@
                     "type": "open_collective"
                 },
                 {
-                    "url": "https://www.patreon.com/andrey_helldar",
-                    "type": "patreon"
+                    "url": "https://yoomoney.ru/to/410012608840929",
+                    "type": "yoomoney"
                 }
             ],
-            "time": "2022-04-20T15:40:33+00:00"
+            "time": "2022-10-24T21:03:29+00:00"
         },
         {
             "name": "dragon-code/laravel-json-response",

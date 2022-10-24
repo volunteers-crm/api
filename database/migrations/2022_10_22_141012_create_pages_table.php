@@ -27,15 +27,11 @@ return new class () extends Migration
             $table->id();
 
             $table->string('slug')->unique()->index();
+
             $table->json('title');
             $table->json('content');
 
             $table->timestamps();
         });
-    }
-
-    public function down()
-    {
-        Schema::dropIfExists('pages');
     }
 };

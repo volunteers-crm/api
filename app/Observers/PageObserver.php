@@ -18,7 +18,6 @@ declare(strict_types=1);
 namespace App\Observers;
 
 use App\Models\Page;
-use Illuminate\Support\Str;
 use LaravelLang\Publisher\Constants\Locales;
 
 class PageObserver
@@ -27,8 +26,6 @@ class PageObserver
 
     public function saving(Page $page): void
     {
-        $page->slug = Str::slug(
-            $page->getTranslation('name', $this->locale->value)
-        );
+        $page->slug = $page->getTranslation('name', $this->locale->value);
     }
 }

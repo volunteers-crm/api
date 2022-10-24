@@ -18,28 +18,26 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Models\Scopes\SortByNameScope;
-use Illuminate\Database\Eloquent\Model;
+use DefStudio\Telegraph\Models\TelegraphChat;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\Relation;
 
-class Channel extends Model
+class Channel extends TelegraphChat
 {
-    protected $fillable = [
-        'user_id',
-        'username',
-        'name',
-    ];
-
-    protected $casts = [
-        'user_id' => 'int',
-    ];
-
-    protected static function booted()
+    public static function booted()
     {
         static::addGlobalScope(new SortByNameScope());
+
+        parent::booted();
     }
 
-    public function bot(): Relation
+    public function bot(): BelongsTo
     {
         return $this->belongsTo(Bot::class);
+    }
+
+    public function owner(): Relation
+    {
+        return $this->belongsTo(User::class, 'owner_id');
     }
 }

@@ -38,9 +38,4 @@ return new class () extends Migration
             $table->unique(['user_id', 'title']);
         });
     }
-
-    public function down()
-    {
-        Schema::dropIfExists('roles');
-    }
 };

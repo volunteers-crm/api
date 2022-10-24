@@ -19,7 +19,7 @@ namespace App\Models;
 
 use App\Models\Scopes\SortByNameScope;
 use DefStudio\Telegraph\Models\TelegraphBot;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use LaravelLang\Publisher\Constants\Locales;
 
@@ -44,18 +44,13 @@ class Bot extends TelegraphBot
         static::addGlobalScope(new SortByNameScope());
     }
 
+    public function channels(): BelongsToMany
+    {
+        return $this->belongsToMany(Channel::class, BotChannel::class);
+    }
+
     public function owner(): Relation
     {
         return $this->belongsTo(User::class);
-    }
-
-    public function channels(): Relation
-    {
-        return $this->belongsToMany(Channel::class);
-    }
-
-    public function chats(): HasMany
-    {
-        return $this->hasMany(Chat::class);
     }
 }

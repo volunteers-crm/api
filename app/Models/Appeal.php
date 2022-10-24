@@ -27,7 +27,7 @@ class Appeal extends Model
         'bot_id',
         'client_id',
         'curator_id',
-        'status_id',
+        'status',
         'published_at',
     ];
 
@@ -36,7 +36,7 @@ class Appeal extends Model
         'client_id'  => 'int',
         'curator_id' => 'int',
 
-        'status_id' => Status::class,
+        'status' => Status::class,
 
         'published_at' => 'datetime',
     ];
