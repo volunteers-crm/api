@@ -53,7 +53,6 @@ class BotsController extends Controller
 
     public function destroy(Request $request, Bot $bot, BotService $service)
     {
-        return $this->json('aaaa');
         DB::transaction(
             fn () => $service->destroy($request->user(), $bot)
         );

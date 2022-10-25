@@ -18,6 +18,12 @@ declare(strict_types=1);
 use App\Http\Controllers\BotsController;
 
 app('router')
-    ->apiResource('bots', BotsController::class)
-    //->except('show');
-;
+    ->controller(BotsController::class)
+    ->prefix('bots')
+    ->group(static function () {
+
+        app('router')->get('/', 'index');
+        app('router')->post('/', 'store');
+        app('router')->put('{bot:id}', 'update');
+        app('router')->delete('{bot:id}', 'destroy');
+    });
