@@ -15,7 +15,7 @@
 
 declare(strict_types=1);
 
-use App\Models\User;
+use App\Models\Bot;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -27,12 +27,14 @@ return new class () extends Migration
         Schema::create('channels', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignIdFor(User::class, 'owner_id')->constrained('users')->cascadeOnDelete();
+            $table->foreignIdFor(Bot::class, 'telegraph_bot_id')->constrained('bots')->cascadeOnDelete();
 
-            $table->string('chat_id');
-            $table->string('name');
+            $table->bigInteger('chat_id');
+            $table->string('name')->nullable();
 
             $table->timestamps();
+
+            $table->unique(['chat_id', 'telegraph_bot_id']);
         });
     }
 };

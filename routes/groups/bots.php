@@ -17,4 +17,7 @@ declare(strict_types=1);
 
 use App\Http\Controllers\BotsController;
 
-app('router')->apiResource('bots', BotsController::class);
+app('router')
+    ->apiResource('bots', BotsController::class)
+    //->except('show');
+;

@@ -17,31 +17,23 @@ declare(strict_types=1);
 
 namespace App\Rules;
 
+use App\Helpers\BotInfo;
 use Illuminate\Contracts\Validation\Rule;
-use Illuminate\Http\Client\Response;
-use Illuminate\Support\Facades\Http;
 
 class CheckBotCredentialsRule implements Rule
 {
-    protected string $url = 'https://api.telegram.org/bot';
+    public function __construct(
+        protected BotInfo $info = new BotInfo()
+    ) {
+    }
 
     public function passes($attribute, $value): bool
     {
-        return $this->request($value)->successful();
+        return $this->info->request($value)->successful();
     }
 
     public function message(): string
     {
         return __('validation.credentials');
-    }
-
-    protected function request(string $token): Response
-    {
-        return Http::get($this->url($token));
-    }
-
-    protected function url(string $token): string
-    {
-        return $this->url . $token . '/getMe';
     }
 }

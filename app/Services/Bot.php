@@ -19,39 +19,37 @@ namespace App\Services;
 
 use App\Models\Bot as Model;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Relations\Relation;
 
 class Bot
 {
     public function allOwnedBots(User $user): Collection
     {
-        return $user->ownedBots;
+        return $user->ownedBots->loadMissing([
+            'chats' => fn (Relation|Builder $builder) => $builder->public(),
+        ]);
     }
 
-    public function store(User $user, array $values, ?array $channels = null): Model
+    public function store(User $user, array $values): Model
     {
-        $bot = $user->ownedBots()->create($values);
-
-        if (is_array($channels) && $channels) {
-            $bot->channels()->sync($channels, false);
-        }
-
-        return $bot->loadMissing('channels');
+        return $user->ownedBots()->create($values);
     }
 
-    public function update(Model $bot, array $values, ?array $channels = null): Model
+    public function update(User $user, Model $bot, array $values): Model
     {
+        abort_if($user->ownedBots()->where('id', $bot->id)->doesntExist(), 403, __('http-statuses.403'));
+
         $bot->update($values);
 
-        $bot->channels()->sync($channels);
-
-        $bot->loadMissing('channels')->refresh();
-
-        return $bot;
+        return $bot->loadMissing('chats');
     }
 
-    public function destroy(Model $bot): void
+    public function destroy(User $user, Model $bot): void
     {
+        abort_if($user->ownedBots()->where('id', $bot->id)->doesntExist(), 403, __('http-statuses.403'));
+
         $bot->delete();
     }
 }

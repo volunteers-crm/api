@@ -15,27 +15,20 @@
 
 declare(strict_types=1);
 
-namespace App\Rules\Users;
+namespace App\Observers;
 
-use App\Models\User;
-use Illuminate\Contracts\Validation\Rule;
+use App\Helpers\BotInfo;
+use App\Models\Bot;
 
-class ChannelOfUserRule implements Rule
+class BotObserver
 {
     public function __construct(
-        protected User $user
+        protected BotInfo $info
     ) {
     }
 
-    public function passes($attribute, $value): bool
+    public function creating(Bot $bot): void
     {
-        return $this->user->ownedChannels()
-            ->where('id', $value)
-            ->exists();
-    }
-
-    public function message(): string
-    {
-        return __('validation.exists', ['attribute' => 'channel']);
+        $bot->name = $this->info->getName($bot->token);
     }
 }

@@ -17,43 +17,33 @@ declare(strict_types=1);
 
 namespace App\Services;
 
-use App\Concerns\HasCache;
-use App\Helpers\Hash;
 use App\Models\Channel as ChannelModel;
 use App\Models\User as UserModel;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 
 class Channel
 {
-    use HasCache;
-
-    public function __construct(
-        protected Hash $hash
-    ) {
-    }
-
     public function allOwned(UserModel $user): Collection
     {
-        return $user->ownedChannels->loadMissing('bots');
-    }
-
-    public function getRegistrationCommand(UserModel $user): string
-    {
-        return sprintf('/connect@%s %s', $this->getBotUsername(), $this->getHash($user));
+        return $this->ownedChannels($user)
+            ->with('bot')
+            ->public()
+            ->get();
     }
 
     public function destroy(UserModel $user, ChannelModel $channel): void
     {
-        $user->ownedChannels()->where('id', $channel->id)->delete();
+        $this->ownedChannels($user)
+            ->where('id', $channel->id)
+            ->delete();
     }
 
-    protected function getHash(UserModel $user): string
+    protected function ownedChannels(UserModel $user): Builder|ChannelModel
     {
-        return $this->hash->get($user);
-    }
-
-    protected function getBotUsername(): string
-    {
-        return config('services.telegram.bot');
+        return ChannelModel::query()
+            ->whereHas('bot', fn (Builder $builder) => $builder
+                ->where('owner_id', $user->id)
+            );
     }
 }

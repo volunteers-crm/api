@@ -22,6 +22,7 @@ use App\Http\Resources\BotResource;
 use App\Models\Bot;
 use App\Services\Bot as BotService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BotsController extends Controller
 {
@@ -34,21 +35,28 @@ class BotsController extends Controller
 
     public function store(CreateRequest $request, BotService $service)
     {
-        $item = $service->store($request->user(), $request->validated(), $request->get('channels'));
+        $item = DB::transaction(
+            fn () => $service->store($request->user(), $request->validated())
+        );
 
         return BotResource::make($item);
     }
 
     public function update(Request $request, Bot $bot, BotService $service)
     {
-        $item = $service->update($bot, $request->validated(), $request->get('channels'));
+        $item = DB::transaction(
+            fn () => $service->update($request->user(), $bot, $request->validated())
+        );
 
         return BotResource::make($item);
     }
 
-    public function destroy(Bot $bot, BotService $service)
+    public function destroy(Request $request, Bot $bot, BotService $service)
     {
-        $service->destroy($bot);
+        return $this->json('aaaa');
+        DB::transaction(
+            fn () => $service->destroy($request->user(), $bot)
+        );
 
         return $this->json('ok');
     }

@@ -19,14 +19,13 @@ namespace App\Models;
 
 use App\Models\Scopes\SortByNameScope;
 use DefStudio\Telegraph\Models\TelegraphBot;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use LaravelLang\Publisher\Constants\Locales;
 
 class Bot extends TelegraphBot
 {
     protected $fillable = [
-        'user_id',
+        'owner_id',
         'name',
         'token',
         'timezone',
@@ -34,7 +33,7 @@ class Bot extends TelegraphBot
     ];
 
     protected $casts = [
-        'user_id' => 'int',
+        'owner_id' => 'int',
 
         'locale' => Locales::class,
     ];
@@ -42,11 +41,8 @@ class Bot extends TelegraphBot
     public static function booted()
     {
         static::addGlobalScope(new SortByNameScope());
-    }
 
-    public function channels(): BelongsToMany
-    {
-        return $this->belongsToMany(Channel::class, BotChannel::class);
+        parent::booted();
     }
 
     public function owner(): Relation

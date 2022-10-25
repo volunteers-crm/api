@@ -19,7 +19,6 @@ namespace App\Http\Requests\Bots;
 
 use App\Rules\CheckBotCredentialsRule;
 use App\Rules\LocaleRule;
-use App\Rules\Users\ChannelOfUserRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class CreateRequest extends FormRequest
@@ -28,9 +27,6 @@ class CreateRequest extends FormRequest
     {
         return [
             'token' => ['required', 'string', 'regex:/^\d{8,10}:[a-zA-Z\d_-]{35}$/', 'unique:bots', new CheckBotCredentialsRule()],
-
-            'channels'   => ['array'],
-            'channels.*' => ['int', new ChannelOfUserRule($this->user())],
 
             'timezone' => ['required', 'string', 'timezone'],
             'locale'   => ['required', 'string', new LocaleRule()],

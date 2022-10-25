@@ -18,11 +18,5 @@ declare(strict_types=1);
 use App\Http\Controllers\ChannelsController;
 
 app('router')
-    ->controller(ChannelsController::class)
-    ->prefix('channels')
-    ->group(static function () {
-
-        app('router')->get('/', 'index');
-        app('router')->get('command', 'command');
-        app('router')->delete('{channel}', 'destroy');
-    });
+    ->apiResource('channels', ChannelsController::class)
+    ->only('index', 'destroy');

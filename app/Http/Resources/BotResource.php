@@ -30,6 +30,8 @@ class BotResource extends JsonResource
             'name'     => $this->name,
             'timezone' => $this->getTimezone(),
             'locale'   => $this->getLocale(),
+
+            'channels' => ChannelResource::collection($this->whenLoaded('chats')),
         ];
     }
 

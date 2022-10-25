@@ -31,13 +31,6 @@ class ChannelsController extends Controller
         return ChannelResource::collection($items);
     }
 
-    public function command(Request $request, ChannelService $service)
-    {
-        $command = $service->getRegistrationCommand($request->user());
-
-        return $this->json(compact('command'));
-    }
-
     public function destroy(Request $request, Channel $channel, ChannelService $service)
     {
         $service->destroy($request->user(), $channel);

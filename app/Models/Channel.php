@@ -19,7 +19,7 @@ namespace App\Models;
 
 use App\Models\Scopes\SortByNameScope;
 use DefStudio\Telegraph\Models\TelegraphChat;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\Relation;
 
 class Channel extends TelegraphChat
@@ -31,13 +31,13 @@ class Channel extends TelegraphChat
         parent::booted();
     }
 
-    public function bots(): BelongsToMany
-    {
-        return $this->belongsToMany(Bot::class, BotChannel::class);
-    }
-
     public function owner(): Relation
     {
         return $this->belongsTo(User::class, 'owner_id');
+    }
+
+    public function scopePublic(Builder $builder)
+    {
+        $builder->where('chat_id', '<', 0);
     }
 }
