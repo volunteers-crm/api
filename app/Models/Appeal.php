@@ -55,4 +55,9 @@ class Appeal extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function messages(): Relation
+    {
+        return $this->hasMany(Message::class);
+    }
 }

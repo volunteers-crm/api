@@ -17,8 +17,10 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use App\Models\Appeal;
 use App\Models\Bot;
 use App\Models\User;
+use App\Observers\AppealObserver;
 use App\Observers\BotObserver;
 use App\Observers\UserObserver;
 use Illuminate\Support\ServiceProvider;
@@ -27,6 +29,7 @@ class ObserverServiceProvider extends ServiceProvider
 {
     public function boot()
     {
+        Appeal::observe(AppealObserver::class);
         Bot::observe(BotObserver::class);
         User::observe(UserObserver::class);
     }

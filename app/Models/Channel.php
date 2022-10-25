@@ -24,6 +24,10 @@ use Illuminate\Database\Eloquent\Relations\Relation;
 
 class Channel extends TelegraphChat
 {
+    protected $casts = [
+        'chat_id' => 'int',
+    ];
+
     public static function booted()
     {
         static::addGlobalScope(new SortByNameScope());

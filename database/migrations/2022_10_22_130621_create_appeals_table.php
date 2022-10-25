@@ -28,14 +28,16 @@ return new class () extends Migration
         Schema::create('appeals', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignIdFor(Bot::class)->constrained()->cascadeOnDelete();
-            $table->foreignIdFor(User::class, 'client_id')->constrained('users')->cascadeOnUpdate();
-            $table->foreignIdFor(User::class, 'curator_id')->constrained('users')->cascadeOnUpdate();
+            $table->foreignIdFor(Bot::class)->nullable()->constrained()->nullOnDelete();
+            $table->foreignIdFor(User::class, 'client_id')->nullable()->constrained('users')->nullOnDelete();
+            $table->foreignIdFor(User::class, 'curator_id')->nullable()->constrained('users')->nullOnDelete();
 
             $table->unsignedSmallInteger('status');
 
             $table->timestamp('published_at')->nullable();
             $table->timestamps();
+
+            $table->index(['client_id', 'status']);
         });
     }
 };
