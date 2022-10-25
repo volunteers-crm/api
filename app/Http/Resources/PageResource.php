@@ -21,6 +21,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 /**
  * @property \App\Models\Page $resource
+ *
  * @mixin \App\Models\Page
  */
 class PageResource extends JsonResource

@@ -42,8 +42,10 @@ class Channel
     protected function ownedChannels(UserModel $user): Builder|ChannelModel
     {
         return ChannelModel::query()
-            ->whereHas('bot', fn (Builder $builder) => $builder
-                ->where('owner_id', $user->id)
+            ->whereHas(
+                'bot',
+                fn (Builder $builder) => $builder
+                    ->where('owner_id', $user->id)
             );
     }
 }
