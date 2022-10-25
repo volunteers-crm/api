@@ -13,7 +13,7 @@
  * @see https://github.com/volunteers-crm
  */
 
-use App\Http\Webhooks\ConnectHandler;
+use App\Http\Webhooks\TelegraphHandler;
 use App\Models\Bot;
 use App\Models\Channel;
 use DefStudio\Telegraph\Telegraph;
@@ -40,7 +40,7 @@ return [
      * For reference, see https://defstudio.github.io/telegraph/webhooks/overview
      */
 
-    'webhook_handler' => ConnectHandler::class,
+    'webhook_handler' => TelegraphHandler::class,
 
     /*
      * If enabled, Telegraph dumps received

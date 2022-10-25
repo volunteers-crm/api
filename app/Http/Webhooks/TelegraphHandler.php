@@ -21,7 +21,7 @@ use DefStudio\Telegraph\Handlers\WebhookHandler;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Stringable;
 
-class ConnectHandler extends WebhookHandler
+class TelegraphHandler extends WebhookHandler
 {
     public function connect(mixed $parameter)
     {
