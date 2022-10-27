@@ -15,22 +15,16 @@
 
 declare(strict_types=1);
 
-namespace App\Observers;
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
-use App\Enums\Status;
-use App\Models\Appeal;
-
-class AppealObserver
+return new class extends Migration
 {
-    public function creating(Appeal $appeal): void
+    public function up()
     {
-        $appeal->status = Status::NEW;
+        Schema::table('appeals', function (Blueprint $table) {
+            $table->json('info')->nullable()->after('status');
+        });
     }
-
-    public function updating(Appeal $appeal): void
-    {
-        if ($appeal->isDirty('curator_id')) {
-            $appeal->status = Status::IN_PROGRESS;
-        }
-    }
-}
+};

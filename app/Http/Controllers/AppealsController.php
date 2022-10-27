@@ -17,30 +17,40 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Appeals\PublishRequest;
 use App\Http\Resources\AppealResource;
 use App\Models\Appeal;
-use App\Services\Appeals;
+use App\Services\Appeal as AppealService;
 use Illuminate\Http\Request;
 
 class AppealsController extends Controller
 {
-    public function index(Request $request, Appeals $appeals)
+    public function index(Request $request, AppealService $appeals)
     {
         $items = $appeals->index($request->user());
 
         return AppealResource::collection($items);
     }
 
-    public function store(Request $request)
+    public function show(Request $request, Appeal $appeal, AppealService $appeals)
     {
+        $item = $appeals->show($request->user(), $appeal);
+
+        return AppealResource::make($item);
     }
 
-    public function show(Appeal $appeal)
+    public function work(Request $request, Appeal $appeal, AppealService $appeals)
     {
+        $item = $appeals->toWork($request->user(), $appeal);
+
+        return AppealResource::make($item);
     }
 
-    public function update(Request $request, Appeal $appeal)
+    public function publish(PublishRequest $request, Appeal $appeal, AppealService $appeals)
     {
+        $item = $appeals->publish($request->user(), $appeal, $request->dto());
+
+        return AppealResource::make($item);
     }
 
     public function destroy(Appeal $appeal)

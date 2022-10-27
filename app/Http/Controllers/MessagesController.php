@@ -17,36 +17,25 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
-use App\Models\Message;
+use App\Http\Requests\Messages\CreateRequest;
+use App\Http\Resources\MessageResource;
+use App\Models\Appeal;
+use App\Services\Message;
 use Illuminate\Http\Request;
 
 class MessagesController extends Controller
 {
-    public function index()
+    public function index(Request $request, Appeal $appeal, Message $messages)
     {
+        $items = $messages->index($request->user(), $appeal);
+
+        return MessageResource::collection($items);
     }
 
-    public function create()
+    public function store(CreateRequest $request, Appeal $appeal, Message $messages)
     {
-    }
+        $item = $messages->store($request->user(), $appeal, $request->get('message'));
 
-    public function store(Request $request)
-    {
-    }
-
-    public function show(Message $message)
-    {
-    }
-
-    public function edit(Message $message)
-    {
-    }
-
-    public function update(Request $request, Message $message)
-    {
-    }
-
-    public function destroy(Message $message)
-    {
+        return MessageResource::make($item);
     }
 }

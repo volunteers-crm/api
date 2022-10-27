@@ -19,18 +19,20 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-/** @mixin \App\Models\User */
-class UserResource extends JsonResource
+/** @mixin \App\Models\Message */
+class MessageResource extends JsonResource
 {
     public function toArray($request): array
     {
         return [
-            'id' => $this->id,
+            'content' => $this->content,
 
-            'username' => $this->username,
-            'name'     => $this->name,
+            'type' => $this->type,
 
-            'avatar' => $this->avatar,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+
+            'sender' => UserResource::make($this->whenLoaded('sender')),
         ];
     }
 }

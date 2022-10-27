@@ -30,8 +30,8 @@ class MessageCast implements CastsAttributes
     {
         return match ($attributes['type']) {
             MessageType::DOCUMENT => Document::fromJson($value),
-            MessageType::TEXT     => Text::fromJson($value),
-            MessageType::LOCATION => Location::fromJson($value)
+            MessageType::LOCATION => Location::fromJson($value),
+            default               => Text::fromJson($value)
         };
     }
 

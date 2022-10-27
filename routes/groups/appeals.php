@@ -16,5 +16,18 @@
 declare(strict_types=1);
 
 use App\Http\Controllers\AppealsController;
+use App\Http\Controllers\MessagesController;
 
-app('router')->apiResource('appeals', AppealsController::class);
+app('router')
+    ->controller(AppealsController::class)
+    ->prefix('appeals')
+    ->group(static function () {
+
+        app('router')->get('/', 'index');
+        app('router')->get('{appeal}', 'show');
+        app('router')->post('{appeal}/work', 'work');
+        app('router')->post('{appeal}/publish', 'publish');
+
+        app('router')->get('{appeal}/messages', [MessagesController::class, 'index']);
+        app('router')->post('{appeal}/messages', [MessagesController::class, 'index']);
+    });

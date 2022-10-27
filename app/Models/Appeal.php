@@ -17,6 +17,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Casts\Appeals\Info;
 use App\Enums\Status;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
@@ -28,6 +29,7 @@ class Appeal extends Model
         'client_id',
         'curator_id',
         'status',
+        'info',
         'published_at',
     ];
 
@@ -37,6 +39,7 @@ class Appeal extends Model
         'curator_id' => 'int',
 
         'status' => Status::class,
+        'info'   => Info::class,
 
         'published_at' => 'datetime',
     ];
@@ -58,6 +61,7 @@ class Appeal extends Model
 
     public function messages(): Relation
     {
-        return $this->hasMany(Message::class);
+        return $this->hasMany(Message::class)
+            ->orderBy('id');
     }
 }

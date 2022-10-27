@@ -15,18 +15,16 @@
 
 declare(strict_types=1);
 
-namespace App\Services;
+namespace App\Http\Requests\Messages;
 
-use App\Models\Appeal;
-use App\Models\User as UserModel;
-use Illuminate\Support\Collection;
+use Illuminate\Foundation\Http\FormRequest;
 
-class Appeals
+class CreateRequest extends FormRequest
 {
-    public function index(UserModel $user): Collection
+    public function rules(): array
     {
-        return Appeal::query()
-            ->with('bot', 'client', 'curator')
-            ->get();
+        return [
+            'message' => ['required', 'string', 'min:3', 'max:1000'],
+        ];
     }
 }
