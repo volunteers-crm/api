@@ -24,4 +24,6 @@ enum Status: int
     case IN_PROGRESS = 1;
 
     case DONE = 2;
+
+    case CANCELLED = 3;
 }
