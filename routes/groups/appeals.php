@@ -22,7 +22,6 @@ app('router')
     ->controller(AppealsController::class)
     ->prefix('appeals')
     ->group(static function () {
-
         app('router')->get('/', 'index');
         app('router')->get('{appeal}', 'show');
         app('router')->post('{appeal}/work', 'work');
