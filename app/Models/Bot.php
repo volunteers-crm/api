@@ -27,6 +27,7 @@ class Bot extends TelegraphBot
     protected $fillable = [
         'owner_id',
         'name',
+        'title',
         'token',
         'timezone',
         'locale',

@@ -29,7 +29,8 @@ class BotObserver
 
     public function creating(Bot $bot): void
     {
-        $bot->name = $this->info->getName($bot->token);
+        $bot->name  = $this->info->getName($bot);
+        $bot->title = $this->info->getTitle($bot);
     }
 
     public function created(Bot $bot): void

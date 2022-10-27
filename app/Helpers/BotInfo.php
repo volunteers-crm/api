@@ -17,6 +17,7 @@ declare(strict_types=1);
 
 namespace App\Helpers;
 
+use App\Models\Bot;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
 
@@ -24,14 +25,27 @@ class BotInfo
 {
     protected string $url = 'https://api.telegram.org/bot';
 
-    public function getName(string $token): string
+    protected array $response = [];
+
+    public function getName(Bot $bot): string
     {
-        return $this->request($token)->json('result.username');
+        return $this->request($bot)->json('result.username');
     }
 
-    public function request(string $token): Response
+    public function getTitle(Bot $bot): string
     {
-        return Http::get($this->url($token));
+        return $this->request($bot)->json('result.first_name');
+    }
+
+    public function request(Bot|string $bot): Response
+    {
+        $token = is_string($bot) ? $bot : $bot->token;
+
+        if ($response = $this->response[$token] ?? null) {
+            return $response;
+        }
+
+        return $this->response[$token] = Http::get($this->url($token));
     }
 
     protected function url(string $token): string

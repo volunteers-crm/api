@@ -26,8 +26,11 @@ class BotResource extends JsonResource
     public function toArray($request): array
     {
         return [
-            'id'       => $this->id,
-            'name'     => $this->name,
+            'id' => $this->id,
+
+            'name'  => $this->name,
+            'title' => $this->title,
+
             'timezone' => $this->getTimezone(),
             'locale'   => $this->getLocale(),
 
