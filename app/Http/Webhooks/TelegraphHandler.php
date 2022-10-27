@@ -89,16 +89,13 @@ class TelegraphHandler extends WebhookHandler
 
     protected function getClient(): User
     {
-        return User::query()
-            ->where('social_id', $this->getSocialId())
-            ->where('external_id', $this->getChatId())
-            ->firstOrCreate([
-                'social_id'   => $this->getSocialId(),
-                'external_id' => $this->getChatId(),
-
-                'username' => $this->chat->name,
-                'name'     => $this->chat->name,
-            ]);
+        return User::firstOrCreate([
+            'social_id'   => $this->getSocialId(),
+            'external_id' => $this->getChatId(),
+        ], [
+            'username' => $this->chat->name,
+            'name'     => $this->chat->name,
+        ]);
     }
 
     protected function getSocialId(): int

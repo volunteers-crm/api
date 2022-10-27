@@ -31,4 +31,16 @@ class BotObserver
     {
         $bot->name = $this->info->getName($bot->token);
     }
+
+    public function created(Bot $bot): void
+    {
+        $this->registerWebhook($bot);
+    }
+
+    protected function registerWebhook(Bot $bot): void
+    {
+        if (config('telegraph.security.register_webhook_when_model_was_created')) {
+            $bot->registerWebhook()->send();
+        }
+    }
 }

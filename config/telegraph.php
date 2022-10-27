@@ -68,6 +68,8 @@ return [
         // if enabled, store unknown chats as new TelegraphChat models
 
         'store_unknown_chats_in_db' => true,
+
+        'register_webhook_when_model_was_created' => (bool) env('TELEGRAM_REGISTER_WEBHOOK', false),
     ],
 
     /*
