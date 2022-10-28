@@ -19,9 +19,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Messages\CreateRequest;
 use App\Http\Resources\MessageResource;
+use App\Jobs\Messages\SendToClientJob;
 use App\Models\Appeal;
 use App\Services\Message;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MessagesController extends Controller
 {
@@ -34,7 +36,13 @@ class MessagesController extends Controller
 
     public function store(CreateRequest $request, Appeal $appeal, Message $messages)
     {
-        $item = $messages->store($request->user(), $appeal, $request->get('message'));
+        $item = DB::transaction(function () use ($request, $appeal, $messages) {
+            $item = $messages->store($request->user(), $appeal, $request->get('message'));
+
+            SendToClientJob::dispatch($item)->afterCommit();
+
+            return $item;
+        });
 
         return MessageResource::make($item);
     }

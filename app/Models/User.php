@@ -65,4 +65,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Bot::class, UserBot::class);
     }
+
+    public function chat(): Relation
+    {
+        return $this->belongsTo(Channel::class, 'external_id', 'chat_id');
+    }
 }

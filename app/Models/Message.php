@@ -40,6 +40,11 @@ class Message extends Model
         'type' => MessageType::class,
     ];
 
+    public function appeal(): Relation
+    {
+        return $this->belongsTo(Appeal::class, 'appeal_id');
+    }
+
     public function sender(): Relation
     {
         return $this->belongsTo(User::class, 'user_id');
