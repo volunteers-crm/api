@@ -29,5 +29,5 @@ app('router')
         app('router')->post('{appeal}/publish', 'publish');
 
         app('router')->get('{appeal}/messages', [MessagesController::class, 'index']);
-        app('router')->post('{appeal}/messages', [MessagesController::class, 'index']);
+        app('router')->post('{appeal}/messages', [MessagesController::class, 'store']);
     });
