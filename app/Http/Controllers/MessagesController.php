@@ -39,7 +39,7 @@ class MessagesController extends Controller
         $item = DB::transaction(function () use ($request, $appeal, $messages) {
             $item = $messages->store($request->user(), $appeal, $request->get('message'));
 
-            SendToClientJob::dispatch($item)->afterCommit();
+            SendToClientJob::dispatch($item);
 
             return $item;
         });

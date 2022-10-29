@@ -15,19 +15,16 @@
 
 declare(strict_types=1);
 
-namespace App\Enums;
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
-use ArchTech\Enums\InvokableCases;
-
-/**
- * @method static string APPEALS()
- * @method static string MESSAGES()
- */
-enum Queue: string
+return new class extends Migration
 {
-    use InvokableCases;
-
-    case APPEALS = 'appeals';
-
-    case MESSAGES = 'messages';
-}
+    public function up()
+    {
+        Schema::table('appeal_channel', function (Blueprint $table) {
+            $table->unsignedBigInteger('message_id')->nullable();
+        });
+    }
+};

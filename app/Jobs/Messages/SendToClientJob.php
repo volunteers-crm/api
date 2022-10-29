@@ -39,6 +39,8 @@ class SendToClientJob implements ShouldQueue
         public Message $message
     ) {
         $this->queue = Queue::MESSAGES();
+
+        $this->afterCommit = true;
     }
 
     public function handle()

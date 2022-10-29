@@ -50,6 +50,8 @@ class Appeal
         $appeal->published_at = now();
         $appeal->save();
 
+        $appeal->chats()->sync($info->channels);
+
         return $this->loadingMissing($appeal);
     }
 

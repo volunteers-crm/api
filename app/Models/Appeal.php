@@ -64,4 +64,11 @@ class Appeal extends Model
         return $this->hasMany(Message::class)
             ->orderBy('id');
     }
+
+    public function chats(): Relation
+    {
+        return $this->belongsToMany(Channel::class)
+            ->using(AppealChannel::class)
+            ->withPivot('message_id');
+    }
 }

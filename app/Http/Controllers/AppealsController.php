@@ -19,9 +19,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Appeals\PublishRequest;
 use App\Http\Resources\AppealResource;
+use App\Jobs\Appeals\PublishJob;
 use App\Models\Appeal;
 use App\Services\Appeal as AppealService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AppealsController extends Controller
 {
@@ -48,7 +50,13 @@ class AppealsController extends Controller
 
     public function publish(PublishRequest $request, Appeal $appeal, AppealService $appeals)
     {
-        $item = $appeals->publish($request->user(), $appeal, $request->dto());
+        $item = DB::transaction(function () use ($request, $appeal, $appeals) {
+            $appeal = $appeals->publish($request->user(), $appeal, $request->dto());
+
+            PublishJob::dispatch($appeal);
+
+            return $appeal;
+        });
 
         return AppealResource::make($item);
     }
