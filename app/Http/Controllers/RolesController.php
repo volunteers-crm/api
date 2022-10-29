@@ -24,6 +24,7 @@ use App\Http\Resources\RoleResource;
 use App\Models\Role;
 use App\Services\Role as RoleService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class RolesController extends Controller
 {
@@ -36,21 +37,27 @@ class RolesController extends Controller
 
     public function store(CreateRequest $request, RoleService $service)
     {
-        $item = $service->store($request->user(), $request->validated());
+        $item = DB::transaction(
+            fn () => $service->store($request->user(), $request->validated())
+        );
 
         return RoleResource::make($item);
     }
 
     public function update(UpdateRequest $request, Role $role, RoleService $service)
     {
-        $item = $service->update($role, $request->validated());
+        $item = DB::transaction(
+            fn () => $service->update($role, $request->validated())
+        );
 
         return RoleResource::make($item);
     }
 
     public function destroy(DestroyRequest $request, Role $role, RoleService $service)
     {
-        $service->destroy($role);
+        DB::transaction(
+            fn () => $service->destroy($role)
+        );
 
         return $this->json('ok');
     }

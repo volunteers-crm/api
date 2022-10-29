@@ -22,13 +22,18 @@ use App\Http\Resources\UserResource;
 use App\Models\Social;
 use App\Services\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AuthController extends Controller
 {
     public function login(LoginRequest $request, Social $social, User $users)
     {
-        $user  = $users->register($social, $request->dto());
-        $token = $users->token($user, $social->type);
+        [$user, $token] = DB::transaction(function () use ($request, $social, $users) {
+            $user  = $users->register($social, $request->dto());
+            $token = $users->token($user, $social->type);
+
+            return [$user, $token];
+        });
 
         return UserResource::make($user)->additional(compact('token'));
     }

@@ -36,13 +36,11 @@ class MessagesController extends Controller
 
     public function store(CreateRequest $request, Appeal $appeal, Message $messages)
     {
-        $item = DB::transaction(function () use ($request, $appeal, $messages) {
-            $item = $messages->store($request->user(), $appeal, $request->get('message'));
+        $item = DB::transaction(
+            fn () => $messages->store($request->user(), $appeal, $request->get('message'))
+        );
 
-            SendToClientJob::dispatch($item);
-
-            return $item;
-        });
+        SendToClientJob::dispatch($item);
 
         return MessageResource::make($item);
     }

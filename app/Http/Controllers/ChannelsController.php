@@ -21,6 +21,7 @@ use App\Http\Resources\ChannelResource;
 use App\Models\Channel;
 use App\Services\Channel as ChannelService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ChannelsController extends Controller
 {
@@ -33,7 +34,9 @@ class ChannelsController extends Controller
 
     public function destroy(Request $request, Channel $channel, ChannelService $service)
     {
-        $service->destroy($request->user(), $channel);
+        DB::transaction(
+            fn () => $service->destroy($request->user(), $channel)
+        );
 
         return $this->json('ok');
     }

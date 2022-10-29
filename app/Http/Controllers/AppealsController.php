@@ -43,25 +43,21 @@ class AppealsController extends Controller
 
     public function work(Request $request, Appeal $appeal, AppealService $appeals)
     {
-        $item = $appeals->toWork($request->user(), $appeal);
+        $item = DB::transaction(
+            fn () => $appeals->toWork($request->user(), $appeal)
+        );
 
         return AppealResource::make($item);
     }
 
     public function publish(PublishRequest $request, Appeal $appeal, AppealService $appeals)
     {
-        $item = DB::transaction(function () use ($request, $appeal, $appeals) {
-            $appeal = $appeals->publish($request->user(), $appeal, $request->dto());
+        $item = DB::transaction(
+            fn () => $appeals->publish($request->user(), $appeal, $request->dto())
+        );
 
-            PublishJob::dispatch($appeal);
-
-            return $appeal;
-        });
+        PublishJob::dispatch($appeal);
 
         return AppealResource::make($item);
-    }
-
-    public function destroy(Appeal $appeal)
-    {
     }
 }
