@@ -37,7 +37,7 @@ class Appeal extends DataTransferObject
 
     protected function castDate(string $value): ?Carbon
     {
-        return Carbon::parse($value);
+        return Carbon::parse($value)->timezone('UTC');
     }
 
     protected function castTodo(array $values): array

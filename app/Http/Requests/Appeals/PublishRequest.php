@@ -18,6 +18,7 @@ declare(strict_types=1);
 namespace App\Http\Requests\Appeals;
 
 use App\Objects\Appeals\Appeal;
+use Carbon\Carbon;
 use DragonCode\Contracts\DataTransferObject\DataTransferObject;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -42,5 +43,29 @@ class PublishRequest extends FormRequest
     public function dto(): DataTransferObject|Appeal
     {
         return Appeal::fromRequest($this);
+    }
+
+    protected function prepareForValidation(): void
+    {
+        if ($date = $this->get('date')) {
+            $this->merge([
+                'date' => $this->resolveDateTimezone($date),
+            ]);
+        }
+    }
+
+    protected function resolveDateTimezone(string $date): string
+    {
+        return Carbon::parse($date, $this->fromTimezone())->toIso8601String();
+    }
+
+    protected function fromTimezone(): string
+    {
+        return $this->route('appeal')->bot->timezone ?? $this->fallbackTimezone();
+    }
+
+    protected function fallbackTimezone(): string
+    {
+        return config('app.timezone');
     }
 }
