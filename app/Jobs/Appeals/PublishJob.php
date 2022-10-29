@@ -115,8 +115,9 @@ class PublishJob implements ShouldQueue
     {
         return Str::of($text)
             ->explode("\n")
-            ->map(fn (string $line) => ltrim($line))
+            ->map(fn (string $line) => trim($line))
             ->implode("\n")
+            ->replace("\n\n\n", "\n\n")
             ->trim()
             ->toString();
     }
