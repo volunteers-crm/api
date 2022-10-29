@@ -42,7 +42,7 @@ class Appeal extends DataTransferObject
 
     protected function castTodo(array $values): array
     {
-        return Arr::filter($values);
+        return Arr::of($values)->filter()->unique()->values()->toArray();
     }
 
     protected function castPersons(string|int $value): int
