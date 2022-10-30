@@ -17,6 +17,7 @@ declare(strict_types=1);
 
 namespace App\Services;
 
+use App\Enums\Status;
 use App\Models\Bot as BotModel;
 use App\Models\Bot as Model;
 use App\Models\User;
@@ -28,7 +29,7 @@ class Become
     public function index(User $user): Collection
     {
         return $user->becomes()
-            ->wherePivot('accepted', false)
+            ->wherePivot('status', Status::NEW)
             ->get();
     }
 

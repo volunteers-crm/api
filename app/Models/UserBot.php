@@ -17,15 +17,19 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Enums\Status;
 use Illuminate\Database\Eloquent\Relations\Pivot;
+use Illuminate\Database\Eloquent\Relations\Relation;
 
 class UserBot extends Pivot
 {
+    public $incrementing = true;
+
     protected $fillable = [
         'user_id',
         'bot_id',
 
-        'accepted',
+        'status',
         'is_coordinator',
 
         'city',
@@ -40,11 +44,26 @@ class UserBot extends Pivot
         'user_id' => 'int',
         'bot_id'  => 'int',
 
-        'accepted' => 'bool',
+        'status' => Status::class,
 
         'is_coordinator' => 'bool',
 
         'recommendations' => 'array',
         'socials'         => 'array',
     ];
+
+    public function bot(): Relation
+    {
+        return $this->belongsTo(Bot::class);
+    }
+
+    public function user(): Relation
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function roles(): Relation
+    {
+        return $this->hasManyThrough(Role::class, User::class, 'id', 'user_id', 'user_id', 'id');
+    }
 }

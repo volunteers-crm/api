@@ -17,7 +17,6 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
-use App\Enums\Policy;
 use App\Http\Requests\Becomes\BecomeRequest;
 use App\Http\Resources\BecomeResource;
 use App\Http\Resources\BotResource;
@@ -37,8 +36,6 @@ class BecomeController extends Controller
 
     public function search(Bot $bot, BecomeService $become)
     {
-        $this->authorize(Policy::BECOME_SEARCH->value, $bot);
-
         $item = $become->search($bot);
 
         return BotResource::make($item);

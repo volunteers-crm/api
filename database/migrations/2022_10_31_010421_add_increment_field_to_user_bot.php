@@ -15,15 +15,16 @@
 
 declare(strict_types=1);
 
-namespace App\Enums;
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
-enum Status: int
+return new class extends Migration
 {
-    case NEW = 0;
-
-    case IN_PROGRESS = 1;
-
-    case DONE = 2;
-
-    case CLOSED = 3;
-}
+    public function up()
+    {
+        Schema::table('user_bot', function (Blueprint $table) {
+            $table->id()->first();
+        });
+    }
+};

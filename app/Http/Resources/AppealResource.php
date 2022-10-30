@@ -46,6 +46,6 @@ class AppealResource extends JsonResource
 
     protected function hasClosed(): bool
     {
-        return in_array($this->status, [Status::DONE, Status::CANCELLED]);
+        return in_array($this->status, [Status::DONE, Status::CLOSED]);
     }
 }

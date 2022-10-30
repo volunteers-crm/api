@@ -77,7 +77,7 @@ class AppealsController extends Controller
     public function cancel(Request $request, Appeal $appeal, AppealService $appeals)
     {
         $item = DB::transaction(
-            fn () => $appeals->changeStatus($request->user(), $appeal, Status::CANCELLED)
+            fn () => $appeals->changeStatus($request->user(), $appeal, Status::CLOSED)
         );
 
         ClosedJob::dispatch($item);

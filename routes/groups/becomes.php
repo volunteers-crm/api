@@ -16,13 +16,25 @@
 declare(strict_types=1);
 
 use App\Http\Controllers\BecomeController;
+use App\Http\Controllers\BecomesController;
 
 app('router')
     ->controller(BecomeController::class)
-    ->prefix('becomes')
+    ->prefix('become')
     ->group(static function () {
         app('router')->get('/', 'index');
         app('router')->get('{bot:name}', 'search');
         app('router')->post('{bot:name}', 'store');
         app('router')->delete('{bot:name}', 'cancel');
+    });
+
+app('router')
+    ->controller(BecomesController::class)
+    ->prefix('becomes')
+    ->group(static function () {
+        app('router')->get('/', 'requests');
+        app('router')->get('accepted', 'accepted');
+        app('router')->get('declined', 'declined');
+        app('router')->post('{become}', 'accept');
+        app('router')->delete('{become}', 'decline');
     });
