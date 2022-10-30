@@ -38,6 +38,8 @@ abstract class BaseJob implements ShouldQueue
 
     protected ?string $text = null;
 
+    abstract protected function view(): string;
+
     public function __construct(
         public Appeal $appeal
     ) {
@@ -45,8 +47,6 @@ abstract class BaseJob implements ShouldQueue
 
         $this->afterCommit = true;
     }
-
-    abstract protected function view(): string;
 
     public function handle()
     {
