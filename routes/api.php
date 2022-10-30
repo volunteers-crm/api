@@ -44,3 +44,8 @@ app('router')
     ->name('channels.')
     ->middleware('auth.token')
     ->group(__DIR__ . '/groups/channels.php');
+
+app('router')
+    ->name('becomes.')
+    ->middleware('auth.token')
+    ->group(__DIR__ . '/groups/becomes.php');

@@ -51,9 +51,14 @@ class User extends Authenticatable
         'external_id' => 'int',
     ];
 
+    public function ownedRoles(): Relation
+    {
+        return $this->hasMany(Role::class, 'user_id');
+    }
+
     public function roles(): Relation
     {
-        return $this->hasMany(Role::class);
+        return $this->belongsToMany(Role::class, UserRole::class)->using(UserRole::class);
     }
 
     public function ownedBots(): Relation
@@ -63,11 +68,18 @@ class User extends Authenticatable
 
     public function bots(): BelongsToMany
     {
-        return $this->belongsToMany(Bot::class, UserBot::class);
+        return $this->belongsToMany(Bot::class, UserBot::class)->using(UserBot::class);
     }
 
     public function chat(): Relation
     {
         return $this->belongsTo(Channel::class, 'external_id', 'chat_id');
+    }
+
+    public function becomes(): Relation
+    {
+        return $this->belongsToMany(Bot::class, UserBot::class)
+            ->using(UserBot::class)
+            ->withTimestamps();
     }
 }

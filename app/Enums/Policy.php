@@ -15,19 +15,9 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Requests\Roles;
+namespace App\Enums;
 
-class DestroyRequest extends BaseRequest
+enum Policy: string
 {
-    public function rules(): array
-    {
-        return [];
-    }
-
-    public function authorize(): bool
-    {
-        return $this->user()->ownedRoles()
-            ->where('id', $this->role()->id)
-            ->exists();
-    }
+    case BECOME_SEARCH = 'become:search';
 }

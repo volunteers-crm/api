@@ -31,7 +31,7 @@ class UpdateRequest extends BaseRequest
 
     public function authorize(): bool
     {
-        return $this->user()->roles()
+        return $this->user()->ownedRoles()
             ->where('id', $this->role()->id)
             ->exists();
     }

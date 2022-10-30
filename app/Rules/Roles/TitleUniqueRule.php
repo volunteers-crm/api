@@ -32,7 +32,7 @@ class TitleUniqueRule implements Rule
 
     public function passes($attribute, $value): bool
     {
-        return $this->user->roles()
+        return $this->user->ownedRoles()
             ->when(
                 $this->ignoreRole,
                 fn (Builder $builder, Role $role) => $builder

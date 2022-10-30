@@ -17,16 +17,31 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use App\Enums\Policy;
+use App\Policies\Becomes;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Gate;
 
 class AuthServiceProvider extends ServiceProvider
 {
-    protected $policies = [
-        // 'App\Models\Model' => 'App\Policies\ModelPolicy',
+    /** @var array<class-string, array<string, Policy>> */
+    protected array $gates = [
+        Becomes\SearchPolicy::class => [
+            'search' => Policy::BECOME_SEARCH,
+        ],
     ];
 
     public function boot()
     {
-        $this->registerPolicies();
+        $this->registerGates();
+    }
+
+    protected function registerGates(): void
+    {
+        foreach ($this->gates as $policy => $gates) {
+            foreach ($gates as $method => $gate) {
+                Gate::define($gate->value, [$policy, $method]);
+            }
+        }
     }
 }

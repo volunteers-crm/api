@@ -25,12 +25,12 @@ class Role
 {
     public function index(User $user): Collection
     {
-        return $user->roles;
+        return $user->ownedRoles;
     }
 
     public function store(User $user, array $values): Model
     {
-        return $user->roles()->create($values);
+        return $user->ownedRoles()->create($values);
     }
 
     public function update(Model $role, array $values): Model

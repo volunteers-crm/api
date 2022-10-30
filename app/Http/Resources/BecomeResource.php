@@ -15,19 +15,22 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Requests\Roles;
+namespace App\Http\Resources;
 
-class DestroyRequest extends BaseRequest
+use Illuminate\Http\Resources\Json\JsonResource;
+
+/** @mixin \App\Models\Bot */
+class BecomeResource extends JsonResource
 {
-    public function rules(): array
+    public function toArray($request): array
     {
-        return [];
-    }
+        return [
+            'id' => $this->id,
 
-    public function authorize(): bool
-    {
-        return $this->user()->ownedRoles()
-            ->where('id', $this->role()->id)
-            ->exists();
+            'name'  => $this->name,
+            'title' => $this->title,
+
+            'created_at' => $this->pivot->created_at,
+        ];
     }
 }

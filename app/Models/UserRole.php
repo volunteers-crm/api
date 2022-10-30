@@ -19,32 +19,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class UserBot extends Pivot
+class UserRole extends Pivot
 {
     protected $fillable = [
         'user_id',
-        'bot_id',
-
-        'accepted',
-        'is_coordinator',
-
-        'city',
-        'about',
-        'source',
-
-        'recommendations',
-        'socials',
+        'role_id',
     ];
 
     protected $casts = [
         'user_id' => 'int',
-        'bot_id'  => 'int',
-
-        'accepted' => 'bool',
-
-        'is_coordinator' => 'bool',
-
-        'recommendations' => 'array',
-        'socials'         => 'array',
+        'role_id' => 'int',
     ];
 }

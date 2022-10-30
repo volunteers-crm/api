@@ -67,7 +67,7 @@ class Appeal extends Model
 
     public function chats(): Relation
     {
-        return $this->belongsToMany(Channel::class)
+        return $this->belongsToMany(Channel::class, AppealChannel::class)
             ->using(AppealChannel::class)
             ->withPivot('message_id');
     }

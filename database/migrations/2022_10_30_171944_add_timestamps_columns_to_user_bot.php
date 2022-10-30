@@ -15,19 +15,16 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Requests\Roles;
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
-class DestroyRequest extends BaseRequest
+return new class extends Migration
 {
-    public function rules(): array
+    public function up()
     {
-        return [];
+        Schema::table('user_bot', function (Blueprint $table) {
+            $table->timestamps();
+        });
     }
-
-    public function authorize(): bool
-    {
-        return $this->user()->ownedRoles()
-            ->where('id', $this->role()->id)
-            ->exists();
-    }
-}
+};

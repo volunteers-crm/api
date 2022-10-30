@@ -15,19 +15,14 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Requests\Roles;
+use App\Http\Controllers\BecomeController;
 
-class DestroyRequest extends BaseRequest
-{
-    public function rules(): array
-    {
-        return [];
-    }
-
-    public function authorize(): bool
-    {
-        return $this->user()->ownedRoles()
-            ->where('id', $this->role()->id)
-            ->exists();
-    }
-}
+app('router')
+    ->controller(BecomeController::class)
+    ->prefix('becomes')
+    ->group(static function () {
+        app('router')->get('/', 'index');
+        app('router')->get('{bot:name}', 'search');
+        app('router')->post('{bot:name}', 'store');
+        app('router')->delete('{bot:name}', 'cancel');
+    });
