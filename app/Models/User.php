@@ -80,6 +80,7 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Bot::class, UserBot::class)
             ->using(UserBot::class)
-            ->withTimestamps();
+            ->withTimestamps()
+            ->orderByPivot('created_at', 'desc');
     }
 }
