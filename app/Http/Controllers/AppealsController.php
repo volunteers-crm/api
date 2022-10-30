@@ -17,8 +17,10 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
+use App\Enums\Status;
 use App\Http\Requests\Appeals\PublishRequest;
 use App\Http\Resources\AppealResource;
+use App\Jobs\Appeals\ClosedJob;
 use App\Jobs\Appeals\PublishJob;
 use App\Models\Appeal;
 use App\Services\Appeal as AppealService;
@@ -57,6 +59,28 @@ class AppealsController extends Controller
         );
 
         PublishJob::dispatch($appeal);
+
+        return AppealResource::make($item);
+    }
+
+    public function done(Request $request, Appeal $appeal, AppealService $appeals)
+    {
+        $item = DB::transaction(
+            fn () => $appeals->changeStatus($request->user(), $appeal, Status::DONE)
+        );
+
+        ClosedJob::dispatch($item);
+
+        return AppealResource::make($item);
+    }
+
+    public function cancel(Request $request, Appeal $appeal, AppealService $appeals)
+    {
+        $item = DB::transaction(
+            fn () => $appeals->changeStatus($request->user(), $appeal, Status::CANCELLED)
+        );
+
+        ClosedJob::dispatch($item);
 
         return AppealResource::make($item);
     }

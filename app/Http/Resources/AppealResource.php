@@ -17,6 +17,7 @@ declare(strict_types=1);
 
 namespace App\Http\Resources;
 
+use App\Enums\Status;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 /** @mixin \App\Models\Appeal */
@@ -31,6 +32,7 @@ class AppealResource extends JsonResource
             'info' => $this->info,
 
             'is_published' => ! empty($this->published_at),
+            'is_closed'    => $this->hasClosed(),
 
             'published_at' => $this->published_at,
             'created_at'   => $this->created_at,
@@ -40,5 +42,10 @@ class AppealResource extends JsonResource
             'client'  => UserResource::make($this->whenLoaded('client')),
             'curator' => UserResource::make($this->whenLoaded('curator')),
         ];
+    }
+
+    protected function hasClosed(): bool
+    {
+        return in_array($this->status, [Status::DONE, Status::CANCELLED]);
     }
 }

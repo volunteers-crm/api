@@ -17,6 +17,7 @@ declare(strict_types=1);
 
 namespace App\Services;
 
+use App\Enums\Status;
 use App\Models\Appeal as AppealModel;
 use App\Models\User as UserModel;
 use App\Objects\Appeals\Appeal as AppealDTO;
@@ -51,6 +52,14 @@ class Appeal
         $appeal->save();
 
         $appeal->chats()->sync($info->channels);
+
+        return $this->loadingMissing($appeal);
+    }
+
+    public function changeStatus(UserModel $user, AppealModel $appeal, Status $status): AppealModel
+    {
+        $appeal->status = $status;
+        $appeal->save();
 
         return $this->loadingMissing($appeal);
     }

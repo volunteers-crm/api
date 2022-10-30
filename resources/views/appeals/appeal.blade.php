@@ -1,3 +1,4 @@
+{!! $closed ?? false ? '<s>' : '' !!}
 <strong>@lang('Appeal') #{{ $appeal->id }}</strong>
 
 @if($date = $appeal->info->date)
@@ -23,3 +24,4 @@
 {{ $appeal->info->comment }}
 
 👤 {{ $appeal->curator->name }}
+{!! $closed ?? false ? '</s>' : '' !!}

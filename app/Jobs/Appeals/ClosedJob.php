@@ -20,25 +20,11 @@ namespace App\Jobs\Appeals;
 use App\Models\Channel;
 use DefStudio\Telegraph\Facades\Telegraph;
 
-class PublishJob extends BaseJob
+class ClosedJob extends BaseJob
 {
     protected function publish(Channel $channel): void
     {
-        $this->hasPublished($channel)
-            ? $this->update($channel)
-            : $this->create($channel);
-    }
-
-    protected function create(Channel $channel): void
-    {
-        $response = Telegraph::bot($this->bot())
-            ->chat($channel)
-            ->html($this->text())
-            ->send();
-
-        $channel->pivot->update([
-            'message_id' => $response->json('result.message_id'),
-        ]);
+        $this->update($channel);
     }
 
     protected function update(Channel $channel): void
@@ -50,16 +36,12 @@ class PublishJob extends BaseJob
             ->send();
     }
 
-    protected function hasPublished(Channel $channel): bool
-    {
-        return is_numeric($channel?->pivot?->message_id);
-    }
-
     protected function view(): string
     {
         return view('appeals.appeal', [
             'appeal'   => $this->appeal,
             'timezone' => $this->timezone(),
+            'closed'   => true,
         ])->render();
     }
 }
