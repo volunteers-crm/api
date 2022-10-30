@@ -17,17 +17,14 @@ declare(strict_types=1);
 
 namespace App\Http\Requests\Bots;
 
-use App\Rules\CheckBotCredentialsRule;
 use App\Rules\LocaleRule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateRequest extends FormRequest
+class UpdateRequest extends FormRequest
 {
     public function rules(): array
     {
         return [
-            'token' => ['required', 'string', 'regex:/^\d{8,10}:[a-zA-Z\d_-]{35}$/', 'unique:bots', new CheckBotCredentialsRule()],
-
             'timezone' => ['required', 'string', 'timezone'],
             'locale'   => ['required', 'string', new LocaleRule()],
 

@@ -18,6 +18,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Bots\CreateRequest;
+use App\Http\Requests\Bots\UpdateRequest;
 use App\Http\Resources\BotResource;
 use App\Models\Bot;
 use App\Services\Bot as BotService;
@@ -36,16 +37,16 @@ class BotsController extends Controller
     public function store(CreateRequest $request, BotService $service)
     {
         $item = DB::transaction(
-            fn () => $service->store($request->user(), $request->validated())
+            fn () => $service->store($request->user(), $request->validated(), $request->get('roles'))
         );
 
         return BotResource::make($item);
     }
 
-    public function update(Request $request, Bot $bot, BotService $service)
+    public function update(UpdateRequest $request, Bot $bot, BotService $service)
     {
         $item = DB::transaction(
-            fn () => $service->update($request->user(), $bot, $request->validated())
+            fn () => $service->update($request->user(), $bot, $request->validated(), $request->get('roles'))
         );
 
         return BotResource::make($item);

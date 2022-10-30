@@ -27,29 +27,37 @@ class Bot
 {
     public function allOwnedBots(User $user): Collection
     {
-        return $user->ownedBots->loadMissing([
-            'chats' => fn (Relation|Builder $builder) => $builder->public(),
-        ]);
+        return $this->loadMissing($user->ownedBots);
     }
 
-    public function store(User $user, array $values): Model
+    public function store(User $user, array $values, ?array $roles): Model
     {
-        return $user->ownedBots()->create($values);
+        $bot = $user->ownedBots()->create($values);
+
+        $bot->roles()->syncWithoutDetaching($roles);
+
+        return $this->loadMissing($bot);
     }
 
-    public function update(User $user, Model $bot, array $values): Model
+    public function update(User $user, Model $bot, array $values, ?array $roles): Model
     {
-        abort_if($user->ownedBots()->where('id', $bot->id)->doesntExist(), 403, __('http-statuses.403'));
-
         $bot->update($values);
 
-        return $bot->loadMissing('chats');
+        $bot->roles()->sync($roles);
+
+        return $this->loadMissing($bot);
     }
 
     public function destroy(User $user, Model $bot): void
     {
-        abort_if($user->ownedBots()->where('id', $bot->id)->doesntExist(), 403, __('http-statuses.403'));
-
         $bot->delete();
+    }
+
+    protected function loadMissing(Collection|Model $bot): Collection|Model
+    {
+        return $bot->loadMissing([
+            'chats' => fn (Relation|Builder $builder) => $builder->public(),
+            'roles',
+        ]);
     }
 }
