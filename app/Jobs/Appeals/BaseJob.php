@@ -28,6 +28,7 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use LaravelLang\Publisher\Facades\Helpers\Locales;
 
 abstract class BaseJob implements ShouldQueue
 {
@@ -44,6 +45,8 @@ abstract class BaseJob implements ShouldQueue
         $this->queue = Queue::APPEALS();
 
         $this->afterCommit = true;
+
+        app()->setLocale($this->locale());
     }
 
     abstract protected function view(): string;
@@ -88,5 +91,10 @@ abstract class BaseJob implements ShouldQueue
     protected function timezone(): string
     {
         return $this->bot()->timezone ?? config('app.timezone');
+    }
+
+    protected function locale(): string
+    {
+        return $this->bot()->locale ?? Locales::getDefault();
     }
 }
