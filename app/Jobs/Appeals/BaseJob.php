@@ -39,6 +39,8 @@ abstract class BaseJob implements ShouldQueue
 
     protected ?string $text = null;
 
+    abstract protected function view(): string;
+
     public function __construct(
         public Appeal $appeal
     ) {
@@ -48,8 +50,6 @@ abstract class BaseJob implements ShouldQueue
 
         app()->setLocale($this->locale());
     }
-
-    abstract protected function view(): string;
 
     public function handle()
     {

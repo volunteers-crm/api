@@ -29,8 +29,10 @@ class Becomes
     {
         return UserBot::query()
             ->with('bot', 'user', 'roles')
-            ->whereHas('bot', fn (Builder $builder) => $builder
-                ->where('owner_id', $user->id)
+            ->whereHas(
+                'bot',
+                fn (Builder $builder) => $builder
+                    ->where('owner_id', $user->id)
             )
             ->where(compact('status'))
             ->oldest()
