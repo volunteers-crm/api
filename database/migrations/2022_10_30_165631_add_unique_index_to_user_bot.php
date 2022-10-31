@@ -23,7 +23,7 @@ return new class () extends Migration
 {
     public function up()
     {
-        Schema::table('user_bot', function (Blueprint $table) {
+        Schema::table('user_bot', static function (Blueprint $table) {
             $table->unique(['user_id', 'bot_id']);
         });
     }

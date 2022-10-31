@@ -23,7 +23,7 @@ return new class () extends Migration
 {
     public function up()
     {
-        Schema::table('bots', function (Blueprint $table) {
+        Schema::table('bots', static function (Blueprint $table) {
             $table->string('title')->nullable()->after('name');
         });
     }

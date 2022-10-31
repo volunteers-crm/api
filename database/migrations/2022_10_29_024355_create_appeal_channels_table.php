@@ -25,7 +25,7 @@ return new class () extends Migration
 {
     public function up()
     {
-        Schema::create('appeal_channel', function (Blueprint $table) {
+        Schema::create('appeal_channel', static function (Blueprint $table) {
             $table->foreignIdFor(Appeal::class)->constrained()->cascadeOnDelete();
             $table->foreignIdFor(Channel::class)->constrained()->cascadeOnDelete();
         });

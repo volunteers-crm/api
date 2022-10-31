@@ -23,7 +23,7 @@ return new class () extends Migration
 {
     public function up()
     {
-        Schema::table('personal_access_tokens', function (Blueprint $table) {
+        Schema::table('personal_access_tokens', static function (Blueprint $table) {
             $table->ulid('id')->change();
         });
     }

@@ -23,7 +23,7 @@ return new class () extends Migration
 {
     public function up()
     {
-        Schema::table('appeals', function (Blueprint $table) {
+        Schema::table('appeals', static function (Blueprint $table) {
             $table->json('info')->nullable()->after('status');
         });
     }

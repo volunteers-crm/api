@@ -23,7 +23,7 @@ return new class () extends Migration
 {
     public function up()
     {
-        Schema::table('appeal_channel', function (Blueprint $table) {
+        Schema::table('appeal_channel', static function (Blueprint $table) {
             $table->unsignedBigInteger('message_id')->nullable();
         });
     }

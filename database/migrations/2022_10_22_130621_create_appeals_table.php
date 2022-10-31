@@ -25,7 +25,7 @@ return new class () extends Migration
 {
     public function up()
     {
-        Schema::create('appeals', function (Blueprint $table) {
+        Schema::create('appeals', static function (Blueprint $table) {
             $table->id();
 
             $table->foreignIdFor(Bot::class)->nullable()->constrained()->nullOnDelete();

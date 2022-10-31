@@ -25,7 +25,7 @@ return new class () extends Migration
 {
     public function up()
     {
-        Schema::create('user_bot', function (Blueprint $table) {
+        Schema::create('user_bot', static function (Blueprint $table) {
             $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
             $table->foreignIdFor(Bot::class)->constrained()->cascadeOnDelete();
         });

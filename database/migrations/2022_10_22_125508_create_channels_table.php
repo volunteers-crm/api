@@ -24,7 +24,7 @@ return new class () extends Migration
 {
     public function up()
     {
-        Schema::create('channels', function (Blueprint $table) {
+        Schema::create('channels', static function (Blueprint $table) {
             $table->id();
 
             $table->foreignIdFor(Bot::class, 'telegraph_bot_id')->constrained('bots')->cascadeOnDelete();

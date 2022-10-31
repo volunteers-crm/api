@@ -23,7 +23,7 @@ return new class () extends Migration
 {
     public function up()
     {
-        Schema::table('channels', function (Blueprint $table) {
+        Schema::table('channels', static function (Blueprint $table) {
             $table->index(['chat_id']);
         });
     }
