@@ -17,6 +17,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Casts\Channels\NameCast;
 use App\Models\Scopes\SortByNameScope;
 use DefStudio\Telegraph\Models\TelegraphChat;
 use Illuminate\Database\Eloquent\Builder;
@@ -26,6 +27,8 @@ class Channel extends TelegraphChat
 {
     protected $casts = [
         'chat_id' => 'int',
+
+        'name' => NameCast::class,
     ];
 
     public static function booted()
