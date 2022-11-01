@@ -30,6 +30,7 @@
     ],
     "require": {
         "php": "^8.1",
+        "ext-pdo": "*",
         "defstudio/telegraph": "^1.21",
         "dragon-code/simple-dto": "^2.6",
         "dragon-code/web-core": "^0.1.2",

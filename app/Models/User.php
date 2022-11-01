@@ -76,6 +76,11 @@ class User extends Authenticatable
         return $this->belongsTo(Channel::class, 'external_id', 'chat_id');
     }
 
+    public function appeals(): Relation
+    {
+        return $this->hasMany(Appeal::class, 'curator_id');
+    }
+
     public function becomes(): Relation
     {
         return $this->belongsToMany(Bot::class, UserBot::class)

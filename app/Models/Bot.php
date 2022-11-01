@@ -62,4 +62,9 @@ class Bot extends TelegraphBot
             ->using(UserBot::class)
             ->withTimestamps();
     }
+
+    public function appeals(): Relation
+    {
+        return $this->hasMany(Appeal::class);
+    }
 }

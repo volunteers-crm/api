@@ -19,6 +19,7 @@ namespace App\Models;
 
 use App\Models\Scopes\SortByTitleScope;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Relation;
 
 class Role extends Model
 {
@@ -35,5 +36,10 @@ class Role extends Model
     protected static function booted()
     {
         static::addGlobalScope(new SortByTitleScope());
+    }
+
+    public function users(): Relation
+    {
+        return $this->belongsToMany(User::class, UserRole::class);
     }
 }

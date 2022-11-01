@@ -21,6 +21,11 @@ app('router')
     ->group(__DIR__ . '/groups/auth.php');
 
 app('router')
+    ->name('dashboard.')
+    ->middleware('auth.token')
+    ->group(__DIR__ . '/groups/dashboard.php');
+
+app('router')
     ->name('pages.')
     ->prefix('pages')
     ->group(__DIR__ . '/groups/pages.php');

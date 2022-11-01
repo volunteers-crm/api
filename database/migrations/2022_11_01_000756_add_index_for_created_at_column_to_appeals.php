@@ -15,12 +15,16 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Controllers;
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
-use App\Concerns\HasCache;
-use DragonCode\WebCore\Http\Controllers\Controller as BaseController;
-
-abstract class Controller extends BaseController
+return new class () extends Migration
 {
-    use HasCache;
-}
+    public function up()
+    {
+        Schema::table('appeals', static function (Blueprint $table) {
+            $table->index(['bot_id', 'created_at']);
+        });
+    }
+};
