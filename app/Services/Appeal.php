@@ -30,6 +30,8 @@ class Appeal
     {
         return AppealModel::query()
             ->with('bot', 'client', 'curator')
+            ->orderByRaw('CASE WHEN `status` = ? THEN 0 WHEN `status` = ? THEN 1 ELSE 2 END', [Status::NEW, Status::IN_PROGRESS])
+            ->orderByDesc('id')
             ->get();
     }
 
