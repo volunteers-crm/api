@@ -18,7 +18,10 @@ declare(strict_types=1);
 namespace App\Http\Resources;
 
 use App\Enums\Status;
+use App\Models\Channel;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Http\Resources\MissingValue;
+use Illuminate\Support\Collection;
 
 /** @mixin \App\Models\Appeal */
 class AppealResource extends JsonResource
@@ -41,11 +44,33 @@ class AppealResource extends JsonResource
             'bot'     => BotResource::make($this->whenLoaded('bot')),
             'client'  => UserResource::make($this->whenLoaded('client')),
             'curator' => UserResource::make($this->whenLoaded('curator')),
+
+            'links' => $this->links(),
         ];
     }
 
     protected function hasClosed(): bool
     {
         return in_array($this->status, [Status::DONE, Status::CLOSED]);
+    }
+
+    protected function links(): Collection|array
+    {
+        if ($this->whenLoaded('chats') instanceof MissingValue) {
+            return [];
+        }
+
+        return $this->chats
+            ->filter(fn (Channel $channel) => $channel->pivot->message_id)
+            ->sortBy('name')
+            ->map(function (Channel $channel) {
+                $id = abs($channel->chat_id) - 1000000000000;
+
+                $title = $channel->name;
+
+                $url = sprintf('https://t.me/c/%d/%d', $id, $channel->pivot->message_id);
+
+                return compact('url', 'title');
+            });
     }
 }

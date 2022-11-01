@@ -37,7 +37,7 @@ class Appeal
 
     public function show(UserModel $user, AppealModel $appeal): AppealModel
     {
-        return $this->loadingMissing($appeal);
+        return $this->loadingMissing($appeal, ['chats']);
     }
 
     public function toWork(UserModel $user, AppealModel $appeal): AppealModel
@@ -66,12 +66,13 @@ class Appeal
         return $this->loadingMissing($appeal);
     }
 
-    protected function loadingMissing(AppealModel $appeal): AppealModel
+    protected function loadingMissing(AppealModel $appeal, array $additional = []): AppealModel
     {
         return $appeal->loadMissing([
             'bot.chats' => fn (Relation $relation) => $relation->public(),
             'client',
             'curator',
+            ...$additional,
         ]);
     }
 }
