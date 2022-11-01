@@ -83,9 +83,9 @@ class User extends Authenticatable
 
     public function becomes(): Relation
     {
-        return $this->belongsToMany(Bot::class, UserBot::class)
-            ->using(UserBot::class)
+        return $this->belongsToMany(Bot::class, Become::class)
+            ->using(Become::class)
             ->withTimestamps()
-            ->orderByPivot('created_at', 'desc');
+            ->orderByPivot('id', 'desc');
     }
 }

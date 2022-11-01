@@ -58,9 +58,7 @@ class Bot extends TelegraphBot
 
     public function becomes(): Relation
     {
-        return $this->belongsToMany(User::class, UserBot::class)
-            ->using(UserBot::class)
-            ->withTimestamps();
+        return $this->belongsToMany(User::class, Become::class)->using(Become::class);
     }
 
     public function appeals(): Relation

@@ -19,7 +19,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-/** @mixin \App\Models\UserBot */
+/** @mixin \App\Models\Become */
 class BecomesResource extends JsonResource
 {
     public function toArray($request): array
@@ -39,9 +39,9 @@ class BecomesResource extends JsonResource
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
 
-            'bot'   => BotResource::make($this->whenLoaded('bot')),
-            'user'  => UserResource::make($this->whenLoaded('user')),
-            'roles' => RoleResource::collection($this->whenLoaded('roles')),
+            'bot'   => BotResource::make($this->bot),
+            'user'  => UserResource::make($this->user),
+            'roles' => RoleResource::collection($this->user->roles),
         ];
     }
 }

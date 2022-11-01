@@ -18,8 +18,9 @@ declare(strict_types=1);
 namespace App\Services;
 
 use App\Enums\Status;
+use App\Models\Become;
+use App\Models\Become as BecomeModel;
 use App\Models\User as UserModel;
-use App\Models\UserBot;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 
@@ -27,8 +28,8 @@ class Becomes
 {
     public function index(UserModel $user, Status $status): Collection
     {
-        return UserBot::query()
-            ->with('bot', 'user', 'roles')
+        return BecomeModel::query()
+            ->with(['bot', 'user.roles'])
             ->whereHas(
                 'bot',
                 fn (Builder $builder) => $builder
@@ -39,8 +40,8 @@ class Becomes
             ->get();
     }
 
-    public function changeStatus(UserBot $bot, Status $status): void
+    public function changeStatus(Become $become, Status $status): void
     {
-        $bot->update(compact('status'));
+        $become->update(compact('status'));
     }
 }

@@ -35,6 +35,6 @@ app('router')
         app('router')->get('/', 'requests');
         app('router')->get('accepted', 'accepted');
         app('router')->get('declined', 'declined');
-        app('router')->post('{become}', 'accept');
+        app('router')->put('{become}', 'accept');
         app('router')->delete('{become}', 'decline');
     });

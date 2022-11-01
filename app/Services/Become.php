@@ -40,11 +40,10 @@ class Become
 
     public function store(User $user, Model $bot, BecomeDto $dto): Model
     {
-        $user->roles()
-            ->syncWithoutDetaching($dto->roles);
+        $user->roles()->syncWithoutDetaching($dto->roles);
+        $user->bots()->syncWithoutDetaching([$bot->id]);
 
-        $bot->becomes()
-            ->syncWithPivotValues([$user->id], $dto->toArray(), false);
+        $user->becomes()->syncWithPivotValues([$bot->id], $dto->toArray(), false);
 
         return $user->becomes()
             ->wherePivot('bot_id', $bot->id)
@@ -53,6 +52,6 @@ class Become
 
     public function cancel(User $user, BotModel $bot): void
     {
-        $bot->becomes()->detach($user->id);
+        $user->becomes()->detach($bot->id);
     }
 }

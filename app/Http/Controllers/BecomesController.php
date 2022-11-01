@@ -19,7 +19,7 @@ namespace App\Http\Controllers;
 
 use App\Enums\Status;
 use App\Http\Resources\BecomesResource;
-use App\Models\UserBot;
+use App\Models\Become;
 use App\Services\Becomes as BecomesService;
 use Illuminate\Http\Request;
 
@@ -46,14 +46,14 @@ class BecomesController extends Controller
         return BecomesResource::collection($items);
     }
 
-    public function accept(UserBot $become, BecomesService $becomes)
+    public function accept(Become $become, BecomesService $becomes)
     {
         $becomes->changeStatus($become, Status::DONE);
 
         return $this->json('ok');
     }
 
-    public function decline(UserBot $become, BecomesService $becomes)
+    public function decline(Become $become, BecomesService $becomes)
     {
         $becomes->changeStatus($become, Status::CLOSED);
 

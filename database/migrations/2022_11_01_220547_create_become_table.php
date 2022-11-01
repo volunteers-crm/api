@@ -15,16 +15,24 @@
 
 declare(strict_types=1);
 
+use App\Enums\Status;
+use App\Models\Bot;
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class () extends Migration
+return new class extends Migration
 {
     public function up()
     {
-        Schema::table('user_bot', static function (Blueprint $table) {
-            $table->boolean('accepted')->default(false);
+        Schema::create('become', static function (Blueprint $table) {
+            $table->id();
+
+            $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(Bot::class)->constrained()->cascadeOnDelete();
+
+            $table->unsignedTinyInteger('status')->default(Status::NEW->value);
 
             $table->string('city');
 
@@ -35,6 +43,10 @@ return new class () extends Migration
 
             $table->json('recommendations')->nullable();
             $table->json('socials')->nullable();
+
+            $table->timestamps();
+
+            $table->unique(['user_id', 'bot_id']);
         });
     }
 };
