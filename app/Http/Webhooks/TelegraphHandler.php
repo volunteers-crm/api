@@ -70,7 +70,7 @@ class TelegraphHandler extends WebhookHandler
     {
         return Appeal::query()
             ->where('client_id', $client->id)
-            ->where('status', '<>', Status::DONE)
+            ->whereNotIn('status', [Status::DONE, Status::CLOSED])
             ->firstOrCreate([
                 'bot_id'    => $this->bot->id,
                 'client_id' => $client->id,
