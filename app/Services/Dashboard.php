@@ -23,7 +23,6 @@ use App\Models\Role as RoleModel;
 use App\Models\User as UserModel;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Dashboard
 {
@@ -61,29 +60,13 @@ class Dashboard
             ->get();
     }
 
-    public function storages(UserModel $user): Collection
+    public function roles(UserModel $user, bool $onlyStorage = false): Collection
     {
         return RoleModel::query()
-            ->with([
-                'users' => fn (BelongsToMany $builder) => $builder
-                    ->groupBy('id')
-                    ->selectRaw('name')
-                    ->selectRaw('COUNT(*) as count'),
-            ])
-            ->where('is_storage', true)
-            ->orderBy('title')
-            ->get();
-    }
-
-    public function roles(UserModel $user): Collection
-    {
-        return RoleModel::query()
-            ->with([
-                'users' => fn (BelongsToMany $builder) => $builder
-                    ->groupBy('id')
-                    ->selectRaw('name')
-                    ->selectRaw('COUNT(*) as count'),
-            ])
+            ->withCount('users')
+            ->when($onlyStorage, fn (Builder $builder) => $builder
+                ->where('is_storage', true)
+            )
             ->orderBy('title')
             ->get();
     }

@@ -43,7 +43,7 @@ class DashboardController extends Controller
 
     public function storages(Request $request, DashboardService $dashboard)
     {
-        $items = $this->remember('storages', fn () => $dashboard->storages($request->user()));
+        $items = $this->remember('storages', fn () => $dashboard->roles($request->user(), true));
 
         return DashboardRoleResource::collection($items);
     }
