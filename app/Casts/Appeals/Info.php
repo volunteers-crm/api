@@ -24,7 +24,7 @@ class Info implements CastsAttributes
 {
     public function get($model, $key, $value, $attributes)
     {
-        return Appeal::fromJson($value);
+        return $value ? Appeal::fromJson($value) : Appeal::make();
     }
 
     /**
