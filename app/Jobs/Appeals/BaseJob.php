@@ -95,6 +95,6 @@ abstract class BaseJob implements ShouldQueue
 
     protected function locale(): string
     {
-        return $this->bot()->locale ?? Locales::getDefault();
+        return $this->bot()->locale?->value ?? Locales::getDefault();
     }
 }
