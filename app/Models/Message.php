@@ -40,6 +40,10 @@ class Message extends Model
         'type' => MessageType::class,
     ];
 
+    protected $touches = [
+        'appeal',
+    ];
+
     public function appeal(): Relation
     {
         return $this->belongsTo(Appeal::class, 'appeal_id');
