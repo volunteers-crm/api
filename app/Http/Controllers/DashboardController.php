@@ -18,8 +18,8 @@ declare(strict_types=1);
 namespace App\Http\Controllers;
 
 use App\Http\Resources\Dashboard\DashboardAppealResource;
-use App\Http\Resources\Dashboard\DashboardCoordinatorsResource;
-use App\Http\Resources\Dashboard\DashboardStorageResource;
+use App\Http\Resources\Dashboard\DashboardCoordinatorResource;
+use App\Http\Resources\Dashboard\DashboardRoleResource;
 use App\Services\Dashboard as DashboardService;
 use Closure;
 use Illuminate\Database\Eloquent\Collection;
@@ -38,19 +38,21 @@ class DashboardController extends Controller
     {
         $items = $this->remember('coordinators', fn () => $dashboard->coordinators($request->user()));
 
-        return DashboardCoordinatorsResource::collection($items);
+        return DashboardCoordinatorResource::collection($items);
     }
 
     public function storages(Request $request, DashboardService $dashboard)
     {
         $items = $this->remember('storages', fn () => $dashboard->storages($request->user()));
 
-        return DashboardStorageResource::collection($items);
+        return DashboardRoleResource::collection($items);
     }
 
     public function roles(Request $request, DashboardService $dashboard)
     {
         $items = $this->remember('roles', fn () => $dashboard->roles($request->user()));
+
+        return DashboardRoleResource::collection($items);
     }
 
     protected function remember(string $method, Closure $callback): Collection

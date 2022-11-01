@@ -17,31 +17,28 @@ declare(strict_types=1);
 
 namespace App\Http\Resources\Dashboard;
 
-use App\Models\User;
 use Illuminate\Http\Resources\Json\JsonResource;
-use Illuminate\Support\Collection;
 
 /**
- * @mixin \App\Models\Role
+ * @property string $date
+ * @property string $appeals_opened
+ * @property string $appeals_solved
+ * @property string $appeals_cancelled
+ *
+ * @mixin \App\Models\User
  */
-class DashboardStorageResource extends JsonResource
+class DashboardCoordinatorResource extends JsonResource
 {
     public function toArray($request): array
     {
         return [
-            'name' => $this->title,
+            'name' => $this->name,
 
-            'users' => $this->users(),
+            'statuses' => [
+                'opened'    => (int) $this->appeals_opened,
+                'solved'    => (int) $this->appeals_solved,
+                'cancelled' => (int) $this->appeals_cancelled,
+            ],
         ];
-    }
-
-    protected function users(): Collection
-    {
-        return $this->users->map(
-            fn (User $user) => [
-                'name'  => $user->name,
-                'count' => $user->count,
-            ]
-        );
     }
 }
