@@ -53,9 +53,9 @@ class Dashboard
                     ->where('owner_id', $user->id)
             )
             ->withCount([
-                'appeals as appeals_solved' => fn (Builder $builder) => $builder->where('status', Status::DONE),
+                'appeals as appeals_solved'    => fn (Builder $builder) => $builder->where('status', Status::DONE),
                 'appeals as appeals_cancelled' => fn (Builder $builder) => $builder->where('status', Status::CLOSED),
-                'appeals as appeals_opened' => fn (Builder $builder) => $builder->where('status', Status::IN_PROGRESS),
+                'appeals as appeals_opened'    => fn (Builder $builder) => $builder->where('status', Status::IN_PROGRESS),
             ])
             ->get();
     }
@@ -64,8 +64,10 @@ class Dashboard
     {
         return RoleModel::query()
             ->withCount('users')
-            ->when($onlyStorage, fn (Builder $builder) => $builder
-                ->where('is_storage', true)
+            ->when(
+                $onlyStorage,
+                fn (Builder $builder) => $builder
+                    ->where('is_storage', true)
             )
             ->orderBy('title')
             ->get();
