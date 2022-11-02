@@ -28,12 +28,12 @@ class ChannelResource extends JsonResource
             'id'   => $this->id,
             'name' => $this->name,
 
-            'bot' => BotResource::make($this->whenLoaded('bot')),
-
             'appeals' => [
-                'open'   => 123,
-                'closed' => 345,
+                'open'   => $this->appeals_opened,
+                'closed' => $this->appeals_closed,
             ],
+
+            'bot' => BotResource::make($this->whenLoaded('bot')),
         ];
     }
 }

@@ -43,6 +43,11 @@ class Channel extends TelegraphChat
         return $this->belongsTo(User::class, 'owner_id');
     }
 
+    public function appeals(): Relation
+    {
+        return $this->belongsToMany(Appeal::class, AppealChannel::class);
+    }
+
     public function scopePublic(Builder $builder)
     {
         $builder->where('chat_id', '<', 0);

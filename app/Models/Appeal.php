@@ -19,6 +19,7 @@ namespace App\Models;
 
 use App\Casts\Appeals\Info;
 use App\Enums\Status;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
 
@@ -70,5 +71,15 @@ class Appeal extends Model
         return $this->belongsToMany(Channel::class, AppealChannel::class)
             ->using(AppealChannel::class)
             ->withPivot('message_id');
+    }
+
+    public function scopeOpened(Builder $builder)
+    {
+        $builder->whereIn('status', [Status::NEW, Status::IN_PROGRESS]);
+    }
+
+    public function scopeClosed(Builder $builder)
+    {
+        $builder->whereIn('status', [Status::DONE, Status::CLOSED]);
     }
 }
