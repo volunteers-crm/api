@@ -15,21 +15,14 @@
 
 declare(strict_types=1);
 
-namespace App\Enums;
+namespace App\Exceptions\Http;
 
-use ArchTech\Enums\InvokableCases;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
-/**
- * @method static string APPEALS()
- * @method static string MESSAGES()
- */
-enum Queue: string
+class RequestTimeoutHttpException extends HttpException
 {
-    use InvokableCases;
-
-    case APPEALS = 'appeals';
-
-    case MESSAGES = 'messages';
-
-    case WEBHOOKS = 'webhooks';
+    public function __construct()
+    {
+        parent::__construct(408, __('http-statuses.408'));
+    }
 }

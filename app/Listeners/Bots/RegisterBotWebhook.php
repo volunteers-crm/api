@@ -17,10 +17,19 @@ declare(strict_types=1);
 
 namespace App\Listeners\Bots;
 
+use App\Enums\Queue;
 use App\Events\Bots\BotCreatedEvent;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
-class RegisterWebhookListener
+class RegisterBotWebhook implements ShouldQueue
 {
+    public ?string $queue = null;
+
+    public function __construct()
+    {
+        $this->queue = Queue::MESSAGES->value;
+    }
+
     public function handle(BotCreatedEvent $event): void
     {
         if ($this->allow()) {

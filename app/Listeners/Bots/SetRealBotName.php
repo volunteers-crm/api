@@ -20,7 +20,7 @@ namespace App\Listeners\Bots;
 use App\Events\Bots\BotCreatingEvent;
 use App\Helpers\BotInfo;
 
-class SetBotNameListener
+class SetRealBotName
 {
     public function __construct(
         protected BotInfo $info
@@ -31,6 +31,5 @@ class SetBotNameListener
     {
         $event->bot->name  = $this->info->getName($event->bot);
         $event->bot->title = $this->info->getTitle($event->bot);
-        $event->bot->save();
     }
 }

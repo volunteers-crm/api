@@ -19,13 +19,17 @@ namespace App\Helpers;
 
 use App\Models\Bot;
 use Illuminate\Http\Client\Response;
-use Illuminate\Support\Facades\Http;
 
 class BotInfo
 {
     protected string $url = 'https://api.telegram.org/bot';
 
     protected array $response = [];
+
+    public function __construct(
+        protected HttpClient $client = new HttpClient()
+    ) {
+    }
 
     public function getName(Bot $bot): string
     {
@@ -39,13 +43,20 @@ class BotInfo
 
     public function request(Bot|string $bot): Response
     {
-        $token = is_string($bot) ? $bot : $bot->token;
+        $url = $this->url(
+            is_string($bot) ? $bot : $bot->token
+        );
 
-        if ($response = $this->response[$token] ?? null) {
+        return $this->response($url);
+    }
+
+    protected function response(string $url): Response
+    {
+        if ($response = $this->response[$url] ?? null) {
             return $response;
         }
 
-        return $this->response[$token] = Http::get($this->url($token));
+        return $this->response[$url] = $this->client->get($url);
     }
 
     protected function url(string $token): string

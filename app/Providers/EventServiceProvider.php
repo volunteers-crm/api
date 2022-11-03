@@ -19,8 +19,8 @@ namespace App\Providers;
 
 use App\Events\Bots\BotCreatedEvent;
 use App\Events\Bots\BotCreatingEvent;
-use App\Listeners\Bots\RegisterWebhookListener;
-use App\Listeners\Bots\SetBotNameListener;
+use App\Listeners\Bots\RegisterBotWebhook;
+use App\Listeners\Bots\SetRealBotName;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use SocialiteProviders\Manager\SocialiteWasCalled;
 use SocialiteProviders\Telegram\TelegramExtendSocialite;
@@ -33,11 +33,11 @@ class EventServiceProvider extends ServiceProvider
         ],
 
         BotCreatingEvent::class => [
-            SetBotNameListener::class,
+            SetRealBotName::class,
         ],
 
         BotCreatedEvent::class => [
-            RegisterWebhookListener::class,
+            RegisterBotWebhook::class,
         ],
     ];
 

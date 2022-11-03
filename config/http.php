@@ -15,21 +15,9 @@
 
 declare(strict_types=1);
 
-namespace App\Enums;
-
-use ArchTech\Enums\InvokableCases;
-
-/**
- * @method static string APPEALS()
- * @method static string MESSAGES()
- */
-enum Queue: string
-{
-    use InvokableCases;
-
-    case APPEALS = 'appeals';
-
-    case MESSAGES = 'messages';
-
-    case WEBHOOKS = 'webhooks';
-}
+return [
+    'timeout' => [
+        'connect' => 10,
+        'request' => 20,
+    ],
+];
