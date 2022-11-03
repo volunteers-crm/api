@@ -38,7 +38,7 @@ class Role extends Model
 
     public function users(): Relation
     {
-        return $this->belongsToMany(User::class, UserRole::class, 'owner_id', 'id', 'user_id', 'id');
+        return $this->belongsToMany(User::class, UserRole::class, 'role_id', 'user_id', 'id', 'id');
     }
 
     protected static function booted()
