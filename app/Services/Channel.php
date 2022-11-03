@@ -24,32 +24,33 @@ use Illuminate\Database\Eloquent\Collection;
 
 class Channel
 {
-    public function allOwned(UserModel $user): Collection
+    public function all(UserModel $user): Collection
     {
-        return $this->ownedChannels($user)
+        return $this->channels($user)
             ->with('bot')
-            ->public()
+            ->withCount([
+                'appeals as appeals_opened' => fn (Builder $builder) => $builder->opened(),
+                'appeals as appeals_closed' => fn (Builder $builder) => $builder->closed(),
+            ])
             ->get();
     }
 
     public function destroy(UserModel $user, ChannelModel $channel): void
     {
-        $this->ownedChannels($user)
+        $this->channels($user)
             ->where('id', $channel->id)
             ->delete();
     }
 
-    protected function ownedChannels(UserModel $user): Builder|ChannelModel
+    protected function channels(UserModel $user): Builder|ChannelModel
     {
         return ChannelModel::query()
-            ->withCount([
-                'appeals as appeals_opened' => fn (Builder $builder) => $builder->opened(),
-                'appeals as appeals_closed' => fn (Builder $builder) => $builder->closed(),
-            ])
+            ->public()
             ->whereHas(
                 'bot',
                 fn (Builder $builder) => $builder
                     ->where('owner_id', $user->id)
+                    ->orWhereHas('users', fn (Builder $builder) => $builder->where('id', $user->id))
             );
     }
 }

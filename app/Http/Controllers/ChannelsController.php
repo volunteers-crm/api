@@ -27,7 +27,7 @@ class ChannelsController extends Controller
 {
     public function index(Request $request, ChannelService $service)
     {
-        $items = $service->allOwned($request->user());
+        $items = $service->all($request->user());
 
         return ChannelResource::collection($items);
     }
