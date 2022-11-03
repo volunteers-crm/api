@@ -17,6 +17,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
+use App\Enums\Policy;
 use App\Enums\Status;
 use App\Http\Requests\Appeals\PublishRequest;
 use App\Http\Resources\AppealResource;
@@ -38,6 +39,8 @@ class AppealsController extends Controller
 
     public function show(Request $request, Appeal $appeal, AppealService $appeals)
     {
+        $this->authorize(Policy::APPEALS_VIEW->value, $appeal);
+
         $item = $appeals->show($request->user(), $appeal);
 
         return AppealResource::make($item);
@@ -45,6 +48,8 @@ class AppealsController extends Controller
 
     public function work(Request $request, Appeal $appeal, AppealService $appeals)
     {
+        $this->authorize(Policy::APPEALS_VIEW->value, $appeal);
+
         $item = DB::transaction(
             fn () => $appeals->toWork($request->user(), $appeal)
         );
@@ -54,6 +59,8 @@ class AppealsController extends Controller
 
     public function publish(PublishRequest $request, Appeal $appeal, AppealService $appeals)
     {
+        $this->authorize(Policy::APPEALS_VIEW->value, $appeal);
+
         $item = DB::transaction(
             fn () => $appeals->publish($request->user(), $appeal, $request->dto())
         );
@@ -65,6 +72,8 @@ class AppealsController extends Controller
 
     public function done(Request $request, Appeal $appeal, AppealService $appeals)
     {
+        $this->authorize(Policy::APPEALS_VIEW->value, $appeal);
+
         $item = DB::transaction(
             fn () => $appeals->changeStatus($request->user(), $appeal, Status::DONE)
         );
@@ -76,6 +85,8 @@ class AppealsController extends Controller
 
     public function cancel(Request $request, Appeal $appeal, AppealService $appeals)
     {
+        $this->authorize(Policy::APPEALS_VIEW->value, $appeal);
+
         $item = DB::transaction(
             fn () => $appeals->changeStatus($request->user(), $appeal, Status::CLOSED)
         );

@@ -18,6 +18,7 @@ declare(strict_types=1);
 namespace App\Providers;
 
 use App\Enums\Policy;
+use App\Policies\Appeals;
 use App\Policies\Becomes;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
@@ -28,6 +29,10 @@ class AuthServiceProvider extends ServiceProvider
     protected array $gates = [
         Becomes\SearchPolicy::class => [
             'search' => Policy::BECOME_SEARCH,
+        ],
+
+        Appeals\ShowAppealPolicy::class => [
+            'view' => Policy::APPEALS_VIEW,
         ],
     ];
 

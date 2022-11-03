@@ -21,6 +21,7 @@ use App\Enums\Status;
 use App\Models\Appeal as AppealModel;
 use App\Models\User as UserModel;
 use App\Objects\Appeals\Appeal as AppealDTO;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Collection;
 
@@ -30,6 +31,7 @@ class Appeal
     {
         return AppealModel::query()
             ->with('bot', 'client', 'curator')
+            ->whereHas('bot.users', fn (Builder $builder) => $builder->where('id', $user->id))
             ->orderByRaw('CASE WHEN `status` = ? THEN 0 WHEN `status` = ? THEN 1 ELSE 2 END', [Status::NEW, Status::IN_PROGRESS])
             ->orderBy('id')
             ->get();

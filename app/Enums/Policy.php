@@ -19,5 +19,7 @@ namespace App\Enums;
 
 enum Policy: string
 {
-    case BECOME_SEARCH = 'become:search';
+    case BECOME_SEARCH = 'become_search';
+
+    case APPEALS_VIEW = 'appeals_view';
 }

@@ -58,6 +58,11 @@ class Bot extends TelegraphBot
         return $this->belongsTo(User::class);
     }
 
+    public function users(): Relation
+    {
+        return $this->belongsToMany(User::class, UserBot::class)->using(UserBot::class);
+    }
+
     public function roles(): Relation
     {
         return $this->belongsToMany(Role::class, BotRole::class)->using(BotRole::class);
