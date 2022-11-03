@@ -18,6 +18,7 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Casts\Appeals\Info;
+use App\Concerns\Eloquent\HasOwner;
 use App\Enums\Status;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -27,6 +28,7 @@ use Illuminate\Database\Eloquent\Relations\Relation;
 class Appeal extends Model
 {
     use HasFactory;
+    use HasOwner;
 
     protected $fillable = [
         'bot_id',

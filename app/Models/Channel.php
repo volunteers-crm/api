@@ -18,6 +18,7 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Casts\Channels\NameCast;
+use App\Concerns\Eloquent\HasOwner;
 use App\Models\Scopes\SortByNameScope;
 use Database\Factories\ChannelFactory;
 use DefStudio\Telegraph\Database\Factories\TelegraphChatFactory;
@@ -29,6 +30,7 @@ use Illuminate\Database\Eloquent\Relations\Relation;
 class Channel extends TelegraphChat
 {
     use HasFactory;
+    use HasOwner;
 
     protected $casts = [
         'chat_id' => 'int',
@@ -41,11 +43,6 @@ class Channel extends TelegraphChat
         static::addGlobalScope(new SortByNameScope());
 
         parent::booted();
-    }
-
-    protected static function newFactory(): TelegraphChatFactory
-    {
-        return ChannelFactory::new();
     }
 
     public function owner(): Relation
@@ -61,5 +58,10 @@ class Channel extends TelegraphChat
     public function scopePublic(Builder $builder)
     {
         $builder->where('chat_id', '<', 0);
+    }
+
+    protected static function newFactory(): TelegraphChatFactory
+    {
+        return ChannelFactory::new();
     }
 }
