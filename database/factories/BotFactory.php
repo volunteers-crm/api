@@ -35,7 +35,7 @@ class BotFactory extends TelegraphBotFactory
     public function definition(): array
     {
         return [
-            'name'  => $this->faker->unique()->userName,
+            'name'  => $this->faker->unique()->userName . '_bot',
             'title' => $this->faker->unique()->word,
 
             'token' => $this->faker->password,
