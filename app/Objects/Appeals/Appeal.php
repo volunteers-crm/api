@@ -35,9 +35,9 @@ class Appeal extends DataTransferObject
 
     public array $todo = [];
 
-    protected function castDate(string $value): ?Carbon
+    protected function castDate(?string $value): ?Carbon
     {
-        return Carbon::parse($value)->timezone('UTC');
+        return $value ? Carbon::parse($value)->timezone('UTC') : null;
     }
 
     protected function castTodo(array $values): array
@@ -45,7 +45,7 @@ class Appeal extends DataTransferObject
         return Arr::of($values)->filter()->unique()->values()->toArray();
     }
 
-    protected function castPersons(string|int $value): int
+    protected function castPersons(string|int|float $value): int
     {
         return (int) $value;
     }

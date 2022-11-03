@@ -37,7 +37,7 @@ class Info implements CastsAttributes
      */
     public function set($model, $key, $value, $attributes)
     {
-        $value = is_array($value) ? Appeal::make($value) : $value;
+        $value = $value instanceof Appeal ? $value : Appeal::make($value ?: []);
 
         return $value->toJson();
     }
