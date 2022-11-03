@@ -18,6 +18,8 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Models\Scopes\SortByNameScope;
+use Database\Factories\BotFactory;
+use DefStudio\Telegraph\Database\Factories\TelegraphBotFactory;
 use DefStudio\Telegraph\Models\TelegraphBot;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use LaravelLang\Publisher\Constants\Locales;
@@ -44,6 +46,11 @@ class Bot extends TelegraphBot
         static::addGlobalScope(new SortByNameScope());
 
         parent::booted();
+    }
+
+    protected static function newFactory(): TelegraphBotFactory
+    {
+        return BotFactory::new();
     }
 
     public function owner(): Relation

@@ -26,6 +26,8 @@ use Laravel\Socialite\Facades\Socialite;
 return [
     'url_web' => env('APP_URL_WEB', env('APP_URL')),
 
+    'faker_locale' => 'ru_RU',
+
     'providers' => Facade::defaultProviders()->merge([
         AppServiceProvider::class,
         AuthServiceProvider::class,

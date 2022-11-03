@@ -53,7 +53,7 @@ class User extends Authenticatable
 
     public function ownedRoles(): Relation
     {
-        return $this->hasMany(Role::class, 'user_id');
+        return $this->hasMany(Role::class, 'owner_id');
     }
 
     public function roles(): Relation

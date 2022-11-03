@@ -15,21 +15,14 @@
 
 declare(strict_types=1);
 
-namespace App\Models;
+namespace Database\Seeders;
 
-use Illuminate\Database\Eloquent\Relations\Pivot;
+use App\Models\User;
 
-class BotRole extends Pivot
+class UserSeeder extends BaseSeeder
 {
-    public $timestamps = false;
-
-    protected $fillable = [
-        'bot_id',
-        'role_id',
-    ];
-
-    protected $casts = [
-        'bot_id'  => 'int',
-        'role_id' => 'int',
-    ];
+    public function run(): void
+    {
+        User::factory(5)->create();
+    }
 }

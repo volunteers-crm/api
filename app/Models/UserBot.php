@@ -17,10 +17,15 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 
 class UserBot extends Pivot
 {
+    use HasFactory;
+
+    public $timestamps = false;
+
     protected $fillable = [
         'user_id',
         'bot_id',

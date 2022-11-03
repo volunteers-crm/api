@@ -18,13 +18,16 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Models\Scopes\SortByTitleScope;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
 
 class Role extends Model
 {
+    use HasFactory;
+
     protected $fillable = [
-        'user_id',
+        'owner_id',
         'title',
         'is_storage',
     ];
@@ -33,13 +36,13 @@ class Role extends Model
         'is_storage' => 'bool',
     ];
 
+    public function users(): Relation
+    {
+        return $this->belongsToMany(User::class, UserRole::class, 'owner_id', 'id', 'user_id', 'id');
+    }
+
     protected static function booted()
     {
         static::addGlobalScope(new SortByTitleScope());
-    }
-
-    public function users(): Relation
-    {
-        return $this->belongsToMany(User::class, UserRole::class);
     }
 }

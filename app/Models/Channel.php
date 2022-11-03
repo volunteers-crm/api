@@ -19,12 +19,17 @@ namespace App\Models;
 
 use App\Casts\Channels\NameCast;
 use App\Models\Scopes\SortByNameScope;
+use Database\Factories\ChannelFactory;
+use DefStudio\Telegraph\Database\Factories\TelegraphChatFactory;
 use DefStudio\Telegraph\Models\TelegraphChat;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\Relation;
 
 class Channel extends TelegraphChat
 {
+    use HasFactory;
+
     protected $casts = [
         'chat_id' => 'int',
 
@@ -51,5 +56,10 @@ class Channel extends TelegraphChat
     public function scopePublic(Builder $builder)
     {
         $builder->where('chat_id', '<', 0);
+    }
+
+    protected static function newFactory(): TelegraphChatFactory
+    {
+        return ChannelFactory::new();
     }
 }

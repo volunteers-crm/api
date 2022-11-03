@@ -19,10 +19,12 @@ namespace App\Models;
 
 use App\Casts\SluggableCast;
 use App\Concerns\HasTranslations;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Page extends Model
 {
+    use HasFactory;
     use HasTranslations;
 
     protected $fillable = [

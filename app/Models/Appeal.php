@@ -20,11 +20,14 @@ namespace App\Models;
 use App\Casts\Appeals\Info;
 use App\Enums\Status;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
 
 class Appeal extends Model
 {
+    use HasFactory;
+
     protected $fillable = [
         'bot_id',
         'client_id',

@@ -18,11 +18,14 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Enums\Status;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 use Illuminate\Database\Eloquent\Relations\Relation;
 
 class Become extends Pivot
 {
+    use HasFactory;
+
     public $timestamps = true;
 
     public $incrementing = true;

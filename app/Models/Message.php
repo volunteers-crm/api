@@ -19,11 +19,14 @@ namespace App\Models;
 
 use App\Casts\MessageCast;
 use App\Enums\MessageType;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
 
 class Message extends Model
 {
+    use HasFactory;
+
     protected $fillable = [
         'appeal_id',
         'user_id',

@@ -15,21 +15,16 @@
 
 declare(strict_types=1);
 
-namespace App\Models;
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
-use Illuminate\Database\Eloquent\Relations\Pivot;
-
-class BotRole extends Pivot
+return new class extends Migration
 {
-    public $timestamps = false;
-
-    protected $fillable = [
-        'bot_id',
-        'role_id',
-    ];
-
-    protected $casts = [
-        'bot_id'  => 'int',
-        'role_id' => 'int',
-    ];
-}
+    public function up()
+    {
+        Schema::table('roles', function (Blueprint $table) {
+            $table->renameColumn('user_id', 'owner_id');
+        });
+    }
+};

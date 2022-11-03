@@ -15,21 +15,20 @@
 
 declare(strict_types=1);
 
-namespace App\Models;
+namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Relations\Pivot;
+use App\Models\Role;
 
-class BotRole extends Pivot
+class RoleFactory extends BaseFactory
 {
-    public $timestamps = false;
+    protected $model = Role::class;
 
-    protected $fillable = [
-        'bot_id',
-        'role_id',
-    ];
+    public function definition(): array
+    {
+        return [
+            'title' => $this->faker->unique()->company,
 
-    protected $casts = [
-        'bot_id'  => 'int',
-        'role_id' => 'int',
-    ];
+            'is_storage' => $this->faker->boolean,
+        ];
+    }
 }
