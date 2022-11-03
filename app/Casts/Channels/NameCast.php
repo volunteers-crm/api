@@ -37,7 +37,7 @@ class NameCast implements CastsAttributes
     public function set($model, $key, $value, $attributes)
     {
         foreach ($this->prefixes as $prefix) {
-            $value = Str::after($value, $prefix);
+            $value = Str::of($value)->after($prefix)->trim()->toString();
         }
 
         return $value;
