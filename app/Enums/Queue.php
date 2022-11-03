@@ -22,6 +22,7 @@ use ArchTech\Enums\InvokableCases;
 /**
  * @method static string APPEALS()
  * @method static string MESSAGES()
+ * @method static string WEBHOOKS()
  */
 enum Queue: string
 {

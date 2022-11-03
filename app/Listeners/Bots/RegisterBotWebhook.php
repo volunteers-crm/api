@@ -23,18 +23,16 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 
 class RegisterBotWebhook implements ShouldQueue
 {
-    public ?string $queue = null;
-
-    public function __construct()
-    {
-        $this->queue = Queue::MESSAGES->value;
-    }
-
     public function handle(BotCreatedEvent $event): void
     {
         if ($this->allow()) {
             $event->bot->registerWebhook()->send();
         }
+    }
+
+    public function viaQueue(): string
+    {
+        return Queue::WEBHOOKS();
     }
 
     protected function allow(): bool
