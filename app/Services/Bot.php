@@ -34,6 +34,7 @@ class Bot
     {
         $bot = $user->ownedBots()->create($values);
 
+        $user->bots()->syncWithoutDetaching($bot->id);
         $bot->roles()->syncWithoutDetaching($roles);
 
         return $this->loadMissing($bot);
