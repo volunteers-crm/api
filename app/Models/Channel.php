@@ -45,6 +45,11 @@ class Channel extends TelegraphChat
         parent::booted();
     }
 
+    protected static function newFactory(): TelegraphChatFactory
+    {
+        return ChannelFactory::new();
+    }
+
     public function owner(): Relation
     {
         return $this->belongsTo(User::class, 'owner_id');
@@ -58,10 +63,5 @@ class Channel extends TelegraphChat
     public function scopePublic(Builder $builder)
     {
         $builder->where('chat_id', '<', 0);
-    }
-
-    protected static function newFactory(): TelegraphChatFactory
-    {
-        return ChannelFactory::new();
     }
 }

@@ -24,9 +24,11 @@ trait HasOwner
 {
     public function scopeHasOwnerByBot(Builder $builder, User $user)
     {
-        $builder->whereHas('bot', fn (Builder $builder) => $builder
-            ->where('owner_id', $user->id)
-            ->orWhereHas('users', fn (Builder $builder) => $builder->where('id', $user->id))
+        $builder->whereHas(
+            'bot',
+            fn (Builder $builder) => $builder
+                ->where('owner_id', $user->id)
+                ->orWhereHas('users', fn (Builder $builder) => $builder->where('id', $user->id))
         );
     }
 }
