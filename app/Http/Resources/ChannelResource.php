@@ -29,7 +29,7 @@ class ChannelResource extends JsonResource
             'name' => $this->name,
 
             'appeals' => [
-                'open'   => $this->appeals_opened,
+                'opened' => $this->appeals_opened,
                 'closed' => $this->appeals_closed,
             ],
 
