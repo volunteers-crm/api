@@ -15,27 +15,17 @@
 
 declare(strict_types=1);
 
-namespace App\Observers;
+namespace App\Events\Bots;
 
-use App\Events\Bots\BotCreatedEvent;
-use App\Events\Bots\BotCreatingEvent;
-use App\Helpers\BotInfo;
 use App\Models\Bot;
+use Illuminate\Foundation\Events\Dispatchable;
 
-class BotObserver
+class BotCreatingEvent
 {
+    use Dispatchable;
+
     public function __construct(
-        protected BotInfo $info
+        public Bot $bot
     ) {
-    }
-
-    public function creating(Bot $bot): void
-    {
-        BotCreatingEvent::dispatch($bot);
-    }
-
-    public function created(Bot $bot): void
-    {
-        BotCreatedEvent::dispatch($bot);
     }
 }

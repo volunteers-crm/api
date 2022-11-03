@@ -15,27 +15,21 @@
 
 declare(strict_types=1);
 
-namespace App\Observers;
+namespace App\Listeners\Bots;
 
 use App\Events\Bots\BotCreatedEvent;
-use App\Events\Bots\BotCreatingEvent;
-use App\Helpers\BotInfo;
-use App\Models\Bot;
 
-class BotObserver
+class RegisterWebhookListener
 {
-    public function __construct(
-        protected BotInfo $info
-    ) {
+    public function handle(BotCreatedEvent $event): void
+    {
+        if ($this->allow()) {
+            $event->bot->registerWebhook()->send();
+        }
     }
 
-    public function creating(Bot $bot): void
+    protected function allow(): bool
     {
-        BotCreatingEvent::dispatch($bot);
-    }
-
-    public function created(Bot $bot): void
-    {
-        BotCreatedEvent::dispatch($bot);
+        return (bool) config('telegraph.security.register_webhook_when_model_was_created');
     }
 }

@@ -15,27 +15,22 @@
 
 declare(strict_types=1);
 
-namespace App\Observers;
+namespace App\Listeners\Bots;
 
-use App\Events\Bots\BotCreatedEvent;
 use App\Events\Bots\BotCreatingEvent;
 use App\Helpers\BotInfo;
-use App\Models\Bot;
 
-class BotObserver
+class SetBotNameListener
 {
     public function __construct(
         protected BotInfo $info
     ) {
     }
 
-    public function creating(Bot $bot): void
+    public function handle(BotCreatingEvent $event): void
     {
-        BotCreatingEvent::dispatch($bot);
-    }
-
-    public function created(Bot $bot): void
-    {
-        BotCreatedEvent::dispatch($bot);
+        $event->bot->name  = $this->info->getName($event->bot);
+        $event->bot->title = $this->info->getTitle($event->bot);
+        $event->bot->save();
     }
 }
