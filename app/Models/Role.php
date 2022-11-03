@@ -36,13 +36,13 @@ class Role extends Model
         'is_storage' => 'bool',
     ];
 
-    public function users(): Relation
-    {
-        return $this->belongsToMany(User::class, UserRole::class, 'role_id', 'user_id', 'id', 'id');
-    }
-
     protected static function booted()
     {
         static::addGlobalScope(new SortByTitleScope());
+    }
+
+    public function users(): Relation
+    {
+        return $this->belongsToMany(User::class, UserRole::class, 'role_id', 'user_id', 'id', 'id');
     }
 }
