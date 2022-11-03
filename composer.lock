@@ -2634,16 +2634,16 @@
         },
         {
             "name": "laravel-lang/http-statuses",
-            "version": "v3.0.7",
+            "version": "v3.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Lang/http-statuses.git",
-                "reference": "155946bd710a5eda06c656727c5a6c1dbc0f859c"
+                "reference": "fe2821c1ec28bb72de4e3321a24c10e9d175fd0b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Lang/http-statuses/zipball/155946bd710a5eda06c656727c5a6c1dbc0f859c",
-                "reference": "155946bd710a5eda06c656727c5a6c1dbc0f859c",
+                "url": "https://api.github.com/repos/Laravel-Lang/http-statuses/zipball/fe2821c1ec28bb72de4e3321a24c10e9d175fd0b",
+                "reference": "fe2821c1ec28bb72de4e3321a24c10e9d175fd0b",
                 "shasum": ""
             },
             "require": {
@@ -2679,7 +2679,7 @@
             "authors": [
                 {
                     "name": "Andrey Helldar",
-                    "email": "helldar@ai-rus.com"
+                    "email": "helldar@dragon-code.pro"
                 },
                 {
                     "name": "Laravel-Lang Team",
@@ -2698,7 +2698,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Lang/http-statuses/issues",
-                "source": "https://github.com/Laravel-Lang/http-statuses/tree/v3.0.7"
+                "source": "https://github.com/Laravel-Lang/http-statuses/tree/v3.0.8"
             },
             "funding": [
                 {
@@ -2706,7 +2706,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2022-08-23T15:28:53+00:00"
+            "time": "2022-11-02T14:35:31+00:00"
         },
         {
             "name": "laravel-lang/lang",
@@ -2785,16 +2785,16 @@
         },
         {
             "name": "laravel-lang/publisher",
-            "version": "v14.3.3",
+            "version": "v14.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Lang/publisher.git",
-                "reference": "8b106dc258d4c82b5b10048c850e1f7104204a08"
+                "reference": "38d7f4318e6576cf56d2f22e2b5a1e2cf30e6dea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Lang/publisher/zipball/8b106dc258d4c82b5b10048c850e1f7104204a08",
-                "reference": "8b106dc258d4c82b5b10048c850e1f7104204a08",
+                "url": "https://api.github.com/repos/Laravel-Lang/publisher/zipball/38d7f4318e6576cf56d2f22e2b5a1e2cf30e6dea",
+                "reference": "38d7f4318e6576cf56d2f22e2b5a1e2cf30e6dea",
                 "shasum": ""
             },
             "require": {
@@ -2833,6 +2833,9 @@
                 }
             },
             "autoload": {
+                "files": [
+                    "helper.php"
+                ],
                 "psr-4": {
                     "LaravelLang\\Publisher\\": "src"
                 }
@@ -2884,7 +2887,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2022-09-19T10:32:01+00:00"
+            "time": "2022-11-03T18:38:59+00:00"
         },
         {
             "name": "laravel/framework",
@@ -3336,16 +3339,16 @@
         },
         {
             "name": "league/commonmark",
-            "version": "2.3.6",
+            "version": "2.3.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/commonmark.git",
-                "reference": "857afc47ce113454bd629037213378ba3219dd40"
+                "reference": "a36bd2be4f5387c0f3a8792a0d76b7d68865abbf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/857afc47ce113454bd629037213378ba3219dd40",
-                "reference": "857afc47ce113454bd629037213378ba3219dd40",
+                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/a36bd2be4f5387c0f3a8792a0d76b7d68865abbf",
+                "reference": "a36bd2be4f5387c0f3a8792a0d76b7d68865abbf",
                 "shasum": ""
             },
             "require": {
@@ -3438,7 +3441,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-10-30T16:45:38+00:00"
+            "time": "2022-11-03T17:29:46+00:00"
         },
         {
             "name": "league/config",
@@ -8274,16 +8277,16 @@
         },
         {
             "name": "filp/whoops",
-            "version": "2.14.5",
+            "version": "2.14.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filp/whoops.git",
-                "reference": "a63e5e8f26ebbebf8ed3c5c691637325512eb0dc"
+                "reference": "f7948baaa0330277c729714910336383286305da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filp/whoops/zipball/a63e5e8f26ebbebf8ed3c5c691637325512eb0dc",
-                "reference": "a63e5e8f26ebbebf8ed3c5c691637325512eb0dc",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/f7948baaa0330277c729714910336383286305da",
+                "reference": "f7948baaa0330277c729714910336383286305da",
                 "shasum": ""
             },
             "require": {
@@ -8333,7 +8336,7 @@
             ],
             "support": {
                 "issues": "https://github.com/filp/whoops/issues",
-                "source": "https://github.com/filp/whoops/tree/2.14.5"
+                "source": "https://github.com/filp/whoops/tree/2.14.6"
             },
             "funding": [
                 {
@@ -8341,7 +8344,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-01-07T12:00:00+00:00"
+            "time": "2022-11-02T16:23:29+00:00"
         },
         {
             "name": "hamcrest/hamcrest-php",
