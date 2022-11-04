@@ -17,4 +17,6 @@ declare(strict_types=1);
 
 use App\Http\Controllers\RolesController;
 
-app('router')->apiResource('roles', RolesController::class);
+app('router')
+    ->apiResource('roles', RolesController::class)
+    ->except('show');

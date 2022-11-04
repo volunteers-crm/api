@@ -40,7 +40,7 @@ class Bot
         return $this->loadMissing($bot);
     }
 
-    public function update(User $user, Model $bot, array $values, ?array $roles): Model
+    public function update(Model $bot, array $values, ?array $roles): Model
     {
         $bot->update($values);
 
@@ -49,7 +49,7 @@ class Bot
         return $this->loadMissing($bot);
     }
 
-    public function destroy(User $user, Model $bot): void
+    public function destroy(Model $bot): void
     {
         $bot->delete();
     }

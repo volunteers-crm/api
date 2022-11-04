@@ -17,7 +17,6 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
-use App\Enums\Policy;
 use App\Enums\Status;
 use App\Http\Requests\Appeals\PublishRequest;
 use App\Http\Resources\AppealResource;
@@ -37,19 +36,15 @@ class AppealsController extends Controller
         return AppealResource::collection($items);
     }
 
-    public function show(Request $request, Appeal $appeal, AppealService $appeals)
+    public function show(Appeal $appeal, AppealService $appeals)
     {
-        $this->authorize(Policy::APPEALS_VIEW->value, $appeal);
-
-        $item = $appeals->show($request->user(), $appeal);
+        $item = $appeals->show($appeal);
 
         return AppealResource::make($item);
     }
 
     public function work(Request $request, Appeal $appeal, AppealService $appeals)
     {
-        $this->authorize(Policy::APPEALS_VIEW->value, $appeal);
-
         $item = DB::transaction(
             fn () => $appeals->toWork($request->user(), $appeal)
         );
@@ -59,10 +54,8 @@ class AppealsController extends Controller
 
     public function publish(PublishRequest $request, Appeal $appeal, AppealService $appeals)
     {
-        $this->authorize(Policy::APPEALS_VIEW->value, $appeal);
-
         $item = DB::transaction(
-            fn () => $appeals->publish($request->user(), $appeal, $request->dto())
+            fn () => $appeals->publish($appeal, $request->dto())
         );
 
         PublishJob::dispatch($appeal);
@@ -70,12 +63,10 @@ class AppealsController extends Controller
         return AppealResource::make($item);
     }
 
-    public function done(Request $request, Appeal $appeal, AppealService $appeals)
+    public function done(Appeal $appeal, AppealService $appeals)
     {
-        $this->authorize(Policy::APPEALS_VIEW->value, $appeal);
-
         $item = DB::transaction(
-            fn () => $appeals->changeStatus($request->user(), $appeal, Status::DONE)
+            fn () => $appeals->changeStatus($appeal, Status::DONE)
         );
 
         ClosedJob::dispatch($item);
@@ -83,12 +74,10 @@ class AppealsController extends Controller
         return AppealResource::make($item);
     }
 
-    public function cancel(Request $request, Appeal $appeal, AppealService $appeals)
+    public function cancel(Appeal $appeal, AppealService $appeals)
     {
-        $this->authorize(Policy::APPEALS_VIEW->value, $appeal);
-
         $item = DB::transaction(
-            fn () => $appeals->changeStatus($request->user(), $appeal, Status::CLOSED)
+            fn () => $appeals->changeStatus($appeal, Status::CLOSED)
         );
 
         ClosedJob::dispatch($item);

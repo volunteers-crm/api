@@ -41,16 +41,16 @@ class DashboardController extends Controller
         return DashboardCoordinatorResource::collection($items);
     }
 
-    public function storages(Request $request, DashboardService $dashboard)
+    public function storages(DashboardService $dashboard)
     {
-        $items = $this->remember('storages', fn () => $dashboard->roles($request->user(), true));
+        $items = $this->remember('storages', fn () => $dashboard->roles(true));
 
         return DashboardRoleResource::collection($items);
     }
 
-    public function roles(Request $request, DashboardService $dashboard)
+    public function roles(DashboardService $dashboard)
     {
-        $items = $this->remember('roles', fn () => $dashboard->roles($request->user()));
+        $items = $this->remember('roles', fn () => $dashboard->roles());
 
         return DashboardRoleResource::collection($items);
     }

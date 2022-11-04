@@ -15,20 +15,49 @@
 
 declare(strict_types=1);
 
+use App\Enums\Policy;
 use App\Http\Controllers\AppealsController;
 use App\Http\Controllers\MessagesController;
+use App\Models\Message;
 
 app('router')
     ->controller(AppealsController::class)
     ->prefix('appeals')
     ->group(static function () {
-        app('router')->get('/', 'index');
-        app('router')->get('{appeal}', 'show');
-        app('router')->post('{appeal}/work', 'work');
-        app('router')->post('{appeal}/publish', 'publish');
-        app('router')->post('{appeal}/done', 'done');
-        app('router')->delete('{appeal}/cancel', 'cancel');
 
-        app('router')->get('{appeal}/messages', [MessagesController::class, 'index']);
-        app('router')->post('{appeal}/messages', [MessagesController::class, 'store']);
+        app('router')->get('/', 'index');
+
+        app('router')
+            ->get('{appeal}', 'show')
+            ->can(Policy::SHOW(), 'appeal');
+
+        app('router')
+            ->put('{appeal}/work', 'work')
+            ->can(Policy::UPDATE(), 'appeal');
+
+        app('router')
+            ->put('{appeal}/publish', 'publish')
+            ->can(Policy::UPDATE(), 'appeal');
+
+        app('router')
+            ->put('{appeal}/done', 'done')
+            ->can(Policy::UPDATE(), 'appeal');
+
+        app('router')
+            ->delete('{appeal}/cancel', 'cancel')
+            ->can(Policy::UPDATE(), 'appeal');
+    });
+
+app('router')
+    ->controller(MessagesController::class)
+    ->prefix('appeals/{appeal}/messages')
+    ->group(static function () {
+
+        app('router')
+            ->get('/', 'index')
+            ->can(Policy::INDEX(), [Message::class, 'appeal']);
+
+        app('router')
+            ->post('/', 'store')
+            ->can(Policy::CREATE(), [Message::class, 'appeal']);
     });

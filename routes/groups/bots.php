@@ -15,14 +15,22 @@
 
 declare(strict_types=1);
 
+use App\Enums\Policy;
 use App\Http\Controllers\BotsController;
 
 app('router')
     ->controller(BotsController::class)
     ->prefix('bots')
     ->group(static function () {
+
         app('router')->get('/', 'index');
         app('router')->post('/', 'store');
-        app('router')->put('{bot:id}', 'update');
-        app('router')->delete('{bot:id}', 'destroy');
+
+        app('router')
+            ->put('{bot:id}', 'update')
+            ->can(Policy::UPDATE(), 'bot');
+
+        app('router')
+            ->delete('{bot:id}', 'destroy')
+            ->can(Policy::DELETE(), 'bot');
     });

@@ -22,14 +22,13 @@ use App\Http\Resources\MessageResource;
 use App\Jobs\Messages\SendToClientJob;
 use App\Models\Appeal;
 use App\Services\Message;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class MessagesController extends Controller
 {
-    public function index(Request $request, Appeal $appeal, Message $messages)
+    public function index(Appeal $appeal, Message $messages)
     {
-        $items = $messages->index($request->user(), $appeal);
+        $items = $messages->index($appeal);
 
         return MessageResource::collection($items);
     }

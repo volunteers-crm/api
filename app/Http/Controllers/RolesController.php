@@ -18,7 +18,6 @@ declare(strict_types=1);
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Roles\CreateRequest;
-use App\Http\Requests\Roles\DestroyRequest;
 use App\Http\Requests\Roles\UpdateRequest;
 use App\Http\Resources\RoleResource;
 use App\Models\Role;
@@ -28,6 +27,11 @@ use Illuminate\Support\Facades\DB;
 
 class RolesController extends Controller
 {
+    public function __construct()
+    {
+        $this->authorizeResource(Role::class, 'role');
+    }
+
     public function index(Request $request, RoleService $service)
     {
         $items = $service->index($request->user());
@@ -53,7 +57,7 @@ class RolesController extends Controller
         return RoleResource::make($item);
     }
 
-    public function destroy(DestroyRequest $request, Role $role, RoleService $service)
+    public function destroy(Role $role, RoleService $service)
     {
         DB::transaction(
             fn () => $service->destroy($role)

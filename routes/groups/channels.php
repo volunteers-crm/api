@@ -15,8 +15,17 @@
 
 declare(strict_types=1);
 
+use App\Enums\Policy;
 use App\Http\Controllers\ChannelsController;
 
 app('router')
-    ->apiResource('channels', ChannelsController::class)
-    ->only('index', 'destroy');
+    ->controller(ChannelsController::class)
+    ->prefix('channels')
+    ->group(static function () {
+
+        app('router')->get('/', 'index');
+
+        app('router')
+            ->delete('{channel}', 'destroy')
+            ->can(Policy::DELETE(), 'channel');
+    });

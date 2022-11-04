@@ -26,7 +26,7 @@ use Illuminate\Database\Eloquent\Collection;
 
 class Message
 {
-    public function index(UserModel $user, AppealModel $appeal): Collection
+    public function index(AppealModel $appeal): Collection
     {
         return $appeal->messages->loadMissing('sender');
     }

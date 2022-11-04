@@ -28,11 +28,4 @@ class UpdateRequest extends BaseRequest
             'is_storage' => ['required', 'boolean'],
         ];
     }
-
-    public function authorize(): bool
-    {
-        return $this->user()->ownedRoles()
-            ->where('id', $this->role()->id)
-            ->exists();
-    }
 }

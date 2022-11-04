@@ -36,7 +36,7 @@ class Appeal
             ->get();
     }
 
-    public function show(UserModel $user, AppealModel $appeal): AppealModel
+    public function show(AppealModel $appeal): AppealModel
     {
         return $this->loadingMissing($appeal, ['chats']);
     }
@@ -48,7 +48,7 @@ class Appeal
         return $this->loadingMissing($appeal);
     }
 
-    public function publish(UserModel $user, AppealModel $appeal, AppealDTO $info): AppealModel
+    public function publish(AppealModel $appeal, AppealDTO $info): AppealModel
     {
         $appeal->info         = $info;
         $appeal->published_at = now();
@@ -59,7 +59,7 @@ class Appeal
         return $this->loadingMissing($appeal);
     }
 
-    public function changeStatus(UserModel $user, AppealModel $appeal, Status $status): AppealModel
+    public function changeStatus(AppealModel $appeal, Status $status): AppealModel
     {
         $appeal->status = $status;
         $appeal->save();

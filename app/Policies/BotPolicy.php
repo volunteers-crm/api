@@ -15,21 +15,25 @@
 
 declare(strict_types=1);
 
-namespace App\Policies\Becomes;
+namespace App\Policies;
 
 use App\Models\Bot;
 use App\Models\User;
-use Illuminate\Auth\Access\HandlesAuthorization;
 use Illuminate\Auth\Access\Response;
 
-class SearchPolicy
+class BotPolicy extends BasePolicy
 {
-    use HandlesAuthorization;
-
-    public function search(User $user, Bot $bot): Response
+    public function update(User $user, Bot $bot): Response
     {
-        return $user->becomes()->where('id', $bot->id)->doesntExist()
-            ? $this->allow()
-            : $this->deny(__('You have already applied to this group'), 409);
+        return $this->has(
+            $bot->owner_id === $user->id
+        );
+    }
+
+    public function delete(User $user, Bot $bot): Response
+    {
+        return $this->has(
+            $bot->owner_id === $user->id
+        );
     }
 }

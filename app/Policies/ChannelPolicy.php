@@ -15,21 +15,18 @@
 
 declare(strict_types=1);
 
-namespace App\Policies\Appeals;
+namespace App\Policies;
 
-use App\Models\Appeal;
+use App\Models\Channel;
 use App\Models\User;
-use Illuminate\Auth\Access\HandlesAuthorization;
 use Illuminate\Auth\Access\Response;
 
-class ShowAppealPolicy
+class ChannelPolicy extends BasePolicy
 {
-    use HandlesAuthorization;
-
-    public function view(User $user, Appeal $appeal): Response
+    public function delete(User $user, Channel $channel): Response
     {
-        return $appeal->bot->users()->where('id', $user->id)->exists()
-            ? $this->allow()
-            : $this->deny(__('http-statuses.403'));
+        return $this->has(
+            $channel->bot()->where('owner_id', $user->id)->exists()
+        );
     }
 }

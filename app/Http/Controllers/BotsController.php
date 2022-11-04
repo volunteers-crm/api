@@ -46,16 +46,16 @@ class BotsController extends Controller
     public function update(UpdateRequest $request, Bot $bot, BotService $service)
     {
         $item = DB::transaction(
-            fn () => $service->update($request->user(), $bot, $request->validated(), $request->get('roles'))
+            fn () => $service->update($bot, $request->validated(), $request->get('roles'))
         );
 
         return BotResource::make($item);
     }
 
-    public function destroy(Request $request, Bot $bot, BotService $service)
+    public function destroy(Bot $bot, BotService $service)
     {
         DB::transaction(
-            fn () => $service->destroy($request->user(), $bot)
+            fn () => $service->destroy($bot)
         );
 
         return $this->json('ok');

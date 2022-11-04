@@ -17,36 +17,33 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
-use App\Enums\Policy;
-use App\Policies\Appeals;
-use App\Policies\Becomes;
+use App\Models\Appeal;
+use App\Models\Become;
+use App\Models\Bot;
+use App\Models\Channel;
+use App\Models\Message;
+use App\Models\Role;
+use App\Policies\AppealPolicy;
+use App\Policies\BecomePolicy;
+use App\Policies\BotPolicy;
+use App\Policies\ChannelPolicy;
+use App\Policies\MessagePolicy;
+use App\Policies\RolePolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
-use Illuminate\Support\Facades\Gate;
 
 class AuthServiceProvider extends ServiceProvider
 {
-    /** @var array<class-string, array<string, Policy>> */
-    protected array $gates = [
-        Becomes\SearchPolicy::class => [
-            'search' => Policy::BECOME_SEARCH,
-        ],
-
-        Appeals\ShowAppealPolicy::class => [
-            'view' => Policy::APPEALS_VIEW,
-        ],
+    protected $policies = [
+        Appeal::class  => AppealPolicy::class,
+        Become::class  => BecomePolicy::class,
+        Bot::class     => BotPolicy::class,
+        Channel::class => ChannelPolicy::class,
+        Message::class => MessagePolicy::class,
+        Role::class    => RolePolicy::class,
     ];
 
     public function boot()
     {
-        $this->registerGates();
-    }
-
-    protected function registerGates(): void
-    {
-        foreach ($this->gates as $policy => $gates) {
-            foreach ($gates as $method => $gate) {
-                Gate::define($gate->value, [$policy, $method]);
-            }
-        }
+        $this->registerPolicies();
     }
 }
