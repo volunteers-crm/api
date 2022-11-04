@@ -22,7 +22,6 @@ app('router')
     ->controller(BotsController::class)
     ->prefix('bots')
     ->group(static function () {
-
         app('router')->get('/', 'index');
         app('router')->post('/', 'store');
 

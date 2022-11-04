@@ -34,9 +34,11 @@ abstract class BasePolicy
 
     protected function byAppeal(User $user, Appeal $appeal): bool
     {
-        return $appeal->whereHas('bot', fn (Builder $builder) => $builder
-            ->where('owner_id', $user->id)
-            ->orWhereHas('users', fn (Builder $builder) => $builder->where('id', $user->id))
+        return $appeal->whereHas(
+            'bot',
+            fn (Builder $builder) => $builder
+                ->where('owner_id', $user->id)
+                ->orWhereHas('users', fn (Builder $builder) => $builder->where('id', $user->id))
         )->exists();
     }
 }

@@ -24,7 +24,6 @@ app('router')
     ->controller(AppealsController::class)
     ->prefix('appeals')
     ->group(static function () {
-
         app('router')->get('/', 'index');
 
         app('router')
@@ -52,7 +51,6 @@ app('router')
     ->controller(MessagesController::class)
     ->prefix('appeals/{appeal}/messages')
     ->group(static function () {
-
         app('router')
             ->get('/', 'index')
             ->can(Policy::INDEX(), [Message::class, 'appeal']);
