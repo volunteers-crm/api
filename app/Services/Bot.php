@@ -59,6 +59,10 @@ class Bot
         return $bot->loadMissing([
             'chats' => fn (Relation|Builder $builder) => $builder->public(),
             'roles',
-        ]);
+        ])
+            ->loadCount([
+                'appeals as appeals_opened' => fn (Builder $builder) => $builder->opened(),
+                'appeals as appeals_closed' => fn (Builder $builder) => $builder->closed(),
+            ]);
     }
 }
