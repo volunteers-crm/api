@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b595ebd4b9791312603f1dc1f1bfb0ee",
+    "content-hash": "749d8af1dda20d9903b5021a33ee1222",
     "packages": [
         {
             "name": "archtechx/enums",
@@ -1808,16 +1808,16 @@
         },
         {
             "name": "dragon-code/web-core",
-            "version": "v0.1.5",
+            "version": "v0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/TheDragonCode/web-core.git",
-                "reference": "e1cc792d805f4ce61017ee0b037a1ec1b3124673"
+                "reference": "8fdd60ec89d35bb6fd599af7f7fdf47b4587b2a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TheDragonCode/web-core/zipball/e1cc792d805f4ce61017ee0b037a1ec1b3124673",
-                "reference": "e1cc792d805f4ce61017ee0b037a1ec1b3124673",
+                "url": "https://api.github.com/repos/TheDragonCode/web-core/zipball/8fdd60ec89d35bb6fd599af7f7fdf47b4587b2a9",
+                "reference": "8fdd60ec89d35bb6fd599af7f7fdf47b4587b2a9",
                 "shasum": ""
             },
             "require": {
@@ -1882,7 +1882,7 @@
             "description": "Web core for the Dragon Code apps",
             "support": {
                 "issues": "https://github.com/TheDragonCode/web-core/issues",
-                "source": "https://github.com/TheDragonCode/web-core/tree/v0.1.5"
+                "source": "https://github.com/TheDragonCode/web-core/tree/v0.2.1"
             },
             "funding": [
                 {
@@ -1902,7 +1902,7 @@
                     "type": "yoomoney"
                 }
             ],
-            "time": "2022-10-31T22:54:02+00:00"
+            "time": "2022-11-04T11:52:09+00:00"
         },
         {
             "name": "dragonmantank/cron-expression",
@@ -2634,16 +2634,16 @@
         },
         {
             "name": "laravel-lang/http-statuses",
-            "version": "v3.0.8",
+            "version": "v3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Lang/http-statuses.git",
-                "reference": "fe2821c1ec28bb72de4e3321a24c10e9d175fd0b"
+                "reference": "0b623329b596e4e245d4c1b83c20f35e6ed61e9f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Lang/http-statuses/zipball/fe2821c1ec28bb72de4e3321a24c10e9d175fd0b",
-                "reference": "fe2821c1ec28bb72de4e3321a24c10e9d175fd0b",
+                "url": "https://api.github.com/repos/Laravel-Lang/http-statuses/zipball/0b623329b596e4e245d4c1b83c20f35e6ed61e9f",
+                "reference": "0b623329b596e4e245d4c1b83c20f35e6ed61e9f",
                 "shasum": ""
             },
             "require": {
@@ -2698,7 +2698,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Lang/http-statuses/issues",
-                "source": "https://github.com/Laravel-Lang/http-statuses/tree/v3.0.8"
+                "source": "https://github.com/Laravel-Lang/http-statuses/tree/v3.1.0"
             },
             "funding": [
                 {
@@ -2706,7 +2706,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2022-11-02T14:35:31+00:00"
+            "time": "2022-11-04T10:43:30+00:00"
         },
         {
             "name": "laravel-lang/lang",

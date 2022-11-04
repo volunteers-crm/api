@@ -18,7 +18,19 @@ declare(strict_types=1);
 namespace App\Exceptions;
 
 use DragonCode\WebCore\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class Handler extends ExceptionHandler
 {
+    public function register(): void
+    {
+        $this->registerNotFound();
+    }
+
+    protected function registerNotFound(): void
+    {
+        $this->renderable(
+            fn (NotFoundHttpException $e, $render) => response()->json(['message' => __('http-statuses.404')], 404)
+        );
+    }
 }
