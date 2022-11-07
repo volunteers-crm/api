@@ -18,6 +18,8 @@ declare(strict_types=1);
 namespace App\Observers;
 
 use App\Enums\Status;
+use App\Jobs\Appeals\ClosedJob;
+use App\Jobs\Appeals\PublishJob;
 use App\Models\Appeal;
 
 class AppealObserver
@@ -31,6 +33,19 @@ class AppealObserver
     {
         if ($appeal->isDirty('curator_id')) {
             $appeal->status = Status::IN_PROGRESS;
+        }
+    }
+
+    public function updated(Appeal $appeal): void
+    {
+        if ($appeal->wasChanged('published_at')) {
+            PublishJob::dispatch($appeal);
+
+            return;
+        }
+
+        if ($appeal->wasChanged('status') && in_array($appeal->status, [Status::DONE, Status::CLOSED])) {
+            ClosedJob::dispatch($appeal);
         }
     }
 }
