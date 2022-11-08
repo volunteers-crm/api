@@ -19,7 +19,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Messages\CreateRequest;
 use App\Http\Resources\MessageResource;
-use App\Jobs\Messages\SendToClientJob;
 use App\Models\Appeal;
 use App\Services\Message;
 use Illuminate\Support\Facades\DB;
@@ -38,8 +37,6 @@ class MessagesController extends Controller
         $item = DB::transaction(
             fn () => $messages->store($request->user(), $appeal, $request->get('message'))
         );
-
-        SendToClientJob::dispatch($item);
 
         return MessageResource::make($item);
     }

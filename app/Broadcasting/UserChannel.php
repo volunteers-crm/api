@@ -15,21 +15,14 @@
 
 declare(strict_types=1);
 
-namespace App\Listeners\Bots;
+namespace App\Broadcasting;
 
-use App\Events\Bots\BotCreatingEvent;
-use App\Helpers\BotInfo;
+use App\Models\User;
 
-class SetRealBotName
+class UserChannel
 {
-    public function __construct(
-        protected BotInfo $info
-    ) {
-    }
-
-    public function handle(BotCreatingEvent $event): void
+    public function join(User $user, int $userId): bool
     {
-        $event->bot->name  = $this->info->getName($event->bot);
-        $event->bot->title = $this->info->getTitle($event->bot);
+        return $user->id === $userId;
     }
 }

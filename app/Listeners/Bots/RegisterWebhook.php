@@ -21,7 +21,7 @@ use App\Enums\Queue;
 use App\Events\Bots\BotCreatedEvent;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class RegisterBotWebhook implements ShouldQueue
+class RegisterWebhook implements ShouldQueue
 {
     public function handle(BotCreatedEvent $event): void
     {
