@@ -18,6 +18,7 @@ declare(strict_types=1);
 namespace App\Http\Resources;
 
 use App\Enums\Status;
+use App\Helpers\Links;
 use App\Models\Channel;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Http\Resources\MissingValue;
@@ -26,6 +27,8 @@ use Illuminate\Support\Collection;
 /** @mixin \App\Models\Appeal */
 class AppealResource extends JsonResource
 {
+    protected ?Links $links = null;
+
     public function toArray($request): array
     {
         return [
@@ -64,13 +67,20 @@ class AppealResource extends JsonResource
             ->filter(fn (Channel $channel) => $channel->pivot->message_id)
             ->sortBy('name')
             ->map(function (Channel $channel) {
-                $id = abs($channel->chat_id) - 1000000000000;
-
                 $title = $channel->name;
 
-                $url = sprintf('https://t.me/c/%d/%d', $id, $channel->pivot->message_id);
+                $url = $this->link()->toMessage($channel->chat_id, $channel->pivot->message_id);
 
                 return compact('url', 'title');
             });
+    }
+
+    protected function link(): Links
+    {
+        if ($links = $this->links) {
+            return $links;
+        }
+
+        return $this->links = new Links();
     }
 }
