@@ -41,10 +41,6 @@ class TelegraphHandler extends WebhookHandler
     protected function handleChatMessage(Stringable $text): void
     {
         if ($this->doesntAppeal()) {
-            Log::info('it is a not appeal', [
-                $this->chat,
-            ]);
-
             return;
         }
 
