@@ -1,0 +1,57 @@
+POST http://localhost:8080/telegraph/{{botToken}}/webhook
+Accept: application/json
+Content-Type: application/json
+
+{
+    "update_id": 605131015,
+    "message": {
+        "message_id": 189,
+        "from": {
+            "id": "{{userId}}",
+            "is_bot": false,
+            "first_name": "{{userFirstName}}",
+            "last_name": "{{userLastName}}",
+            "username": "{{username}}",
+            "language_code": "{{userLocale}}"
+        },
+        "chat": {
+            "id": "{{userId}}",
+            "first_name": "{{userFirstName}}",
+            "last_name": "{{userLastName}}",
+            "username": "{{username}}",
+            "type": "private"
+        },
+        "date": 1668035641,
+        "animation": {
+            "file_name": "mp4.mp4",
+            "mime_type": "video/mp4",
+            "duration": 1,
+            "width": 320,
+            "height": 156,
+            "thumb": {
+                "file_id": "AAMCBAADGQEAA71jbDQ5A1Geo6eBh4KD15EOb5oaUQACiQIAAizavFEIqlff2NxmHgEAB20AAysE",
+                "file_unique_id": "AQADiQIAAizavFFy",
+                "file_size": 10976,
+                "width": 320,
+                "height": 156
+            },
+            "file_id": "CgACAgQAAxkBAAO9Y2w0OQNRnqOngYeCg9eRDm-aGlEAAokCAAIs2rxRCKpX39jcZh4rBA",
+            "file_unique_id": "AgADiQIAAizavFE",
+            "file_size": 27228
+        },
+        "document": {
+            "file_name": "mp4.mp4",
+            "mime_type": "video/mp4",
+            "thumb": {
+                "file_id": "AAMCBAADGQEAA71jbDQ5A1Geo6eBh4KD15EOb5oaUQACiQIAAizavFEIqlff2NxmHgEAB20AAysE",
+                "file_unique_id": "AQADiQIAAizavFFy",
+                "file_size": 10976,
+                "width": 320,
+                "height": 156
+            },
+            "file_id": "CgACAgQAAxkBAAO9Y2w0OQNRnqOngYeCg9eRDm-aGlEAAokCAAIs2rxRCKpX39jcZh4rBA",
+            "file_unique_id": "AgADiQIAAizavFE",
+            "file_size": 27228
+        }
+    }
+}

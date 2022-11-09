@@ -1,0 +1,30 @@
+POST http://localhost:8080/telegraph/{{botToken}}/webhook
+Accept: application/json
+Content-Type: application/json
+
+{
+    "update_id": 605131018,
+    "message": {
+        "message_id": 192,
+        "from": {
+            "id": "{{userId}}",
+            "is_bot": false,
+            "first_name": "{{userFirstName}}",
+            "last_name": "{{userLastName}}",
+            "username": "{{username}}",
+            "language_code": "{{userLocale}}"
+        },
+        "chat": {
+            "id": "{{userId}}",
+            "first_name": "{{userFirstName}}",
+            "last_name": "{{userLastName}}",
+            "username": "{{username}}",
+            "type": "private"
+        },
+        "date": 1668035855,
+        "location": {
+            "latitude": 59.93134,
+            "longitude": 30.336144
+        }
+    }
+}

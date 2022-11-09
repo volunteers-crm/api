@@ -1,0 +1,31 @@
+POST http://localhost:8080/telegraph/{{botToken}}/webhook
+Accept: application/json
+Content-Type: application/json
+
+{
+    "update_id": 605131019,
+    "message": {
+        "message_id": 193,
+        "from": {
+            "id": {{userId}},
+            "is_bot": false,
+            "first_name": "{{userFirstName}}",
+            "last_name": "{{userLastName}}",
+            "username": "{{username}}",
+            "language_code": "{{userLocale}}"
+        },
+        "chat": {
+            "id": "{{userId}}",
+            "first_name": "{{userFirstName}}",
+            "last_name": "{{userLastName}}",
+            "username": "{{username}}",
+            "type": "private"
+        },
+        "date": 1668035895,
+        "contact": {
+            "phone_number": "+74957830979",
+            "first_name": "Converse",
+            "vcard": "BEGIN:VCARD VERSION:3.0 FN:Converse TEL;TYPE=CELL:+74957830979 END:VCARD"
+        }
+    }
+}

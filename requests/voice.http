@@ -1,0 +1,33 @@
+POST http://localhost:8080/telegraph/{{botToken}}/webhook
+Accept: application/json
+Content-Type: application/json
+
+{
+    "update_id": 605131016,
+    "message": {
+        "message_id": 190,
+        "from": {
+            "id": "{{userId}}",
+            "is_bot": false,
+            "first_name": "{{userFirstName}}",
+            "last_name": "{{userLastName}}",
+            "username": "{{username}}",
+            "language_code": "{{userLocale}}"
+        },
+        "chat": {
+            "id": "{{userId}}",
+            "first_name": "{{userFirstName}}",
+            "last_name": "{{userLastName}}",
+            "username": "{{username}}",
+            "type": "private"
+        },
+        "date": 1668035674,
+        "voice": {
+            "duration": 1,
+            "mime_type": "audio/ogg",
+            "file_id": "AwACAgIAAxkBAAO-Y2w0WkYqa9HEP1vgorXAC8HHJoIAAtojAALWr2BLpHgRJzlgYdUrBA",
+            "file_unique_id": "AgAD2iMAAtavYEs",
+            "file_size": 5089
+        }
+    }
+}

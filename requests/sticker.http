@@ -1,0 +1,45 @@
+POST http://localhost:8080/telegraph/{{botToken}}/webhook
+Accept: application/json
+Content-Type: application/json
+
+{
+    "update_id": 605131014,
+    "message": {
+        "message_id": 188,
+        "from": {
+            "id": "{{userId}}",
+            "is_bot": false,
+            "first_name": "{{userFirstName}}",
+            "last_name": "{{userLastName}}",
+            "username": "{{username}}",
+            "language_code": "{{userLocale}}"
+        },
+        "chat": {
+            "id": "{{userId}}",
+            "first_name": "{{userFirstName}}",
+            "last_name": "{{userLastName}}",
+            "username": "{{username}}",
+            "type": "private"
+        },
+        "date": 1668035590,
+        "sticker": {
+            "width": 512,
+            "height": 512,
+            "emoji": "😈",
+            "set_name": "Red_Squirrel",
+            "is_animated": true,
+            "is_video": false,
+            "type": "regular",
+            "thumb": {
+                "file_id": "AAMCAgADGQEAA7xjbDQFkF5bV0od4n2-EPv2lP9QsgACpgAD9wLID6sM5POpKsZYAQAHbQADKwQ",
+                "file_unique_id": "AQADpgAD9wLID3I",
+                "file_size": 5682,
+                "width": 128,
+                "height": 128
+            },
+            "file_id": "CAACAgIAAxkBAAO8Y2w0BZBeW1dKHeJ9vhD79pT_ULIAAqYAA_cCyA-rDOTzqSrGWCsE",
+            "file_unique_id": "AgADpgAD9wLIDw",
+            "file_size": 16926
+        }
+    }
+}

@@ -12,6 +12,7 @@
 
 .env
 .env.backup
+http-client.private.env.json
 
 _ide_helper*
 .phpstorm.meta.php

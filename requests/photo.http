@@ -1,0 +1,42 @@
+POST http://localhost:8080/telegraph/{{botToken}}/webhook
+Accept: application/json
+Content-Type: application/json
+
+{
+    "update_id": 605131012,
+    "message": {
+        "message_id": 186,
+        "from": {
+            "id": "{{userId}}",
+            "is_bot": false,
+            "first_name": "{{userFirstName}}",
+            "last_name": "{{userLastName}}",
+            "username": "{{username}}",
+            "language_code": "{{userLocale}}"
+        },
+        "chat": {
+            "id": "{{userId}}",
+            "first_name": "{{userFirstName}}",
+            "last_name": "{{userLastName}}",
+            "username": "{{username}}",
+            "type": "private"
+        },
+        "date": 1668035472,
+        "photo": [
+            {
+                "file_id": "AgACAgIAAxkBAAO6Y2wzkEmCGqZ_jvSA7kgoYY27HtEAAq7DMRvWr2BLeL8wyzsUZ2MBAAMCAANzAAMrBA",
+                "file_unique_id": "AQADrsMxG9avYEt4",
+                "file_size": 569,
+                "width": 90,
+                "height": 73
+            },
+            {
+                "file_id": "AgACAgIAAxkBAAO6Y2wzkEmCGqZ_jvSA7kgoYY27HtEAAq7DMRvWr2BLeL8wyzsUZ2MBAAMCAANtAAMrBA",
+                "file_unique_id": "AQADrsMxG9avYEty",
+                "file_size": 4274,
+                "width": 245,
+                "height": 199
+            }
+        ]
+    }
+}
