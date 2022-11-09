@@ -18,9 +18,15 @@ declare(strict_types=1);
 namespace App\Http\Controllers;
 
 use App\Concerns\HasCache;
-use DragonCode\WebCore\Http\Controllers\Controller as BaseController;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Routing\Controller as BaseController;
 
 abstract class Controller extends BaseController
 {
     use HasCache;
+    use AuthorizesRequests;
+    use DispatchesJobs;
+    use ValidatesRequests;
 }

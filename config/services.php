@@ -13,7 +13,16 @@
  * @see https://github.com/volunteers-crm
  */
 
+declare(strict_types=1);
+
 return [
+    'mailgun' => [
+        'domain'   => env('MAILGUN_DOMAIN'),
+        'secret'   => env('MAILGUN_SECRET'),
+        'endpoint' => env('MAILGUN_ENDPOINT', 'api.mailgun.net'),
+        'scheme'   => 'https',
+    ],
+
     'telegram' => [
         'bot'           => env('TELEGRAM_BOT_NAME'),
         'client_id'     => null,

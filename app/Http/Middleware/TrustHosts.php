@@ -13,18 +13,21 @@
  * @see https://github.com/volunteers-crm
  */
 
-declare(strict_types=1);
+namespace App\Http\Middleware;
 
-namespace App\Providers;
+use Illuminate\Http\Middleware\TrustHosts as Middleware;
 
-use App\Models\PersonalAccessToken;
-use Illuminate\Support\ServiceProvider;
-use Laravel\Sanctum\Sanctum;
-
-class AppServiceProvider extends ServiceProvider
+class TrustHosts extends Middleware
 {
-    public function register(): void
+    /**
+     * Get the host patterns that should be trusted.
+     *
+     * @return array<int, string|null>
+     */
+    public function hosts()
     {
-        Sanctum::usePersonalAccessTokenModel(PersonalAccessToken::class);
+        return [
+            $this->allSubdomainsOfApplicationUrl(),
+        ];
     }
 }

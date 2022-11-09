@@ -13,6 +13,8 @@
  * @see https://github.com/volunteers-crm
  */
 
+declare(strict_types=1);
+
 return [
     /*
     |--------------------------------------------------------------------------

@@ -31,10 +31,6 @@ class User extends Authenticatable
     use Notifiable;
 
     protected $fillable = [
-        'social_id',
-        'external_id',
-
-        'username',
         'name',
         'avatar',
 

@@ -13,10 +13,17 @@
  * @see https://github.com/volunteers-crm
  */
 
-declare(strict_types=1);
+namespace App\Http\Middleware;
 
-return [
-    'failed'   => 'These credentials do not match our records.',
-    'password' => 'The password is incorrect.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
-];
+use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken as Middleware;
+
+class VerifyCsrfToken extends Middleware
+{
+    /**
+     * The URIs that should be excluded from CSRF verification.
+     *
+     * @var array<int, string>
+     */
+    protected $except = [
+    ];
+}

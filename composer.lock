@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5f2f97308b79ca7c6a4e47cc75685dc2",
+    "content-hash": "6ad0b9efaf755857298beb88a854d68a",
     "packages": [
         {
             "name": "archtechx/enums",
@@ -933,92 +933,6 @@
             "time": "2022-10-10T22:02:52+00:00"
         },
         {
-            "name": "dragon-code/extended-routes",
-            "version": "v3.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/TheDragonCode/extended-routes.git",
-                "reference": "cc7aaf701f8c894145c19972f7c5076c989ec02f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/TheDragonCode/extended-routes/zipball/cc7aaf701f8c894145c19972f7c5076c989ec02f",
-                "reference": "cc7aaf701f8c894145c19972f7c5076c989ec02f",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/database": "^7.0 || ^8.0 || ^9.0",
-                "illuminate/routing": "^7.0 || ^8.0 || ^9.0",
-                "illuminate/support": "^7.0 || ^8.0 || ^9.0",
-                "php": "^7.3 || ^8.0"
-            },
-            "require-dev": {
-                "orchestra/testbench": "^5.0 || ^6.0 || ^7.0",
-                "phpunit/phpunit": "^9.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "DragonCode\\ExtendedRoutes\\ServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "DragonCode\\ExtendedRoutes\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Andrey Helldar",
-                    "email": "helldar@ai-rus.com"
-                },
-                {
-                    "name": "Maksim (Ellrion) Platonov",
-                    "email": "ellrion11@gmail.com"
-                }
-            ],
-            "description": "This helper extends the standard set of resource routing methods to work with SoftDeletes and other extends",
-            "keywords": [
-                "andrey-helldar",
-                "dragon",
-                "dragon-code",
-                "extended routes",
-                "laravel",
-                "resource",
-                "router",
-                "routes"
-            ],
-            "support": {
-                "issues": "https://github.com/TheDragonCode/extended-routes/issues",
-                "source": "https://github.com/TheDragonCode/extended-routes"
-            },
-            "funding": [
-                {
-                    "url": "https://paypal.me/helldar",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://yoomoney.ru/to/410012608840929",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://opencollective.com/dragon-code",
-                    "type": "open_collective"
-                },
-                {
-                    "url": "https://www.patreon.com/andrey_helldar",
-                    "type": "patreon"
-                }
-            ],
-            "time": "2022-01-18T10:21:05+00:00"
-        },
-        {
             "name": "dragon-code/laravel-cache",
             "version": "v3.2.0",
             "source": {
@@ -1380,90 +1294,6 @@
             "time": "2022-10-28T09:16:22+00:00"
         },
         {
-            "name": "dragon-code/laravel-route-names",
-            "version": "v1.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/TheDragonCode/laravel-route-names.git",
-                "reference": "24ba6aff2da8db2590ac83c69edffbb9dece93f2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/TheDragonCode/laravel-route-names/zipball/24ba6aff2da8db2590ac83c69edffbb9dece93f2",
-                "reference": "24ba6aff2da8db2590ac83c69edffbb9dece93f2",
-                "shasum": ""
-            },
-            "require": {
-                "fig/http-message-util": "^1.1",
-                "illuminate/routing": "^7.0 || ^8.0 || ^9.0",
-                "php": "^7.4 || ^8.0"
-            },
-            "require-dev": {
-                "dragon-code/extended-routes": "^3.1",
-                "orchestra/testbench": "^5.0 || ^6.0 || ^7.0",
-                "phpunit/phpunit": "^9.5"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "DragonCode\\LaravelRouteNames\\ServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "DragonCode\\LaravelRouteNames\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Andrey Helldar",
-                    "email": "helldar@ai-rus.com"
-                }
-            ],
-            "description": "Automatic generation of route names",
-            "keywords": [
-                "dragon-code",
-                "laravel",
-                "names",
-                "naming",
-                "routes",
-                "routing"
-            ],
-            "support": {
-                "issues": "https://github.com/TheDragonCode/laravel-route-names/issues",
-                "source": "https://github.com/TheDragonCode/laravel-route-names"
-            },
-            "funding": [
-                {
-                    "url": "https://paypal.me/helldar",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://yoomoney.ru/to/410012608840929",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/TheDragonCode",
-                    "type": "github"
-                },
-                {
-                    "url": "https://opencollective.com/dragon-code",
-                    "type": "open_collective"
-                },
-                {
-                    "url": "https://www.patreon.com/andrey_helldar",
-                    "type": "patreon"
-                }
-            ],
-            "time": "2022-03-06T12:33:20+00:00"
-        },
-        {
             "name": "dragon-code/laravel-support",
             "version": "v3.4.1",
             "source": {
@@ -1807,104 +1637,6 @@
             "time": "2022-10-23T12:29:24+00:00"
         },
         {
-            "name": "dragon-code/web-core",
-            "version": "v1.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/TheDragonCode/web-core.git",
-                "reference": "dd561e36a9c9eca1aba4057f0bcf288c9d270783"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/TheDragonCode/web-core/zipball/dd561e36a9c9eca1aba4057f0bcf288c9d270783",
-                "reference": "dd561e36a9c9eca1aba4057f0bcf288c9d270783",
-                "shasum": ""
-            },
-            "require": {
-                "archtechx/enums": "^0.3",
-                "doctrine/dbal": "^3.4",
-                "dragon-code/contracts": "^2.19",
-                "dragon-code/extended-routes": "^3.1",
-                "dragon-code/laravel-cache": "^3.2",
-                "dragon-code/laravel-http-logger": "^1.2",
-                "dragon-code/laravel-json-response": "^2.3",
-                "dragon-code/laravel-migration-actions": "^3.0",
-                "dragon-code/laravel-route-names": "^1.3",
-                "dragon-code/laravel-support": "^3.4",
-                "dragon-code/simple-dto": "^2.5",
-                "dragon-code/support": "^6.6",
-                "ext-json": "*",
-                "ext-pdo": "*",
-                "ext-redis": "*",
-                "guzzlehttp/guzzle": "^7.5",
-                "laravel-lang/attributes": "^2.0",
-                "laravel-lang/http-statuses": "^3.0",
-                "laravel-lang/lang": "^12.0",
-                "laravel-lang/publisher": "^14.3",
-                "laravel/framework": "^9.35.1",
-                "laravel/sanctum": "^3.0",
-                "laravel/tinker": "^2.7",
-                "php": "^8.1"
-            },
-            "require-dev": {
-                "dragon-code/env-sync-laravel": "^2.3",
-                "dragon-code/pretty-routes": "^3.2",
-                "fakerphp/faker": "^1.20",
-                "mockery/mockery": "^1.5",
-                "nunomaduro/collision": "^6.3",
-                "phpunit/phpunit": "^9.5",
-                "spatie/laravel-ignition": "^1.5"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "DragonCode\\WebCore\\ServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "DragonCode\\WebCore\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Andrey Helldar",
-                    "email": "helldar@dragon-code.pro",
-                    "homepage": "https://github.com/andrey-helldar"
-                }
-            ],
-            "description": "Web core for the Dragon Code apps",
-            "support": {
-                "issues": "https://github.com/TheDragonCode/web-core/issues",
-                "source": "https://github.com/TheDragonCode/web-core/tree/v1.1.1"
-            },
-            "funding": [
-                {
-                    "url": "https://boosty.to/dragon-code",
-                    "type": "boosty"
-                },
-                {
-                    "url": "https://github.com/sponsors/TheDragonCode",
-                    "type": "github"
-                },
-                {
-                    "url": "https://opencollective.com/dragon-code",
-                    "type": "open_collective"
-                },
-                {
-                    "url": "https://yoomoney.ru/to/410012608840929",
-                    "type": "yoomoney"
-                }
-            ],
-            "time": "2022-11-09T00:00:53+00:00"
-        },
-        {
             "name": "dragonmantank/cron-expression",
             "version": "v3.3.2",
             "source": {
@@ -2032,62 +1764,6 @@
                 }
             ],
             "time": "2022-06-18T20:57:19+00:00"
-        },
-        {
-            "name": "fig/http-message-util",
-            "version": "1.1.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-fig/http-message-util.git",
-                "reference": "9d94dc0154230ac39e5bf89398b324a86f63f765"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/http-message-util/zipball/9d94dc0154230ac39e5bf89398b324a86f63f765",
-                "reference": "9d94dc0154230ac39e5bf89398b324a86f63f765",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^5.3 || ^7.0 || ^8.0"
-            },
-            "suggest": {
-                "psr/http-message": "The package containing the PSR-7 interfaces"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.1.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Fig\\Http\\Message\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "PHP-FIG",
-                    "homepage": "https://www.php-fig.org/"
-                }
-            ],
-            "description": "Utility classes and constants for use with PSR-7 (psr/http-message)",
-            "keywords": [
-                "http",
-                "http-message",
-                "psr",
-                "psr-7",
-                "request",
-                "response"
-            ],
-            "support": {
-                "issues": "https://github.com/php-fig/http-message-util/issues",
-                "source": "https://github.com/php-fig/http-message-util/tree/1.1.5"
-            },
-            "time": "2020-11-24T22:02:12+00:00"
         },
         {
             "name": "fruitcake/php-cors",
@@ -2552,236 +2228,6 @@
                 }
             ],
             "time": "2022-10-26T14:07:24+00:00"
-        },
-        {
-            "name": "laravel-lang/attributes",
-            "version": "v2.0.7",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Laravel-Lang/attributes.git",
-                "reference": "bb4c8ee829e4cfc7c43d4e55ee3ca2b5e6499ca7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Lang/attributes/zipball/bb4c8ee829e4cfc7c43d4e55ee3ca2b5e6499ca7",
-                "reference": "bb4c8ee829e4cfc7c43d4e55ee3ca2b5e6499ca7",
-                "shasum": ""
-            },
-            "require": {
-                "ext-json": "*",
-                "illuminate/support": "^6.0 || ^7.0 || ^8.0 || ^9.0"
-            },
-            "conflict": {
-                "laravel-lang/publisher": "<14.0.0"
-            },
-            "require-dev": {
-                "laravel-lang/publisher": "^14.0",
-                "laravel-lang/status-generator": "^1.3",
-                "php": "^8.1",
-                "phpunit/phpunit": "^9.5",
-                "symfony/var-dumper": "^5.0 || ^6.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "LaravelLang\\Attributes\\ServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "LaravelLang\\Attributes\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Andrey Helldar",
-                    "email": "helldar@dragon-code.pro"
-                },
-                {
-                    "name": "Laravel-Lang Team",
-                    "homepage": "https://github.com/Laravel-Lang"
-                }
-            ],
-            "description": "List of 78 languages for form field names",
-            "keywords": [
-                "attributes",
-                "fields",
-                "form",
-                "lang",
-                "languages",
-                "laravel",
-                "messages",
-                "translations",
-                "validation"
-            ],
-            "support": {
-                "issues": "https://github.com/Laravel-Lang/attributes/issues",
-                "source": "https://github.com/Laravel-Lang/attributes/tree/v2.0.7"
-            },
-            "funding": [
-                {
-                    "url": "https://opencollective.com/laravel-lang",
-                    "type": "open_collective"
-                }
-            ],
-            "time": "2022-10-25T15:24:23+00:00"
-        },
-        {
-            "name": "laravel-lang/http-statuses",
-            "version": "v3.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Laravel-Lang/http-statuses.git",
-                "reference": "0b623329b596e4e245d4c1b83c20f35e6ed61e9f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Lang/http-statuses/zipball/0b623329b596e4e245d4c1b83c20f35e6ed61e9f",
-                "reference": "0b623329b596e4e245d4c1b83c20f35e6ed61e9f",
-                "shasum": ""
-            },
-            "require": {
-                "ext-json": "*"
-            },
-            "conflict": {
-                "laravel-lang/publisher": "<14.0"
-            },
-            "require-dev": {
-                "laravel-lang/publisher": "^14.1",
-                "laravel-lang/status-generator": "^1.3.4",
-                "php": "^8.1",
-                "phpunit/phpunit": "^9.5",
-                "symfony/var-dumper": "^5.0 || ^6.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "LaravelLang\\HttpStatuses\\ServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "LaravelLang\\HttpStatuses\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Andrey Helldar",
-                    "email": "helldar@dragon-code.pro"
-                },
-                {
-                    "name": "Laravel-Lang Team",
-                    "homepage": "https://github.com/Laravel-Lang"
-                }
-            ],
-            "description": "List of 78 languages for HTTP statuses",
-            "keywords": [
-                "http",
-                "lang",
-                "languages",
-                "laravel",
-                "messages",
-                "status",
-                "translations"
-            ],
-            "support": {
-                "issues": "https://github.com/Laravel-Lang/http-statuses/issues",
-                "source": "https://github.com/Laravel-Lang/http-statuses/tree/v3.1.0"
-            },
-            "funding": [
-                {
-                    "url": "https://opencollective.com/laravel-lang",
-                    "type": "open_collective"
-                }
-            ],
-            "time": "2022-11-04T10:43:30+00:00"
-        },
-        {
-            "name": "laravel-lang/lang",
-            "version": "12.1.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Laravel-Lang/lang.git",
-                "reference": "75420b91ca6e940075752f9a8fe3ccf79986d6fe"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Lang/lang/zipball/75420b91ca6e940075752f9a8fe3ccf79986d6fe",
-                "reference": "75420b91ca6e940075752f9a8fe3ccf79986d6fe",
-                "shasum": ""
-            },
-            "require": {
-                "ext-json": "*"
-            },
-            "conflict": {
-                "laravel-lang/publisher": "<14.0"
-            },
-            "require-dev": {
-                "laravel-lang/publisher": "^14.0",
-                "laravel-lang/status-generator": "^1.3.7",
-                "php": "^8.1",
-                "phpunit/phpunit": "^9.5",
-                "symfony/var-dumper": "^5.0 || ^6.0"
-            },
-            "suggest": {
-                "arcanedev/laravel-lang": "Translations manager and checker for Laravel",
-                "laravel-lang/attributes": "Translations for field names of the forms",
-                "laravel-lang/http-statuses": "Translations for HTTP statuses",
-                "laravel-lang/publisher": "Easy installation and update of translation files for your project"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "LaravelLang\\Lang\\ServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "LaravelLang\\Lang\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Laravel-Lang Team",
-                    "homepage": "https://github.com/Laravel-Lang"
-                }
-            ],
-            "description": "Languages for Laravel",
-            "keywords": [
-                "lang",
-                "languages",
-                "laravel",
-                "lpm"
-            ],
-            "support": {
-                "issues": "https://github.com/Laravel-Lang/lang/issues",
-                "source": "https://github.com/Laravel-Lang/lang"
-            },
-            "funding": [
-                {
-                    "url": "https://opencollective.com/laravel-lang",
-                    "type": "open_collective"
-                }
-            ],
-            "time": "2022-11-07T17:36:07+00:00"
         },
         {
             "name": "laravel-lang/publisher",
@@ -8396,6 +7842,236 @@
             "time": "2020-07-09T08:09:16+00:00"
         },
         {
+            "name": "laravel-lang/attributes",
+            "version": "v2.0.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Laravel-Lang/attributes.git",
+                "reference": "bb4c8ee829e4cfc7c43d4e55ee3ca2b5e6499ca7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Laravel-Lang/attributes/zipball/bb4c8ee829e4cfc7c43d4e55ee3ca2b5e6499ca7",
+                "reference": "bb4c8ee829e4cfc7c43d4e55ee3ca2b5e6499ca7",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "illuminate/support": "^6.0 || ^7.0 || ^8.0 || ^9.0"
+            },
+            "conflict": {
+                "laravel-lang/publisher": "<14.0.0"
+            },
+            "require-dev": {
+                "laravel-lang/publisher": "^14.0",
+                "laravel-lang/status-generator": "^1.3",
+                "php": "^8.1",
+                "phpunit/phpunit": "^9.5",
+                "symfony/var-dumper": "^5.0 || ^6.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "LaravelLang\\Attributes\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "LaravelLang\\Attributes\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andrey Helldar",
+                    "email": "helldar@dragon-code.pro"
+                },
+                {
+                    "name": "Laravel-Lang Team",
+                    "homepage": "https://github.com/Laravel-Lang"
+                }
+            ],
+            "description": "List of 78 languages for form field names",
+            "keywords": [
+                "attributes",
+                "fields",
+                "form",
+                "lang",
+                "languages",
+                "laravel",
+                "messages",
+                "translations",
+                "validation"
+            ],
+            "support": {
+                "issues": "https://github.com/Laravel-Lang/attributes/issues",
+                "source": "https://github.com/Laravel-Lang/attributes/tree/v2.0.7"
+            },
+            "funding": [
+                {
+                    "url": "https://opencollective.com/laravel-lang",
+                    "type": "open_collective"
+                }
+            ],
+            "time": "2022-10-25T15:24:23+00:00"
+        },
+        {
+            "name": "laravel-lang/http-statuses",
+            "version": "v3.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Laravel-Lang/http-statuses.git",
+                "reference": "0b623329b596e4e245d4c1b83c20f35e6ed61e9f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Laravel-Lang/http-statuses/zipball/0b623329b596e4e245d4c1b83c20f35e6ed61e9f",
+                "reference": "0b623329b596e4e245d4c1b83c20f35e6ed61e9f",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*"
+            },
+            "conflict": {
+                "laravel-lang/publisher": "<14.0"
+            },
+            "require-dev": {
+                "laravel-lang/publisher": "^14.1",
+                "laravel-lang/status-generator": "^1.3.4",
+                "php": "^8.1",
+                "phpunit/phpunit": "^9.5",
+                "symfony/var-dumper": "^5.0 || ^6.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "LaravelLang\\HttpStatuses\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "LaravelLang\\HttpStatuses\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andrey Helldar",
+                    "email": "helldar@dragon-code.pro"
+                },
+                {
+                    "name": "Laravel-Lang Team",
+                    "homepage": "https://github.com/Laravel-Lang"
+                }
+            ],
+            "description": "List of 78 languages for HTTP statuses",
+            "keywords": [
+                "http",
+                "lang",
+                "languages",
+                "laravel",
+                "messages",
+                "status",
+                "translations"
+            ],
+            "support": {
+                "issues": "https://github.com/Laravel-Lang/http-statuses/issues",
+                "source": "https://github.com/Laravel-Lang/http-statuses/tree/v3.1.0"
+            },
+            "funding": [
+                {
+                    "url": "https://opencollective.com/laravel-lang",
+                    "type": "open_collective"
+                }
+            ],
+            "time": "2022-11-04T10:43:30+00:00"
+        },
+        {
+            "name": "laravel-lang/lang",
+            "version": "12.1.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Laravel-Lang/lang.git",
+                "reference": "75420b91ca6e940075752f9a8fe3ccf79986d6fe"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Laravel-Lang/lang/zipball/75420b91ca6e940075752f9a8fe3ccf79986d6fe",
+                "reference": "75420b91ca6e940075752f9a8fe3ccf79986d6fe",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*"
+            },
+            "conflict": {
+                "laravel-lang/publisher": "<14.0"
+            },
+            "require-dev": {
+                "laravel-lang/publisher": "^14.0",
+                "laravel-lang/status-generator": "^1.3.7",
+                "php": "^8.1",
+                "phpunit/phpunit": "^9.5",
+                "symfony/var-dumper": "^5.0 || ^6.0"
+            },
+            "suggest": {
+                "arcanedev/laravel-lang": "Translations manager and checker for Laravel",
+                "laravel-lang/attributes": "Translations for field names of the forms",
+                "laravel-lang/http-statuses": "Translations for HTTP statuses",
+                "laravel-lang/publisher": "Easy installation and update of translation files for your project"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "LaravelLang\\Lang\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "LaravelLang\\Lang\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Laravel-Lang Team",
+                    "homepage": "https://github.com/Laravel-Lang"
+                }
+            ],
+            "description": "Languages for Laravel",
+            "keywords": [
+                "lang",
+                "languages",
+                "laravel",
+                "lpm"
+            ],
+            "support": {
+                "issues": "https://github.com/Laravel-Lang/lang/issues",
+                "source": "https://github.com/Laravel-Lang/lang"
+            },
+            "funding": [
+                {
+                    "url": "https://opencollective.com/laravel-lang",
+                    "type": "open_collective"
+                }
+            ],
+            "time": "2022-11-07T17:36:07+00:00"
+        },
+        {
             "name": "laravel/sail",
             "version": "v1.16.2",
             "source": {
@@ -10756,7 +10432,9 @@
     "prefer-lowest": false,
     "platform": {
         "php": "^8.1",
-        "ext-pdo": "*"
+        "ext-json": "*",
+        "ext-pdo": "*",
+        "ext-redis": "*"
     },
     "platform-dev": [],
     "plugin-api-version": "2.3.0"

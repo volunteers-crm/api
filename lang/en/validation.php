@@ -25,7 +25,6 @@ return [
     'alpha_dash'           => 'The :attribute must only contain letters, numbers, dashes and underscores.',
     'alpha_num'            => 'The :attribute must only contain letters and numbers.',
     'array'                => 'The :attribute must be an array.',
-    'attached'             => 'This field is already attached.',
     'before'               => 'The :attribute must be a date before :date.',
     'before_or_equal'      => 'The :attribute must be a date before or equal to :date.',
     'between'              => [
@@ -121,7 +120,6 @@ return [
     'prohibited_unless'    => 'The :attribute field is prohibited unless :other is in :values.',
     'prohibits'            => 'The :attribute field prohibits :other from being present.',
     'regex'                => 'The :attribute format is invalid.',
-    'relatable'            => 'This field may not be associated with this resource.',
     'required'             => 'The :attribute field is required.',
     'required_array_keys'  => 'The :attribute field must contain entries for: :values.',
     'required_if'          => 'The :attribute field is required when :other is :value.',
@@ -176,8 +174,6 @@ return [
         'image'                    => 'image',
         'last_name'                => 'last name',
         'lesson'                   => 'lesson',
-        'line_address1'            => 'Line Address 1',
-        'line_address2'            => 'Line Address 2',
         'line_address_1'           => 'line address 1',
         'line_address_2'           => 'line address 2',
         'message'                  => 'message',
@@ -219,10 +215,5 @@ return [
         'updated_at'               => 'updated at',
         'username'                 => 'username',
         'year'                     => 'year',
-    ],
-    'custom'               => [
-        'attribute_name' => [
-            'rule_name' => 'custom-message',
-        ],
     ],
 ];
