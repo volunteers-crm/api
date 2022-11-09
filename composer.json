@@ -33,7 +33,7 @@
         "ext-pdo": "*",
         "defstudio/telegraph": "^1.21",
         "dragon-code/simple-dto": "^2.6",
-        "dragon-code/web-core": "^0.2.1",
+        "dragon-code/web-core": "^1.1.1",
         "laravel/socialite": "^5.5",
         "socialiteproviders/manager": "^4.2",
         "socialiteproviders/telegram": "^4.1"
