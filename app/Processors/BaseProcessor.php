@@ -29,7 +29,7 @@ abstract class BaseProcessor
     use Makeable;
 
     public function __construct(
-        protected Bot     $bot,
+        protected Bot $bot,
         protected Channel $chat
     ) {
     }
