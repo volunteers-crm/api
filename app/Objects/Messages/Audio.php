@@ -19,19 +19,7 @@ namespace App\Objects\Messages;
 
 use DragonCode\SimpleDataTransferObject\DataTransferObject;
 
-class Document extends DataTransferObject
+class Audio extends DataTransferObject
 {
-    public ?int $duration;
-
-    public ?string $fileId;
-
-    public ?string $fileUniqueId;
-
-    public ?string $mimeType;
-
-    protected $map = [
-        'file_id'        => 'fileId',
-        'file_unique_id' => 'fileUniqueId',
-        'mime_type'      => 'mimeType',
-    ];
+    public ?string $text;
 }

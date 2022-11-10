@@ -19,19 +19,14 @@ namespace App\Objects\Messages;
 
 use DragonCode\SimpleDataTransferObject\DataTransferObject;
 
-class Document extends DataTransferObject
+class Contact extends DataTransferObject
 {
-    public ?int $duration;
+    public ?string $phone;
 
-    public ?string $fileId;
-
-    public ?string $fileUniqueId;
-
-    public ?string $mimeType;
+    public ?string $name;
 
     protected $map = [
-        'file_id'        => 'fileId',
-        'file_unique_id' => 'fileUniqueId',
-        'mime_type'      => 'mimeType',
+        'phone_number' => 'phone',
+        'first_name'   => 'name',
     ];
 }

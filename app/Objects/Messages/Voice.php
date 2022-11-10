@@ -19,7 +19,7 @@ namespace App\Objects\Messages;
 
 use DragonCode\SimpleDataTransferObject\DataTransferObject;
 
-class Document extends DataTransferObject
+class Voice extends DataTransferObject
 {
     public ?int $duration;
 

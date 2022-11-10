@@ -19,7 +19,7 @@ namespace App\Objects\Messages;
 
 use DragonCode\SimpleDataTransferObject\DataTransferObject;
 
-class Document extends DataTransferObject
+class VideoNote extends DataTransferObject
 {
     public ?int $duration;
 
@@ -27,11 +27,8 @@ class Document extends DataTransferObject
 
     public ?string $fileUniqueId;
 
-    public ?string $mimeType;
-
     protected $map = [
         'file_id'        => 'fileId',
         'file_unique_id' => 'fileUniqueId',
-        'mime_type'      => 'mimeType',
     ];
 }
