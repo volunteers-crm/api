@@ -74,6 +74,7 @@ return [
     'ipv4'                 => ':Attribute muss eine gültige IPv4-Adresse sein.',
     'ipv6'                 => ':Attribute muss eine gültige IPv6-Adresse sein.',
     'json'                 => ':Attribute muss ein gültiger JSON-String sein.',
+    'lowercase'            => 'The :attribute must be lowercase.',
     'lt'                   => [
         'array'   => ':Attribute muss weniger als :value Elemente haben.',
         'file'    => ':Attribute muss kleiner als :value Kilobytes sein.',
@@ -141,6 +142,7 @@ return [
     'timezone'             => ':Attribute muss eine gültige Zeitzone sein.',
     'unique'               => ':Attribute ist bereits vergeben.',
     'uploaded'             => ':Attribute konnte nicht hochgeladen werden.',
+    'uppercase'            => 'The :attribute must be uppercase.',
     'url'                  => ':Attribute muss eine URL sein.',
     'uuid'                 => ':Attribute muss ein UUID sein.',
     'attributes'           => [
