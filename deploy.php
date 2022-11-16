@@ -17,21 +17,20 @@ declare(strict_types=1);
 
 namespace Deployer;
 
-require 'contrib/npm.php';
 require 'contrib/php-fpm.php';
 require 'contrib/telegram.php';
 require 'recipe/laravel.php';
 
 // Config
 
-set('application', 'The Dragon Code: Web Template');
-set('repository', 'git@github.com:TheDragonCode/web-app.git');
+set('application', 'Volunteers CRM');
+set('repository', 'git@github.com:volunteers-crm/api.git');
 set('php_fpm_version', '8.1');
 
 // Notification
 
-set('telegram_token', $_SERVER['TELEGRAM_DRAGON_BOT_TOKEN']);
-set('telegram_chat_id', $_SERVER['TELEGRAM_DRAGON_BOT_CHAT_ID']);
+set('telegram_token', $_SERVER['DEPLOY_BOT_TOKEN']);
+set('telegram_chat_id', $_SERVER['DEPLOY_BOT_CHAT_ID']);
 
 set('telegram_text', 'Deploying `{{branch}}` to *{{target}}*' . PHP_EOL . PHP_EOL . '*Application*: {{application}}');
 set('telegram_success_text', 'Deployed some fresh code to *{{target}}*' . PHP_EOL . PHP_EOL . '*Application*: {{application}}');
@@ -40,12 +39,7 @@ set('telegram_failure_text', 'Something went wrong during deployment to *{{targe
 // Hosts
 
 host('production')
-    ->setHostname('example.com')
-    ->setRemoteUser('forge')
-    ->setDeployPath('~/{{hostname}}');
-
-host('staging')
-    ->setHostname('staging.example.com')
+    ->setHostname($_SERVER['DEPLOY_HOSTNAME'])
     ->setRemoteUser('forge')
     ->setDeployPath('~/{{hostname}}');
 
@@ -55,27 +49,25 @@ task('deploy', [
     'deploy:prepare',
     'deploy:vendors',
     'artisan:storage:link',
-    'artisan:optimize:clear',
     'artisan:optimize',
     'artisan:view:cache',
     'artisan:event:cache',
     'artisan:migrate',
-    'npm:install',
-    'npm:run:prod',
+    'artisan:actions:before',
     'deploy:publish',
     'php-fpm:reload',
     'artisan:queue:restart',
-    'artisan:migrate:actions',
+    'artisan:actions',
 ]);
 
-task('artisan:migrate:actions', function () {
+task('artisan:actions:before', function () {
     cd('{{release_path}}');
-    run('{{bin/php}} artisan migrate:actions --force');
+    run('{{bin/php}} artisan migrate:actions --before');
 });
 
-task('npm:run:prod', function () {
+task('artisan:actions', function () {
     cd('{{release_path}}');
-    run('npm run prod');
+    run('{{bin/php}} artisan migrate:actions');
 });
 
 before('deploy', 'telegram:notify');
