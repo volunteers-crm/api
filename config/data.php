@@ -59,7 +59,7 @@ return [
         Spatie\LaravelData\RuleInferrers\RequiredRuleInferrer::class,
     ],
 
-    /**
+    /*
      * Normalizers return an array representation of the payload, or null if
      * it cannot normalize the payload. The normalizers below are used for
      * every data object, unless overridden in a specific data object class.
@@ -81,7 +81,7 @@ return [
 
     'wrap' => null,
 
-    /**
+    /*
      * Adds a specific caster to the Symphony VarDumper component which hides
      * some properties from data objects and collections when being dumped
      * by `dump` or `dd`. Can be 'enabled', 'disabled' or 'development'
