@@ -20,11 +20,25 @@ namespace App\Providers;
 use App\Models\PersonalAccessToken;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Sanctum\Sanctum;
+use Laravel\Telescope\TelescopeServiceProvider as BaseTelescopeServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
+        $this->registerSanctum();
+        $this->registerTelescope();
+    }
+
+    protected function registerSanctum(): void
+    {
         Sanctum::usePersonalAccessTokenModel(PersonalAccessToken::class);
+    }
+
+    protected function registerTelescope(): void
+    {
+        if ($this->app->isLocal() && class_exists(BaseTelescopeServiceProvider::class)) {
+            $this->app->register(TelescopeServiceProvider::class);
+        }
     }
 }

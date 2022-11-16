@@ -191,16 +191,16 @@
         },
         {
             "name": "defstudio/telegraph",
-            "version": "v1.23.0",
+            "version": "v1.23.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/defstudio/telegraph.git",
-                "reference": "e7a15fceaf0d0b067d624156b837dcd008a119a6"
+                "reference": "9910f6356e26c393e2fcc6244ae5667b40798ba9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/defstudio/telegraph/zipball/e7a15fceaf0d0b067d624156b837dcd008a119a6",
-                "reference": "e7a15fceaf0d0b067d624156b837dcd008a119a6",
+                "url": "https://api.github.com/repos/defstudio/telegraph/zipball/9910f6356e26c393e2fcc6244ae5667b40798ba9",
+                "reference": "9910f6356e26c393e2fcc6244ae5667b40798ba9",
                 "shasum": ""
             },
             "require": {
@@ -266,7 +266,7 @@
             ],
             "support": {
                 "issues": "https://github.com/defstudio/telegraph/issues",
-                "source": "https://github.com/defstudio/telegraph/tree/v1.23.0"
+                "source": "https://github.com/defstudio/telegraph/tree/v1.23.1"
             },
             "funding": [
                 {
@@ -278,7 +278,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-11-13T19:04:59+00:00"
+            "time": "2022-11-16T16:59:54+00:00"
         },
         {
             "name": "dflydev/dot-access-data",
@@ -7999,16 +7999,16 @@
         },
         {
             "name": "laravel-lang/lang",
-            "version": "12.3.0",
+            "version": "12.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Lang/lang.git",
-                "reference": "8bf9f5f2622a19e1dec00bf6103a5dd587330298"
+                "reference": "e74e54700cbac7ccc658ee29e413d7586301da78"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Lang/lang/zipball/8bf9f5f2622a19e1dec00bf6103a5dd587330298",
-                "reference": "8bf9f5f2622a19e1dec00bf6103a5dd587330298",
+                "url": "https://api.github.com/repos/Laravel-Lang/lang/zipball/e74e54700cbac7ccc658ee29e413d7586301da78",
+                "reference": "e74e54700cbac7ccc658ee29e413d7586301da78",
                 "shasum": ""
             },
             "require": {
@@ -8070,7 +8070,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2022-11-15T07:38:21+00:00"
+            "time": "2022-11-16T08:51:32+00:00"
         },
         {
             "name": "laravel/sail",
@@ -10143,16 +10143,16 @@
         },
         {
             "name": "spatie/flare-client-php",
-            "version": "1.3.0",
+            "version": "1.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/flare-client-php.git",
-                "reference": "b1b974348750925b717fa8c8b97a0db0d1aa40ca"
+                "reference": "ebb9ae0509b75e02f128b39537eb9a3ef5ce18e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/flare-client-php/zipball/b1b974348750925b717fa8c8b97a0db0d1aa40ca",
-                "reference": "b1b974348750925b717fa8c8b97a0db0d1aa40ca",
+                "url": "https://api.github.com/repos/spatie/flare-client-php/zipball/ebb9ae0509b75e02f128b39537eb9a3ef5ce18e8",
+                "reference": "ebb9ae0509b75e02f128b39537eb9a3ef5ce18e8",
                 "shasum": ""
             },
             "require": {
@@ -10200,7 +10200,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/flare-client-php/issues",
-                "source": "https://github.com/spatie/flare-client-php/tree/1.3.0"
+                "source": "https://github.com/spatie/flare-client-php/tree/1.3.1"
             },
             "funding": [
                 {
@@ -10208,7 +10208,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-08-08T10:10:20+00:00"
+            "time": "2022-11-16T08:30:20+00:00"
         },
         {
             "name": "spatie/ignition",

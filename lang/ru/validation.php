@@ -142,7 +142,7 @@ return [
     'timezone'             => 'Значение поля :attribute должно быть действительным часовым поясом.',
     'unique'               => 'Такое значение поля :attribute уже существует.',
     'uploaded'             => 'Загрузка поля :attribute не удалась.',
-    'uppercase'            => 'The :attribute must be uppercase.',
+    'uppercase'            => 'Значение поля :attribute должно быть в верхнем регистре.',
     'url'                  => 'Значение поля :attribute имеет ошибочный формат URL.',
     'uuid'                 => 'Значение поля :attribute должно быть корректным UUID.',
     'attributes'           => [
