@@ -17,13 +17,16 @@ declare(strict_types=1);
 
 namespace App\Objects\Messages;
 
+use App\Data\Casts\Translatable;
 use App\Enums\MessageType;
+use Spatie\LaravelData\Attributes\WithCast;
 
-class Location extends BaseData
+class Unsupported extends BaseData
 {
-    public MessageType $dataType = MessageType::Location;
+    public MessageType $dataType = MessageType::Unsupported;
 
-    public ?float $longitude;
+    #[WithCast(Translatable::class)]
+    public string $message = 'http-statuses.415';
 
-    public ?float $latitude;
+    public ?array $data;
 }

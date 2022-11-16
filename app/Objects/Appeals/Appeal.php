@@ -17,36 +17,27 @@ declare(strict_types=1);
 
 namespace App\Objects\Appeals;
 
+use App\Data\Casts\Persons;
+use App\Data\Casts\Todo;
 use Carbon\Carbon;
-use DragonCode\SimpleDataTransferObject\DataTransferObject;
-use DragonCode\Support\Facades\Helpers\Arr;
+use Spatie\LaravelData\Attributes\WithCast;
+use Spatie\LaravelData\Casts\DateTimeInterfaceCast;
+use Spatie\LaravelData\Data;
 
-class Appeal extends DataTransferObject
+class Appeal extends Data
 {
     public ?string $address = null;
 
     public ?string $comment = null;
 
+    #[WithCast(DateTimeInterfaceCast::class, setTimeZone: 'UTC')]
     public ?Carbon $date = null;
 
+    #[WithCast(Persons::class)]
     public ?int $persons = 0;
 
     public array $channels = [];
 
+    #[WithCast(Todo::class)]
     public array $todo = [];
-
-    protected function castDate(?string $value): ?Carbon
-    {
-        return $value ? Carbon::parse($value)->timezone('UTC') : null;
-    }
-
-    protected function castTodo(array $values): array
-    {
-        return Arr::of($values)->filter()->unique()->values()->toArray();
-    }
-
-    protected function castPersons(string|int|float $value): int
-    {
-        return (int) $value;
-    }
 }

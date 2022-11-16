@@ -18,12 +18,13 @@ declare(strict_types=1);
 namespace App\Objects\Messages;
 
 use App\Enums\MessageType;
+use Spatie\LaravelData\Attributes\DataCollectionOf;
+use Spatie\LaravelData\DataCollection;
 
-class Location extends BaseData
+class Photos extends BaseData
 {
-    public MessageType $dataType = MessageType::Location;
+    public MessageType $dataType = MessageType::Photo;
 
-    public ?float $longitude;
-
-    public ?float $latitude;
+    #[DataCollectionOf(Photo::class)]
+    public ?DataCollection $photos;
 }

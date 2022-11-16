@@ -15,15 +15,15 @@
 
 declare(strict_types=1);
 
-namespace App\Objects\Messages;
+namespace App\Data\Casts;
 
-use App\Enums\MessageType;
+use Spatie\LaravelData\Casts\Cast;
+use Spatie\LaravelData\Support\DataProperty;
 
-class Location extends BaseData
+class Translatable implements Cast
 {
-    public MessageType $dataType = MessageType::Location;
-
-    public ?float $longitude;
-
-    public ?float $latitude;
+    public function cast(DataProperty $property, mixed $value, array $context): string
+    {
+        return __($value);
+    }
 }

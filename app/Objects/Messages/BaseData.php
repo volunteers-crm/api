@@ -18,12 +18,9 @@ declare(strict_types=1);
 namespace App\Objects\Messages;
 
 use App\Enums\MessageType;
+use Spatie\LaravelData\Data;
 
-class Location extends BaseData
+abstract class BaseData extends Data
 {
-    public MessageType $dataType = MessageType::Location;
-
-    public ?float $longitude;
-
-    public ?float $latitude;
+    public MessageType $dataType;
 }

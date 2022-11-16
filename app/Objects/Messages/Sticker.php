@@ -17,9 +17,13 @@ declare(strict_types=1);
 
 namespace App\Objects\Messages;
 
-use DragonCode\SimpleDataTransferObject\DataTransferObject;
+use App\Enums\MessageType;
+use Spatie\LaravelData\Attributes\MapInputName;
 
-class Sticker extends DataTransferObject
+class Sticker extends BaseData
 {
+    public MessageType $dataType = MessageType::Sticker;
+
+    #[MapInputName('sticker.emoji')]
     public ?string $emoji;
 }

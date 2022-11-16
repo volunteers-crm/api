@@ -19,25 +19,29 @@ namespace App\Enums;
 
 enum MessageType: string
 {
-    case ANIMATION = 'animation';
+    case Animation = 'animation';
 
-    case AUDIO = 'audio';
+    case Audio = 'audio';
 
-    case CONTACT = 'contact';
+    case Contact = 'contact';
 
-    case DOCUMENT = 'document';
+    case Document = 'document';
 
-    case LOCATION = 'location';
+    case Location = 'location';
 
-    case PASSPORT = 'passport';
+    case Passport = 'passport';
 
-    case STICKER = 'sticker';
+    case Photo = 'photo';
 
-    case TEXT = 'text';
+    case Sticker = 'sticker';
 
-    case VIDEO = 'video';
+    case Text = 'text';
 
-    case VIDEO_NOTE = 'video_note';
+    case Video = 'video';
 
-    case VOICE = 'voice';
+    case VideoNote = 'video_note';
+
+    case Voice = 'voice';
+
+    case Unsupported = 'unsupported';
 }

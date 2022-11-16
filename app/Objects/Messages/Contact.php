@@ -17,16 +17,16 @@ declare(strict_types=1);
 
 namespace App\Objects\Messages;
 
-use DragonCode\SimpleDataTransferObject\DataTransferObject;
+use App\Enums\MessageType;
+use Spatie\LaravelData\Attributes\MapInputName;
 
-class Contact extends DataTransferObject
+class Contact extends BaseData
 {
+    public MessageType $dataType = MessageType::Contact;
+
+    #[MapInputName('phone_number')]
     public ?string $phone;
 
+    #[MapInputName('first_name')]
     public ?string $name;
-
-    protected $map = [
-        'phone_number' => 'phone',
-        'first_name'   => 'name',
-    ];
 }

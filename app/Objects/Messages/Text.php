@@ -17,9 +17,11 @@ declare(strict_types=1);
 
 namespace App\Objects\Messages;
 
-use DragonCode\SimpleDataTransferObject\DataTransferObject;
+use App\Enums\MessageType;
 
-class Text extends DataTransferObject
+class Text extends BaseData
 {
+    public MessageType $dataType = MessageType::Text;
+
     public ?string $text;
 }

@@ -17,13 +17,12 @@ declare(strict_types=1);
 
 namespace App\Processors;
 
-use App\Enums\MessageType;
 use App\Enums\Status;
-use App\Helpers\MessageToDTO;
+use App\Helpers\MessageData;
 use App\Models\Appeal as AppealModel;
 use App\Models\User;
 use App\Models\User as UserModel;
-use DragonCode\SimpleDataTransferObject\DataTransferObject;
+use App\Objects\Messages\BaseData;
 
 class Appeal extends BaseProcessor
 {
@@ -36,12 +35,12 @@ class Appeal extends BaseProcessor
         $this->store($appeal, $client, $content);
     }
 
-    protected function store(AppealModel $appeal, UserModel $client, DataTransferObject $text): void
+    protected function store(AppealModel $appeal, UserModel $client, BaseData $content): void
     {
         $appeal->messages()->create([
             'user_id' => $client->id,
-            'content' => $text,
-            'type'    => MessageType::TEXT,
+            'content' => $content,
+            'type'    => $content->dataType,
         ]);
     }
 
@@ -77,8 +76,8 @@ class Appeal extends BaseProcessor
         return $this->bot->owner->social_id;
     }
 
-    protected function resolveContent(array $data): DataTransferObject
+    protected function resolveContent(array $data): BaseData
     {
-        return MessageToDTO::make()->convert($data);
+        return MessageData::make()->convert($data)->except('dataType', 'photos.dataType');
     }
 }

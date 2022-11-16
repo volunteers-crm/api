@@ -17,26 +17,29 @@ declare(strict_types=1);
 
 namespace App\Objects\Messages;
 
-use DragonCode\SimpleDataTransferObject\DataTransferObject;
+use App\Data\Casts\ShortDigit;
+use App\Enums\MessageType;
+use Spatie\LaravelData\Attributes\MapInputName;
+use Spatie\LaravelData\Attributes\WithCast;
 
-class Animation extends DataTransferObject
+class Animation extends BaseData
 {
-    public ?string $mimeType;
+    public MessageType $dataType = MessageType::Animation;
 
     public ?int $width;
 
     public ?int $height;
 
+    #[MapInputName('file_id')]
     public ?string $fileId;
 
+    #[MapInputName('file_unique_id')]
     public ?string $fileUniqueId;
 
-    public ?int $fileSize;
+    #[WithCast(ShortDigit::class)]
+    #[MapInputName('file_size')]
+    public ?string $fileSize;
 
-    protected $map = [
-        'mime_type'      => 'mimeType',
-        'file_id'        => 'fileId',
-        'file_unique_id' => 'fileUniqueId',
-        'file_size'      => 'fileSize',
-    ];
+    #[MapInputName('mime_type')]
+    public ?string $mimeType;
 }

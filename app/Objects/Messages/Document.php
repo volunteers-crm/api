@@ -17,21 +17,25 @@ declare(strict_types=1);
 
 namespace App\Objects\Messages;
 
-use DragonCode\SimpleDataTransferObject\DataTransferObject;
+use App\Data\Casts\ShortDigit;
+use App\Enums\MessageType;
+use Spatie\LaravelData\Attributes\MapInputName;
+use Spatie\LaravelData\Attributes\WithCast;
 
-class Document extends DataTransferObject
+class Document extends BaseData
 {
-    public ?int $duration;
+    public MessageType $dataType = MessageType::Document;
 
+    #[WithCast(ShortDigit::class)]
+    #[MapInputName('file_size')]
+    public ?string $fileSize;
+
+    #[MapInputName('file_id')]
     public ?string $fileId;
 
+    #[MapInputName('file_unique_id')]
     public ?string $fileUniqueId;
 
+    #[MapInputName('mime_type')]
     public ?string $mimeType;
-
-    protected $map = [
-        'file_id'        => 'fileId',
-        'file_unique_id' => 'fileUniqueId',
-        'mime_type'      => 'mimeType',
-    ];
 }

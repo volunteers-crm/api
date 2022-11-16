@@ -15,15 +15,16 @@
 
 declare(strict_types=1);
 
-namespace App\Objects\Messages;
+namespace App\Data\Casts;
 
-use App\Enums\MessageType;
+use DragonCode\Support\Facades\Helpers\Arr;
+use Spatie\LaravelData\Casts\Cast;
+use Spatie\LaravelData\Support\DataProperty;
 
-class Location extends BaseData
+class SortUniqueArray implements Cast
 {
-    public MessageType $dataType = MessageType::Location;
-
-    public ?float $longitude;
-
-    public ?float $latitude;
+    public function cast(DataProperty $property, mixed $value, array $context): array
+    {
+        return Arr::of($value)->filter()->unique()->sort()->values()->toArray();
+    }
 }

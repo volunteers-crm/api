@@ -17,9 +17,11 @@ declare(strict_types=1);
 
 namespace App\Objects\Messages;
 
-use DragonCode\SimpleDataTransferObject\DataTransferObject;
+use App\Enums\MessageType;
 
-class Audio extends DataTransferObject
+class Audio extends BaseData
 {
+    public MessageType $dataType = MessageType::Audio;
+
     public ?string $text;
 }

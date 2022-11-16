@@ -17,9 +17,11 @@ declare(strict_types=1);
 
 namespace App\Objects\Messages;
 
-use DragonCode\SimpleDataTransferObject\DataTransferObject;
+use App\Enums\MessageType;
 
-class Video extends DataTransferObject
+class Video extends BaseData
 {
+    public MessageType $dataType = MessageType::Video;
+
     public ?string $text;
 }

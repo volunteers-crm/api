@@ -18,7 +18,6 @@ declare(strict_types=1);
 namespace App\Http\Requests\Becomes;
 
 use App\Objects\Becomes\Become;
-use DragonCode\Contracts\DataTransferObject\DataTransferObject;
 use Illuminate\Foundation\Http\FormRequest;
 
 class BecomeRequest extends FormRequest
@@ -44,8 +43,8 @@ class BecomeRequest extends FormRequest
         ];
     }
 
-    public function dto(): DataTransferObject|Become
+    public function dto(): Become
     {
-        return Become::fromRequest($this);
+        return Become::from($this);
     }
 }

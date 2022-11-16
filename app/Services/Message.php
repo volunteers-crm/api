@@ -36,7 +36,7 @@ class Message
         $message = $appeal->messages()->create([
             'user_id' => $user->id,
             'content' => Text::make(compact('text')),
-            'type'    => MessageType::TEXT,
+            'type'    => MessageType::Text,
         ]);
 
         return $message->loadMissing('sender');

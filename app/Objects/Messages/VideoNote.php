@@ -17,18 +17,18 @@ declare(strict_types=1);
 
 namespace App\Objects\Messages;
 
-use DragonCode\SimpleDataTransferObject\DataTransferObject;
+use App\Enums\MessageType;
+use Spatie\LaravelData\Attributes\MapInputName;
 
-class VideoNote extends DataTransferObject
+class VideoNote extends BaseData
 {
+    public MessageType $dataType = MessageType::VideoNote;
+
     public ?int $duration;
 
+    #[MapInputName('file_id')]
     public ?string $fileId;
 
+    #[MapInputName('file_unique_id')]
     public ?string $fileUniqueId;
-
-    protected $map = [
-        'file_id'        => 'fileId',
-        'file_unique_id' => 'fileUniqueId',
-    ];
 }

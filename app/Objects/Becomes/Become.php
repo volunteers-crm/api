@@ -17,41 +17,27 @@ declare(strict_types=1);
 
 namespace App\Objects\Becomes;
 
-use DragonCode\SimpleDataTransferObject\DataTransferObject;
-use DragonCode\Support\Facades\Helpers\Arr;
+use App\Data\Casts\SortUniqueArray;
+use Spatie\LaravelData\Attributes\MapInputName;
+use Spatie\LaravelData\Attributes\WithCast;
+use Spatie\LaravelData\Data;
 
-class Become extends DataTransferObject
+class Become extends Data
 {
     public ?string $city = null;
 
     public array $roles = [];
 
+    #[MapInputName('is_coordinator')]
     public bool $isCoordinator = false;
 
     public ?string $about = null;
 
     public ?string $source = null;
 
+    #[WithCast(SortUniqueArray::class)]
     public array $recommendations = [];
 
+    #[WithCast(SortUniqueArray::class)]
     public array $socials = [];
-
-    protected $map = [
-        'is_coordinator' => 'isCoordinator',
-    ];
-
-    protected function castRecommendations(array $values): array
-    {
-        return $this->sort($values);
-    }
-
-    protected function castSocials(array $values): array
-    {
-        return $this->sort($values);
-    }
-
-    protected function sort(array $values): array
-    {
-        return Arr::of($values)->filter()->unique()->sort()->values()->toArray();
-    }
 }

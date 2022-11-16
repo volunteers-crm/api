@@ -41,15 +41,15 @@
         "dragon-code/laravel-json-response": "^2.3",
         "dragon-code/laravel-migration-actions": "^3.0",
         "dragon-code/laravel-support": "^3.4",
-        "dragon-code/simple-dto": "^2.6",
-        "dragon-code/support": "^6.6",
+        "dragon-code/support": "^6.8",
         "laravel-lang/publisher": "^14.3",
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
         "laravel/socialite": "^5.5",
         "laravel/tinker": "^2.7",
         "socialiteproviders/manager": "^4.2",
-        "socialiteproviders/telegram": "^4.1"
+        "socialiteproviders/telegram": "^4.1",
+        "spatie/laravel-data": "^2.0"
     },
     "require-dev": {
         "dragon-code/env-sync-laravel": "^2.3",

@@ -17,16 +17,16 @@ declare(strict_types=1);
 
 namespace App\Objects\Messages;
 
-use DragonCode\SimpleDataTransferObject\DataTransferObject;
+use App\Enums\MessageType;
+use Spatie\LaravelData\Attributes\MapInputName;
 
-class Photo extends DataTransferObject
+class Photo extends BaseData
 {
+    public MessageType $dataType = MessageType::Photo;
+
+    #[MapInputName('file_id')]
     public ?string $fileId;
 
+    #[MapInputName('file_unique_id')]
     public ?string $fileUniqueId;
-
-    protected $map = [
-        'file_id'        => 'fileId',
-        'file_unique_id' => 'fileUniqueId',
-    ];
 }

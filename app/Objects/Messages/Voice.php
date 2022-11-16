@@ -17,21 +17,21 @@ declare(strict_types=1);
 
 namespace App\Objects\Messages;
 
-use DragonCode\SimpleDataTransferObject\DataTransferObject;
+use App\Enums\MessageType;
+use Spatie\LaravelData\Attributes\MapInputName;
 
-class Voice extends DataTransferObject
+class Voice extends BaseData
 {
+    public MessageType $dataType = MessageType::Voice;
+
     public ?int $duration;
 
+    #[MapInputName('file_id')]
     public ?string $fileId;
 
+    #[MapInputName('file_unique_id')]
     public ?string $fileUniqueId;
 
+    #[MapInputName('mime_type')]
     public ?string $mimeType;
-
-    protected $map = [
-        'file_id'        => 'fileId',
-        'file_unique_id' => 'fileUniqueId',
-        'mime_type'      => 'mimeType',
-    ];
 }

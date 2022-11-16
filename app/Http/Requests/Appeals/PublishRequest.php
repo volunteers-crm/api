@@ -19,7 +19,6 @@ namespace App\Http\Requests\Appeals;
 
 use App\Objects\Appeals\Appeal;
 use Carbon\Carbon;
-use DragonCode\Contracts\DataTransferObject\DataTransferObject;
 use Illuminate\Foundation\Http\FormRequest;
 
 class PublishRequest extends FormRequest
@@ -40,9 +39,9 @@ class PublishRequest extends FormRequest
         ];
     }
 
-    public function dto(): DataTransferObject|Appeal
+    public function dto(): Appeal
     {
-        return Appeal::fromRequest($this);
+        return Appeal::from($this);
     }
 
     protected function prepareForValidation(): void
