@@ -24,9 +24,15 @@ class Photo extends BaseData
 {
     public MessageType $dataType = MessageType::Photo;
 
-    #[MapInputName('file_id')]
+    #[MapInputName('1.file_id')]
     public ?string $fileId;
 
-    #[MapInputName('file_unique_id')]
+    #[MapInputName('1.file_unique_id')]
     public ?string $fileUniqueId;
+
+    #[MapInputName('1.width')]
+    public ?int $width;
+
+    #[MapInputName('1.height')]
+    public ?int $height;
 }

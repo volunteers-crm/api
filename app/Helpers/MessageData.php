@@ -23,7 +23,7 @@ use App\Objects\Messages\BaseData;
 use App\Objects\Messages\Contact;
 use App\Objects\Messages\Document;
 use App\Objects\Messages\Location;
-use App\Objects\Messages\Photos;
+use App\Objects\Messages\Photo;
 use App\Objects\Messages\Sticker;
 use App\Objects\Messages\Text;
 use App\Objects\Messages\Unsupported;
@@ -42,7 +42,7 @@ class MessageData
         'audio'      => Audio::class,
         'contact'    => Contact::class,
         'location'   => Location::class,
-        'photo'      => Photos::class,
+        'photo'      => Photo::class,
         'sticker'    => Sticker::class,
         'text'       => Text::class,
         'video'      => Video::class,
@@ -75,7 +75,6 @@ class MessageData
     {
         return match ($key) {
             'text'  => ['text' => $data],
-            'photo' => ['photos' => $data],
             default => $data
         };
     }
