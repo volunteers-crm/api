@@ -4743,16 +4743,16 @@
         },
         {
             "name": "spatie/laravel-data",
-            "version": "2.0.14",
+            "version": "2.0.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-data.git",
-                "reference": "c0853e38311e9094ecbc42167c12870aa471f72c"
+                "reference": "ee6eaa3e08bdf6e0b5b9062bb7e21d73816ae6b1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-data/zipball/c0853e38311e9094ecbc42167c12870aa471f72c",
-                "reference": "c0853e38311e9094ecbc42167c12870aa471f72c",
+                "url": "https://api.github.com/repos/spatie/laravel-data/zipball/ee6eaa3e08bdf6e0b5b9062bb7e21d73816ae6b1",
+                "reference": "ee6eaa3e08bdf6e0b5b9062bb7e21d73816ae6b1",
                 "shasum": ""
             },
             "require": {
@@ -4768,11 +4768,14 @@
                 "nesbot/carbon": "^2.63",
                 "nette/php-generator": "^3.5",
                 "nunomaduro/larastan": "^2.0|^1.0.3",
-                "orchestra/testbench": "^6.25|^7.6",
+                "orchestra/testbench": "^6.24|^7.6",
+                "pestphp/pest": "^1.22",
+                "pestphp/pest-plugin-laravel": "^1.3",
                 "phpstan/extension-installer": "^1.1",
                 "phpunit/phpunit": "^9.3",
                 "spatie/invade": "^1.0",
                 "spatie/laravel-typescript-transformer": "^2.0",
+                "spatie/pest-plugin-snapshots": "^1.1",
                 "spatie/phpunit-snapshot-assertions": "^4.2",
                 "spatie/test-time": "^1.2"
             },
@@ -4810,7 +4813,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-data/issues",
-                "source": "https://github.com/spatie/laravel-data/tree/2.0.14"
+                "source": "https://github.com/spatie/laravel-data/tree/2.0.15"
             },
             "funding": [
                 {
@@ -4818,7 +4821,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-11-10T11:18:44+00:00"
+            "time": "2022-11-17T10:42:05+00:00"
         },
         {
             "name": "spatie/laravel-package-tools",
@@ -8186,16 +8189,16 @@
         },
         {
             "name": "laravel-lang/lang",
-            "version": "12.3.1",
+            "version": "12.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Lang/lang.git",
-                "reference": "e74e54700cbac7ccc658ee29e413d7586301da78"
+                "reference": "db14afb73d160fdfd6e3511a1a4cde5d1ea3f0ff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Lang/lang/zipball/e74e54700cbac7ccc658ee29e413d7586301da78",
-                "reference": "e74e54700cbac7ccc658ee29e413d7586301da78",
+                "url": "https://api.github.com/repos/Laravel-Lang/lang/zipball/db14afb73d160fdfd6e3511a1a4cde5d1ea3f0ff",
+                "reference": "db14afb73d160fdfd6e3511a1a4cde5d1ea3f0ff",
                 "shasum": ""
             },
             "require": {
@@ -8257,7 +8260,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2022-11-16T08:51:32+00:00"
+            "time": "2022-11-16T21:07:24+00:00"
         },
         {
             "name": "laravel/sail",
