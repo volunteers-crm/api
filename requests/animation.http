@@ -3,55 +3,55 @@ Accept: application/json
 Content-Type: application/json
 
 {
-    "update_id": 605131015,
+    "update_id": 605131020,
     "message": {
-        "message_id": 189,
+        "message_id": 194,
         "from": {
-            "id": "{{userId}}",
+            "id": 62626897,
             "is_bot": false,
-            "first_name": "{{userFirstName}}",
-            "last_name": "{{userLastName}}",
-            "username": "{{username}}",
-            "language_code": "{{userLocale}}"
+            "first_name": "Andrey",
+            "last_name": "Helldar",
+            "username": "Helldar",
+            "language_code": "ru"
         },
         "chat": {
-            "id": "{{userId}}",
-            "first_name": "{{userFirstName}}",
-            "last_name": "{{userLastName}}",
-            "username": "{{username}}",
+            "id": 62626897,
+            "first_name": "Andrey",
+            "last_name": "Helldar",
+            "username": "Helldar",
             "type": "private"
         },
-        "date": 1668035641,
+        "date": 1668722514,
         "animation": {
-            "file_name": "mp4.mp4",
+            "file_name": "seal-waiting.mp4",
             "mime_type": "video/mp4",
-            "duration": 1,
-            "width": 320,
-            "height": 156,
+            "duration": 8,
+            "width": 148,
+            "height": 148,
             "thumb": {
-                "file_id": "AAMCBAADGQEAA71jbDQ5A1Geo6eBh4KD15EOb5oaUQACiQIAAizavFEIqlff2NxmHgEAB20AAysE",
-                "file_unique_id": "AQADiQIAAizavFFy",
-                "file_size": 10976,
-                "width": 320,
-                "height": 156
+                "file_id": "AAMCBAADGQEAA8Jjdq9SPkpdjuAHsQFvQD12LrncGwACLgMAAuQUBFMdKDRcsstZHQEAB20AAysE",
+                "file_unique_id": "AQADLgMAAuQUBFNy",
+                "file_size": 4067,
+                "width": 148,
+                "height": 148
             },
-            "file_id": "CgACAgQAAxkBAAO9Y2w0OQNRnqOngYeCg9eRDm-aGlEAAokCAAIs2rxRCKpX39jcZh4rBA",
-            "file_unique_id": "AgADiQIAAizavFE",
-            "file_size": 27228
+            "file_id": "CgACAgQAAxkBAAPCY3avUj5KXY7gB7EBb0A9di653BsAAi4DAALkFARTHSg0XLLLWR0rBA",
+            "file_unique_id": "AgADLgMAAuQUBFM",
+            "file_size": 28035
         },
         "document": {
-            "file_name": "mp4.mp4",
+            "file_name": "seal-waiting.mp4",
             "mime_type": "video/mp4",
             "thumb": {
-                "file_id": "AAMCBAADGQEAA71jbDQ5A1Geo6eBh4KD15EOb5oaUQACiQIAAizavFEIqlff2NxmHgEAB20AAysE",
-                "file_unique_id": "AQADiQIAAizavFFy",
-                "file_size": 10976,
-                "width": 320,
-                "height": 156
+                "file_id": "AAMCBAADGQEAA8Jjdq9SPkpdjuAHsQFvQD12LrncGwACLgMAAuQUBFMdKDRcsstZHQEAB20AAysE",
+                "file_unique_id": "AQADLgMAAuQUBFNy",
+                "file_size": 4067,
+                "width": 148,
+                "height": 148
             },
-            "file_id": "CgACAgQAAxkBAAO9Y2w0OQNRnqOngYeCg9eRDm-aGlEAAokCAAIs2rxRCKpX39jcZh4rBA",
-            "file_unique_id": "AgADiQIAAizavFE",
-            "file_size": 27228
+            "file_id": "CgACAgQAAxkBAAPCY3avUj5KXY7gB7EBb0A9di653BsAAi4DAALkFARTHSg0XLLLWR0rBA",
+            "file_unique_id": "AgADLgMAAuQUBFM",
+            "file_size": 28035
         }
     }
 }

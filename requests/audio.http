@@ -3,9 +3,9 @@ Accept: application/json
 Content-Type: application/json
 
 {
-    "update_id": 605131033,
+    "update_id": 605131021,
     "message": {
-        "message_id": 208,
+        "message_id": 195,
         "from": {
             "id": 62626897,
             "is_bot": false,
@@ -21,14 +21,16 @@ Content-Type: application/json
             "username": "Helldar",
             "type": "private"
         },
-        "date": 1668723246,
-        "text": "текстовое сообщение с эмодзи и кодом 😊",
-        "entities": [
-            {
-                "offset": 31,
-                "length": 5,
-                "type": "code"
-            }
-        ]
+        "date": 1668722597,
+        "audio": {
+            "duration": 154,
+            "file_name": "marcin-przybylowicz-v.mp3",
+            "mime_type": "audio/mpeg",
+            "title": "V",
+            "performer": "Marcin Przybyłowicz",
+            "file_id": "CQACAgEAAxkBAAPDY3avpWODR3J4EOk7u7v3M7ZrSHoAAm8EAAKt1NBG9uYLWd5qu9QrBA",
+            "file_unique_id": "AgADbwQAAq3U0EY",
+            "file_size": 3700956
+        }
     }
 }

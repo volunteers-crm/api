@@ -3,25 +3,25 @@ Accept: application/json
 Content-Type: application/json
 
 {
-    "update_id": 605131019,
+    "update_id": 605131023,
     "message": {
-        "message_id": 193,
+        "message_id": 198,
         "from": {
-            "id": {{userId}},
+            "id": 62626897,
             "is_bot": false,
-            "first_name": "{{userFirstName}}",
-            "last_name": "{{userLastName}}",
-            "username": "{{username}}",
-            "language_code": "{{userLocale}}"
+            "first_name": "Andrey",
+            "last_name": "Helldar",
+            "username": "Helldar",
+            "language_code": "ru"
         },
         "chat": {
-            "id": "{{userId}}",
-            "first_name": "{{userFirstName}}",
-            "last_name": "{{userLastName}}",
-            "username": "{{username}}",
+            "id": 62626897,
+            "first_name": "Andrey",
+            "last_name": "Helldar",
+            "username": "Helldar",
             "type": "private"
         },
-        "date": 1668035895,
+        "date": 1668722711,
         "contact": {
             "phone_number": "+74957830979",
             "first_name": "Converse",

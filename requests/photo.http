@@ -1,87 +1,43 @@
-### one photo
 POST {{host}}/telegraph/{{botToken}}/webhook
 Accept: application/json
 Content-Type: application/json
 
 {
-    "update_id": 605131012,
+    "update_id": 605131037,
     "message": {
-        "message_id": 186,
+        "message_id": 212,
         "from": {
-            "id": "{{userId}}",
+            "id": 62626897,
             "is_bot": false,
-            "first_name": "{{userFirstName}}",
-            "last_name": "{{userLastName}}",
-            "username": "{{username}}",
-            "language_code": "{{userLocale}}"
+            "first_name": "Andrey",
+            "last_name": "Helldar",
+            "username": "Helldar",
+            "language_code": "ru"
         },
         "chat": {
-            "id": "{{userId}}",
-            "first_name": "{{userFirstName}}",
-            "last_name": "{{userLastName}}",
-            "username": "{{username}}",
+            "id": 62626897,
+            "first_name": "Andrey",
+            "last_name": "Helldar",
+            "username": "Helldar",
             "type": "private"
         },
-        "date": 1668035472,
+        "date": 1668723527,
         "photo": [
             {
-                "file_id": "AgACAgIAAxkBAAO6Y2wzkEmCGqZ_jvSA7kgoYY27HtEAAq7DMRvWr2BLeL8wyzsUZ2MBAAMCAANzAAMrBA",
-                "file_unique_id": "AQADrsMxG9avYEt4",
-                "file_size": 569,
+                "file_id": "AgACAgIAAxkBAAPUY3azR_MDDFzLa1HtxCKnaXjRHP4AAi7BMRs3BLlLU7ySPvnrOCkBAAMCAANzAAMrBA",
+                "file_unique_id": "AQADLsExGzcEuUt4",
+                "file_size": 567,
                 "width": 90,
-                "height": 73
+                "height": 77
             },
             {
-                "file_id": "AgACAgIAAxkBAAO6Y2wzkEmCGqZ_jvSA7kgoYY27HtEAAq7DMRvWr2BLeL8wyzsUZ2MBAAMCAANtAAMrBA",
-                "file_unique_id": "AQADrsMxG9avYEty",
-                "file_size": 4274,
-                "width": 245,
-                "height": 199
+                "file_id": "AgACAgIAAxkBAAPUY3azR_MDDFzLa1HtxCKnaXjRHP4AAi7BMRs3BLlLU7ySPvnrOCkBAAMCAANtAAMrBA",
+                "file_unique_id": "AQADLsExGzcEuUty",
+                "file_size": 5306,
+                "width": 271,
+                "height": 233
             }
-        ]
-    }
-}
-
-### a few photos
-POST {{host}}/telegraph/{{botToken}}/webhook
-Accept: application/json
-Content-Type: application/json
-
-{
-    "update_id": 605131012,
-    "message": {
-        "message_id": 186,
-        "from": {
-            "id": "{{userId}}",
-            "is_bot": false,
-            "first_name": "{{userFirstName}}",
-            "last_name": "{{userLastName}}",
-            "username": "{{username}}",
-            "language_code": "{{userLocale}}"
-        },
-        "chat": {
-            "id": "{{userId}}",
-            "first_name": "{{userFirstName}}",
-            "last_name": "{{userLastName}}",
-            "username": "{{username}}",
-            "type": "private"
-        },
-        "date": 1668035472,
-        "photo": [
-            {
-                "file_id": "AgACAgIAAxkBAAO6Y2wzkEmCGqZ_jvSA7kgoYY27HtEAAq7DMRvWr2BLeL8wyzsUZ2MBAAMCAANzAAMrBA",
-                "file_unique_id": "AQADrsMxG9avYEt4",
-                "file_size": 569,
-                "width": 90,
-                "height": 73
-            },
-            {
-                "file_id": "AgACAgIAAxkBAAO6Y2wzkEmCGqZ_jvSA7kgoYY27HtEAAq7DMRvWr2BLeL8wyzsUZ2MBAAMCAANtAAMrBA",
-                "file_unique_id": "AQADrsMxG9avYEty",
-                "file_size": 4274,
-                "width": 245,
-                "height": 199
-            }
-        ]
+        ],
+        "caption": "qweqweqwe"
     }
 }
