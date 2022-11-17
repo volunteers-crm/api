@@ -41,7 +41,6 @@ class MessageData
         'animation'  => Animation::class,
         'audio'      => Audio::class,
         'contact'    => Contact::class,
-        'document'   => Document::class,
         'location'   => Location::class,
         'photo'      => Photos::class,
         'sticker'    => Sticker::class,
@@ -49,6 +48,7 @@ class MessageData
         'video'      => Video::class,
         'video_note' => VideoNote::class,
         'voice'      => Voice::class,
+        'document'   => Document::class,
     ];
 
     protected string $default = Unsupported::class;
