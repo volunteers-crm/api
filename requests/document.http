@@ -1,4 +1,4 @@
-POST http://localhost:8000/telegraph/{{botToken}}/webhook
+POST {{host}}/telegraph/{{botToken}}/webhook
 Accept: application/json
 Content-Type: application/json
 
