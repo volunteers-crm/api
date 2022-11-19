@@ -18,10 +18,12 @@ declare(strict_types=1);
 namespace App\Objects\Messages;
 
 use App\Enums\MessageType;
+use Spatie\LaravelData\Attributes\MapInputName;
 
 class Audio extends BaseData
 {
     public MessageType $dataType = MessageType::Audio;
 
+    #[MapInputName('{caption,text}')]
     public ?string $text;
 }

@@ -18,10 +18,12 @@ declare(strict_types=1);
 namespace App\Objects\Messages;
 
 use App\Enums\MessageType;
+use Spatie\LaravelData\Attributes\MapInputName;
 
 class Video extends BaseData
 {
     public MessageType $dataType = MessageType::Video;
 
+    #[MapInputName('{caption,text}')]
     public ?string $text;
 }

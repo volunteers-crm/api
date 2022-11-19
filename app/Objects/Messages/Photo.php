@@ -38,4 +38,7 @@ class Photo extends BaseData
 
     #[MapInputName('1.height')]
     public ?int $height;
+
+    #[MapInputName('{caption,text}')]
+    public ?string $text;
 }

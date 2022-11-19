@@ -18,24 +18,19 @@ declare(strict_types=1);
 namespace App\Objects\Messages;
 
 use App\Enums\MessageType;
-use Spatie\LaravelData\Attributes\MapInputName;
-use Spatie\LaravelData\Attributes\MapOutputName;
+use Spatie\LaravelData\Attributes\MapName;
+use Spatie\LaravelData\Mappers\SnakeCaseMapper;
 
+#[MapName(SnakeCaseMapper::class)]
 class Voice extends BaseData
 {
     public MessageType $dataType = MessageType::Voice;
 
     public ?int $duration;
 
-    #[MapInputName('file_id')]
-    #[MapOutputName('file_id')]
     public ?string $fileId;
 
-    #[MapInputName('file_unique_id')]
-    #[MapOutputName('file_unique_id')]
     public ?string $fileUniqueId;
 
-    #[MapInputName('mime_type')]
-    #[MapOutputName('mime_type')]
     public ?string $mimeType;
 }
