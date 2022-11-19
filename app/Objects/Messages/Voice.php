@@ -19,6 +19,7 @@ namespace App\Objects\Messages;
 
 use App\Enums\MessageType;
 use Spatie\LaravelData\Attributes\MapInputName;
+use Spatie\LaravelData\Attributes\MapOutputName;
 
 class Voice extends BaseData
 {
@@ -27,11 +28,14 @@ class Voice extends BaseData
     public ?int $duration;
 
     #[MapInputName('file_id')]
+    #[MapOutputName('file_id')]
     public ?string $fileId;
 
     #[MapInputName('file_unique_id')]
+    #[MapOutputName('file_unique_id')]
     public ?string $fileUniqueId;
 
     #[MapInputName('mime_type')]
+    #[MapOutputName('mime_type')]
     public ?string $mimeType;
 }

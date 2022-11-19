@@ -20,6 +20,7 @@ namespace App\Objects\Messages;
 use App\Data\Casts\ShortDigit;
 use App\Enums\MessageType;
 use Spatie\LaravelData\Attributes\MapInputName;
+use Spatie\LaravelData\Attributes\MapOutputName;
 use Spatie\LaravelData\Attributes\WithCast;
 
 class Animation extends BaseData
@@ -31,15 +32,19 @@ class Animation extends BaseData
     public ?int $height;
 
     #[MapInputName('file_id')]
+    #[MapOutputName('file_id')]
     public ?string $fileId;
 
     #[MapInputName('file_unique_id')]
+    #[MapOutputName('file_unique_id')]
     public ?string $fileUniqueId;
 
     #[WithCast(ShortDigit::class)]
     #[MapInputName('file_size')]
+    #[MapOutputName('file_size')]
     public ?string $fileSize;
 
     #[MapInputName('mime_type')]
+    #[MapOutputName('mime_type')]
     public ?string $mimeType;
 }

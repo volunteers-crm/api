@@ -19,15 +19,18 @@ namespace App\Objects\Messages;
 
 use App\Enums\MessageType;
 use Spatie\LaravelData\Attributes\MapInputName;
+use Spatie\LaravelData\Attributes\MapOutputName;
 
 class Photo extends BaseData
 {
     public MessageType $dataType = MessageType::Photo;
 
     #[MapInputName('1.file_id')]
+    #[MapOutputName('file_id')]
     public ?string $fileId;
 
     #[MapInputName('1.file_unique_id')]
+    #[MapOutputName('file_unique_id')]
     public ?string $fileUniqueId;
 
     #[MapInputName('1.width')]
