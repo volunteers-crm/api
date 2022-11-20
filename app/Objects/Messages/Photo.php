@@ -19,18 +19,18 @@ namespace App\Objects\Messages;
 
 use App\Enums\MessageType;
 use Spatie\LaravelData\Attributes\MapInputName;
-use Spatie\LaravelData\Attributes\MapOutputName;
+use Spatie\LaravelData\Attributes\MapName;
+use Spatie\LaravelData\Mappers\SnakeCaseMapper;
 
+#[MapName(SnakeCaseMapper::class)]
 class Photo extends BaseData
 {
     public MessageType $dataType = MessageType::Photo;
 
     #[MapInputName('1.file_id')]
-    #[MapOutputName('file_id')]
     public ?string $fileId;
 
     #[MapInputName('1.file_unique_id')]
-    #[MapOutputName('file_unique_id')]
     public ?string $fileUniqueId;
 
     #[MapInputName('1.width')]
@@ -38,7 +38,4 @@ class Photo extends BaseData
 
     #[MapInputName('1.height')]
     public ?int $height;
-
-    #[MapInputName('{caption,text}')]
-    public ?string $text;
 }

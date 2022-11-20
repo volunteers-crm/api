@@ -19,8 +19,11 @@ namespace App\Objects\Messages;
 
 use App\Data\Casts\Translatable;
 use App\Enums\MessageType;
+use Spatie\LaravelData\Attributes\MapName;
 use Spatie\LaravelData\Attributes\WithCast;
+use Spatie\LaravelData\Mappers\SnakeCaseMapper;
 
+#[MapName(SnakeCaseMapper::class)]
 class Unsupported extends BaseData
 {
     public MessageType $dataType = MessageType::Unsupported;

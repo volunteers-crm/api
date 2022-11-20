@@ -28,6 +28,7 @@ Content-Type: application/json
             "file_id": "BQACAgIAAxkBAAPHY3awWzuK77yJghmbpZs1iTLaZCoAAtIeAAI3BLlLvZzJEbbFRr8rBA",
             "file_unique_id": "AgAD0h4AAjcEuUs",
             "file_size": 6
-        }
+        },
+        "caption": "This is a description of the document message 💪"
     }
 }

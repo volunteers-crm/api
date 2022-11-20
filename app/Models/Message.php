@@ -30,13 +30,15 @@ class Message extends Model
     protected $fillable = [
         'appeal_id',
         'user_id',
+        'message_id',
         'content',
         'type',
     ];
 
     protected $casts = [
-        'appeal_id' => 'int',
-        'user_id'   => 'int',
+        'appeal_id'  => 'int',
+        'user_id'    => 'int',
+        'message_id' => 'int',
 
         'content' => MessageCast::class,
 

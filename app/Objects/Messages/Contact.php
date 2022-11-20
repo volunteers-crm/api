@@ -19,7 +19,10 @@ namespace App\Objects\Messages;
 
 use App\Enums\MessageType;
 use Spatie\LaravelData\Attributes\MapInputName;
+use Spatie\LaravelData\Attributes\MapName;
+use Spatie\LaravelData\Mappers\SnakeCaseMapper;
 
+#[MapName(SnakeCaseMapper::class)]
 class Contact extends BaseData
 {
     public MessageType $dataType = MessageType::Contact;

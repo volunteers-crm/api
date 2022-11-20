@@ -15,14 +15,16 @@
 
 declare(strict_types=1);
 
-namespace App\Objects\Messages;
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
-use App\Enums\MessageType;
-use Spatie\LaravelData\Attributes\MapName;
-use Spatie\LaravelData\Mappers\SnakeCaseMapper;
-
-#[MapName(SnakeCaseMapper::class)]
-class Text extends BaseData
+return new class extends Migration
 {
-    public MessageType $dataType = MessageType::Text;
-}
+    public function up()
+    {
+        Schema::table('messages', function (Blueprint $table) {
+            $table->unsignedBigInteger('message_id')->nullable()->after('user_id');
+        });
+    }
+};

@@ -63,6 +63,8 @@ class MessageCast implements CastsAttributes
      */
     public function set($model, $key, $value, $attributes): string
     {
-        return $value->toJson(JSON_UNESCAPED_UNICODE);
+        return $value
+            ->except('dataType', 'photos.dataType', 'messageId')
+            ->toJson(JSON_UNESCAPED_UNICODE);
     }
 }

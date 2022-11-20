@@ -31,6 +31,7 @@ use App\Objects\Messages\Video;
 use App\Objects\Messages\VideoNote;
 use App\Objects\Messages\Voice;
 use DragonCode\Support\Concerns\Makeable;
+use DragonCode\Support\Facades\Helpers\Arr;
 
 class MessageData
 {
@@ -56,26 +57,40 @@ class MessageData
     public function convert(array $data): BaseData
     {
         foreach ($this->models as $key => $model) {
-            if (isset($data[$key])) {
-                return $this->resolveData($model, $data[$key], $key);
+            if (isset($data['message'][$key])) {
+                return $this->resolveData($model, $data, $key);
             }
         }
 
         return $this->resolveData($this->default, compact('data'));
     }
 
-    protected function resolveData(BaseData|string $model, array|string $data = [], ?string $key = null): BaseData
+    protected function resolveData(BaseData|string $model, array $data, ?string $key = null): BaseData
     {
-        return $model::from(
-            $this->mapData($data, $key)
-        );
+        return $model::from(array_merge(
+            $this->mapData($data, $key),
+            $this->additionalData($data)
+        ));
     }
 
-    protected function mapData(array|string $data, ?string $key): array
+    protected function additionalData(array $data): array
+    {
+        return [
+            'message_id' => Arr::get($data, 'message.message_id'),
+            'text'       => Arr::get($data, 'message.text') ?: Arr::get($data, 'message.caption'),
+        ];
+    }
+
+    protected function mapData(array $data, ?string $key): array
     {
         return match ($key) {
-            'text'  => ['text' => $data],
-            default => $data
+            'text'  => ['text' => $this->resolveContent($data, $key)],
+            default => $this->resolveContent($data, $key)
         };
+    }
+
+    protected function resolveContent(array $data, ?string $key): mixed
+    {
+        return $data['message'][$key] ?? [];
     }
 }

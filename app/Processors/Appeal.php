@@ -38,9 +38,10 @@ class Appeal extends BaseProcessor
     protected function store(AppealModel $appeal, UserModel $client, BaseData $content): void
     {
         $appeal->messages()->create([
-            'user_id' => $client->id,
-            'content' => $content,
-            'type'    => $content->dataType,
+            'user_id'    => $client->id,
+            'message_id' => $content->messageId,
+            'content'    => $content,
+            'type'       => $content->dataType,
         ]);
     }
 
@@ -78,6 +79,6 @@ class Appeal extends BaseProcessor
 
     protected function resolveContent(array $data): BaseData
     {
-        return MessageData::make()->convert($data)->except('dataType', 'photos.dataType');
+        return MessageData::make()->convert($data);
     }
 }

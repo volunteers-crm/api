@@ -31,6 +31,7 @@ Content-Type: application/json
             "file_id": "CQACAgEAAxkBAAPDY3avpWODR3J4EOk7u7v3M7ZrSHoAAm8EAAKt1NBG9uYLWd5qu9QrBA",
             "file_unique_id": "AgADbwQAAq3U0EY",
             "file_size": 3700956
-        }
+        },
+        "caption": "This is a message for audio"
     }
 }

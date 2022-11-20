@@ -37,7 +37,7 @@ class TelegraphHandler extends WebhookHandler
     {
         if ($this->isAppeal()) {
             AppealProcessor::make($this->bot, $this->chat)->handle(
-                $this->request->get('message')
+                $this->request->all()
             );
         }
     }

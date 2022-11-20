@@ -17,13 +17,27 @@ declare(strict_types=1);
 
 namespace App\Objects\Messages;
 
+use App\Data\Casts\Duration;
 use App\Enums\MessageType;
-use Spatie\LaravelData\Attributes\MapInputName;
+use Spatie\LaravelData\Attributes\MapName;
+use Spatie\LaravelData\Attributes\WithCast;
+use Spatie\LaravelData\Mappers\SnakeCaseMapper;
 
+#[MapName(SnakeCaseMapper::class)]
 class Video extends BaseData
 {
     public MessageType $dataType = MessageType::Video;
 
-    #[MapInputName('{caption,text}')]
-    public ?string $text;
+    #[WithCast(Duration::class)]
+    public ?string $duration;
+
+    public ?int $width;
+
+    public ?int $height;
+
+    public ?string $fileId;
+
+    public ?string $fileUniqueId;
+
+    public ?string $mimeType;
 }

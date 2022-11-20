@@ -17,8 +17,10 @@ declare(strict_types=1);
 
 namespace App\Objects\Messages;
 
+use App\Data\Casts\Duration;
 use App\Enums\MessageType;
 use Spatie\LaravelData\Attributes\MapName;
+use Spatie\LaravelData\Attributes\WithCast;
 use Spatie\LaravelData\Mappers\SnakeCaseMapper;
 
 #[MapName(SnakeCaseMapper::class)]
@@ -26,7 +28,8 @@ class Voice extends BaseData
 {
     public MessageType $dataType = MessageType::Voice;
 
-    public ?int $duration;
+    #[WithCast(Duration::class)]
+    public ?string $duration;
 
     public ?string $fileId;
 

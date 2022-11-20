@@ -19,7 +19,6 @@ namespace App\Objects\Messages;
 
 use App\Data\Casts\ShortDigit;
 use App\Enums\MessageType;
-use Spatie\LaravelData\Attributes\MapInputName;
 use Spatie\LaravelData\Attributes\MapName;
 use Spatie\LaravelData\Attributes\WithCast;
 use Spatie\LaravelData\Mappers\SnakeCaseMapper;
@@ -37,11 +36,10 @@ class Animation extends BaseData
 
     public ?string $fileUniqueId;
 
+    public ?string $fileName;
+
     #[WithCast(ShortDigit::class)]
     public ?string $fileSize;
 
     public ?string $mimeType;
-
-    #[MapInputName('{caption,text}')]
-    public ?string $text;
 }
