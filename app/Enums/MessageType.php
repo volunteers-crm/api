@@ -29,8 +29,6 @@ enum MessageType: string
 
     case Location = 'location';
 
-    case Passport = 'passport';
-
     case Photo = 'photo';
 
     case Sticker = 'sticker';

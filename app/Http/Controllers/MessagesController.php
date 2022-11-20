@@ -20,6 +20,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Messages\CreateRequest;
 use App\Http\Resources\MessageResource;
 use App\Models\Appeal;
+use App\Models\Message as MessageModel;
 use App\Services\Message;
 use Illuminate\Support\Facades\DB;
 
@@ -39,5 +40,10 @@ class MessagesController extends Controller
         );
 
         return MessageResource::make($item);
+    }
+
+    public function download(MessageModel $message)
+    {
+
     }
 }

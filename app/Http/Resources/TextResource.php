@@ -15,15 +15,22 @@
 
 declare(strict_types=1);
 
-namespace App\Data\Casts;
+namespace App\Http\Resources;
 
-use Spatie\LaravelData\Casts\Cast;
-use Spatie\LaravelData\Support\DataProperty;
+use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\JsonResource;
 
-class Translatable implements Cast
+class TextResource extends JsonResource
 {
-    public function cast(DataProperty $property, mixed $value, array $context): string
+    /**
+     * @param Request $request
+     *
+     * @return array
+     */
+    public function toArray($request)
     {
-        return __($value);
+        return [
+
+        ];
     }
 }

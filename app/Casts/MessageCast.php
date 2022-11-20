@@ -20,6 +20,7 @@ namespace App\Casts;
 use App\Enums\MessageType;
 use App\Objects\Messages\Animation;
 use App\Objects\Messages\Audio;
+use App\Objects\Messages\BaseData;
 use App\Objects\Messages\Contact;
 use App\Objects\Messages\Document;
 use App\Objects\Messages\Location;
@@ -31,11 +32,10 @@ use App\Objects\Messages\Video;
 use App\Objects\Messages\VideoNote;
 use App\Objects\Messages\Voice;
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
-use Spatie\LaravelData\Data;
 
 class MessageCast implements CastsAttributes
 {
-    public function get($model, $key, $value, $attributes): Data
+    public function get($model, $key, $value, $attributes): BaseData
     {
         return match ($attributes['type']) {
             MessageType::Animation => Animation::from($value),

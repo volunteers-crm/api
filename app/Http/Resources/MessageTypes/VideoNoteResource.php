@@ -15,18 +15,21 @@
 
 declare(strict_types=1);
 
-namespace App\Objects\Messages;
+namespace App\Http\Resources\MessageTypes;
 
-use App\Enums\MessageType;
-use Spatie\LaravelData\Attributes\MapName;
-use Spatie\LaravelData\Mappers\SnakeCaseMapper;
-
-#[MapName(SnakeCaseMapper::class)]
-class Unsupported extends BaseData
+/** @mixin \App\Objects\Messages\VideoNote */
+class VideoNoteResource extends BaseResource
 {
-    public MessageType $dataType = MessageType::Unsupported;
+    public function toArray($request): array
+    {
+        return [
+            'text' => $this->text,
 
-    public string $message = 'http-statuses.415';
+            'duration' => $this->duration,
 
-    public ?array $data;
+            'mime_type' => 'video/mpeg',
+
+            'url' => $this->downloadUrl(),
+        ];
+    }
 }

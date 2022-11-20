@@ -49,6 +49,7 @@ app('router')
 
 app('router')
     ->controller(MessagesController::class)
+    ->name('messages.')
     ->prefix('appeals/{appeal}/messages')
     ->group(static function () {
         app('router')
@@ -58,4 +59,9 @@ app('router')
         app('router')
             ->post('/', 'store')
             ->can(Policy::CREATE(), [Message::class, 'appeal']);
+
+        app('router')
+            ->name('download')
+            ->post('{message}/download', 'download')
+            ->can(Policy::SHOW(), [Message::class, 'appeal']);
     });
