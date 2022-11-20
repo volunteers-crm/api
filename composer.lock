@@ -191,16 +191,16 @@
         },
         {
             "name": "defstudio/telegraph",
-            "version": "v1.24.0",
+            "version": "v1.24.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/defstudio/telegraph.git",
-                "reference": "7b4bd154e00318d09b5ec9acd0c50fdd2150959d"
+                "reference": "c82f84990063a8a7856dfd32443840859a45c0e2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/defstudio/telegraph/zipball/7b4bd154e00318d09b5ec9acd0c50fdd2150959d",
-                "reference": "7b4bd154e00318d09b5ec9acd0c50fdd2150959d",
+                "url": "https://api.github.com/repos/defstudio/telegraph/zipball/c82f84990063a8a7856dfd32443840859a45c0e2",
+                "reference": "c82f84990063a8a7856dfd32443840859a45c0e2",
                 "shasum": ""
             },
             "require": {
@@ -266,7 +266,7 @@
             ],
             "support": {
                 "issues": "https://github.com/defstudio/telegraph/issues",
-                "source": "https://github.com/defstudio/telegraph/tree/v1.24.0"
+                "source": "https://github.com/defstudio/telegraph/tree/v1.24.1"
             },
             "funding": [
                 {
@@ -278,7 +278,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-11-19T10:30:08+00:00"
+            "time": "2022-11-20T09:59:51+00:00"
         },
         {
             "name": "dflydev/dot-access-data",
