@@ -32,7 +32,7 @@ class RegisterWebhook implements ShouldQueue
 
     public function viaQueue(): string
     {
-        return Queue::WEBHOOKS();
+        return Queue::Webhooks();
     }
 
     protected function allow(): bool

@@ -15,25 +15,15 @@
 
 declare(strict_types=1);
 
-namespace App\Enums;
+namespace App\Observers;
 
-use ArchTech\Enums\InvokableCases;
+use App\Jobs\Files\DeleteFileJob;
+use App\Models\File;
 
-/**
- * @method static string Appeals()
- * @method static string Messages()
- * @method static string Webhooks()
- * @method static string Files()
- */
-enum Queue: string
+class FileObserver
 {
-    use InvokableCases;
-
-    case Appeals = 'appeals';
-
-    case Messages = 'messages';
-
-    case Webhooks = 'webhooks';
-
-    case Files = 'files';
+    public function deleted(File $file): void
+    {
+        DeleteFileJob::dispatch($file->path);
+    }
 }

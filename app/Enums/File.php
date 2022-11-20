@@ -17,23 +17,13 @@ declare(strict_types=1);
 
 namespace App\Enums;
 
-use ArchTech\Enums\InvokableCases;
-
-/**
- * @method static string Appeals()
- * @method static string Messages()
- * @method static string Webhooks()
- * @method static string Files()
- */
-enum Queue: string
+enum File: string
 {
-    use InvokableCases;
+    case Local = 'local';
 
-    case Appeals = 'appeals';
+    case Public = 'public';
 
-    case Messages = 'messages';
+    case S3 = 's3';
 
-    case Webhooks = 'webhooks';
-
-    case Files = 'files';
+    case Temp = 'temp';
 }

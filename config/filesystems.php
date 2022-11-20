@@ -13,6 +13,8 @@
  * @see https://github.com/volunteers-crm
  */
 
+use App\Enums\File;
+
 return [
     /*
     |--------------------------------------------------------------------------
@@ -41,13 +43,13 @@ return [
     */
 
     'disks' => [
-        'local' => [
+        File::Local->value => [
             'driver' => 'local',
             'root'   => storage_path('app'),
             'throw'  => false,
         ],
 
-        'public' => [
+        File::Public->value => [
             'driver'     => 'local',
             'root'       => storage_path('app/public'),
             'url'        => env('APP_URL') . '/storage',
@@ -55,7 +57,13 @@ return [
             'throw'      => false,
         ],
 
-        's3' => [
+        File::Temp->value => [
+            'driver' => 'local',
+            'root'   => storage_path('app/temp'),
+            'throw'  => false,
+        ],
+
+        File::S3->value => [
             'driver'                  => 's3',
             'key'                     => env('AWS_ACCESS_KEY_ID'),
             'secret'                  => env('AWS_SECRET_ACCESS_KEY'),

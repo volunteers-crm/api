@@ -39,7 +39,7 @@ class SendToCuratorEvent implements ShouldBroadcast
     public function __construct(
         public Message $message
     ) {
-        $this->queue = Queue::MESSAGES();
+        $this->queue = Queue::Messages();
 
         $this->afterCommit = true;
     }

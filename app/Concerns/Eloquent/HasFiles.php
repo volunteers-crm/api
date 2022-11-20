@@ -15,25 +15,15 @@
 
 declare(strict_types=1);
 
-namespace App\Enums;
+namespace App\Concerns\Eloquent;
 
-use ArchTech\Enums\InvokableCases;
+use App\Models\File;
+use Illuminate\Database\Eloquent\Relations\Relation;
 
-/**
- * @method static string Appeals()
- * @method static string Messages()
- * @method static string Webhooks()
- * @method static string Files()
- */
-enum Queue: string
+trait HasFiles
 {
-    use InvokableCases;
-
-    case Appeals = 'appeals';
-
-    case Messages = 'messages';
-
-    case Webhooks = 'webhooks';
-
-    case Files = 'files';
+    public function file(): Relation
+    {
+        return $this->morphTo(File::class, 'item');
+    }
 }

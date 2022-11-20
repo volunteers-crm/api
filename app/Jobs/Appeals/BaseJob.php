@@ -44,7 +44,7 @@ abstract class BaseJob implements ShouldQueue
     public function __construct(
         public Appeal $appeal
     ) {
-        $this->queue = Queue::APPEALS();
+        $this->queue = Queue::Appeals();
 
         $this->afterCommit = true;
 

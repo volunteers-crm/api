@@ -15,20 +15,18 @@
 
 declare(strict_types=1);
 
-namespace App\Jobs\Messages;
+namespace App\Jobs\Files;
 
 use App\Enums\Queue;
-use App\Models\Bot;
-use App\Models\Channel;
-use App\Models\Message;
-use DefStudio\Telegraph\Facades\Telegraph;
+use App\Helpers\Files;
 use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 
-class SendToClientJob implements ShouldQueue
+class DeleteFileJob implements ShouldQueue, ShouldBeUnique
 {
     use Dispatchable;
     use InteractsWithQueue;
@@ -36,33 +34,18 @@ class SendToClientJob implements ShouldQueue
     use SerializesModels;
 
     public function __construct(
-        public Message $message
+        public string $path
     ) {
-        $this->queue = Queue::Messages();
-
-        $this->afterCommit = true;
+        $this->onQueue(Queue::Files());
     }
 
-    public function handle()
+    public function handle(Files $file)
     {
-        Telegraph::bot($this->bot())
-            ->chat($this->chat())
-            ->message($this->text())
-            ->send();
+        $file->delete($this->path);
     }
 
-    protected function bot(): Bot
+    public function uniqueId(): string
     {
-        return $this->message->appeal->bot;
-    }
-
-    protected function chat(): Channel
-    {
-        return $this->message->appeal->client->chat;
-    }
-
-    protected function text(): string
-    {
-        return $this->message->content->text;
+        return $this->path;
     }
 }

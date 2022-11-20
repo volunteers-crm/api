@@ -18,10 +18,12 @@ declare(strict_types=1);
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Messages\CreateRequest;
+use App\Http\Requests\Messages\DownloadRequest;
 use App\Http\Resources\MessageResource;
 use App\Models\Appeal;
 use App\Models\Message as MessageModel;
 use App\Services\Message;
+use DragonCode\Support\Facades\Filesystem\Path;
 use Illuminate\Support\Facades\DB;
 
 class MessagesController extends Controller
@@ -42,8 +44,12 @@ class MessagesController extends Controller
         return MessageResource::make($item);
     }
 
-    public function download(MessageModel $message)
+    public function download(DownloadRequest $request, MessageModel $message, Message $messages)
     {
+        $path = $messages->getFile($message);
 
+        $name = Path::filename($path);
+
+        return response()->download($path, $name);
     }
 }

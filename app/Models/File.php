@@ -15,25 +15,20 @@
 
 declare(strict_types=1);
 
-namespace App\Enums;
+namespace App\Models;
 
-use ArchTech\Enums\InvokableCases;
+use Illuminate\Database\Eloquent\Model;
 
-/**
- * @method static string Appeals()
- * @method static string Messages()
- * @method static string Webhooks()
- * @method static string Files()
- */
-enum Queue: string
+class File extends Model
 {
-    use InvokableCases;
+    protected $fillable = [
+        'item_type',
+        'item_id',
 
-    case Appeals = 'appeals';
+        'path',
+    ];
 
-    case Messages = 'messages';
-
-    case Webhooks = 'webhooks';
-
-    case Files = 'files';
+    protected $casts = [
+        'item_id' => 'int',
+    ];
 }

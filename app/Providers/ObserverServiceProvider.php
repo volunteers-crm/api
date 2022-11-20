@@ -19,10 +19,12 @@ namespace App\Providers;
 
 use App\Models\Appeal;
 use App\Models\Bot;
+use App\Models\File;
 use App\Models\Message;
 use App\Models\User;
 use App\Observers\AppealObserver;
 use App\Observers\BotObserver;
+use App\Observers\FileObserver;
 use App\Observers\MessageObserver;
 use App\Observers\UserObserver;
 use Illuminate\Support\ServiceProvider;
@@ -33,6 +35,7 @@ class ObserverServiceProvider extends ServiceProvider
     {
         Appeal::observe(AppealObserver::class);
         Bot::observe(BotObserver::class);
+        File::observe(FileObserver::class);
         Message::observe(MessageObserver::class);
         User::observe(UserObserver::class);
     }

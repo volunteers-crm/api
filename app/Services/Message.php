@@ -18,6 +18,7 @@ declare(strict_types=1);
 namespace App\Services;
 
 use App\Enums\MessageType;
+use App\Helpers\Files;
 use App\Models\Appeal as AppealModel;
 use App\Models\Message as MessageModel;
 use App\Models\User as UserModel;
@@ -35,10 +36,15 @@ class Message
     {
         $message = $appeal->messages()->create([
             'user_id' => $user->id,
-            'content' => Text::make(compact('text')),
+            'content' => Text::from(compact('text')),
             'type'    => MessageType::Text,
         ]);
 
         return $message->loadMissing('sender');
+    }
+
+    public function getFile(MessageModel $message): string
+    {
+        return Files::make($message->appeal->bot, $message)->get();
     }
 }
