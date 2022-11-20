@@ -29,7 +29,7 @@ class Become
     public function index(User $user): Collection
     {
         return $user->becomes()
-            ->wherePivot('status', Status::NEW)
+            ->wherePivot('status', Status::New)
             ->get();
     }
 

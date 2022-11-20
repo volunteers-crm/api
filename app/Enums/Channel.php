@@ -22,16 +22,16 @@ use ArchTech\Enums\InvokableCases;
 use Illuminate\Support\Str;
 
 /**
- * @method static string USER()
+ * @method static string User()
  */
 enum Channel: string
 {
     use InvokableCases;
 
-    case USER = 'users.{id}';
+    case User = 'users.{id}';
 
     public static function toUser(User $user): string
     {
-        return Str::replace('{id}', $user->id, Channel::USER());
+        return Str::replace('{id}', $user->id, Channel::User());
     }
 }

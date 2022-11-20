@@ -31,7 +31,7 @@ class Appeal
         return AppealModel::query()
             ->with('bot', 'client', 'curator')
             ->hasOwnerByBot($user)
-            ->orderByRaw('CASE WHEN `status` = ? THEN 0 WHEN `status` = ? THEN 1 ELSE 2 END', [Status::NEW, Status::IN_PROGRESS])
+            ->orderByRaw('CASE WHEN `status` = ? THEN 0 WHEN `status` = ? THEN 1 ELSE 2 END', [Status::New, Status::InProgress])
             ->orderBy('id')
             ->get();
     }

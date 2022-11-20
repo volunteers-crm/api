@@ -49,7 +49,7 @@ class Appeal extends BaseProcessor
     {
         return AppealModel::query()
             ->where('client_id', $client->id)
-            ->whereNotIn('status', [Status::DONE, Status::CLOSED])
+            ->whereNotIn('status', [Status::Done, Status::Closed])
             ->firstOrCreate([
                 'bot_id'    => $this->bot->id,
                 'client_id' => $client->id,

@@ -26,13 +26,13 @@ class AppealObserver
 {
     public function creating(Appeal $appeal): void
     {
-        $appeal->status = Status::NEW;
+        $appeal->status = Status::New;
     }
 
     public function updating(Appeal $appeal): void
     {
         if ($appeal->isDirty('curator_id')) {
-            $appeal->status = Status::IN_PROGRESS;
+            $appeal->status = Status::InProgress;
         }
     }
 
@@ -44,7 +44,7 @@ class AppealObserver
             return;
         }
 
-        if ($appeal->wasChanged('status') && in_array($appeal->status, [Status::DONE, Status::CLOSED])) {
+        if ($appeal->wasChanged('status') && in_array($appeal->status, [Status::Done, Status::Closed])) {
             ClosedJob::dispatch($appeal);
         }
     }

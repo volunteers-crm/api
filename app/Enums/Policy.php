@@ -20,26 +20,26 @@ namespace App\Enums;
 use ArchTech\Enums\InvokableCases;
 
 /**
- * @method static string CONFIRM()
- * @method static string CREATE()
- * @method static string DELETE()
- * @method static string INDEX()
- * @method static string SHOW()
- * @method static string UPDATE()
+ * @method static string Confirm()
+ * @method static string Create()
+ * @method static string Delete()
+ * @method static string Index()
+ * @method static string Show()
+ * @method static string Update()
  */
 enum Policy: string
 {
     use InvokableCases;
 
-    case INDEX = 'index';
+    case Index = 'index';
 
-    case SHOW = 'show';
+    case Show = 'show';
 
-    case CREATE = 'create';
+    case Create = 'create';
 
-    case UPDATE = 'update';
+    case Update = 'update';
 
-    case DELETE = 'delete';
+    case Delete = 'delete';
 
-    case CONFIRM = 'confirm';
+    case Confirm = 'confirm';
 }

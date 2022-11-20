@@ -30,7 +30,7 @@ app('router')
 
         app('router')
             ->post('{bot:name}', 'store')
-            ->can(Policy::CREATE(), Become::class);
+            ->can(Policy::Create(), Become::class);
     });
 
 app('router')
@@ -43,9 +43,9 @@ app('router')
 
         app('router')
             ->put('{become}', 'accept')
-            ->can(Policy::CONFIRM(), 'become');
+            ->can(Policy::Confirm(), 'become');
 
         app('router')
             ->delete('{become}', 'decline')
-            ->can(Policy::CONFIRM(), 'become');
+            ->can(Policy::Confirm(), 'become');
     });

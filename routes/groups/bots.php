@@ -27,9 +27,9 @@ app('router')
 
         app('router')
             ->put('{bot:id}', 'update')
-            ->can(Policy::UPDATE(), 'bot');
+            ->can(Policy::Update(), 'bot');
 
         app('router')
             ->delete('{bot:id}', 'destroy')
-            ->can(Policy::DELETE(), 'bot');
+            ->can(Policy::Delete(), 'bot');
     });

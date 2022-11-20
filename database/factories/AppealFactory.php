@@ -32,7 +32,7 @@ class AppealFactory extends BaseFactory
 
         return [
             'client_id'  => $this->randomUser()->id,
-            'curator_id' => $status === Status::NEW ? null : $this->randomUser()->id,
+            'curator_id' => $status === Status::New ? null : $this->randomUser()->id,
 
             'status' => $status,
 

@@ -32,7 +32,7 @@ return new class () extends Migration
             $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
             $table->foreignIdFor(Bot::class)->constrained()->cascadeOnDelete();
 
-            $table->unsignedTinyInteger('status')->default(Status::NEW->value);
+            $table->unsignedTinyInteger('status')->default(Status::New->value);
 
             $table->string('city');
 

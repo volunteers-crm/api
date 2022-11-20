@@ -28,23 +28,23 @@ app('router')
 
         app('router')
             ->get('{appeal}', 'show')
-            ->can(Policy::SHOW(), 'appeal');
+            ->can(Policy::Show(), 'appeal');
 
         app('router')
             ->put('{appeal}/work', 'work')
-            ->can(Policy::UPDATE(), 'appeal');
+            ->can(Policy::Update(), 'appeal');
 
         app('router')
             ->put('{appeal}/publish', 'publish')
-            ->can(Policy::UPDATE(), 'appeal');
+            ->can(Policy::Update(), 'appeal');
 
         app('router')
             ->put('{appeal}/done', 'done')
-            ->can(Policy::UPDATE(), 'appeal');
+            ->can(Policy::Update(), 'appeal');
 
         app('router')
             ->delete('{appeal}/cancel', 'cancel')
-            ->can(Policy::UPDATE(), 'appeal');
+            ->can(Policy::Update(), 'appeal');
     });
 
 app('router')
@@ -54,14 +54,14 @@ app('router')
     ->group(static function () {
         app('router')
             ->get('/', 'index')
-            ->can(Policy::INDEX(), [Message::class, 'appeal']);
+            ->can(Policy::Index(), [Message::class, 'appeal']);
 
         app('router')
             ->post('/', 'store')
-            ->can(Policy::CREATE(), [Message::class, 'appeal']);
+            ->can(Policy::Create(), [Message::class, 'appeal']);
 
         app('router')
             ->name('download')
             ->post('{message}/download', 'download')
-            ->can(Policy::SHOW(), [Message::class, 'appeal']);
+            ->can(Policy::Show(), [Message::class, 'appeal']);
     });

@@ -62,7 +62,7 @@ class AppealsController extends Controller
     public function done(Appeal $appeal, AppealService $appeals)
     {
         $item = DB::transaction(
-            fn () => $appeals->changeStatus($appeal, Status::DONE)
+            fn () => $appeals->changeStatus($appeal, Status::Done)
         );
 
         return AppealResource::make($item);
@@ -71,7 +71,7 @@ class AppealsController extends Controller
     public function cancel(Appeal $appeal, AppealService $appeals)
     {
         $item = DB::transaction(
-            fn () => $appeals->changeStatus($appeal, Status::CLOSED)
+            fn () => $appeals->changeStatus($appeal, Status::Closed)
         );
 
         return AppealResource::make($item);

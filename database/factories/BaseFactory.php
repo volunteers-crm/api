@@ -25,10 +25,10 @@ use Illuminate\Support\Arr;
 abstract class BaseFactory extends Factory
 {
     protected array $statuses = [
-        Status::NEW,
-        Status::IN_PROGRESS,
-        Status::DONE,
-        Status::CLOSED,
+        Status::New,
+        Status::InProgress,
+        Status::Done,
+        Status::Closed,
     ];
 
     protected function status(): Status

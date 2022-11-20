@@ -19,4 +19,4 @@ use App\Broadcasting\UserChannel;
 use App\Enums\Channel;
 use Illuminate\Support\Facades\Broadcast;
 
-Broadcast::channel(Channel::USER(), UserChannel::class);
+Broadcast::channel(Channel::User(), UserChannel::class);

@@ -26,5 +26,5 @@ app('router')
 
         app('router')
             ->delete('{channel}', 'destroy')
-            ->can(Policy::DELETE(), 'channel');
+            ->can(Policy::Delete(), 'channel');
     });

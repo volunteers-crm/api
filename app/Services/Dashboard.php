@@ -37,10 +37,10 @@ class Dashboard
             ->where('created_at', '>=', now()->subWeek()->startOfDay())
             ->groupBy('date')
             ->selectRaw('DATE_FORMAT(created_at, \'%Y-%m-%d\') as date')
-            ->selectRaw('SUM( IF(`status` = ?, 1, 0) ) AS unassigned', [Status::NEW])
-            ->selectRaw('SUM( IF(`status` = ?, 1, 0) ) AS solved', [Status::DONE])
-            ->selectRaw('SUM( IF(`status` = ?, 1, 0) ) AS cancelled', [Status::CLOSED])
-            ->selectRaw('SUM( IF(`status` = ?, 1, 0) ) AS opened', [Status::IN_PROGRESS])
+            ->selectRaw('SUM( IF(`status` = ?, 1, 0) ) AS unassigned', [Status::New])
+            ->selectRaw('SUM( IF(`status` = ?, 1, 0) ) AS solved', [Status::Done])
+            ->selectRaw('SUM( IF(`status` = ?, 1, 0) ) AS cancelled', [Status::Closed])
+            ->selectRaw('SUM( IF(`status` = ?, 1, 0) ) AS opened', [Status::InProgress])
             ->get();
     }
 
@@ -53,9 +53,9 @@ class Dashboard
                     ->where('owner_id', $user->id)
             )
             ->withCount([
-                'appeals as appeals_solved'    => fn (Builder $builder) => $builder->where('status', Status::DONE),
-                'appeals as appeals_cancelled' => fn (Builder $builder) => $builder->where('status', Status::CLOSED),
-                'appeals as appeals_opened'    => fn (Builder $builder) => $builder->where('status', Status::IN_PROGRESS),
+                'appeals as appeals_solved'    => fn (Builder $builder) => $builder->where('status', Status::Done),
+                'appeals as appeals_cancelled' => fn (Builder $builder) => $builder->where('status', Status::Closed),
+                'appeals as appeals_opened'    => fn (Builder $builder) => $builder->where('status', Status::InProgress),
             ])
             ->get();
     }

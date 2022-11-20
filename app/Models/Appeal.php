@@ -80,11 +80,11 @@ class Appeal extends Model
 
     public function scopeOpened(Builder $builder)
     {
-        $builder->whereIn('status', [Status::NEW, Status::IN_PROGRESS]);
+        $builder->whereIn('status', [Status::New, Status::InProgress]);
     }
 
     public function scopeClosed(Builder $builder)
     {
-        $builder->whereIn('status', [Status::DONE, Status::CLOSED]);
+        $builder->whereIn('status', [Status::Done, Status::Closed]);
     }
 }

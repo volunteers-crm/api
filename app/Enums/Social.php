@@ -21,12 +21,12 @@ use ArchTech\Enums\InvokableCases;
 use ArchTech\Enums\Values;
 
 /**
- * @method static string TELEGRAM()
+ * @method static string Telegram()
  */
 enum Social: string
 {
     use InvokableCases;
     use Values;
 
-    case TELEGRAM = 'telegram';
+    case Telegram = 'telegram';
 }
