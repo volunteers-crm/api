@@ -27,8 +27,8 @@ abstract class BaseResource extends JsonResource
     protected function downloadUrl(): string
     {
         return route('appeals.messages.download', [
-            'appeal'  => $this->appeal_id,
-            'message' => $this->message_id,
+            'appeal'  => $this->additional['appeal_id'],
+            'message' => $this->additional['message_id'],
         ]);
     }
 }

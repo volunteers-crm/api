@@ -20,6 +20,7 @@ namespace App\Http\Resources;
 use App\Enums\MessageType;
 use App\Http\Resources\MessageTypes\AnimationResource;
 use App\Http\Resources\MessageTypes\AudioResource;
+use App\Http\Resources\MessageTypes\BaseResource;
 use App\Http\Resources\MessageTypes\ContactResource;
 use App\Http\Resources\MessageTypes\DocumentResource;
 use App\Http\Resources\MessageTypes\LocationResource;
@@ -50,19 +51,29 @@ class MessageResource extends JsonResource
 
     protected function content(): JsonResource
     {
+        $resource = $this->resourceByType();
+
+        return $resource::make($this->content)->additional([
+            'appeal_id'  => $this->appeal_id,
+            'message_id' => $this->message_id,
+        ]);
+    }
+
+    protected function resourceByType(): BaseResource|string
+    {
         return match ($this->type) {
-            MessageType::Animation => AnimationResource::make($this->content),
-            MessageType::Audio     => AudioResource::make($this->content),
-            MessageType::Contact   => ContactResource::make($this->content),
-            MessageType::Document  => DocumentResource::make($this->content),
-            MessageType::Location  => LocationResource::make($this->content),
-            MessageType::Photo     => PhotoResource::make($this->content),
-            MessageType::Sticker   => StickerResource::make($this->content),
-            MessageType::Text      => TextResource::make($this->content),
-            MessageType::Video     => VideoResource::make($this->content),
-            MessageType::VideoNote => VideoNoteResource::make($this->content),
-            MessageType::Voice     => VoiceResource::make($this->content),
-            default                => UnsupportedResource::make($this->content),
+            MessageType::Animation => AnimationResource::class,
+            MessageType::Audio     => AudioResource::class,
+            MessageType::Contact   => ContactResource::class,
+            MessageType::Document  => DocumentResource::class,
+            MessageType::Location  => LocationResource::class,
+            MessageType::Photo     => PhotoResource::class,
+            MessageType::Sticker   => StickerResource::class,
+            MessageType::Text      => TextResource::class,
+            MessageType::Video     => VideoResource::class,
+            MessageType::VideoNote => VideoNoteResource::class,
+            MessageType::Voice     => VoiceResource::class,
+            default                => UnsupportedResource::class,
         };
     }
 }

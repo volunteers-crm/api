@@ -31,7 +31,6 @@ class AudioResource extends BaseResource
             'duration' => $this->duration,
 
             'name'      => $this->fileName,
-            'size'      => $this->fileSize,
             'mime_type' => $this->mimeType,
 
             'url' => $this->downloadUrl(),
