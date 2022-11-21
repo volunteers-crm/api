@@ -17,10 +17,6 @@ declare(strict_types=1);
 
 use App\Http\Controllers\DashboardController;
 
-/**
- * @routePrefix("dashboard.")
- */
-
 app('router')
     ->controller(DashboardController::class)
     ->prefix('dashboard')

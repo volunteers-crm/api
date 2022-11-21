@@ -18,10 +18,6 @@ declare(strict_types=1);
 use App\Enums\Policy;
 use App\Http\Controllers\BotsController;
 
-/**
- * @routePrefix("bots.")
- */
-
 app('router')
     ->controller(BotsController::class)
     ->prefix('bots')
