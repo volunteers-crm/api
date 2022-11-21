@@ -18,8 +18,10 @@ declare(strict_types=1);
 namespace App\Policies;
 
 use App\Models\Appeal;
+use App\Models\Message;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
+use Illuminate\Database\Eloquent\Builder;
 
 class MessagePolicy extends BasePolicy
 {
@@ -35,5 +37,24 @@ class MessagePolicy extends BasePolicy
         return $this->has(
             $this->byAppeal($user, $appeal)
         );
+    }
+
+    public function show(User $user, Appeal $appeal, Message $message): Response
+    {
+        return $this->has(
+            $this->byMessage($user, $appeal, $message)
+        );
+    }
+
+    protected function byMessage(User $user, Appeal $appeal, Message $message): bool
+    {
+        return $message->whereHas(
+            'appeal.bot',
+            fn (Builder $builder) => $builder
+                ->where('owner_id', $user->id)
+                ->orWhereHas('users', fn (Builder $builder) => $builder->where('id', $user->id))
+        )
+            ->where('appeal_id', $appeal->id)
+            ->exists();
     }
 }

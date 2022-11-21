@@ -44,7 +44,7 @@ class MessagesController extends Controller
         return MessageResource::make($item);
     }
 
-    public function download(DownloadRequest $request, MessageModel $message, Message $messages)
+    public function download(DownloadRequest $request, Appeal $appeal, MessageModel $message, Message $messages)
     {
         $path = $messages->getFile($message);
 

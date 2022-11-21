@@ -49,7 +49,6 @@ app('router')
 
 app('router')
     ->controller(MessagesController::class)
-    ->name('messages.')
     ->prefix('appeals/{appeal}/messages')
     ->group(static function () {
         app('router')
@@ -61,8 +60,6 @@ app('router')
             ->can(Policy::Create(), [Message::class, 'appeal']);
 
         app('router')
-            ->middleware('signed')
-            ->name('download')
             ->get('{message}/download', 'download')
-            ->can(Policy::Show(), [Message::class, 'appeal']);
+            ->can(Policy::Show(), [Message::class, 'appeal', 'message']);
     });
