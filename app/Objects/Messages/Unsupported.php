@@ -28,5 +28,5 @@ class Unsupported extends BaseData
 
     public string $message = 'http-statuses.415';
 
-    public ?array $data;
+    public ?array $data = [];
 }
