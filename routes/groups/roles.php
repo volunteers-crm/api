@@ -17,9 +17,7 @@ declare(strict_types=1);
 
 use App\Http\Controllers\RolesController;
 
-/**
- * @routePrefix("roles.")
- */
+// @routePrefix("roles.")
 
 app('router')
     ->apiResource('roles', RolesController::class)

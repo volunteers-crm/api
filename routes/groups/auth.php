@@ -17,9 +17,7 @@ declare(strict_types=1);
 
 use App\Http\Controllers\AuthController;
 
-/**
- * @routePrefix("auth.")
- */
+// @routePrefix("auth.")
 
 app('router')
     ->controller(AuthController::class)
