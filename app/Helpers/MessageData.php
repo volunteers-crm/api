@@ -23,6 +23,7 @@ use App\Objects\Messages\BaseData;
 use App\Objects\Messages\Contact;
 use App\Objects\Messages\Document;
 use App\Objects\Messages\Location;
+use App\Objects\Messages\Passport;
 use App\Objects\Messages\Photo;
 use App\Objects\Messages\Sticker;
 use App\Objects\Messages\Text;
@@ -43,6 +44,7 @@ class MessageData
         'audio'      => Audio::class,
         'contact'    => Contact::class,
         'location'   => Location::class,
+        'passport'   => Passport::class,
         'photo'      => Photo::class,
         'sticker'    => Sticker::class,
         'text'       => Text::class,
