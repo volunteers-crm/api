@@ -17,4 +17,8 @@ declare(strict_types=1);
 
 use App\Http\Controllers\PagesController;
 
+/**
+ * @routePrefix("pages.")
+ */
+
 app('router')->get('{page:slug}', PagesController::class);

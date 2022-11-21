@@ -20,6 +20,10 @@ use App\Http\Controllers\BecomeController;
 use App\Http\Controllers\BecomesController;
 use App\Models\Become;
 
+/**
+ * @routePrefix("becomes.")
+ */
+
 app('router')
     ->controller(BecomeController::class)
     ->prefix('become')

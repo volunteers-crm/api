@@ -20,6 +20,10 @@ use App\Http\Controllers\AppealsController;
 use App\Http\Controllers\MessagesController;
 use App\Models\Message;
 
+/**
+ * @routePrefix("appeals.")
+ */
+
 app('router')
     ->controller(AppealsController::class)
     ->prefix('appeals')

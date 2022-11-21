@@ -18,6 +18,10 @@ declare(strict_types=1);
 use App\Enums\Policy;
 use App\Http\Controllers\ChannelsController;
 
+/**
+ * @routePrefix("channels.")
+ */
+
 app('router')
     ->controller(ChannelsController::class)
     ->prefix('channels')
