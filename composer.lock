@@ -8189,16 +8189,16 @@
         },
         {
             "name": "laravel-lang/lang",
-            "version": "12.4.0",
+            "version": "12.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Lang/lang.git",
-                "reference": "d70cc521acfaf4034a3ae54b2d3209b9e189ada9"
+                "reference": "832afecc596a97e8d919c50fa3b8a6ac836d6213"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Lang/lang/zipball/d70cc521acfaf4034a3ae54b2d3209b9e189ada9",
-                "reference": "d70cc521acfaf4034a3ae54b2d3209b9e189ada9",
+                "url": "https://api.github.com/repos/Laravel-Lang/lang/zipball/832afecc596a97e8d919c50fa3b8a6ac836d6213",
+                "reference": "832afecc596a97e8d919c50fa3b8a6ac836d6213",
                 "shasum": ""
             },
             "require": {
@@ -8260,7 +8260,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2022-11-19T11:29:09+00:00"
+            "time": "2022-11-20T15:14:13+00:00"
         },
         {
             "name": "laravel/sail",
