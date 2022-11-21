@@ -22,9 +22,9 @@ use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 
 class Info implements CastsAttributes
 {
-    public function get($model, $key, $value, $attributes)
+    public function get($model, $key, $value, $attributes): Appeal
     {
-        return $value ? Appeal::fromJson($value) : Appeal::make();
+        return Appeal::from($value ?: []);
     }
 
     /**
@@ -33,11 +33,11 @@ class Info implements CastsAttributes
      * @param Appeal|array $value
      * @param $attributes
      *
-     * @return mixed|void
+     * @return string
      */
-    public function set($model, $key, $value, $attributes)
+    public function set($model, $key, $value, $attributes): string
     {
-        $value = $value instanceof Appeal ? $value : Appeal::make($value ?: []);
+        $value = $value instanceof Appeal ? $value : Appeal::from($value ?: []);
 
         return $value->toJson();
     }

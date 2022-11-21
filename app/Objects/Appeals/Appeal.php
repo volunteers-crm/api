@@ -17,11 +17,11 @@ declare(strict_types=1);
 
 namespace App\Objects\Appeals;
 
+use App\Data\Casts\Date;
 use App\Data\Casts\Persons;
 use App\Data\Casts\Todo;
 use Carbon\Carbon;
 use Spatie\LaravelData\Attributes\WithCast;
-use Spatie\LaravelData\Casts\DateTimeInterfaceCast;
 use Spatie\LaravelData\Data;
 
 class Appeal extends Data
@@ -30,7 +30,7 @@ class Appeal extends Data
 
     public ?string $comment = null;
 
-    #[WithCast(DateTimeInterfaceCast::class, setTimeZone: 'UTC')]
+    #[WithCast(Date::class)]
     public ?Carbon $date = null;
 
     #[WithCast(Persons::class)]
