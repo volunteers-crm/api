@@ -42,7 +42,7 @@ class DownloadRequest extends FormRequest
     {
         return $this->allowType()
             ? $this->allow()
-            : $this->deny(__('http-statuses.406'), 406);
+            : $this->denyWithStatus(406, __('http-statuses.406'));
     }
 
     public function rules(): array
