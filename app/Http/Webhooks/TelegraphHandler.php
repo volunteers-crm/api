@@ -17,14 +17,16 @@ declare(strict_types=1);
 
 namespace App\Http\Webhooks;
 
+use App\Models\Bot;
+use App\Models\Channel;
 use App\Processors\Appeal as AppealProcessor;
 use DefStudio\Telegraph\Handlers\WebhookHandler;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Stringable;
 
 /**
- * @property \App\Models\Bot $bot
- * @property \App\Models\Channel $chat
+ * @property Bot $bot
+ * @property Channel $chat
  */
 class TelegraphHandler extends WebhookHandler
 {
