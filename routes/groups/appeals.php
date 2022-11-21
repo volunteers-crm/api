@@ -65,7 +65,8 @@ app('router')
             ->can(Policy::Create(), [Message::class, 'appeal']);
 
         app('router')
+            ->middleware('signed')
             ->name('download')
-            ->post('{message}/download', 'download')
+            ->get('{message}/download', 'download')
             ->can(Policy::Show(), [Message::class, 'appeal']);
     });
