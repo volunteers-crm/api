@@ -55,7 +55,7 @@ class MessageResource extends JsonResource
 
         return $resource::make($this->content)->additional([
             'appeal_id'  => $this->appeal_id,
-            'message_id' => $this->message_id,
+            'message_id' => $this->id,
         ]);
     }
 

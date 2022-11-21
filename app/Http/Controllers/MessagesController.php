@@ -48,8 +48,10 @@ class MessagesController extends Controller
     {
         $path = $messages->getFile($message);
 
-        $name = Path::filename($path);
+        $extension = Path::extension($path);
 
-        return response()->download($path, $name);
+        $filename = sprintf('%s__appeal-%d__message_%d.%s', config('app.name'), $appeal->id, $message->id, $extension);
+
+        return response()->download($path, $filename);
     }
 }

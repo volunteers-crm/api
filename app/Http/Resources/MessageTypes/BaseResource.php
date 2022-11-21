@@ -17,27 +17,19 @@ declare(strict_types=1);
 
 namespace App\Http\Resources\MessageTypes;
 
-use Carbon\Carbon;
+use App\Http\Controllers\MessagesController;
 use Illuminate\Http\Resources\Json\JsonResource;
-use Illuminate\Support\Facades\URL;
 
 /**
  * @mixin \App\Models\Message
  */
 abstract class BaseResource extends JsonResource
 {
-    protected int $expireIn = 60;
-
     protected function downloadUrl(): string
     {
-        return URL::temporarySignedRoute('appeals.messages.download', $this->expiredAt(), [
+        return action([MessagesController::class, 'download'], [
             'appeal'  => $this->additional['appeal_id'],
             'message' => $this->additional['message_id'],
         ]);
-    }
-
-    protected function expiredAt(): Carbon
-    {
-        return Carbon::now()->addMinutes($this->expireIn);
     }
 }
