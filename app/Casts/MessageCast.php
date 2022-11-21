@@ -35,9 +35,17 @@ use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 
 class MessageCast implements CastsAttributes
 {
+    /**
+     * @param \App\Models\Message $model
+     * @param string $key
+     * @param string $value
+     * @param array $attributes
+     *
+     * @return \App\Objects\Messages\BaseData
+     */
     public function get($model, $key, $value, $attributes): BaseData
     {
-        return match ($attributes['type']) {
+        return match ($model->type) {
             MessageType::Animation => Animation::from($value),
             MessageType::Audio     => Audio::from($value),
             MessageType::Contact   => Contact::from($value),
@@ -49,7 +57,7 @@ class MessageCast implements CastsAttributes
             MessageType::VideoNote => VideoNote::from($value),
             MessageType::Voice     => Voice::from($value),
             MessageType::Document  => Document::from($value),
-            default                => Unsupported::empty()
+            default                => Unsupported::from()
         };
     }
 
