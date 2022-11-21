@@ -25,8 +25,11 @@ class Duration implements Cast
 {
     public function cast(DataProperty $property, mixed $value, array $context): string
     {
-        $diff = $this->diff($value);
+        return is_string($value) ? $value : $this->toString($this->diff($value));
+    }
 
+    protected function toString(DateInterval $diff): string
+    {
         return $diff->h
             ? implode(':', [$this->hours($diff), $this->minutes($diff), $this->seconds($diff)])
             : implode(':', [$this->minutes($diff), $this->seconds($diff)]);
