@@ -25,7 +25,7 @@ use Illuminate\Database\Eloquent\Collection;
 
 class DeleteOldCommand extends Command
 {
-    protected $signature = 'files:delete-old';
+    protected $signature = 'files:delete-old {--force}';
 
     protected $description = 'Command description';
 
@@ -41,6 +41,11 @@ class DeleteOldCommand extends Command
 
     protected function before(): Carbon
     {
-        return now()->subHour();
+        return $this->hasForce() ? now()->addHour() : now()->subHour();
+    }
+
+    protected function hasForce(): bool
+    {
+        return $this->option('force');
     }
 }

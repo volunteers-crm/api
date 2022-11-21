@@ -22,6 +22,7 @@ use App\Models\Bot;
 use App\Models\File;
 use App\Models\Message;
 use DragonCode\Support\Concerns\Makeable;
+use DragonCode\Support\Facades\Filesystem\Path;
 use Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Support\Facades\Storage;
 
@@ -53,16 +54,19 @@ class Files
         );
     }
 
-    public function delete(string $path): void
+    public function delete(string $filename): void
     {
-        $this->storage()->delete($path);
+        $this->storage()->deleteDirectory(
+            Path::dirname($filename)
+        );
     }
 
     protected function download(string $directory): string
     {
         return $this->bot->store(
             $this->message->content->fileId,
-            $directory
+            $directory,
+            $this->message->content?->fileName
         );
     }
 
