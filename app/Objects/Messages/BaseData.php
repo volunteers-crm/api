@@ -27,10 +27,10 @@ abstract class BaseData extends Data
 {
     public MessageType $dataType;
 
-    public ?int $messageId;
+    public ?int $messageId = null;
 
     #[MapOutputName('text')]
-    public ?string $text;
+    public ?string $text = null;
 
     public function transform(
         bool $transformValues = true,

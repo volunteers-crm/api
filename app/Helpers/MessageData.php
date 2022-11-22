@@ -64,7 +64,7 @@ class MessageData
             }
         }
 
-        return $this->resolveData($this->default, compact('data'));
+        return $this->resolveData($this->default, $data);
     }
 
     protected function resolveData(BaseData|string $model, array $data, ?string $key = null): BaseData
