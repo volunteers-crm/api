@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "686776207edba79d9b6acb064a5d1b07",
+    "content-hash": "557cdc2cab9a8bb4600655c98e426d1d",
     "packages": [
         {
             "name": "archtechx/enums",
@@ -1377,6 +1377,105 @@
             "time": "2022-09-08T19:44:08+00:00"
         },
         {
+            "name": "dragon-code/last-modified",
+            "version": "v4.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/TheDragonCode/last-modified.git",
+                "reference": "e6872beb12cafe21d35fe36e5b36780f4eff2f45"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/TheDragonCode/last-modified/zipball/e6872beb12cafe21d35fe36e5b36780f4eff2f45",
+                "reference": "e6872beb12cafe21d35fe36e5b36780f4eff2f45",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/dbal": "^2.6 || ^3.0",
+                "dragon-code/laravel-cache": "^3.0",
+                "dragon-code/simple-dto": "^2.3",
+                "dragon-code/support": "^6.0",
+                "fig/http-message-util": "^1.1",
+                "illuminate/console": "^6.0 || ^7.0 || ^8.0 || ^9.0",
+                "illuminate/database": "^6.0 || ^7.0 || ^8.0 || ^9.0",
+                "illuminate/support": "^6.0 || ^7.0 || ^8.0 || ^9.0",
+                "lmc/http-constants": "^1.2",
+                "nesbot/carbon": "^1.20 || ^2.0",
+                "php": "^8.0",
+                "psr/http-message": "^1.0.1"
+            },
+            "conflict": {
+                "andrey-helldar/last-modified": "*"
+            },
+            "require-dev": {
+                "ext-json": "*",
+                "mockery/mockery": "^1.3.1",
+                "orchestra/testbench": "^4.0 || ^5.0 || ^6.0 || ^7.0",
+                "phpunit/phpunit": "^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "DragonCode\\LastModified\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "DragonCode\\LastModified\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andrey Helldar",
+                    "email": "helldar@ai-rus.com"
+                }
+            ],
+            "description": "Setting the response code 304 Not Modified in the absence of content changes.",
+            "keywords": [
+                "304",
+                "304 http code",
+                "dragon",
+                "dragon-code",
+                "headers",
+                "last modified",
+                "not modified",
+                "seo"
+            ],
+            "support": {
+                "issues": "https://github.com/TheDragonCode/last-modified/issues",
+                "source": "https://github.com/TheDragonCode/last-modified"
+            },
+            "funding": [
+                {
+                    "url": "https://paypal.me/helldar",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://yoomoney.ru/to/410012608840929",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/TheDragonCode",
+                    "type": "github"
+                },
+                {
+                    "url": "https://opencollective.com/dragon-code",
+                    "type": "open_collective"
+                },
+                {
+                    "url": "https://www.patreon.com/andrey_helldar",
+                    "type": "patreon"
+                }
+            ],
+            "time": "2022-04-21T11:26:05+00:00"
+        },
+        {
             "name": "dragon-code/pretty-array",
             "version": "v4.0.0",
             "source": {
@@ -1764,6 +1863,62 @@
                 }
             ],
             "time": "2022-06-18T20:57:19+00:00"
+        },
+        {
+            "name": "fig/http-message-util",
+            "version": "1.1.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-message-util.git",
+                "reference": "9d94dc0154230ac39e5bf89398b324a86f63f765"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-message-util/zipball/9d94dc0154230ac39e5bf89398b324a86f63f765",
+                "reference": "9d94dc0154230ac39e5bf89398b324a86f63f765",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3 || ^7.0 || ^8.0"
+            },
+            "suggest": {
+                "psr/http-message": "The package containing the PSR-7 interfaces"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Fig\\Http\\Message\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "https://www.php-fig.org/"
+                }
+            ],
+            "description": "Utility classes and constants for use with PSR-7 (psr/http-message)",
+            "keywords": [
+                "http",
+                "http-message",
+                "psr",
+                "psr-7",
+                "request",
+                "response"
+            ],
+            "support": {
+                "issues": "https://github.com/php-fig/http-message-util/issues",
+                "source": "https://github.com/php-fig/http-message-util/tree/1.1.5"
+            },
+            "time": "2020-11-24T22:02:12+00:00"
         },
         {
             "name": "fruitcake/php-cors",
