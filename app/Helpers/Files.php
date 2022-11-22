@@ -18,16 +18,18 @@ declare(strict_types=1);
 namespace App\Helpers;
 
 use App\Enums\File as FileDisk;
+use App\Models\Appeal;
 use App\Models\Bot;
 use App\Models\File;
 use App\Models\Message;
 use DragonCode\Support\Concerns\Makeable;
 use DragonCode\Support\Facades\Filesystem\Path;
+use DragonCode\Support\Facades\Helpers\Str;
 use Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Support\Facades\Storage;
 
 /**
- * @method static Files make(Bot $bot, Message $message)
+ * @method static Files make(Bot $bot, Appeal $appeal, Message $message)
  */
 class Files
 {
@@ -35,18 +37,20 @@ class Files
 
     public function __construct(
         protected ?Bot $bot = null,
+        protected ?Appeal $appeal = null,
         protected ?Message $message = null
     ) {
     }
 
     public function get(): string
     {
-        if ($path = $this->message->file?->path) {
-            return $this->directory($path);
+        if ($filename = $this->message->file?->path) {
+            return $this->directory($filename);
         }
 
         $path = $this->download(
-            $this->directory($this->id())
+            $this->directory(),
+            $this->id()
         );
 
         return $this->directory(
@@ -61,13 +65,15 @@ class Files
         );
     }
 
-    protected function download(string $directory): string
+    protected function download(string $directory, int $messageId): string
     {
-        return $this->bot->store(
+        $path = $this->bot->store(
             $this->message->content->fileId,
-            $directory,
+            rtrim($directory, '\\/') . '/' . $messageId,
             $this->message->content?->fileName
         );
+
+        return Str::of($path)->after($directory)->toString();
     }
 
     protected function store(string $path): File
@@ -75,9 +81,11 @@ class Files
         return $this->message->file()->create(compact('path'));
     }
 
-    protected function directory(string $filename): string
+    protected function directory(string $filename = ''): string
     {
-        return $this->storage()->path($filename);
+        $path = $this->storage()->path($filename);
+
+        return rtrim($path, '\\/');
     }
 
     protected function storage(): Filesystem
@@ -85,8 +93,8 @@ class Files
         return Storage::disk(FileDisk::Temp->value);
     }
 
-    protected function id(): string
+    protected function id(): int
     {
-        return (string) $this->message->id;
+        return $this->message->id;
     }
 }

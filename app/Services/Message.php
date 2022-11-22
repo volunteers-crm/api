@@ -24,6 +24,7 @@ use App\Models\Message as MessageModel;
 use App\Models\User as UserModel;
 use App\Objects\Messages\Text;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Str;
 
 class Message
 {
@@ -43,8 +44,18 @@ class Message
         return $message->loadMissing('sender');
     }
 
-    public function getFile(MessageModel $message): string
+    public function getFile(AppealModel $appeal, MessageModel $message): string
     {
-        return Files::make($message->appeal->bot, $message)->get();
+        return Files::make($message->appeal->bot, $appeal, $message)->get();
+    }
+
+    public function getFilename(AppealModel $appeal, MessageModel $message, string $extension): string
+    {
+        return sprintf('%s__appeal-%d__message-%d.%s', $this->appName(), $appeal->id, $message->id, $extension);
+    }
+
+    protected function appName(): string
+    {
+        return Str::slug(config('app.name'));
     }
 }

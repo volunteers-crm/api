@@ -46,11 +46,8 @@ class MessagesController extends Controller
 
     public function download(DownloadRequest $request, Appeal $appeal, MessageModel $message, Message $messages)
     {
-        $path = $messages->getFile($message);
-
-        $extension = Path::extension($path);
-
-        $filename = sprintf('%s__appeal-%d__message_%d.%s', config('app.name'), $appeal->id, $message->id, $extension);
+        $path     = $messages->getFile($appeal, $message);
+        $filename = $messages->getFilename($appeal, $message, Path::extension($path));
 
         return response()->download($path, $filename);
     }

@@ -15,6 +15,8 @@
 
 declare(strict_types=1);
 
+use Lmc\HttpConstants\Header;
+
 return [
     /*
     |--------------------------------------------------------------------------
@@ -39,7 +41,7 @@ return [
 
     'allowed_headers' => ['*'],
 
-    'exposed_headers' => [],
+    'exposed_headers' => [Header::CONTENT_DISPOSITION],
 
     'max_age' => 0,
 

@@ -17,6 +17,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Casts\FilenameCast;
 use Illuminate\Database\Eloquent\Model;
 
 class File extends Model
@@ -30,5 +31,7 @@ class File extends Model
 
     protected $casts = [
         'item_id' => 'int',
+
+        'path' => FilenameCast::class,
     ];
 }

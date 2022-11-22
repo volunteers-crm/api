@@ -24,6 +24,6 @@ trait HasFiles
 {
     public function file(): Relation
     {
-        return $this->morphTo(File::class, 'item');
+        return $this->morphOne(File::class, 'item');
     }
 }
