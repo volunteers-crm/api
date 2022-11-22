@@ -41,7 +41,6 @@
         "dragon-code/laravel-json-response": "^2.3",
         "dragon-code/laravel-migration-actions": "^3.0",
         "dragon-code/laravel-support": "^3.4",
-        "dragon-code/last-modified": "^4.0",
         "dragon-code/support": "^6.8",
         "laravel-lang/publisher": "^14.3",
         "laravel/framework": "^9.19",

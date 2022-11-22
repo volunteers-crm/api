@@ -27,7 +27,6 @@ use App\Http\Middleware\TrustHosts;
 use App\Http\Middleware\TrustProxies;
 use App\Http\Middleware\ValidateSignature;
 use App\Http\Middleware\VerifyCsrfToken;
-use DragonCode\LastModified\Middlewares\CheckLastModified;
 use Illuminate\Auth\Middleware\AuthenticateWithBasicAuth;
 use Illuminate\Auth\Middleware\Authorize;
 use Illuminate\Auth\Middleware\EnsureEmailIsVerified;
@@ -64,13 +63,11 @@ class Kernel extends HttpKernel
             ShareErrorsFromSession::class,
             VerifyCsrfToken::class,
             SubstituteBindings::class,
-            CheckLastModified::class,
         ],
 
         'api' => [
             'throttle:api',
             SubstituteBindings::class,
-            CheckLastModified::class,
         ],
     ];
 
