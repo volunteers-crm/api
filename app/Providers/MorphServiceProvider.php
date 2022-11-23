@@ -18,8 +18,10 @@ declare(strict_types=1);
 namespace App\Providers;
 
 use App\Models\Appeal;
+use App\Models\Become;
 use App\Models\Bot;
 use App\Models\Channel;
+use App\Models\File;
 use App\Models\Message;
 use App\Models\Page;
 use App\Models\Role;
@@ -34,8 +36,10 @@ class MorphServiceProvider extends ServiceProvider
     {
         Relation::enforceMorphMap([
             'appeal'  => Appeal::class,
+            'become'  => Become::class,
             'bot'     => Bot::class,
             'channel' => Channel::class,
+            'file'    => File::class,
             'message' => Message::class,
             'page'    => Page::class,
             'role'    => Role::class,
