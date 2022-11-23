@@ -36,8 +36,8 @@ class Files
     use Makeable;
 
     public function __construct(
-        protected ?Bot     $bot = null,
-        protected ?Appeal  $appeal = null,
+        protected ?Bot $bot = null,
+        protected ?Appeal $appeal = null,
         protected ?Message $message = null
     ) {
     }
