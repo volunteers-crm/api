@@ -67,6 +67,7 @@ class Files
 
     protected function download(string $directory, int $messageId): string
     {
+        dump($this->message->content);
         $path = $this->bot->store(
             $this->message->content->fileId,
             rtrim($directory, '\\/') . '/' . $messageId,

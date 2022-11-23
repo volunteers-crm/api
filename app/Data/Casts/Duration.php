@@ -47,7 +47,7 @@ class Duration implements Cast
 
     protected function minutes(DateInterval $value): string
     {
-        return $this->pad($value->m);
+        return $this->pad($value->i);
     }
 
     protected function seconds(DateInterval $value): string

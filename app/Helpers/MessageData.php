@@ -17,6 +17,7 @@ declare(strict_types=1);
 
 namespace App\Helpers;
 
+use App\Enums\MessageType;
 use App\Objects\Messages\Animation;
 use App\Objects\Messages\Audio;
 use App\Objects\Messages\BaseData;
@@ -86,13 +87,19 @@ class MessageData
     protected function mapData(array $data, ?string $key): array
     {
         return match ($key) {
-            'text'  => ['text' => $this->resolveContent($data, $key)],
-            default => $this->resolveContent($data, $key)
+            MessageType::Photo->value => $this->resolvePhoto($data, $key),
+            MessageType::Text->value  => ['text' => $this->resolveContent($data, $key)],
+            default                   => $this->resolveContent($data, $key)
         };
     }
 
     protected function resolveContent(array $data, ?string $key): mixed
     {
         return $data['message'][$key] ?? [];
+    }
+
+    protected function resolvePhoto(array $data, string $key): array
+    {
+        return $data['message'][$key][1] ?? [];
     }
 }
