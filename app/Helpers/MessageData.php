@@ -87,7 +87,7 @@ class MessageData
     protected function mapData(array $data, ?string $key): array
     {
         return match ($key) {
-            MessageType::Photo->value => $this->resolvePhoto($data, $key),
+            MessageType::Photo->value => $this->resolveContent($data, $key . '.1'),
             MessageType::Text->value  => ['text' => $this->resolveContent($data, $key)],
             default                   => $this->resolveContent($data, $key)
         };
@@ -95,11 +95,6 @@ class MessageData
 
     protected function resolveContent(array $data, ?string $key): mixed
     {
-        return $data['message'][$key] ?? [];
-    }
-
-    protected function resolvePhoto(array $data, string $key): array
-    {
-        return $data['message'][$key][1] ?? [];
+        return Arr::get($data, "message.$key", []);
     }
 }
