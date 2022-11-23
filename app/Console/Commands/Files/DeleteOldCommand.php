@@ -41,7 +41,7 @@ class DeleteOldCommand extends Command
 
     protected function before(): Carbon
     {
-        return $this->hasForce() ? now()->addHour() : now()->subHour();
+        return $this->hasForce() ? now()->addHour() : now()->subDay();
     }
 
     protected function hasForce(): bool
