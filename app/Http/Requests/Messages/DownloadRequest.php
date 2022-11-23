@@ -52,7 +52,7 @@ class DownloadRequest extends FormRequest
 
     protected function allowType(): bool
     {
-        return in_array($this->message()?->type, $this->types);
+        return in_array($this->message()?->type ?? null, $this->types);
     }
 
     protected function message(): Route|Message

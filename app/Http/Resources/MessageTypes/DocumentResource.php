@@ -26,6 +26,7 @@ class DocumentResource extends BaseResource
             'text' => $this->text,
 
             'size'      => $this->fileSize,
+            'filename'  => $this->fileName,
             'mime_type' => $this->mimeType,
 
             'url' => $this->downloadUrl(),

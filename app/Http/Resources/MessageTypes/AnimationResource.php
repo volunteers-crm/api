@@ -28,6 +28,8 @@ class AnimationResource extends BaseResource
             'width'  => $this->width,
             'height' => $this->height,
 
+            'filename' => $this->fileName,
+
             'size'      => $this->fileSize,
             'mime_type' => $this->mimeType,
 

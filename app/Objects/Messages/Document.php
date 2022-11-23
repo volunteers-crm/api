@@ -35,5 +35,7 @@ class Document extends BaseData
 
     public ?string $fileUniqueId;
 
+    public ?string $fileName;
+
     public ?string $mimeType;
 }

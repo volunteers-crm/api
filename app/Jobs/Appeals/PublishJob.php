@@ -52,7 +52,7 @@ class PublishJob extends BaseJob
 
     protected function hasPublished(Channel $channel): bool
     {
-        return is_numeric($channel?->pivot?->message_id);
+        return is_numeric($channel?->pivot?->message_id ?? null);
     }
 
     protected function view(): string

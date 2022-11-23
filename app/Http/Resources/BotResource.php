@@ -51,6 +51,6 @@ class BotResource extends JsonResource
 
     protected function getLocale(): string
     {
-        return $this->locale?->value ?: Locales::getDefault();
+        return $this->locale?->value ?? Locales::getDefault();
     }
 }

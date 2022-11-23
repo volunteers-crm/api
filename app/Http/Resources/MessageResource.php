@@ -26,6 +26,7 @@ use App\Http\Resources\MessageTypes\DocumentResource;
 use App\Http\Resources\MessageTypes\LocationResource;
 use App\Http\Resources\MessageTypes\PhotoResource;
 use App\Http\Resources\MessageTypes\StickerResource;
+use App\Http\Resources\MessageTypes\TextResource;
 use App\Http\Resources\MessageTypes\UnsupportedResource;
 use App\Http\Resources\MessageTypes\VideoNoteResource;
 use App\Http\Resources\MessageTypes\VideoResource;

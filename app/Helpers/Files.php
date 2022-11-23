@@ -36,15 +36,15 @@ class Files
     use Makeable;
 
     public function __construct(
-        protected ?Bot $bot = null,
-        protected ?Appeal $appeal = null,
+        protected ?Bot     $bot = null,
+        protected ?Appeal  $appeal = null,
         protected ?Message $message = null
     ) {
     }
 
     public function get(): string
     {
-        if ($filename = $this->message->file?->path) {
+        if ($filename = $this->message->file?->path ?? false) {
             return $this->directory($filename);
         }
 
@@ -70,7 +70,7 @@ class Files
         $path = $this->bot->store(
             $this->message->content->fileId,
             rtrim($directory, '\\/') . '/' . $messageId,
-            $this->message->content?->fileName
+            $this->message->content?->fileName ?? null
         );
 
         return Str::of($path)->after($directory)->toString();

@@ -15,21 +15,15 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\MessageTypes;
 
-use Illuminate\Http\Request;
-use Illuminate\Http\Resources\Json\JsonResource;
-
-class TextResource extends JsonResource
+/** @mixin \App\Objects\Messages\Text */
+class TextResource extends BaseResource
 {
-    /**
-     * @param Request $request
-     *
-     * @return array
-     */
-    public function toArray($request)
+    public function toArray($request): array
     {
         return [
+            'text' => $this->text,
         ];
     }
 }
