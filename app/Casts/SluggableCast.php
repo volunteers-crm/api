@@ -22,12 +22,12 @@ use Illuminate\Support\Str;
 
 class SluggableCast implements CastsAttributes
 {
-    public function get($model, $key, $value, $attributes): string
+    public function get($model, string $key, $value, array $attributes): string
     {
         return $value;
     }
 
-    public function set($model, $key, $value, $attributes): string
+    public function set($model, string $key, $value, array $attributes): string
     {
         return Str::of($value)->trim()->slug()->toString();
     }

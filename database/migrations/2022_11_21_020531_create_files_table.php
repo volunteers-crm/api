@@ -29,6 +29,7 @@ return new class () extends Migration
             $table->morphs('item');
 
             $table->string('path');
+            $table->string('filename');
 
             $table->timestamps();
 

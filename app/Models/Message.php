@@ -19,12 +19,13 @@ namespace App\Models;
 
 use App\Casts\MessageCast;
 use App\Concerns\Eloquent\HasFiles;
+use App\Contracts\Eloquent\File;
 use App\Enums\MessageType;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
 
-class Message extends Model
+class Message extends Model implements File
 {
     use HasFactory;
     use HasFiles;
@@ -54,6 +55,11 @@ class Message extends Model
     public function appeal(): Relation
     {
         return $this->belongsTo(Appeal::class, 'appeal_id');
+    }
+
+    public function parent(): Relation
+    {
+        return $this->appeal();
     }
 
     public function sender(): Relation

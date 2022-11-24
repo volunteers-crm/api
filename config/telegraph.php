@@ -13,9 +13,12 @@
  * @see https://github.com/volunteers-crm
  */
 
+use App\Enums\File as Disk;
 use App\Http\Webhooks\TelegraphHandler;
 use App\Models\Bot;
 use App\Models\Channel;
+use DefStudio\Telegraph\Storage\CacheStorageDriver;
+use DefStudio\Telegraph\Storage\FileStorageDriver;
 use DefStudio\Telegraph\Telegraph;
 
 return [
@@ -41,6 +44,14 @@ return [
      */
 
     'webhook_handler' => TelegraphHandler::class,
+
+    /*
+     * Sets a custom domain when registering a webhook. This will allow a loca telegram bot api server
+     * to reach the webhook. Disabled by default
+     *
+     * For reference, see https://core.telegram.org/bots/api#using-a-local-bot-api-server
+     */
+    // 'custom_webhook_domain' => 'http://my.custom.domain';
 
     /*
      * If enabled, Telegraph dumps received
@@ -77,11 +88,51 @@ return [
      * to allow more customization.
      *
      * Bot model must be or extend `DefStudio\Telegraph\Models\TelegraphBot::class`
-     * Message model must be or extend `DefStudio\Telegraph\Models\TelegraphChat::class`
+     * Chat model must be or extend `DefStudio\Telegraph\Models\TelegraphChat::class`
      */
-
-    'models' => [
+    'models'   => [
         'bot'  => Bot::class,
         'chat' => Channel::class,
+    ],
+
+    'storage' => [
+        // Default storage driver to be used for Telegraph data
+        'default' => 'file',
+
+        'stores' => [
+            'file' => [
+                /*
+                 * Telegraph cache driver to be used, must implement
+                 * DefStudio\Telegraph\Contracts\StorageDriver contract
+                 */
+                'driver' => FileStorageDriver::class,
+
+                /*
+                 * Laravel Storage disk to use. See /config/filesystems/disks for available disks
+                 * If 'null', Laravel default store will be used,
+                 */
+                'disk'   => Disk::Local->value,
+
+                // Folder inside filesystem to be used as root for Telegraph storage
+                'root'   => 'telegraph',
+            ],
+
+            'cache' => [
+                /*
+                 * Telegraph cache driver to be used, must implement
+                 * DefStudio\Telegraph\Contracts\StorageDriver contract
+                 */
+                'driver'     => CacheStorageDriver::class,
+
+                /*
+                 * Laravel Cache store to use. See /config/cache/stores for available stores
+                 * If 'null', Laravel default store will be used,
+                 */
+                'store'      => null,
+
+                // Prefix to be prepended to cache keys
+                'key_prefix' => 'tgph',
+            ],
+        ],
     ],
 ];

@@ -15,22 +15,20 @@
 
 declare(strict_types=1);
 
-namespace App\Casts\Appeals;
+namespace App\Casts\Filesystem;
 
-use App\Objects\Appeals\Appeal;
+use DragonCode\Support\Facades\Filesystem\Path;
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 
-class Info implements CastsAttributes
+class FilenameCast implements CastsAttributes
 {
-    public function get($model, string $key, $value, array $attributes): Appeal
+    public function get($model, string $key, $value, array $attributes): string
     {
-        return Appeal::from($value ?: []);
+        return $value;
     }
 
     public function set($model, string $key, $value, array $attributes): string
     {
-        $value = $value instanceof Appeal ? $value : Appeal::from($value ?: []);
-
-        return $value->toJson();
+        return Path::basename($value);
     }
 }

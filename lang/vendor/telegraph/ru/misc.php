@@ -13,17 +13,14 @@
  * @see https://github.com/volunteers-crm
  */
 
-declare(strict_types=1);
+return [
 
-namespace App\Enums;
+    /*
+    |--------------------------------------------------------------------------
+    | Miscellaneous language lines
+    |--------------------------------------------------------------------------
+    */
 
-enum File: string
-{
-    case Local = 'local';
-
-    case Private = 'private';
-
-    case Public = 'public';
-
-    case S3 = 's3';
-}
+    'yes' => 'да',
+    'no' => 'нет',
+];

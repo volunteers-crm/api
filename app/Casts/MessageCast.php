@@ -43,7 +43,7 @@ class MessageCast implements CastsAttributes
      *
      * @return \App\Objects\Messages\BaseData
      */
-    public function get($model, $key, $value, $attributes): BaseData
+    public function get($model, string $key, $value, array $attributes): BaseData
     {
         return match ($model->type) {
             MessageType::Animation => Animation::from($value),
@@ -69,7 +69,7 @@ class MessageCast implements CastsAttributes
      *
      * @return string
      */
-    public function set($model, $key, $value, $attributes): string
+    public function set($model, string $key, $value, array $attributes): string
     {
         return $value
             ->except('dataType', 'photos.dataType', 'messageId')

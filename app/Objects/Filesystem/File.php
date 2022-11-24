@@ -15,15 +15,13 @@
 
 declare(strict_types=1);
 
-namespace App\Enums;
+namespace App\Objects\Filesystem;
 
-enum File: string
+use Spatie\LaravelData\Data;
+
+class File extends Data
 {
-    case Local = 'local';
+    public string $path;
 
-    case Private = 'private';
-
-    case Public = 'public';
-
-    case S3 = 's3';
+    public string $filename;
 }

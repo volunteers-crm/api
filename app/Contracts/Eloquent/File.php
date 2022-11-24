@@ -15,15 +15,14 @@
 
 declare(strict_types=1);
 
-namespace App\Enums;
+namespace App\Contracts\Eloquent;
 
-enum File: string
+use Illuminate\Database\Eloquent\Relations\Relation;
+
+/**
+ * @property \App\Models\File $file
+ */
+interface File
 {
-    case Local = 'local';
-
-    case Private = 'private';
-
-    case Public = 'public';
-
-    case S3 = 's3';
+    public function file(): Relation;
 }

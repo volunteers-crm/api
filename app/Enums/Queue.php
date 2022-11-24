@@ -21,9 +21,10 @@ use ArchTech\Enums\InvokableCases;
 
 /**
  * @method static string Appeals()
+ * @method static string Download()
+ * @method static string Files()
  * @method static string Messages()
  * @method static string Webhooks()
- * @method static string Files()
  */
 enum Queue: string
 {
@@ -31,9 +32,11 @@ enum Queue: string
 
     case Appeals = 'appeals';
 
+    case Download = 'download';
+
+    case Files = 'files';
+
     case Messages = 'messages';
 
     case Webhooks = 'webhooks';
-
-    case Files = 'files';
 }

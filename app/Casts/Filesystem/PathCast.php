@@ -15,24 +15,20 @@
 
 declare(strict_types=1);
 
-namespace App\Casts;
+namespace App\Casts\Filesystem;
 
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 use Illuminate\Support\Str;
 
-class FilenameCast implements CastsAttributes
+class PathCast implements CastsAttributes
 {
-    public function get($model, $key, $value, $attributes): string
+    public function get($model, string $key, $value, array $attributes): string
     {
         return $value;
     }
 
-    public function set($model, $key, $value, $attributes): string
+    public function set($model, string $key, $value, array $attributes): string
     {
-        return Str::of($value)
-            ->replace('\\', '/')
-            ->ltrim('/')
-            ->trim()
-            ->toString();
+        return Str::of($value)->replace('\\', '/')->trim()->toString();
     }
 }

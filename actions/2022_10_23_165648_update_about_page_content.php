@@ -62,14 +62,14 @@ return new class () extends Action
         return [
             $this->line(
                 MessageType::Text,
-                Text::make([
+                Text::from([
                     'text' => $faker->realText,
                 ])
             ),
 
             $this->line(
                 MessageType::Document,
-                Document::make([
+                Document::from([
                     'src'     => $faker->imageUrl,
                     'preview' => $faker->imageUrl,
                 ])
@@ -77,14 +77,14 @@ return new class () extends Action
 
             $this->line(
                 MessageType::Text,
-                Text::make([
+                Text::from([
                     'text' => $faker->realText,
                 ])
             ),
 
             $this->line(
                 MessageType::Text,
-                Text::make([
+                Text::from([
                     'text' => $faker->realText,
                 ])
             ),

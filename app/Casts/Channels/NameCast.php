@@ -29,12 +29,12 @@ class NameCast implements CastsAttributes
         '[supergroup]',
     ];
 
-    public function get($model, $key, $value, $attributes)
+    public function get($model, string $key, $value, array $attributes): string
     {
         return $value;
     }
 
-    public function set($model, $key, $value, $attributes)
+    public function set($model, string $key, $value, array $attributes): string
     {
         foreach ($this->prefixes as $prefix) {
             $value = Str::of($value)->after($prefix)->trim()->toString();

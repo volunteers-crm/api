@@ -18,13 +18,14 @@ declare(strict_types=1);
 namespace App\Services;
 
 use App\Enums\MessageType;
-use App\Helpers\Files;
+use App\Jobs\Files\DownloadFileJob;
 use App\Models\Appeal as AppealModel;
+use App\Models\Bot as BotModel;
+use App\Models\File as FileModel;
 use App\Models\Message as MessageModel;
 use App\Models\User as UserModel;
 use App\Objects\Messages\Text;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Support\Str;
 
 class Message
 {
@@ -35,27 +36,19 @@ class Message
 
     public function store(UserModel $user, AppealModel $appeal, string $text): MessageModel
     {
-        $message = $appeal->messages()->create([
+        return $appeal->messages()->create([
             'user_id' => $user->id,
             'content' => Text::from(compact('text')),
             'type'    => MessageType::Text,
-        ]);
-
-        return $message->loadMissing('sender');
+        ])->load('sender');
     }
 
-    public function getFile(AppealModel $appeal, MessageModel $message): string
+    public function file(BotModel $bot, MessageModel $message): FileModel
     {
-        return Files::make($message->appeal->bot, $appeal, $message)->get();
-    }
+        if ($message->file()->doesntExist()) {
+            DownloadFileJob::dispatchSync($bot, $message, $message->content->fileId, $message->content->fileUniqueId);
+        }
 
-    public function getFilename(AppealModel $appeal, MessageModel $message, string $extension): string
-    {
-        return sprintf('%s__appeal-%d__message-%d.%s', $this->appName(), $appeal->id, $message->id, $extension);
-    }
-
-    protected function appName(): string
-    {
-        return Str::slug(config('app.name'));
+        return $message->file;
     }
 }

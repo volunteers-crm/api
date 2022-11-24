@@ -142,7 +142,7 @@ return [
     'timezone'             => ':Attribute muss eine gültige Zeitzone sein.',
     'unique'               => ':Attribute ist bereits vergeben.',
     'uploaded'             => ':Attribute konnte nicht hochgeladen werden.',
-    'uppercase'            => 'The :attribute must be uppercase.',
+    'uppercase'            => ':Attribute muss in Großbuchstaben sein.',
     'url'                  => ':Attribute muss eine URL sein.',
     'uuid'                 => ':Attribute muss ein UUID sein.',
     'attributes'           => [

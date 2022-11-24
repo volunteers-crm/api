@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "343557e09e8b3bf585585b157178536c",
+    "content-hash": "14a804918ccf718a2c37c5269c7c7808",
     "packages": [
         {
             "name": "archtechx/enums",
@@ -1198,16 +1198,16 @@
         },
         {
             "name": "dragon-code/laravel-migration-actions",
-            "version": "v3.1.0",
+            "version": "v3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/TheDragonCode/laravel-migration-actions.git",
-                "reference": "364f8f150700a68d06d0eca1b479ecd14cb9609c"
+                "reference": "9699718b79a7aeb3f6aad0e7438ad4e2908b3321"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TheDragonCode/laravel-migration-actions/zipball/364f8f150700a68d06d0eca1b479ecd14cb9609c",
-                "reference": "364f8f150700a68d06d0eca1b479ecd14cb9609c",
+                "url": "https://api.github.com/repos/TheDragonCode/laravel-migration-actions/zipball/9699718b79a7aeb3f6aad0e7438ad4e2908b3321",
+                "reference": "9699718b79a7aeb3f6aad0e7438ad4e2908b3321",
                 "shasum": ""
             },
             "require": {
@@ -1291,7 +1291,7 @@
                     "type": "yoomoney"
                 }
             ],
-            "time": "2022-10-28T09:16:22+00:00"
+            "time": "2022-11-23T12:38:53+00:00"
         },
         {
             "name": "dragon-code/laravel-support",
@@ -8189,16 +8189,16 @@
         },
         {
             "name": "laravel-lang/lang",
-            "version": "12.5.1",
+            "version": "12.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Lang/lang.git",
-                "reference": "54217d9711dfd3d1376f725db11370631f1201b2"
+                "reference": "ca4b396f4d22e72cb3ba56bf5784f5fa40c488a4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Lang/lang/zipball/54217d9711dfd3d1376f725db11370631f1201b2",
-                "reference": "54217d9711dfd3d1376f725db11370631f1201b2",
+                "url": "https://api.github.com/repos/Laravel-Lang/lang/zipball/ca4b396f4d22e72cb3ba56bf5784f5fa40c488a4",
+                "reference": "ca4b396f4d22e72cb3ba56bf5784f5fa40c488a4",
                 "shasum": ""
             },
             "require": {
@@ -8260,7 +8260,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2022-11-21T21:45:03+00:00"
+            "time": "2022-11-22T23:27:53+00:00"
         },
         {
             "name": "laravel/sail",

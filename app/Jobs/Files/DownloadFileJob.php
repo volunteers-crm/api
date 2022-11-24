@@ -17,45 +17,52 @@ declare(strict_types=1);
 
 namespace App\Jobs\Files;
 
-use App\Enums\File as Disk;
+use App\Contracts\Eloquent\File;
 use App\Enums\Queue;
+use App\Models\Bot;
+use App\Services\Downloader;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Support\Facades\Storage;
 
-class DeleteFileJob implements ShouldQueue, ShouldBeUnique
+/**
+ * @property File|Model $model
+ */
+class DownloadFileJob implements ShouldQueue, ShouldBeUnique
 {
     use Dispatchable;
     use InteractsWithQueue;
     use Queueable;
     use SerializesModels;
 
-    protected Disk $disk = Disk::Private;
-
     public function __construct(
-        public readonly string $path
+        public readonly Bot $bot,
+        public readonly File $model,
+        public readonly string $fileId,
+        public readonly string $fileUniqueId
     ) {
-        $this->onQueue(Queue::Files());
+        $this->onQueue(Queue::Download());
         $this->afterCommit();
     }
 
-    public function __invoke(): void
+    public function __invoke(Downloader $downloader): void
     {
-        $this->storage()->delete($this->path);
+        $file = $downloader->get($this->bot, $this->fileId, $this->fileUniqueId);
+
+        $this->store($file->path, $file->filename);
     }
 
     public function uniqueId(): string
     {
-        return $this->path;
+        return implode('__', [$this->bot->id, $this->model->id, $this->fileId]);
     }
 
-    protected function storage(): Filesystem
+    protected function store(string $path, string $filename): void
     {
-        return Storage::disk($this->disk->value);
+        $this->model->file()->create(compact('path', 'filename'));
     }
 }

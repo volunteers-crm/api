@@ -23,7 +23,6 @@ use App\Http\Resources\MessageResource;
 use App\Models\Appeal;
 use App\Models\Message as MessageModel;
 use App\Services\Message;
-use DragonCode\Support\Facades\Filesystem\Path;
 use Illuminate\Support\Facades\DB;
 
 class MessagesController extends Controller
@@ -46,9 +45,8 @@ class MessagesController extends Controller
 
     public function download(DownloadRequest $request, Appeal $appeal, MessageModel $message, Message $messages)
     {
-        $path     = $messages->getFile($appeal, $message);
-        $filename = $messages->getFilename($appeal, $message, Path::extension($path));
+        $file = $messages->file($appeal->bot, $message);
 
-        return response()->download($path, $filename);
+        return response()->download($file->full_path, $file->filename);
     }
 }
