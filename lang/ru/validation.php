@@ -1,18 +1,5 @@
 <?php
 
-/**
- * This file is part of the "Volunteers CRM" project.
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- *
- * @author Andrey Helldar <helldar@dragon-code.pro>
- * @copyright 2022 Andrey Helldar
- * @license MIT
- *
- * @see https://github.com/volunteers-crm
- */
-
 declare(strict_types=1);
 
 return [
@@ -25,6 +12,7 @@ return [
     'alpha_dash'           => 'Значение поля :attribute может содержать только буквы, цифры, дефис и нижнее подчеркивание.',
     'alpha_num'            => 'Значение поля :attribute может содержать только буквы и цифры.',
     'array'                => 'Значение поля :attribute должно быть массивом.',
+    'ascii'                => 'Значение поля :attribute должно содержать только однобайтовые цифро-буквенные символы.',
     'before'               => 'Значение поля :attribute должно быть датой до :date.',
     'before_or_equal'      => 'Значение поля :attribute должно быть датой до или равной :date.',
     'between'              => [
@@ -39,6 +27,7 @@ return [
     'date'                 => 'Значение поля :attribute не является датой.',
     'date_equals'          => 'Значение поля :attribute должно быть датой равной :date.',
     'date_format'          => 'Значение поля :attribute не соответствует формату даты :format.',
+    'decimal'              => 'Значение поля :attribute должно содержать :decimal цифр десятичных разрядов.',
     'declined'             => 'Поле :attribute должно быть отклонено.',
     'declined_if'          => 'Поле :attribute должно быть отклонено, когда :other равно :value.',
     'different'            => 'Значения полей :attribute и :other должны различаться.',
@@ -140,6 +129,7 @@ return [
     'starts_with'          => 'Поле :attribute должно начинаться с одного из следующих значений: :values',
     'string'               => 'Значение поля :attribute должно быть строкой.',
     'timezone'             => 'Значение поля :attribute должно быть действительным часовым поясом.',
+    'ulid'                 => 'Значение поля :attribute должно быть корректным ULID.',
     'unique'               => 'Такое значение поля :attribute уже существует.',
     'uploaded'             => 'Загрузка файла из поля :attribute не удалась.',
     'uppercase'            => 'Значение поля :attribute должно быть в верхнем регистре.',

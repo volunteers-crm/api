@@ -1,18 +1,5 @@
 <?php
 
-/**
- * This file is part of the "Volunteers CRM" project.
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- *
- * @author Andrey Helldar <helldar@dragon-code.pro>
- * @copyright 2022 Andrey Helldar
- * @license MIT
- *
- * @see https://github.com/volunteers-crm
- */
-
 declare(strict_types=1);
 
 return [
@@ -25,6 +12,7 @@ return [
     'alpha_dash'           => ':Attribute darf nur aus Buchstaben, Zahlen, Binde- und Unterstrichen bestehen.',
     'alpha_num'            => ':Attribute darf nur aus Buchstaben und Zahlen bestehen.',
     'array'                => ':Attribute muss ein Array sein.',
+    'ascii'                => 'The :attribute must only contain single-byte alphanumeric characters and symbols.',
     'before'               => ':Attribute muss ein Datum vor :date sein.',
     'before_or_equal'      => ':Attribute muss ein Datum vor :date oder gleich :date sein.',
     'between'              => [
@@ -39,6 +27,7 @@ return [
     'date'                 => ':Attribute muss ein gültiges Datum sein.',
     'date_equals'          => ':Attribute muss ein Datum gleich :date sein.',
     'date_format'          => ':Attribute entspricht nicht dem gültigen Format für :format.',
+    'decimal'              => 'The :attribute must have :decimal decimal places.',
     'declined'             => ':Attribute muss abgelehnt werden.',
     'declined_if'          => ':Attribute muss abgelehnt werden wenn :other :value ist.',
     'different'            => ':Attribute und :other müssen sich unterscheiden.',
@@ -140,6 +129,7 @@ return [
     'starts_with'          => ':Attribute muss mit einem der folgenden Anfänge aufweisen: :values',
     'string'               => ':Attribute muss ein String sein.',
     'timezone'             => ':Attribute muss eine gültige Zeitzone sein.',
+    'ulid'                 => 'The :attribute must be a valid ULID.',
     'unique'               => ':Attribute ist bereits vergeben.',
     'uploaded'             => ':Attribute konnte nicht hochgeladen werden.',
     'uppercase'            => ':Attribute muss in Großbuchstaben sein.',

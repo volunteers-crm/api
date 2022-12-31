@@ -1,18 +1,5 @@
 <?php
 
-/**
- * This file is part of the "Volunteers CRM" project.
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- *
- * @author Andrey Helldar <helldar@dragon-code.pro>
- * @copyright 2022 Andrey Helldar
- * @license MIT
- *
- * @see https://github.com/volunteers-crm
- */
-
 declare(strict_types=1);
 
 return [
@@ -21,10 +8,11 @@ return [
     'active_url'           => 'The :attribute is not a valid URL.',
     'after'                => 'The :attribute must be a date after :date.',
     'after_or_equal'       => 'The :attribute must be a date after or equal to :date.',
-    'alpha'                => 'The :attribute must only contain letters.',
-    'alpha_dash'           => 'The :attribute must only contain letters, numbers, dashes and underscores.',
-    'alpha_num'            => 'The :attribute must only contain letters and numbers.',
+    'alpha'                => 'The :attribute may only contain letters.',
+    'alpha_dash'           => 'The :attribute may only contain letters, numbers, and dashes.',
+    'alpha_num'            => 'The :attribute may only contain letters and numbers.',
     'array'                => 'The :attribute must be an array.',
+    'ascii'                => 'The :attribute must only contain single-byte alphanumeric characters and symbols.',
     'before'               => 'The :attribute must be a date before :date.',
     'before_or_equal'      => 'The :attribute must be a date before or equal to :date.',
     'between'              => [
@@ -39,6 +27,7 @@ return [
     'date'                 => 'The :attribute is not a valid date.',
     'date_equals'          => 'The :attribute must be a date equal to :date.',
     'date_format'          => 'The :attribute does not match the format :format.',
+    'decimal'              => 'The :attribute must have :decimal decimal places.',
     'declined'             => 'The :attribute must be declined.',
     'declined_if'          => 'The :attribute must be declined when :other is :value.',
     'different'            => 'The :attribute and :other must be different.',
@@ -53,7 +42,7 @@ return [
     'enum'                 => 'The selected :attribute is invalid.',
     'exists'               => 'The selected :attribute is invalid.',
     'file'                 => 'The :attribute must be a file.',
-    'filled'               => 'The :attribute field must have a value.',
+    'filled'               => 'The :attribute field is required.',
     'gt'                   => [
         'array'   => 'The :attribute must have more than :value items.',
         'file'    => 'The :attribute must be greater than :value kilobytes.',
@@ -62,9 +51,9 @@ return [
     ],
     'gte'                  => [
         'array'   => 'The :attribute must have :value items or more.',
-        'file'    => 'The :attribute must be greater than or equal to :value kilobytes.',
-        'numeric' => 'The :attribute must be greater than or equal to :value.',
-        'string'  => 'The :attribute must be greater than or equal to :value characters.',
+        'file'    => 'The :attribute must be greater than or equal :value kilobytes.',
+        'numeric' => 'The :attribute must be greater than or equal :value.',
+        'string'  => 'The :attribute must be greater than or equal :value characters.',
     ],
     'image'                => 'The :attribute must be an image.',
     'in'                   => 'The selected :attribute is invalid.',
@@ -83,16 +72,16 @@ return [
     ],
     'lte'                  => [
         'array'   => 'The :attribute must not have more than :value items.',
-        'file'    => 'The :attribute must be less than or equal to :value kilobytes.',
-        'numeric' => 'The :attribute must be less than or equal to :value.',
-        'string'  => 'The :attribute must be less than or equal to :value characters.',
+        'file'    => 'The :attribute must be less than or equal :value kilobytes.',
+        'numeric' => 'The :attribute must be less than or equal :value.',
+        'string'  => 'The :attribute must be less than or equal :value characters.',
     ],
     'mac_address'          => 'The :attribute must be a valid MAC address.',
     'max'                  => [
-        'array'   => 'The :attribute must not have more than :max items.',
-        'file'    => 'The :attribute must not be greater than :max kilobytes.',
-        'numeric' => 'The :attribute must not be greater than :max.',
-        'string'  => 'The :attribute must not be greater than :max characters.',
+        'array'   => 'The :attribute may not have more than :max items.',
+        'file'    => 'The :attribute may not be greater than :max kilobytes.',
+        'numeric' => 'The :attribute may not be greater than :max.',
+        'string'  => 'The :attribute may not be greater than :max characters.',
     ],
     'max_digits'           => 'The :attribute must not have more than :max digits.',
     'mimes'                => 'The :attribute must be a file of type: :values.',
@@ -127,7 +116,7 @@ return [
     'required_if_accepted' => 'The :attribute field is required when :other is accepted.',
     'required_unless'      => 'The :attribute field is required unless :other is in :values.',
     'required_with'        => 'The :attribute field is required when :values is present.',
-    'required_with_all'    => 'The :attribute field is required when :values are present.',
+    'required_with_all'    => 'The :attribute field is required when :values is present.',
     'required_without'     => 'The :attribute field is required when :values is not present.',
     'required_without_all' => 'The :attribute field is required when none of :values are present.',
     'same'                 => 'The :attribute and :other must match.',
@@ -137,13 +126,14 @@ return [
         'numeric' => 'The :attribute must be :size.',
         'string'  => 'The :attribute must be :size characters.',
     ],
-    'starts_with'          => 'The :attribute must start with one of the following: :values.',
+    'starts_with'          => 'The :attribute must start with one of the following: :values',
     'string'               => 'The :attribute must be a string.',
-    'timezone'             => 'The :attribute must be a valid timezone.',
+    'timezone'             => 'The :attribute must be a valid zone.',
+    'ulid'                 => 'The :attribute must be a valid ULID.',
     'unique'               => 'The :attribute has already been taken.',
     'uploaded'             => 'The :attribute failed to upload.',
     'uppercase'            => 'The :attribute must be uppercase.',
-    'url'                  => 'The :attribute must be a valid URL.',
+    'url'                  => 'The :attribute format is invalid.',
     'uuid'                 => 'The :attribute must be a valid UUID.',
     'attributes'           => [
         'address'                  => 'address',
