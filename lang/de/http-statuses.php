@@ -1,11 +1,24 @@
 <?php
 
+/**
+ * This file is part of the "Volunteers CRM" project.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ *
+ * @author Andrey Helldar <helldar@dragon-code.pro>
+ * @copyright 2023 Andrey Helldar
+ * @license MIT
+ *
+ * @see https://github.com/volunteers-crm
+ */
+
 declare(strict_types=1);
 
 return [
     '0'            => 'Unbekannter Fehler',
     '100'          => 'Weiter',
-    '101'          => 'Switching Protocols',
+    '101'          => 'Schaltprotokolle',
     '102'          => 'Verarbeitung',
     '200'          => 'OK',
     '201'          => 'Erstellt',
@@ -49,24 +62,24 @@ return [
     '422'          => 'Unverfügbare Entität',
     '423'          => 'Gesperrt',
     '424'          => 'Fehlgeschlagene Abhängigkeit',
-    '425'          => 'Too Early',
+    '425'          => 'Zu früh',
     '426'          => 'Upgrade erforderlich',
     '428'          => 'Voraussetzung erforderlich',
     '429'          => 'Zu viele Anfragen',
     '431'          => 'Kopfzeilenfelder zu groß anfordern',
-    '444'          => 'Connection Closed Without Response',
+    '444'          => 'Verbindung ohne Antwort geschlossen',
     '449'          => 'Wiederhole mit',
     '451'          => 'Aus rechtlichen Gründen nicht verfügbar',
-    '499'          => 'Client Closed Request',
+    '499'          => 'Client-Closed-Request',
     '500'          => 'Interner Serverfehler',
     '501'          => 'Nicht implementiert',
-    '502'          => 'Bad Gateway',
+    '502'          => 'Schlechtes Tor',
     '503'          => 'Wartungsmodus',
-    '504'          => 'Gateway Timeout',
+    '504'          => 'Gateway-Zeitüberschreitung',
     '505'          => 'HTTP Version nicht unterstützt',
     '506'          => 'Variante verhandelt auch',
     '507'          => 'Ungenügende Speicherung',
-    '508'          => 'Loop Detected',
+    '508'          => 'Schleife erkannt',
     '509'          => 'Bandbreitengrenze überschritten',
     '510'          => 'Nicht erweitert',
     '511'          => 'Netzwerkauthentifizierung erforderlich',
@@ -77,8 +90,8 @@ return [
     '524'          => 'Ein Timeout ist aufgetreten',
     '525'          => 'SSL Handshake fehlgeschlagen',
     '526'          => 'Ungültiges SSL-Zertifikat',
-    '527'          => 'Railgun Error',
-    '598'          => 'Network Read Timeout Error',
-    '599'          => 'Network Connect Timeout Error',
+    '527'          => 'Railgun-Fehler',
+    '598'          => 'Zeitüberschreitungsfehler beim Lesen des Netzwerks',
+    '599'          => 'Zeitüberschreitungsfehler bei Netzwerkverbindung',
     'unknownError' => 'Unbekannter Fehler',
 ];

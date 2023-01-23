@@ -1,5 +1,18 @@
 <?php
 
+/**
+ * This file is part of the "Volunteers CRM" project.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ *
+ * @author Andrey Helldar <helldar@dragon-code.pro>
+ * @copyright 2023 Andrey Helldar
+ * @license MIT
+ *
+ * @see https://github.com/volunteers-crm
+ */
+
 declare(strict_types=1);
 
 return [
@@ -12,7 +25,7 @@ return [
     'alpha_dash'           => ':Attribute darf nur aus Buchstaben, Zahlen, Binde- und Unterstrichen bestehen.',
     'alpha_num'            => ':Attribute darf nur aus Buchstaben und Zahlen bestehen.',
     'array'                => ':Attribute muss ein Array sein.',
-    'ascii'                => 'The :attribute must only contain single-byte alphanumeric characters and symbols.',
+    'ascii'                => 'Die :attribute darf nur alphanumerische Single-Byte-Zeichen und -Symbole enthalten.',
     'before'               => ':Attribute muss ein Datum vor :date sein.',
     'before_or_equal'      => ':Attribute muss ein Datum vor :date oder gleich :date sein.',
     'between'              => [
@@ -27,7 +40,7 @@ return [
     'date'                 => ':Attribute muss ein gültiges Datum sein.',
     'date_equals'          => ':Attribute muss ein Datum gleich :date sein.',
     'date_format'          => ':Attribute entspricht nicht dem gültigen Format für :format.',
-    'decimal'              => 'The :attribute must have :decimal decimal places.',
+    'decimal'              => 'Die :attribute muss :decimal Dezimalstellen haben.',
     'declined'             => ':Attribute muss abgelehnt werden.',
     'declined_if'          => ':Attribute muss abgelehnt werden wenn :other :value ist.',
     'different'            => ':Attribute und :other müssen sich unterscheiden.',
@@ -93,6 +106,11 @@ return [
         'string'  => ':Attribute muss mindestens :min Zeichen lang sein.',
     ],
     'min_digits'           => ':Attribute muss mindestens :min Ziffern lang sein.',
+    'missing'              => 'Das Feld :attribute muss fehlen.',
+    'missing_if'           => 'Das Feld :attribute muss fehlen, wenn :other gleich :value ist.',
+    'missing_unless'       => 'Das Feld :attribute muss fehlen, es sei denn, :other ist :value.',
+    'missing_with'         => 'Das Feld :attribute muss fehlen, wenn :values vorhanden ist.',
+    'missing_with_all'     => 'Das Feld :attribute muss fehlen, wenn :values vorhanden sind.',
     'multiple_of'          => ':Attribute muss ein Vielfaches von :value sein.',
     'not_in'               => 'Der gewählte Wert für :attribute ist ungültig.',
     'not_regex'            => ':Attribute hat ein ungültiges Format.',
@@ -129,7 +147,7 @@ return [
     'starts_with'          => ':Attribute muss mit einem der folgenden Anfänge aufweisen: :values',
     'string'               => ':Attribute muss ein String sein.',
     'timezone'             => ':Attribute muss eine gültige Zeitzone sein.',
-    'ulid'                 => 'The :attribute must be a valid ULID.',
+    'ulid'                 => 'Die :attribute muss eine gültige ULID sein.',
     'unique'               => ':Attribute ist bereits vergeben.',
     'uploaded'             => ':Attribute konnte nicht hochgeladen werden.',
     'uppercase'            => ':Attribute muss in Großbuchstaben sein.',
@@ -138,7 +156,7 @@ return [
     'attributes'           => [
         'address'                  => 'adresse',
         'age'                      => 'alter',
-        'amount'                   => 'amount',
+        'amount'                   => 'Höhe',
         'area'                     => 'gebiet',
         'available'                => 'verfügbar',
         'birthday'                 => 'geburtstag',
@@ -158,22 +176,22 @@ return [
         'duration'                 => 'dauer',
         'email'                    => 'e-mail-adresse',
         'excerpt'                  => 'auszug',
-        'filter'                   => 'filter',
+        'filter'                   => 'Filter',
         'first_name'               => 'vorname',
         'gender'                   => 'geschlecht',
         'group'                    => 'gruppe',
         'hour'                     => 'stunde',
         'image'                    => 'bild',
         'last_name'                => 'nachname',
-        'lesson'                   => 'lesson',
+        'lesson'                   => 'Lektion',
         'line_address_1'           => 'adresszeile 1',
         'line_address_2'           => 'adresszeile 2',
         'message'                  => 'nachricht',
         'middle_name'              => 'zweitname',
-        'minute'                   => 'minute',
+        'minute'                   => 'Minute',
         'mobile'                   => 'handynummer',
         'month'                    => 'monat',
-        'name'                     => 'name',
+        'name'                     => 'Name',
         'national_code'            => 'länderkennung',
         'number'                   => 'nummer',
         'password'                 => 'passwort',
@@ -195,13 +213,13 @@ return [
         'state'                    => 'bundesland',
         'street'                   => 'straße',
         'student'                  => 'schüler/student',
-        'subject'                  => 'subject',
+        'subject'                  => 'Gegenstand',
         'teacher'                  => 'lehrer',
         'terms'                    => 'bedingungen',
         'test_description'         => 'test beschreibung',
         'test_locale'              => 'test region',
-        'test_name'                => 'test name',
-        'text'                     => 'text',
+        'test_name'                => 'Testname',
+        'text'                     => 'Text',
         'time'                     => 'uhrzeit',
         'title'                    => 'titel',
         'updated_at'               => 'aktualisiert am',

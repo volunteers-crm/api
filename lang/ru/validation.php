@@ -1,5 +1,18 @@
 <?php
 
+/**
+ * This file is part of the "Volunteers CRM" project.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ *
+ * @author Andrey Helldar <helldar@dragon-code.pro>
+ * @copyright 2023 Andrey Helldar
+ * @license MIT
+ *
+ * @see https://github.com/volunteers-crm
+ */
+
 declare(strict_types=1);
 
 return [
@@ -93,6 +106,11 @@ return [
         'string'  => 'Количество символов в поле :attribute должно быть не меньше :min.',
     ],
     'min_digits'           => 'Значение поля :attribute должно содержать не меньше :min цифр.',
+    'missing'              => 'Значение поля :attribute должно отсутствовать.',
+    'missing_if'           => 'Значение поля :attribute должно отсутствовать, когда :other равно :value.',
+    'missing_unless'       => 'Значение поля :attribute должно отсутствовать, когда :other не равно :value.',
+    'missing_with'         => 'Значение поля :attribute должно отсутствовать, если :values указано.',
+    'missing_with_all'     => 'Значение поля :attribute должно отсутствовать, когда указаны все :values.',
     'multiple_of'          => 'Значение поля :attribute должно быть кратным :value',
     'not_in'               => 'Значение поля :attribute некорректно.',
     'not_regex'            => 'Значение поля :attribute имеет некорректный формат.',

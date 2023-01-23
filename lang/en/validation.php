@@ -1,5 +1,18 @@
 <?php
 
+/**
+ * This file is part of the "Volunteers CRM" project.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ *
+ * @author Andrey Helldar <helldar@dragon-code.pro>
+ * @copyright 2023 Andrey Helldar
+ * @license MIT
+ *
+ * @see https://github.com/volunteers-crm
+ */
+
 declare(strict_types=1);
 
 return [
@@ -93,6 +106,11 @@ return [
         'string'  => 'The :attribute must be at least :min characters.',
     ],
     'min_digits'           => 'The :attribute must have at least :min digits.',
+    'missing'              => 'The :attribute field must be missing.',
+    'missing_if'           => 'The :attribute field must be missing when :other is :value.',
+    'missing_unless'       => 'The :attribute field must be missing unless :other is :value.',
+    'missing_with'         => 'The :attribute field must be missing when :values is present.',
+    'missing_with_all'     => 'The :attribute field must be missing when :values are present.',
     'multiple_of'          => 'The :attribute must be a multiple of :value.',
     'not_in'               => 'The selected :attribute is invalid.',
     'not_regex'            => 'The :attribute format is invalid.',

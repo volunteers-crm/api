@@ -7,7 +7,7 @@
  * file that was distributed with this source code.
  *
  * @author Andrey Helldar <helldar@dragon-code.pro>
- * @copyright 2022 Andrey Helldar
+ * @copyright 2023 Andrey Helldar
  * @license MIT
  *
  * @see https://github.com/volunteers-crm
@@ -62,12 +62,12 @@ task('deploy', [
 
 task('artisan:actions:before', function () {
     cd('{{release_path}}');
-    run('{{bin/php}} artisan migrate:actions --before');
+    run('{{bin/php}} artisan actions --before');
 });
 
 task('artisan:actions', function () {
     cd('{{release_path}}');
-    run('{{bin/php}} artisan migrate:actions');
+    run('{{bin/php}} artisan actions');
 });
 
 before('deploy', 'telegram:notify');
