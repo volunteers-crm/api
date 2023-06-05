@@ -31,8 +31,11 @@ use Illuminate\Support\Facades\Storage;
 class DeleteFileJob implements ShouldQueue, ShouldBeUnique
 {
     use Dispatchable;
+
     use InteractsWithQueue;
+
     use Queueable;
+
     use SerializesModels;
 
     protected Disk $disk = Disk::Private;

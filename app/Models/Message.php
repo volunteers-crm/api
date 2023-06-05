@@ -28,6 +28,7 @@ use Illuminate\Database\Eloquent\Relations\Relation;
 class Message extends Model implements File
 {
     use HasFactory;
+
     use HasFiles;
 
     protected $fillable = [

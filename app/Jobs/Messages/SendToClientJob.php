@@ -31,8 +31,11 @@ use Illuminate\Queue\SerializesModels;
 class SendToClientJob implements ShouldQueue
 {
     use Dispatchable;
+
     use InteractsWithQueue;
+
     use Queueable;
+
     use SerializesModels;
 
     public function __construct(

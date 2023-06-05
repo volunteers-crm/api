@@ -35,8 +35,11 @@ use Illuminate\Queue\SerializesModels;
 class DownloadFileJob implements ShouldQueue, ShouldBeUnique
 {
     use Dispatchable;
+
     use InteractsWithQueue;
+
     use Queueable;
+
     use SerializesModels;
 
     public function __construct(

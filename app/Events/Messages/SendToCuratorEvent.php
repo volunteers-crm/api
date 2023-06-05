@@ -32,8 +32,11 @@ use Illuminate\Queue\SerializesModels;
 class SendToCuratorEvent implements ShouldBroadcast
 {
     use Dispatchable;
+
     use InteractsWithSockets;
+
     use SerializesModels;
+
     use Queueable;
 
     public function __construct(

@@ -30,6 +30,7 @@ use Illuminate\Database\Eloquent\Relations\Relation;
 class Channel extends TelegraphChat
 {
     use HasFactory;
+
     use HasOwner;
 
     protected $casts = [
