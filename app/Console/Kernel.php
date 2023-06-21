@@ -29,6 +29,8 @@ class Kernel extends ConsoleKernel
             ->hourly()
             ->withoutOverlapping()
             ->runInBackground();
+
+        $schedule->command('cache:prune-stale-tags')->hourly();
     }
 
     protected function commands()
