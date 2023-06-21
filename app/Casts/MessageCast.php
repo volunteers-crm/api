@@ -36,12 +36,8 @@ use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 class MessageCast implements CastsAttributes
 {
     /**
-     * @param \App\Models\Message $model
-     * @param string $key
-     * @param string $value
-     * @param array $attributes
-     *
-     * @return \App\Objects\Messages\BaseData
+     * @param  \App\Models\Message  $model
+     * @param  string  $value
      */
     public function get($model, string $key, $value, array $attributes): BaseData
     {
@@ -62,12 +58,7 @@ class MessageCast implements CastsAttributes
     }
 
     /**
-     * @param $model
-     * @param $key
-     * @param \Spatie\LaravelData\Data $value
-     * @param $attributes
-     *
-     * @return string
+     * @param  \Spatie\LaravelData\Data  $value
      */
     public function set($model, string $key, $value, array $attributes): string
     {

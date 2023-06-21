@@ -30,13 +30,9 @@ enum Queue: string
 {
     use InvokableCases;
 
-    case Appeals = 'appeals';
-
+    case Appeals  = 'appeals';
     case Download = 'download';
-
-    case Files = 'files';
-
+    case Files    = 'files';
     case Messages = 'messages';
-
     case Webhooks = 'webhooks';
 }

@@ -28,14 +28,11 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Storage;
 
-class DeleteFileJob implements ShouldQueue, ShouldBeUnique
+class DeleteFileJob implements ShouldBeUnique, ShouldQueue
 {
     use Dispatchable;
-
     use InteractsWithQueue;
-
     use Queueable;
-
     use SerializesModels;
 
     protected Disk $disk = Disk::Private;

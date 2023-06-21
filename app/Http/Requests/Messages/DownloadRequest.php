@@ -55,7 +55,7 @@ class DownloadRequest extends FormRequest
         return in_array($this->message()?->type ?? null, $this->types);
     }
 
-    protected function message(): Route|Message
+    protected function message(): Message|Route
     {
         return $this->route('message');
     }

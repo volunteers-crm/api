@@ -32,14 +32,11 @@ use Illuminate\Queue\SerializesModels;
 /**
  * @property File|Model $model
  */
-class DownloadFileJob implements ShouldQueue, ShouldBeUnique
+class DownloadFileJob implements ShouldBeUnique, ShouldQueue
 {
     use Dispatchable;
-
     use InteractsWithQueue;
-
     use Queueable;
-
     use SerializesModels;
 
     public function __construct(

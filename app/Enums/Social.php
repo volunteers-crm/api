@@ -26,7 +26,6 @@ use ArchTech\Enums\Values;
 enum Social: string
 {
     use InvokableCases;
-
     use Values;
 
     case Telegram = 'telegram';

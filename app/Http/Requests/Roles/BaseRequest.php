@@ -28,7 +28,7 @@ abstract class BaseRequest extends FormRequest
 {
     abstract public function rules(): array;
 
-    protected function role(): Route|Role
+    protected function role(): Role|Route
     {
         return $this->route('role');
     }

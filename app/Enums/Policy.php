@@ -31,15 +31,10 @@ enum Policy: string
 {
     use InvokableCases;
 
-    case Index = 'index';
-
-    case Show = 'show';
-
-    case Create = 'create';
-
-    case Update = 'update';
-
-    case Delete = 'delete';
-
+    case Index   = 'index';
+    case Show    = 'show';
+    case Create  = 'create';
+    case Update  = 'update';
+    case Delete  = 'delete';
     case Confirm = 'confirm';
 }

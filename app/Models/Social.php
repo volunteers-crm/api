@@ -26,7 +26,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Social extends Model
 {
     use HasFactory;
-
     use SoftDeletes;
 
     protected $fillable = [

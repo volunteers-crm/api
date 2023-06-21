@@ -28,7 +28,6 @@ use Illuminate\Database\Eloquent\Relations\Relation;
 class Appeal extends Model
 {
     use HasFactory;
-
     use HasOwner;
 
     protected $fillable = [

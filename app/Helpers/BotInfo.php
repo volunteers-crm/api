@@ -28,8 +28,7 @@ class BotInfo
 
     public function __construct(
         protected HttpClient $client = new HttpClient()
-    ) {
-    }
+    ) {}
 
     public function getName(Bot $bot): string
     {

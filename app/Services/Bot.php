@@ -57,7 +57,7 @@ class Bot
     protected function loadMissing(Collection|Model $bot): Collection|Model
     {
         return $bot->loadMissing([
-            'chats' => fn (Relation|Builder $builder) => $builder->public(),
+            'chats' => fn (Builder|Relation $builder) => $builder->public(),
             'roles',
         ])
             ->loadCount([

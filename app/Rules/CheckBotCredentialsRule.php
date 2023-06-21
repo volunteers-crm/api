@@ -24,8 +24,7 @@ class CheckBotCredentialsRule implements Rule
 {
     public function __construct(
         protected BotInfo $info = new BotInfo()
-    ) {
-    }
+    ) {}
 
     public function passes($attribute, $value): bool
     {

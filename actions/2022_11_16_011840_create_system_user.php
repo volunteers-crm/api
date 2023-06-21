@@ -19,8 +19,7 @@ use App\Models\Social;
 use DragonCode\LaravelActions\Action;
 use Illuminate\Database\Eloquent\Collection;
 
-return new class () extends Action
-{
+return new class extends Action {
     protected string $avatar = 'https://via.placeholder.com/256x256.png/0088cc?text=root';
 
     protected string $name = 'System';

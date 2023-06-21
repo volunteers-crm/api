@@ -19,8 +19,7 @@ use App\Enums\Social;
 use App\Models\Social as Model;
 use DragonCode\LaravelActions\Action;
 
-return new class () extends Action
-{
+return new class extends Action {
     public function __invoke(): void
     {
         foreach ($this->socials() as $social) {

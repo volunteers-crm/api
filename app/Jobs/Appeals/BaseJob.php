@@ -33,11 +33,8 @@ use LaravelLang\Publisher\Facades\Helpers\Locales;
 abstract class BaseJob implements ShouldQueue
 {
     use Dispatchable;
-
     use InteractsWithQueue;
-
     use Queueable;
-
     use SerializesModels;
 
     protected ?string $text = null;

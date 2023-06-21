@@ -24,8 +24,7 @@ use Faker\Factory;
 use Faker\Generator;
 use LaravelLang\Publisher\Constants\Locales;
 
-return new class () extends Action
-{
+return new class extends Action {
     protected bool $once = false;
 
     protected string $slug = 'about-us';

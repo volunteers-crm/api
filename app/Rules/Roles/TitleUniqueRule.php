@@ -27,8 +27,7 @@ class TitleUniqueRule implements Rule
     public function __construct(
         protected User $user,
         protected ?Role $ignoreRole = null
-    ) {
-    }
+    ) {}
 
     public function passes($attribute, $value): bool
     {

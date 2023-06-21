@@ -31,6 +31,5 @@ abstract class BaseProcessor
     public function __construct(
         protected Bot $bot,
         protected Channel $chat
-    ) {
-    }
+    ) {}
 }

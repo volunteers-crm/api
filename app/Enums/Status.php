@@ -19,11 +19,8 @@ namespace App\Enums;
 
 enum Status: int
 {
-    case New = 0;
-
+    case New        = 0;
     case InProgress = 1;
-
-    case Done = 2;
-
-    case Closed = 3;
+    case Done       = 2;
+    case Closed     = 3;
 }

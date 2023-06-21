@@ -24,8 +24,7 @@ class SetRealName
 {
     public function __construct(
         protected BotInfo $info
-    ) {
-    }
+    ) {}
 
     public function handle(BotCreatingEvent $event): void
     {

@@ -26,10 +26,7 @@ use Illuminate\Routing\Controller as BaseController;
 abstract class Controller extends BaseController
 {
     use HasCache;
-
     use AuthorizesRequests;
-
     use DispatchesJobs;
-
     use ValidatesRequests;
 }

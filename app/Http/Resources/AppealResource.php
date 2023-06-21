@@ -57,7 +57,7 @@ class AppealResource extends JsonResource
         return in_array($this->status, [Status::Done, Status::Closed]);
     }
 
-    protected function links(): Collection|array
+    protected function links(): array|Collection
     {
         if ($this->whenLoaded('chats') instanceof MissingValue) {
             return [];

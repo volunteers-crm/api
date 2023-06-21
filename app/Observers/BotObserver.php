@@ -26,8 +26,7 @@ class BotObserver
 {
     public function __construct(
         protected BotInfo $info
-    ) {
-    }
+    ) {}
 
     public function creating(Bot $bot): void
     {

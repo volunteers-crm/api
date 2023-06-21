@@ -37,8 +37,7 @@ class Downloader
 
     public function __construct(
         protected readonly FinfoMimeTypeDetector $detector
-    ) {
-    }
+    ) {}
 
     public function get(BotModel $bot, string $fileId, string $filename): File
     {

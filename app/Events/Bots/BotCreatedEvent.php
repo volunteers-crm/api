@@ -26,6 +26,5 @@ class BotCreatedEvent
 
     public function __construct(
         public Bot $bot
-    ) {
-    }
+    ) {}
 }
