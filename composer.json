@@ -12,14 +12,6 @@
     ],
     "funding": [
         {
-            "type": "github",
-            "url": "https://github.com/sponsors/TheDragonCode"
-        },
-        {
-            "type": "open_collective",
-            "url": "https://opencollective.com/dragon-code"
-        },
-        {
             "type": "boosty",
             "url": "https://boosty.to/dragon-code"
         },
@@ -89,11 +81,11 @@
     "config": {
         "allow-plugins": {
             "composer/*": true,
-            "symfony/*": true,
             "dragon-code/codestyler": true,
             "ergebnis/composer-normalize": true,
             "friendsofphp/php-cs-fixer": true,
-            "symfony/thanks": true
+            "symfony/thanks": true,
+            "symfony/*": true
         },
         "optimize-autoloader": true,
         "preferred-install": "dist",
